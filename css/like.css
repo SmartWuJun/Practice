@@ -1,0 +1,88 @@
+.xn-module-like .header {
+  background: #f2f2f2;
+}
+.xn-module-like .header ul {
+  height: 0.83333333rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.xn-module-like .header ul li {
+  margin: 0 0.06481481rem;
+  font-size: 0.37037037rem;
+  color: #363636;
+}
+.xn-module-like .header ul li span:first-child {
+  color: #2fc2c0;
+}
+.xn-module-like .header ul .cir1 {
+  width: 0.06481481rem;
+  height: 0.06481481rem;
+  border-radius: 50%;
+  background: #2fc2c0;
+}
+.xn-module-like .header ul .cir2 {
+  width: 0.08333333rem;
+  height: 0.08333333rem;
+  border-radius: 50%;
+  background: #2fc2c0;
+}
+.xn-module-like .header ul .cir3 {
+  width: 0.11111111rem;
+  height: 0.11111111rem;
+  border-radius: 50%;
+  background: #2fc2c0;
+}
+.xn-module-like .shop-list li {
+  padding: 0.37037037rem 0.32407407rem;
+  border-bottom: 1px solid #eaeaea;
+  width: 50%;
+  box-sizing: border-box;
+  position: relative;
+  left: 0;
+  top: 0;
+  float: left;
+}
+.xn-module-like .shop-list li:nth-child(odd) {
+  border-right: 1px solid #eaeaea;
+}
+.xn-module-like .shop-list li .icon-shop {
+  position: absolute;
+  top: 0.37037037rem;
+  left: 0.32407407rem;
+  width: 0.75925926rem;
+  height: 0.77777778rem;
+}
+.xn-module-like .shop-list li img.shop {
+  width: 100%;
+  margin-bottom: 0.74074074rem;
+}
+.xn-module-like .shop-list li .shop-description {
+  margin-right: 0.37037037rem;
+  font-size: 0.2962963rem;
+  line-height: 0.44444444rem;
+  color: #363636;
+}
+.xn-module-like .shop-list li .shop-info {
+  margin: 0.27777778rem 0;
+}
+.xn-module-like .shop-list li .shop-info .shop-price {
+  float: left;
+  font-size: 0.44444444rem;
+  line-height: 0.44444444rem;
+  color: #ff6941;
+}
+.xn-module-like .shop-list li .shop-info .people-payed {
+  float: right;
+  font-size: 0.22222222rem;
+  color: #8c8c8c;
+  line-height: 0.44444444rem;
+}
+.clearfix:after,
+.clearfix:before {
+  content: ' ';
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}

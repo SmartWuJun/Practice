@@ -1,0 +1,153 @@
+$page.setTitle("项目工作台")
+$page.addBodyAttribute("data-xns", "00034")
+<div class="xn-pm">
+    <div class="pm-setting-index-bottom clearfix mt_20" >
+        <div class="clearfix xn-input-line f-right">
+            <a class="btn btn-primary f-right ml_10" ng-href="$projectLink.setTarget('project/createproject.htm')">创建项目</a>
+            <a class="btn btn-primary f-right ml_10" ng-href="$projectLink.setTarget('application/index.htm')">立项申请</a>
+        </div>
+    </div>
+</div>
+
+
+<div class="xn-pm pm-common" >
+
+
+
+    <div class="workbench_body">
+        <div class="workbench_task_and_pendingissue">
+        #*我的任务*#
+            <div class="workbench_task">
+                <div class="workbench_task_top">
+                    <div class="workbench_task_top_nav">
+                        <div class="icon icon-task workbench_icon_task"></div>
+                        <div class="workbench_task_top_title">我的任务($!myTaskCount)</div>
+                        #if($myTaskCount>0)
+                            <div class="workbench_task_top_more" data-xns="0057">
+                                <a href="$projectLink.setTarget("moretask.vm")" target="_blank">更多</a>
+                            </div>
+                        #end
+                    </div>
+                </div>
+                #if($myTaskCount==0)
+                    <div class="workbench_pendingissue_bottom">
+                        <i class="xn-icon icon-iconfonttaskeps01 no-icon-1"></i>
+                        <span class="no-span">您当前还没有任何任务</span>
+                    </div>
+                #else
+                    <div data-xns="0058">
+##                        <div class="workbench_task_center">
+##                            <div>明天</div>
+##                            <div>$!myTaskCount</div>
+##                        </div>
+                        #foreach($task in $myTaskList)
+                            <div class="workbench_task_bottom">
+                                <div class="workbench_task_bottom_left">
+                                    <a href="$projectLink.setTarget(
+                                        "project/task/view")?id=${task.id}&projectId=${task.projectId}" target="_blank">${task.name}</a>
+                                </div>
+                                <div class="workbench_task_bottom_right">
+                                    <div>$!dateTool.format('yyyy-MM-dd',$!{task.planEndDate})</div>
+                                    <div>$!{task.summary}</div>
+                                </div>
+                            </div>
+                        #end
+                    </div>
+                #end
+            </div>
+
+        #*待处理问题*#
+            <div class="workbench_pendingissue">
+                <div class="workbench_pendingissue_top">
+                    <div class="workbench_pendingissue_top_nav">
+                        <div class="icon icon-question workbench_icon_issue"></div>
+                        <div class="workbench_pendingissue_top_title">
+                            待处理问题($!myIssueCount)
+                        </div>
+                        #if($myIssueCount>0)
+                            <div class="workbench_pendingissue_top_more" data-xns="0059">
+                                <a href="$projectLink.setTarget("moreissue.vm")" target="_blank">更多</a>
+                            </div>
+                        #end
+                    </div>
+                </div>
+                #if($myIssueCount==0)
+                    <div class="workbench_pendingissue_bottom">
+                        <i class="xn-icon icon-iconfontquestioneps01 no-icon-1"></i>
+                        <span class="no-span">您当前还没有任何问题</span>
+                    </div>
+                #else
+                    <div data-xns="0060">
+                    #foreach($item in $myIssueList)
+                        <div class="workbench_pendingissue_bottom">
+                            <div class="workbench_pendingissue_bottom_left">
+                                <a href="$projectLink.setTarget(
+                                    "project/issue/view")?id=${item.id}&projectId=${item.projectId}" target="_blank">$!{item.summary}</a>
+                            </div>
+                            <div class="workbench_pendingissue_bottom_right">
+                                <div>$!{item.creationTime}</div>
+                            </div>
+                        </div>
+                    #end
+                    </div>
+                #end
+            </div>
+        </div>
+
+    #*我的计划*#
+        <div class="workbench_plan">
+            <div class="workbench_plan_top">
+                <div class="workbench_plan_top_nav">
+                    <div class="icon icon-plan workbench_icon_plan"></div>
+                    <div class="workbench_plan_top_title">
+                        我的明细计划($!myPlanCount)
+                    </div>
+                    #if($myPlanCount>0)
+                        <div class="workbench_task_top_more" data-xns="0061">
+                            <a href="$projectLink.setTarget("moreplan.vm")" target="_blank">更多</a>
+                        </div>
+                    #end
+                </div>
+            </div>
+            #if($myPlanCount==0)
+                <div class="workbench_pendingissue_bottom">
+                    <i class="xn-icon icon-iconfontplaneps no-icon-1"></i>
+                    <span class="no-span">您当前还没有任何计划</span>
+                </div>
+            #else
+                <div data-xns="0062">
+                #foreach($item in $myPlanList)
+                    <div class="workbench_plan_bottom">
+                        <div class="workbench_plan_bottom_left">
+                            计划:
+                        </div>
+                        <div class="workbench_plan_bottom_left">
+                            <a href="$projectLink.setTarget(
+                                "project/plan/view")?id=${item.parentId}&projectId=${item.projectId}" target="_blank">
+                                $!{item.parentName}
+                            </a>
+                        </div>
+                        <div class="workbench_plan_bottom_left ml_20">
+                            明细计划:
+                        </div>
+                        <div class="workbench_plan_bottom_left">
+                            <a href="$projectLink.setTarget(
+                                "project/plan/detailplanview.vm")?id=${item.id}&projectId=${item.projectId}" target="_blank">
+                                $!{item.name}
+                            </a>
+                        </div>
+##                          <div class="workbench_plan_bottom_left ml_20">
+##                              <div xn-progress class="w_100" ng-model="item.complete" show-proportion="true" move-able="false"></div>
+##                          </div>
+                    </div>
+                #end
+                </div>
+            #end
+        </div>
+    </div>
+
+</div>
+
+
+
+<script type="text/javascript" src="$projectContent.getURI('dist/scripts/index.js')"></script>

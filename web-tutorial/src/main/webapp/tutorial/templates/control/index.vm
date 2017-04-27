@@ -1,0 +1,9 @@
+<div class="xn-main clearfix"  ng-controller="IndexController">
+    adsad
+
+
+</div>
+
+
+
+<script src="$tutorialContent.getURI('dist/scripts/index.js')" ></script>

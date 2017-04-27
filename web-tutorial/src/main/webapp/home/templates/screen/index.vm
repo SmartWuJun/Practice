@@ -1,0 +1,6 @@
+$page.setTitle("首页")
+$application.setCode("home")
+
+<div ng-init="navShow=1"></div>
+$control.setTemplate("home:footer")
+

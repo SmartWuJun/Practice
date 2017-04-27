@@ -1,0 +1,22 @@
+<!DOCTYPE html >
+<html lang="zh-CN">
+<head>
+    #showTitle ("公共")
+    <meta charset="utf-8">
+    <meta http-equiv="Expires" CONTENT="0">
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Cache-Control" CONTENT="no-store">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=8"><!--以IE8模式渲染-->
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="$config.getCdnUrl('img/favicon.ico')" rel="Shortcut Icon" type="image/x-icon">
+</head>
+<body class="loginBody" ng-controller="BodyController">
+    $screen_placeholder
+    $control.setTemplate("home:footer")
+</body>
+</html>

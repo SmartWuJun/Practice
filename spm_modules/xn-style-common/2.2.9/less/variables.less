@@ -1,0 +1,185 @@
+@xn-font-family:'Microsoft YaHei', Verdana, sans-serif, 'SimSun';
+
+//字体大小
+@xn-font-size-sm:12px;    //小号字体
+@xn-font-size: 14px;      //默认字体大小 行高20px
+@xn-font-size-lg: 16px;  //主导航
+
+//h1-h6
+@H1:24px;
+@H2:18px;
+@H3:14px;
+
+
+
+@xn-xn:#666;    //犀牛形象
+@xn-theme:#3399ff;    //页面上看到的蓝色基本上是主色
+@xn-bg-color:#fff;
+
+@xn-minor-blue:#3399ff;      //蓝色
+@xn-minor-red:#ea281a;       //颜色
+@xn-minor-orange:#ff9900;   //黄色
+@xn-minor-green:#1aad3e;    //绿色
+
+//文字颜色
+@xn-font-primary:#333333;       //字体颜色
+@xn-font-minor:#666666;         //次要
+@xn-font-auxiliary:#999999;     //辅助颜色
+
+@xn-font-blue:#3399ff;        //字体黄色
+@xn-font-orange:#ff9900;        //字体黄色
+@xn-font-red:#ea281a;           //字体红色
+@xn-font-green:#1aad3e;         //字体绿色
+@xn-font-white:#ffffff;         //字体白色
+
+@xn-placeholder:#dddddd;        //提示颜色及文案等等。
+
+
+//边框
+@xn-bc:#dddddd;                 //边颜色
+@box-shadow-color:#e5e5e5;     //阴影颜色
+@xn-line-color:#eeeeee;       //线颜色
+
+
+//状态
+@xn-box-success-icon:#1aad3e;   //成功
+@xn-box-success-bd:#c6eacf;     //成功边
+@xn-box-success-bg:#e8f7eb;     //成功背景
+
+@xn-box-error-icon:#ea281a;   //失败
+@xn-box-error-bd:#f9c9c6;     //失败边
+@xn-box-error-bg:#fde9e8;     //失败背景
+
+@xn-box-warn-icon:#ff9900;   //警告
+@xn-box-warn-bd:#ffe5bf;     //成功边
+@xn-box-warn-bg:#ffff5e5;     //失败背景
+
+
+@xn-box-info-icon:#ff9900;   //提醒
+@xn-box-info-bd:#ffe5bf;     //提醒
+@xn-box-info-bg:#ffff5e5;     //提醒背景
+
+//连接
+@xn-link-normal:#3399ff;    //链接色
+@xn-link-hover:#66b3ff;     //鼠标移动上去
+@xn-link-click:#3366cc;     //鼠标点击效果
+@xn-link-visited:#003366;   //激活
+
+//按钮
+//主引导
+@xn-btn-primary-text:#fff;          //文字
+@xn-btn-primary-normal:#3399ff;    //默认颜色
+@xn-btn-primary-hover:#66b3ff;     //鼠标移动
+@xn-btn-primary-click:#3366cc;     //鼠标点击
+
+
+
+//普通
+@xn-btn-default-text:#333333;          //文字
+@xn-btn-default-normal:#ddd;    //默认颜色
+@xn-btn-default-hover:#eee;     //鼠标移动
+@xn-btn-default-click:#ccc;     //鼠标点击
+
+//禁止点击
+@xn-btn-disable-text:#ccc;          //文字
+@xn-btn-disable:#eee;    //默认颜色
+
+//特殊按钮
+@xn-btn-highlight-text:#ffffff;   //特殊的按钮
+@xn-btn-highlight-normal:#ff9900;
+@xn-btn-highlight-hover:#ffb340;
+@xn-btn-highlight-click:#ff6600;
+
+//删除的按钮
+@xn-btn-danger-text:#ffffff;
+@xn-btn-danger-normal:#ea281a;
+@xn-btn-danger-hover:#ee5e53;
+@xn-btn-danger-click:#cc0000;
+
+
+//成功
+@xn-btn-success-text:#ffffff;
+@xn-btn-success-normal:#1aad3e;
+@xn-btn-success-hover:#53c26e;
+@xn-btn-success-click:#009933;
+
+
+//进度条
+@xn-step-done:#99ccff;    //已完成
+@xn-step-doing:#3399ff;  //进行中
+@xn-step-undo:#eeeeee;   //未进行
+
+
+@xn-header-bg:#333;           //头部背景
+
+@xn-main-nav-bg:#333;       //一级导航
+@xn-subnav-bg:#ececf1;    //二级导航
+
+//表格
+@xn-main-table-bg:#ececf1;  //主表格
+@xn-minor-table-bg:#ececf1; //次表格
+
+//必填
+@xn-star:#ea281a;
+
+
+//手形状《
+@xn-cursor: pointer;
+
+//边线
+@xn-solid:solid;
+@xn-dotted:dotted;
+@xn-dashed:dashed;
+
+@xn-border:1px @xn-solid @xn-bc;
+
+//函数
+.box-shadow(@xn-left:0px,@xn-top:1px,@xn-blur:2px,@xn-color:#e5e5e5,@xn-inset:outset){
+  box-shadow:@xn-left,@xn-top,@xn-blur,@xn-color,@xn-inset;
+  -moz-box-shadow:@xn-left,@xn-top,@xn-blur,@xn-color,@xn-inset;
+  -webkit-box-shadow:@xn-left,@xn-top,@xn-blur,@xn-color,@xn-inset;
+  -khtml-box-shadow:@xn-left,@xn-top,@xn-blur,@xn-color,@xn-inset;
+}
+
+//圆角
+.radius(){
+  border-radius:50%;
+  -moz-border-radius:50%;
+  -webkit-border-radius:50%;
+  -khtml-border-radius: 50%;
+}
+
+.border-radius(@xn-radius:2px){
+  border-radius:@xn-radius;
+  -moz-border-radius:@xn-radius;
+  -webkit-border-radius:@xn-radius;
+  -khtml-border-radius: @xn-radius;
+}
+
+//图片路径
+@xn-img-location:"";
+
+//文字排版位置
+.text-align(@xn-state:left){
+  text-align: @xn-state;
+}
+
+
+//浮动
+.float(@xn-state:left){
+  float: @xn-state;
+}
+
+//块级与行级元素设置
+.display(@xn-state:inline-block){
+  display: @xn-state;
+}
+
+.font-weight(@xn-state:bold){
+  font-weight:@xn-state;
+}
+
+//宽度
+
+@xn-width:1190px;
+

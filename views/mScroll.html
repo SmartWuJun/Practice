@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        body {
+            overflow: auto;
+        }
+        
+        .header,
+        .footer {
+            position: fixed;
+            left: 0;
+            right: 0;
+            height: 44px;
+            background: #ccc;
+        }
+        
+        .header {
+            top: 0;
+        }
+        
+        .footer {
+            bottom: 0;
+        }
+        
+        .main {
+            height: 100%;
+            padding: 44px 0;
+        }
+        .fl{
+            float: left;
+        }
+        .fr{
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header"></div>
+    <div class="main fr fl"></div>
+    <div class="footer"></div>
+</body>
+
+</html>

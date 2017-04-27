@@ -1,0 +1,105 @@
+ @rem:108rem;
+
+body{
+    background: #ccc;
+}
+ .xn-module-bottom{
+    height: 210/@rem;
+    width: 100%;
+    background: url('//192.168.80.58:9000/imgs/bottom.png') no-repeat;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-size: cover;
+         .wai-hu{
+         position: absolute;
+         border: 1px solid #eaeaea;
+         box-shadow: 0 -1px 0px 0px #eaeaea;
+         border-radius: 50%;
+         bottom: 30/@rem;
+         width: 180/@rem;
+         height: 180/@rem;
+         z-index: 99;
+         left: 50%;
+         background: #fff;
+         transform: translateX(-50%);
+     }
+    .icons{
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 150/@rem;
+        // border-top: 1px solid #eaeaea;
+        // box-shadow: 0 -1px 0px 0px #eaeaea;
+        box-sizing: border-box;
+        padding: 30/@rem 35/@rem 20/@rem;
+        z-index: 100;
+        background: #fff;
+        .mine{
+            position: absolute;
+           
+            left: 50%;
+            top: -50%;
+            transform: translateX(-50%);
+            text-align: center;
+            
+            z-index: 101;
+            .img-box{
+                width: 140/@rem;
+                height: 140/@rem;
+                margin-top: 0.3rem;
+            //     // background: #43cfcd;
+            //     border-radius: 50%;
+            //     // border: 12/@rem solid #fff;
+            //     position: relative;
+            //     left: 0;
+            //     top: 12/@rem;
+                //  margin-bottom: 8/@rem;
+                img{
+                    width: 140/@rem;
+                    height: 140/@rem;
+                    // position: absolute;
+                    // top: 50%;
+                    // left: 50%;
+                    // transform: translate(-50%,-50%);
+                    display: block;
+                }
+            }
+        }
+        .parts{
+            display: flex;
+            justify-content: space-between;
+            img{
+                width: 100/@rem;
+                height: 56/@rem;
+                border: 0;
+                margin: 0 auto 0.1rem;
+                display: block;
+            }
+            .left-part{
+                width: 350/@rem;
+                display: flex;
+                justify-content: space-between;
+            }
+            .right-part{
+                width: 350/@rem;
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+        .name{
+            font-size: 26/@rem;
+            color: #363636;
+        }
+    }
+ }
+
+ .clearfix:after,
+.clearfix:before{
+    content:' ';
+    display:table;
+}
+.clearfix:after{
+    clear:both;
+}

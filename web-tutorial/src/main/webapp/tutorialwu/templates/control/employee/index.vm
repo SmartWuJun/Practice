@@ -1,0 +1,116 @@
+$page.setTitle("员工首页")
+
+<!--面包屑-->
+<div class="clearfix xn-breadcrumb xn-width auto">
+    <ul class="breadcrumb">
+##        <li><a href="$tutorialwuLink.setTarget("index")">首页</a></li>
+        <li class="active">员工首页</li>
+    </ul>
+</div>
+
+<!--主体部分-->
+<div class="xn-main auto xn-width clearfix" ng-controller="EmployeeIndexController">
+
+    <!--表格内容-->
+    <div class="clearfix mb-10">
+        <a class="f-right btn  btn-primary ml-20 " href="$tutorialwuLink.setTarget("employee/create.vm")">创建员工</a>
+    </div>
+
+    <!--搜索部分内容-->
+    <div class="xn-search-many clearfix pt-15" ng-init="searchShow=false">
+        <form class="form-horizontal xn-form clearfix"  role="form"   xn-form-validate  novalidate name="validateForm">
+            <div class="xn-input-line clearfix">
+                <label class="xn-lh xn-text-right xn-col-md-3">请输入查询内容：</label>
+                <div class="xn-col-md-10">
+                    <input type="text" class="form-control" name="keyword" id="keyword" ng-model="vm.keyword"  autofocus  placeholder="发票号码、发票金额、描述或客户名称查询">
+                </div>
+            </div>
+            <div ng-show="searchShow==true" class="clearfix">
+                <div class="xn-input-line clearfix xn-col-md-6">
+                    <label class="xn-lh xn-text-right xn-col-md-8">姓名：</label>
+                    <div class="xn-col-md-16">
+                        <input type="text" class="form-control" name="name" id="name" ng-model="vm.name"    placeholder="姓名称查询">
+                    </div>
+                </div>
+                <div class="xn-input-line clearfix xn-col-md-6">
+                    <label class="xn-lh xn-text-right xn-col-md-8">性别：</label>
+                    <div class="xn-col-md-16">
+                        <input type="text" class="form-control" name="sex" id="sex" ng-model="vm.sex"    placeholder="性别称查询">
+                    </div>
+                </div>
+                <div class="xn-input-line clearfix xn-col-md-6">
+                    <label class="xn-lh xn-text-right xn-col-md-8">年龄：</label>
+                    <div class="xn-col-md-16">
+                        <input type="text" class="form-control" name="age" id="age" ng-model="vm.age"    placeholder="年龄称查询">
+                    </div>
+                </div>
+                <div class="xn-input-line clearfix xn-col-md-6">
+                    <label class="xn-lh xn-text-right xn-col-md-8">籍贯：</label>
+                    <div class="xn-col-md-16">
+                        <input type="text" class="form-control" name="nativePlace" id="nativePlace" ng-model="vm.nativePlace"    placeholder="姓名称查询">
+                    </div>
+                </div>
+            </div>
+            <div class="xn-input-line clearfix xn-relative">
+                <div class="xn-col-md-offset-3 clearfix">
+                    <button class="btn  btn-success btn-sm " xn-submit-enter="doSearch()">搜索</button>
+                </div>
+                <div ng-show="searchShow==false"  ng-click="searchShow=true" class="is-hide  xn-cursor clearfix">
+                    <span class="search-more payable-search-more">高级搜索<i class="icon icon-expand ml-5"></i></span>
+                </div>
+                <div  ng-show="searchShow==true"  ng-click="searchShow=false" class="is-hide  xn-cursor clearfix ">
+                    <span class="search-more payable-search-more">基础搜索<i class="icon icon-packup ml-5"></i></span>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!--表格内容-->
+    <div class="xn-table-wrap ">
+        <table class="table table-bordered table-striped">
+            <thead>
+            <tr>
+                <th class="xn-col-md-2 ">姓名</th>
+                <th class="xn-col-md-2 " ng-click="order('NUMBER')">
+                    <span class="f-left">工号</span>
+                    <div class="order">
+                        <i class="icon icon-upward order-cur"   ng-class="vm.sortType=='ASC'?'order-cur':''"></i>
+                        <i class="icon icon-downward" ng-class="vm.sortType=='DESC'?'order-cur':''"></i>
+                    </div>
+                </th>
+                <th class="xn-col-md-3">入职时间</th>
+                <th class="xn-col-md-3">状态</th>
+                <th class="xn-col-md-3">操作</th>
+            </tr>
+            </thead>
+            <tbody id="tbody">
+            <tr>
+                <td class="xn-col-sm-2">测试数测试数据测试数据测试数据据</td>
+                <td class="xn-col-sm-3">测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据</td>
+                <td class="xn-col-sm-3">测试数据测试数据测试数据测试数据</td>
+                <td class="xn-col-sm-3">测试测试数据测试数据测试数据测试数据数据</td>
+                <td class="xn-col-sm-3">测试数据</td>
+            </tr>
+            <tr>
+                <td class="xn-col-sm-2">测试数测试数据测试数据测试数据据</td>
+                <td class="xn-col-sm-3">测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据</td>
+                <td class="xn-col-sm-3">测试数据测试数据测试数据测试数据</td>
+                <td class="xn-col-sm-3">测试测试数据测试数据测试数据测试数据数据</td>
+                <td class="xn-col-sm-3">测试数据</td>
+            </tr>
+            <tr>
+                <td colspan="5" class="xn-center">无法找到相应的记录</td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="clearfix" >
+            <div class="f-left mt-10 mb_10">共{{vm.totalCount}}条</div>
+
+            <!--ng-show="vm.totalCount>vm.pageSize"-->
+            <pagination  class="pagination-sm f-right"  ng-model="vm.pageNumber" ng-change="getList()"
+                         total-items="vm.totalCount" max-size="maxPageSize"   boundary-link-numbers="true" rotate="false" ></pagination>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="$tutorialwuContent.getURI('dist/scripts/page/employee.js')"></script>

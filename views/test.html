@@ -1,0 +1,65 @@
+<!DOCTYPE html>  
+<html>
+    <head>  
+    <style>
+    body {
+        width: 300px;
+        position: relative;
+    }
+ 
+    .aside {
+        width: 100px;
+        height: 150px;
+        float: left;
+        background: #f66;
+    }
+ 
+    .main {
+        height: 200px;
+        background: #fcc;
+        overflow: hidden
+    }
+    .fr{
+        float: right;
+    }
+</style>
+<body>
+    <div class="aside"></div>
+    <div class="aside fr"></div>
+    <div class="main"></div>
+</body>
+</html>  
+
+<div xn-lookup ng-model="trans.commodity" data-method="getCommodityList(data,trans.commodity)"
+                                     data-search-key="id" data-search-val="title|number" data-is-popup="true"
+                                #* data-callback="selectInventoryItem(item)"*#   name="lookup" placeholder="请输入物料名称">
+                                </div>
+
+
+
+                                 <div xn-lookup ng-model="system.shop" data-method="getStoreList(data)" required="true"
+                                          data-search-val="name"
+                                    #* data-callback="selectInventoryItem(item)"*#   name="lookup" placeholder="请输入网店名称">
+
+
+
+                                     var vm={
+                keyword: tdata.data.keyword ,
+                pageNumber:tdata.data.pageNumber,
+                pageSize:tdata.data.pageSize
+            };
+            EbusinessService.findStore(vm).success(function(data){
+                if(data.errors == null || data.errors.length > 0){
+                    dialogService.tip(data.errors);
+                } else{
+                    $scope.storeList=data.result;
+                    $scope.storeOptions.totalCount = data.totalCount;
+                }
+                tdata.deferred.resolve({itemList: $scope.storeList,totalCount:data.totalCount});
+            });
+
+
+
+            btns btns-sm btns-primary f-left mr_20
+
+            btns btns-sm btns-default f-left

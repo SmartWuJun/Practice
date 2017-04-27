@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>头尾不变中间变</title>
+  <style>
+    .item-head,.item-tail{
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+}
+.item-head{
+  float: left;
+  width: 60px;/* 你可以删除width看看效果 */
+  background:#E99528;
+}
+.item-tail{
+  float: right;
+  width: 100px;/* 你可以删除width看看效果 */
+  background:#317F97;
+}
+.item-content{
+  overflow: hidden; /* 触发BFC */
+  height: 50px;
+  
+  white-space:nowrap; 
+  text-overflow:ellipsis; 
+  -o-text-overflow:ellipsis; 
+  
+  line-height: 50px;
+  background: #73AA47;
+}
+  </style>
+</head>
+<body>
+<div class="item">
+    <div class="item-head">我不变</div>
+    <div class="item-tail">我也不变</div><!--我是尾，但是我放在身子的前面-->
+    <p class="item-content">拖动窗口看我72变！拖动窗口看我72变！拖动窗口看我72变！拖动窗口看我72变！拖动窗口看我72变！拖动窗口看我72变！拖动窗口看我72变！拖动窗口看我72变！拖动窗口看我72变！拖动窗口看我72变！拖动窗口看我72变！拖动窗口看我72变！</p>
+</div>
+</body>
+</html>

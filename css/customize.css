@@ -1,0 +1,64 @@
+.xn-module-customize {
+  background: #fff;
+}
+.xn-module-customize ul li {
+  width: 50%;
+  height: 3.14814815rem;
+  float: left;
+  border-bottom: 1px solid #eaeaea;
+  box-sizing: border-box;
+  position: relative;
+  left: 0;
+  top: 0;
+}
+.xn-module-customize ul li .type-title {
+  position: absolute;
+  top: 0.18518519rem;
+  left: 0.32407407rem;
+  z-index: 10;
+}
+.xn-module-customize ul li .type-title .type-title-name {
+  font-size: 0.33333333rem;
+  line-height: 0.38888889rem;
+}
+.xn-module-customize ul li .type-title .type-title-name img {
+  height: 0.38888889rem;
+  border: 0;
+  vertical-align: bottom;
+}
+.xn-module-customize ul li .type-title .type-title-name span.hot {
+  color: #fe0000;
+}
+.xn-module-customize ul li .type-title .type-title-name span.limit-time {
+  color: #2396d4;
+}
+.xn-module-customize ul li .type-title .type-title-name span.must-buy {
+  color: #1cc3c1;
+}
+.xn-module-customize ul li .type-title .type-title-name span.select {
+  color: #fe8f00;
+}
+.xn-module-customize ul li .type-title .type-title-description {
+  font-size: 0.27777778rem;
+  line-height: 0.38888889rem;
+  color: #363636;
+}
+.xn-module-customize ul li .type-img {
+  width: auto;
+  height: 2.08333333rem;
+  border: 0;
+  position: absolute;
+  bottom: 0.23148148rem;
+  right: 0.32407407rem;
+}
+.xn-module-customize ul li:nth-child(odd) {
+  border-right: 1px solid #eaeaea;
+}
+.clearfix:after,
+.clearfix:before {
+  content: ' ';
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}

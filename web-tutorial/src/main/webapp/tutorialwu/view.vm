@@ -1,0 +1,136 @@
+
+<div class="clearfix xn-width auto">
+    <div class="xn-search mt_20">
+        <div class="clearfix mb-10">
+            <a class="btn btn-sm xn_back_btn" href="fastsearch.vm">切换到快速搜索&gt;&gt;</a>
+        </div>
+        <form class="form-horizontal clearfix xn-form mt_20" name="searchForm" novalidate="" role="form">
+            <div class="xn_search_box auto">
+                <div class="xn-input-line clearfix">
+                    <label class="xn-lh xn-text-right xn-col-md-3">单据编号：</label>
+                    <div class="xn-col-md-4">
+                        <input type="text" class="form-control" name="number" id="number" ng-model="vm.businessNumber">
+                    </div>
+                    <div class="xn-col-md-1"></div>
+                    <label class="xn-lh xn-text-right xn-col-md-3">申请人：</label>
+                    <div class="xn-col-md-4">
+                        <input type="text" class="form-control" name="number" id="number" ng-model="vm.businessNumber">
+                    </div>
+                    <div class="xn-col-md-1"></div>
+
+                    <label class="xn-lh xn-text-right xn-col-md-3">关键字：</label>
+                    <div class="xn-col-md-4">
+                        <input type="text" class="form-control" name="keyword" id="keyword" ng-model="vm.keyword">
+                    </div>
+                    <div class="xn-col-md-1"></div>
+
+                </div>
+                <div class="xn-input-line clearfix">
+
+                    <label class="xn-lh xn-text-right xn-col-md-3">申请日期：</label>
+                    <div class="xn-col-md-4">
+                        <div class="input-group openData ">
+                            <input type="text" class="form-control" id="applyDate" name="applyEndDate" ng-model="vm.submitTimeTo"
+                                   datepicker-popup="yyyy-MM-dd" is-open="endDate" datepicker-options="dateOptions" close-text="关闭" min-date="vm.submitTimeFrom"
+                                   clear-text="清除" current-text="今天" today-disabled="false">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button" ng-click="startDate($event)"><i class="glyphicon glyphicon-calendar"></i><tton>
+                        </span>
+                        </div>
+                    </div>
+
+                    <label class="xn-lh  f-left mr_10 ml_10">至：</label>
+                    <div class="xn-col-md-4">
+                        <div class="input-group openData ">
+                            <input type="text" class="form-control" id="applyDate" name="applyStartDate" ng-model="vm.submitTimeFrom"
+                                   datepicker-popup="yyyy-MM-dd" is-open="startDate" datepicker-options="dateOptions" close-text="关闭" max-date="vm.submitTimeTo"
+                                   clear-text="清除" current-text="今天" today-disabled="false">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button" ng-click="endDate($event)"><i class="glyphicon glyphicon-calendar"></i><tton>
+                                </span>
+                        </div>
+                    </div>
+                    <div class="xn-col-md-8">
+                        <label class="f-left xn-lh  xn-cursor mr-10"><input type="radio" value="">最近一周</label>
+                        <label class="f-left xn-lh  xn-cursor mr-10"><input type="radio" value="">最近一周</label>
+                        <label class="f-left xn-lh  xn-cursor mr-10"><input type="radio" value="">最近一周</label>
+                    </div>
+                    <div class="xn-col-md-1"></div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+<div class="xn-search container clearfix center">
+    <form class="form-horizontal clearfix xn-form" method="post" name="searchForm" xn-form-validate novalidate>
+        <div class="xn_search_box auto mt_20">
+            <div class="xn-input-line clearfix">
+                <label class="xn-col-md-3 xn-text-right l-h-34">预算类型:</label>
+
+                <div class="xn-col-md-5">
+                    <lookup options="categoryOptions" name="budgetCategory" show-field="vm.budgetCategoryName"
+                            ng-model="vm.budgetCategoryId" placeholder="请选择预算类别">
+                        <table>
+                            <tbody>
+                            <tr ng-repeat="item in categoryList" ng-click="choose(item)">
+                                <td>{{item.name}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </lookup>
+                </div>
+                <label class="xn-col-md-3 xn-text-right l-h-34">提交开始时间:</label>
+
+                <div class="xn-col-md-5">
+                    <div class="input-group openData">
+                        <input type="text" class="form-control" id="startDate" placeholder="开始日期"
+                               ng-model="vm.submitTimeFrom" name="regularDate"
+                               datepicker-popup="yyyy-MM-dd" is-open="startDate" min-date="minDate"
+                               datepicker-options="dateOptions"
+                               date-disabled="disabled(date, mode)" close-text="关闭" current-text="今天"
+                               clear-text="清除">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" type="button" ng-click="openStart($event)"><i
+                                                class="glyphicon glyphicon-calendar"></i></button>
+                                    </span>
+                    </div>
+                </div>
+
+                <label class="xn-col-md-3 xn-text-right l-h-34">提交结束时间:</label>
+
+                <div class="xn-col-md-5">
+                    <div class="input-group openData">
+                        <input type="text" class="form-control" id="endDate" placeholder="结束日期"
+                               ng-model="vm.submitTimeTo" name="regularDate"
+                               datepicker-popup="yyyy-MM-dd" is-open="endDate" min-date="minDate"
+                               datepicker-options="dateOptions"
+                               date-disabled="disabled(date, mode)" close-text="关闭" current-text="今天"
+                               clear-text="清除">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button" ng-click="openEnd($event)"><i
+                                            class="glyphicon glyphicon-calendar"></i></button>
+                                </span>
+                    </div>
+                </div>
+            </div>
+            <div class="xn-input-line  clearfix">
+
+                <label class="xn-col-md-3 xn-text-right l-h-34">名称:</label>
+
+                <div class="xn-col-md-5">
+                    <input type="text" class="form-control" name="name" ng-model="vm.keyword"/>
+                </div>
+
+            </div>
+            <div class="xn-input-line  clearfix">
+                <button type="button" class="btn btn-success w_80 f-right" xn-form-submit="doSearch()">
+                    查询
+                </button>
+
+            </div>
+        </div>
+    </form>
+</div>

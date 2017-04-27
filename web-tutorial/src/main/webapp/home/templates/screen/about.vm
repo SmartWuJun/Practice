@@ -1,0 +1,9 @@
+$page.setTitle("关于系统")
+##$rundata.setLayoutEnabled(false)
+<div class="xn-width auto clearfix">
+    <span>关于本系统</span><br/>
+    <span>产品名称：</span><span class="xn-text-red">内部协作系统</span><br/>
+    <span>包含应用：</span><span class="xn-text-red">项目管理、预算管理及合同管理</span><br/>
+    <span>当前版本号：</span> <span class="xn-text-red">2.2.1</span><br/>
+    <span>最后更新时间：</span> <span class="xn-text-red">2016-12-29</span><br/>
+</div>

@@ -1,0 +1,99 @@
+ @rem:108rem;
+
+ .xn-module-like{
+     .header{
+        background: #f2f2f2;
+         ul{
+              height: 90/@rem;
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             li{
+                 margin: 0 7/@rem;
+                 font-size: 40/@rem;
+                 color: #363636;
+                 span:first-child{
+                     color: #2fc2c0;
+                 }
+             }
+             .cir1{
+                 width: 7/@rem;
+                 height: 7/@rem;
+                 border-radius: 50%;
+                 background: #2fc2c0;
+             }
+             .cir2{
+                 width: 9/@rem;
+                 height: 9/@rem;
+                 border-radius: 50%;
+                 background: #2fc2c0;
+             }
+             .cir3{
+                 width: 12/@rem;
+                 height: 12/@rem;
+                 border-radius: 50%;
+                 background: #2fc2c0;
+             }
+         }
+     }
+
+     .shop-list{
+         li{
+            padding: 40/@rem 35/@rem;
+            border-bottom: 1px solid #eaeaea;
+            width: 50%;
+            box-sizing: border-box;
+            position: relative;
+            left: 0;
+            top: 0;
+            float: left;
+            &:nth-child(odd){
+                border-right:  1px solid #eaeaea;
+            }
+
+            .icon-shop{
+                position: absolute;
+                top: 40/@rem;
+                left: 35/@rem;
+                width: 82/@rem;
+                height: 84/@rem;
+            }
+            img.shop{
+                width: 100%;
+                margin-bottom: 80/@rem;
+            }
+            .shop-description{
+                margin-right: 40/@rem;
+                font-size: 32/@rem;
+                line-height:48/@rem;
+                color: #363636;
+            }
+
+            .shop-info{
+                margin: 30/@rem 0 ;
+
+                .shop-price{
+                    float: left;
+                    font-size: 48/@rem;
+                    line-height: 48/@rem;
+                    color: #ff6941;
+                }
+                .people-payed{
+                    float: right;
+                    font-size: 24/@rem;
+                    color: #8c8c8c;
+                    line-height: 48/@rem;
+                }
+            }
+         }
+
+     }
+ }
+ .clearfix:after,
+.clearfix:before{
+    content:' ';
+    display:table;
+}
+.clearfix:after{
+    clear:both;
+}

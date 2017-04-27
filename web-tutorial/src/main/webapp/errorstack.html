@@ -1,0 +1,35 @@
+<!DOCTYPE html >
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Expires" CONTENT="0">
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Cache-Control" CONTENT="no-store">
+    <meta http-equiv="Pragma" content="no-cache">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="后台管理">
+    <meta name="author" content="">
+    <link rel="Shortcut Icon" href="/home/images/favicon.ico"  type="image/x-icon"  >
+    <link href="/home/vendor/bootstrap/3.2.0/css/bootstrap.css" rel="stylesheet">
+    <link href="/home/styles/common-old.css" rel="stylesheet">
+    <link href="/home/styles/application.css" rel="stylesheet">
+</head>
+<body onload="showvalf()">
+<div id="error-page">
+    <div>
+        <label id="ee"></label>
+    </div>
+</div>
+<script>
+    var thisURL = document.URL;
+    var  getval =thisURL.split('?')[1];
+    var showval= getval.split("=")[1];
+    function  showvalf(){
+        showval = unescape(showval);
+        document.getElementById('ee').innerText=showval;
+    }
+</script>
+</body>
+</html>

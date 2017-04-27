@@ -1,0 +1,6 @@
+$page.setTitle("员工")
+<div class="xn-main clearfix">
+
+</div>
+
+<script src="$tutorialContent.getURI('dist/scripts/organization.js')" ></

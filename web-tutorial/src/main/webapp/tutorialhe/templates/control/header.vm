@@ -1,0 +1,75 @@
+
+<div id="head" >
+    <div class="xn-header"  xn-fixed>
+        <div class="xn-width auto header-top  clearfix">
+            <div class="f-left">欢迎你,$principal.userName@$principal.tenantName</div>
+            <div  header-info-center  icon-base-url="$config.getImgUrl("")"
+                  data-about-url="$homeLink.setTarget('about')"
+                  data-index-url="$homeLink.setTarget('index')"
+                  default-show="defaultShow"
+                  class="clearfix">
+            </div>
+        </div>
+        <div  ng-mouseleave="cancelNav()">
+            <div id="nav" class="xn-nav"  >
+                <div class="xn-width auto clearfix">
+                    <div class="nav-box clearfix">
+                        <div class="nav-left">
+                            <a  id="logo" class="img-a" href="$config.getEmployeeUrl('index.vm')">
+                                <img class="app-logo" src="$config.getCdnUrl('img/logo/logo.png')" alt="犀牛logo"/>
+                            </a>
+                            <a  class="app-title" href="$ebusinessLink.setTarget('index.vm')">
+                                <img class="logo-title"  src="$config.getCdnUrl('img/logo/project/employee-title.png')" height="28" alt="电商后台">
+                            </a>
+                        </div>
+                        <ul class="nav-list clearfix">
+                            <li class="nav-li" ng-class="{'nav-li-hover':navShow==0 }"  ng-mouseenter="navShow=0"><a class="nav-a" href="$ebusinessLink.setTarget("category/index")" target="_self">电商管理<span class="nav-tri"></span></a></li>
+                            <li class="nav-li" ng-class="{'nav-li-hover':navShow==1 }"  ng-mouseenter="navShow=1"><a class="nav-a" href="$ebusinessLink.setTarget("membership/ruleSetting/level")" target="_self">会员管理<span class="nav-tri"></span></a></li>
+                            <li class="nav-li" ng-class="{'nav-li-hover':navShow==2 }"  ng-mouseenter="navShow=2"><a class="nav-a" href="#" target="_self">促销管理<span class="nav-tri"></span></a></li>
+                            <li class="nav-li" ng-class="{'nav-li-hover':navShow==3 }"  ng-mouseenter="navShow=3"><a class="nav-a" href="$ebusinessLink.setTarget("operateManage/index")" target="_self">运营管理<span class="nav-tri"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--二级导航，根据需要看是否添加-->
+            <div class="second-nav" >
+                <div class="xn-width auto ">
+                    <!--电商管理-->
+                    <ul class="second-nav-ul" ng-show="navShow==0">
+                        <li class="second-nav-li" ng-class="{'second-nav-li-active':subNavShow==0}"  ng-mouseenter="subNavShow=0" ><a target="_self"  href="$ebusinessLink.setTarget("category/index")">设置</a></li>
+                        <li class="second-nav-li" ng-class="{'second-nav-li-active':subNavShow==1}"  ng-mouseenter="subNavShow=1" ><a target="_self"  href="$ebusinessLink.setTarget("commodity/index")">商品</a></li>
+                        <li class="second-nav-li" ng-class="{'second-nav-li-active':subNavShow==2}"  ng-mouseenter="subNavShow=2" ><a target="_self"  href="$ebusinessLink.setTarget("order/index")">订单</a></li>
+                        <li class="second-nav-li" ng-class="{'second-nav-li-active':subNavShow==3}"  ng-mouseenter="subNavShow=3" ><a target="_self"  href="$ebusinessLink.setTarget("refund/index.vm")">退款单</a></li>
+                        <li class="second-nav-li" ng-class="{'second-nav-li-active':subNavShow==4}"  ng-mouseenter="subNavShow=4" ><a target="_self"  href="$ebusinessLink.setTarget("refundReturns/index.vm")">退货单</a></li>
+                        <li class="second-nav-li" ng-class="{'second-nav-li-active':subNavShow==5}"  ng-mouseenter="subNavShow=5" ><a target="_self"  href="$ebusinessLink.setTarget("evaluate/index")">评价管理</a></li>
+                        <li class="second-nav-li" ng-class="{'second-nav-li-active':subNavShow==6}"  ng-mouseenter="subNavShow=6" ><a target="_self"  href="#">报表中心</a></li>
+                    </ul>
+                    <!--会员管理-->
+                    <ul class="second-nav-ul" ng-show="navShow==1">
+                        <li class="second-nav-li" ng-class="{'second-nav-li-active':subNavShow==0}"  ng-mouseenter="subNavShow=0"><a  target="_self" href="$ebusinessLink.setTarget("membership/ruleSetting/level")">设置</a></li>
+                        <li class="second-nav-li" ng-class="{'second-nav-li-active':subNavShow==1}"  ng-mouseenter="subNavShow=1"><a  target="_self" href="$ebusinessLink.setTarget("memberIndividual/index")">个人会员</a></li>
+                        <li class="second-nav-li" ng-class="{'second-nav-li-active':subNavShow==2}"  ng-mouseenter="subNavShow=2"><a  target="_self" href="$ebusinessLink.setTarget("companyMember/index")">企业会员</a></li>
+                        <li class="second-nav-li" ng-class="{'second-nav-li-active':subNavShow==3}"  ng-mouseenter="subNavShow=3"><a  target="_self" href="$ebusinessLink.setTarget("distributorMember/index")">微分销商</a></li>
+                        <li class="second-nav-li" ng-class="{'second-nav-li-active':subNavShow==4}"  ng-mouseenter="subNavShow=4"><a  target="_self" href="$ebusinessLink.setTarget("membership/brandApply/index")">品牌代理</a></li>
+                        <li class="second-nav-li" ng-class="{'second-nav-li-active':subNavShow==5}"  ng-mouseenter="subNavShow=5"><a  target="_self" href="$ebusinessLink.setTarget("discount/index")">优惠券</a></li>
+                        <li class="second-nav-li" ng-class="{'second-nav-li-active':subNavShow==6}"  ng-mouseenter="subNavShow=6"><a  target="_self" href="#">报表中心</a></li>
+                    </ul>
+
+                    <!--促销管理-->
+                    <ul class="second-nav-ul" ng-show="navShow==2">
+
+                    </ul>
+
+                    <!--运营管理-->
+                    <ul class="second-nav-ul" ng-show="navShow==3">
+                        <li class="second-nav-li" ng-class="{'second-nav-li-active':subNavShow==0}"  ng-mouseenter="subNavShow=0"><a target="_self"  href="$ebusinessLink.setTarget("operateManage/index")">设置</a></li>
+                        <li class="second-nav-li" ng-class="{'second-nav-li-active':subNavShow==1}"  ng-mouseenter="subNavShow=1"><a target="_self"  href="$ebusinessLink.setTarget("advertisement/index")">广告维护</a></li>
+                        <li class="second-nav-li" ng-class="{'second-nav-li-active':subNavShow==2}"  ng-mouseenter="subNavShow=2"><a target="_self"  href="$ebusinessLink.setTarget("feedback/index")">在线反馈</a></li>
+                        <li class="second-nav-li" ng-class="{'second-nav-li-active':subNavShow==3}"  ng-mouseenter="subNavShow=3"><a target="_self"  href="#">内容中心</a></li>
+                        <li class="second-nav-li" ng-class="{'second-nav-li-active':subNavShow==4}"  ng-mouseenter="subNavShow=4"><a target="_self"  href="#">栏目维护</a></li>
+                        <li class="second-nav-li" ng-class="{'second-nav-li-active':subNavShow==5}"  ng-mouseenter="subNavShow=5"><a target="_self"  href="#">报表中心</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
