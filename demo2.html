@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="http://cdn.bootcss.com/twitter-bootstrap/2.2.2/css/bootstrap.min.css" rel="stylesheet">
+    <!--<link href="http://cdn.bootcss.com/twitter-bootstrap/2.2.2/css/bootstrap-responsive.min.css" rel="stylesheet">-->
+    <link rel="stylesheet" href="http://www.bootcss.com/p/bootstrap-datetimepicker/bootstrap-datetimepicker/css/datetimepicker.css">
+
+</head>
+
+<body>
+    <div class="input-append date form_datetime">
+        <input size="16" type="text" value="" readonly>
+        <span class="add-on"><i class="icon-th"></i></span>
+    </div>
+    <script src="http://www.eyecon.ro/bootstrap-datepicker/js/jquery.js"></script>
+
+    <script src="http://cdn.bootcss.com/twitter-bootstrap/2.2.2/bootstrap.min.js"></script>
+    <script src="http://www.bootcss.com/p/bootstrap-datetimepicker/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript">
+        $(".form_datetime").datetimepicker({
+            language: 'zh-CN',
+            format: "dd MM yyyy",
+            autoclose: true,
+            todayBtn: false,
+            pickerPosition: "bottom-left"
+        });
+    </script>
+</body>
+
+</html>

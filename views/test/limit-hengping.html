@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="screen-orientation" content="portrait">
+
+<meta name="x5-orientation" content="portrait">
+
+<meta name="full-screen" content="yes">
+
+<meta name="x5-fullscreen" content="true">
+
+<meta name="browsermode" content="application">
+
+<meta name="x5-page-mode" content="app">
+
+<meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,minimum-scale=1.0,maximum-scale=1.0" />
+<script type="text/javascript" src="//file.40017.cn/dujia/cn/v/dujia/modules/jquery_1e357de.js"></script>
+
+       
+
+
+
+    </head>
+    <body>
+        <div class="main">113</div>
+        <script>
+          
+  (function(){
+    var supportsOrientation = (typeof window.orientation == 'number' && typeof window.onorientationchange == 'object');
+    var HTMLNode = document.body.parentNode;
+    var updateOrientation = function() {
+      // rewrite the function depending on what's supported
+      if(supportsOrientation) {
+        updateOrientation = function() {
+          var orientation = window.orientation;
+
+          switch(orientation) {
+            case 90: case -90:
+              orientation = 'landscape';
+            break;
+            default:
+              orientation = 'portrait';
+          }
+
+          // set the class on the HTML element (i.e. )
+          HTMLNode.setAttribute('class', orientation);
+        }
+      } else {
+        updateOrientation = function() {
+          // landscape when width is biggest, otherwise portrait
+          var orientation = (window.innerWidth > window.innerHeight) ? 'landscape': 'portrait';
+
+          // set the class on the HTML element (i.e. )
+          HTMLNode.setAttribute('class', orientation);
+        }
+      }
+
+      updateOrientation();
+    }
+    var init = function() {
+      // initialize the orientation
+      updateOrientation();
+
+      if(supportsOrientation) {
+        window.addEventListener('orientationchange', updateOrientation, false);
+      } else {
+        // fallback: update every 5 seconds
+        setInterval(updateOrientation, 5000);
+      }
+
+    }
+    window.addEventListener('DOMContentLoaded', init, false);
+  })();
+        </script>
+    </body>
+</html>

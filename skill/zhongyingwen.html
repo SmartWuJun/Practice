@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <input oninput="onInput.call(this)">
+
+    <script>
+        function getLength(str) {
+            return str.replace(/[^ -~]/g, 'AA').length;
+        }
+
+        function limitMaxLength(str, maxLength) {
+            var result = [];
+            for (var i = 0; i < maxLength; i++) {
+                var char = str[i]
+                if (/[^ -~]/.test(char))
+                    maxLength--;
+                result.push(char);
+            }
+            return result.join('');
+        }
+
+        var maxLength = 8; // how many bytes you want
+
+        function onInput() {
+            if (getLength(this.value) > maxLength)
+                this.value = limitMaxLength(this.value, maxLength);
+        }
+
+        window.onInput = onInput;
+    </script>
+</body>
+
+</html>

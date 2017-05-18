@@ -1,12 +1,21 @@
  @rem:75rem;
 
-body{
+
+.xn-main{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     background: #f2f2f2;
-   
 }
 .xn-module-define{
      color: #333;
     font-size: 28/@rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
     h1{
         height: 85/@rem;
         font-size: 36/@rem;
@@ -47,13 +56,21 @@ body{
     }
 
     ul{
-        background: #fff;
+       
+        flex: 1;
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
         li{
             padding: 25/@rem 60/@rem 25/@rem 30/@rem;
             border-bottom: 1px solid #ddd;
             position: relative;
             left: 0;
             right: 0;
+            background: #fff;
+    
+            span.title{
+                color: #333;
+            }
             i.arrow{
                 width: 16/@rem;
                 height: 16/@rem;
@@ -64,8 +81,13 @@ body{
                 right: 30/@rem;
                 transform: rotate(45deg) translateY(-50%);
                 position: absolute;
+                outline-color: #c8c8c8;
+                color: #c8c8c8;;
             }
         }
+          a{
+                text-decoration: none;
+                }
     }
 }
  

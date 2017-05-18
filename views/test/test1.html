@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="keywords" content="$database.keywords()"/>
+    <meta name="description" content="$database.description()">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <!--栅格系统-->
+    <meta content="modeName=750-12" name="grid" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <!-- uc强制竖屏 -->
+    <meta name="screen-orientation" content="portrait">
+    <!-- QQ强制竖屏 -->
+    <meta name="x5-orientation" content="portrait">
+    <!-- UC强制全屏 -->
+    <meta name="full-screen" content="yes">
+    <!-- QQ强制全屏 -->
+    <meta name="x5-fullscreen" content="true">
+    <!-- UC应用模式 -->
+    <meta name="browsermode" content="application">
+    <!-- QQ应用模式 -->
+    <meta name="x5-page-mode" content="app">
+    <!-- windows phone 点击无高光 -->
+    <meta name="msapplication-tap-highlight" content="no">
+    <!-- 适应移动端end -->
+    <!--屏幕自动适配  lib-flexible-->
+    <script>
+        !function(){var a="@charset \"utf-8\";html{color:#000;background:#fff;overflow-y:scroll;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}html *{outline:0;-webkit-text-size-adjust:none;-webkit-tap-highlight-color:rgba(0,0,0,0)}html,body{font-family:sans-serif}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{margin:0;padding:0}input,select,textarea{font-size:100%}table{border-collapse:collapse;border-spacing:0}fieldset,img{border:0}abbr,acronym{border:0;font-variant:normal}del{text-decoration:line-through}address,caption,cite,code,dfn,em,th,var{font-style:normal;font-weight:500}ol,ul{list-style:none}caption,th{text-align:left}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:500}q:before,q:after{content:''}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-.5em}sub{bottom:-.25em}a:hover{text-decoration:underline}ins,a{text-decoration:none}",b=document.createElement("style");if(document.getElementsByTagName("head")[0].appendChild(b),b.styleSheet)b.styleSheet.disabled||(b.styleSheet.cssText=a);else try{b.innerHTML=a}catch(c){b.innerText=a}}();
+        !function(a,b){function c(){var b=f.getBoundingClientRect().width;b/i>540&&(b=540*i);var c=b/10;f.style.fontSize=c+"px",k.rem=a.rem=c}var d,e=a.document,f=e.documentElement,g=e.querySelector('meta[name="viewport"]'),h=e.querySelector('meta[name="flexible"]'),i=0,j=0,k=b.flexible||(b.flexible={});if(g){console.warn("将根据已有的meta标签来设置缩放比例");var l=g.getAttribute("content").match(/initial\-scale=([\d\.]+)/);l&&(j=parseFloat(l[1]),i=parseInt(1/j))}else if(h){var m=h.getAttribute("content");if(m){var n=m.match(/initial\-dpr=([\d\.]+)/),o=m.match(/maximum\-dpr=([\d\.]+)/);n&&(i=parseFloat(n[1]),j=parseFloat((1/i).toFixed(2))),o&&(i=parseFloat(o[1]),j=parseFloat((1/i).toFixed(2)))}}if(!i&&!j){var p=(a.navigator.appVersion.match(/android/gi),a.navigator.appVersion.match(/iphone/gi)),q=a.devicePixelRatio;i=p?q>=3&&(!i||i>=3)?3:q>=2&&(!i||i>=2)?2:1:1,j=1/i}if(f.setAttribute("data-dpr",i),!g)if(g=e.createElement("meta"),g.setAttribute("name","viewport"),g.setAttribute("content","initial-scale="+j+", maximum-scale="+j+", minimum-scale="+j+", user-scalable=no"),f.firstElementChild)f.firstElementChild.appendChild(g);else{var r=e.createElement("div");r.appendChild(g),e.write(r.innerHTML)}a.addEventListener("resize",function(){clearTimeout(d),d=setTimeout(c,300)},!1),a.addEventListener("pageshow",function(a){a.persisted&&(clearTimeout(d),d=setTimeout(c,300))},!1),"complete"===e.readyState?e.body.style.fontSize=12*i+"px":e.addEventListener("DOMContentLoaded",function(){e.body.style.fontSize=12*i+"px"},!1),c(),k.dpr=a.dpr=i,k.refreshRem=c,k.rem2px=function(a){var b=parseFloat(a)*this.rem;return"string"==typeof a&&a.match(/rem$/)&&(b+="px"),b},k.px2rem=function(a){var b=parseFloat(a)/this.rem;return"string"==typeof a&&a.match(/px$/)&&(b+="rem"),b}}(window,window.lib||(window.lib={}));
+
+        function requestFullScreen() {
+            var de = document.documentElement;
+            if (de.requestFullscreen) {
+                de.requestFullscreen();
+            } else if (de.mozRequestFullScreen) {
+                de.mozRequestFullScreen();
+            } else if (de.webkitRequestFullScreen) {
+                de.webkitRequestFullScreen();
+            }
+        }
+
+        requestFullScreen();
+    </script>
+
+
+          
+    
+
+    <link  rel="stylesheet" type="text/css" href="https://uat.xiniunet.com/mpoint/dist/styles/base.min.css?v=2.28.0" />
+    <link  rel="stylesheet" type="text/css" href="https://uat.xiniunet.com/mpoint/dist/styles/other.css?v=2.28.0" />
+    <link  rel="stylesheet" type="text/css" href="https://uat.xiniunet.com/mpoint/dist/styles/point.css?v=2.28.0" />
+    <!--公共部分-->
+    <script type="text/javascript" src="https://uat.xiniunet.com/mpoint/vendor/jquery/jquery.min.js?v=2.28.0" ></script>
+    <script type="text/javascript" src="https://uat.xiniunet.com/mpoint/vendor/jquery/jquery.cookie.js?v=2.28.0" ></script>
+    <script type="text/javascript" src="https://uat.xiniunet.com/mpoint/vendor/jquery/jquery-form.js?v=2.28.0" ></script>
+    <script type="text/javascript" src="https://uat.xiniunet.com/mpoint/dist/scripts/base.min.js?v=2.28.0" ></script>
+
+    <script>
+
+    var test = window.location.href;
+    if(test.indexOf(".html") != -1){
+        var url = "/api/common.do?method=transfer.url";
+        $.ajax({
+            type: "post",
+            url: url,
+            dataType: "json",
+            contentType: "application/json;charset=UTF-8",
+            data: JSON.stringify({}),
+            success:function(data){
+                if(data && data.transferUrl){
+                    window.location = data.transferUrl;
+                }
+            }
+        });
+    }
+
+    // 加载统计代码
+    (function(){
+        var stat = document.createElement('script');
+        stat.src = 'https://stat.xiniunet.com/stat.js';
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(stat, s);
+    });
+
+
+    
+
+
+</script>
+
+</head>
+<body ontouchstart>
+
+ <script>
+         /*弹出成功框*/
+    var success=function (message,modalUrl,time){
+        var dialogDefaults = {
+            bodyText:message,
+            show:"show",
+            top:"30vh",
+            removeTime:1000,
+            stopTime:3000
+        };
+        var  tipbox="";
+        var  errorDump="";
+        if(time != null){
+            dialogDefaults.stopTime = time;
+        }
+        var modalTip="modal"+new Date().getTime();
+
+        var tip="<div id='"+modalTip+"' class=\"xn-modal-tip\" >\n"+
+                    "<div class=\"tip-content \" >\n"+
+                            dialogDefaults.bodyText+
+                        "</div>"+
+                 "</div>";
+        //消息明细获取
+        var body = $("body");
+        body.append(tip);
+        body.find("#"+modalTip).css({ top:dialogDefaults.top,opacity:dialogDefaults.show });
+        body.find("#"+modalTip).fadeIn(dialogDefaults.show);
+
+        var  remove=function(){
+            body.find("#"+modalTip).remove();
+            if( !(modalUrl==undefined || modalUrl==null)){
+                window.location = modalUrl;
+            }
+        };
+
+        var closeModal=function(){
+            body.find("#"+modalTip).animate({ "top": "0", "opacity":"hide"},dialogDefaults.removeTime);
+            setTimeout(remove ,dialogDefaults.removeTime);
+        };
+
+        (function timeout (){
+            setTimeout(closeModal,dialogDefaults.stopTime);
+        })();
+    };
+        $.extend({
+            success:success
+        });
+   </script>
+   <script>
+
+    //    $('.content').animate({top:0,opacity:0},5000);
+    $.success('success');
+   </script>
+    
+</body>
+</html>
+
+
+
+
+

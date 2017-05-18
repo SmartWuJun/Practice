@@ -1,53 +1,14 @@
-.xn-module-article {
-  padding: 0.32407407rem 0.46296296rem;
-  background: #fff;
+.xn-module-title {
   /* IE10 Windows Phone 8 Fixes */
 }
-.xn-module-article img {
-  width: 1.05555556rem;
-  height: 0.97222222rem;
-  border: 0;
+.xn-module-title ul li {
+  line-height: 0.83333333rem;
+  text-align: center;
 }
-.xn-module-article .article-titles {
-  font-size: 0.2962963rem;
-  line-height: 0.44444444rem;
-  height: 0.9rem;
-  width: calc(100% - 1.5rem);
-  color: #363636;
-  margin-left: 0.37037037rem;
-}
-.xn-module-article .article-titles ul {
-  height: 0.9rem;
-  overflow: hidden;
-}
-.xn-module-article .article-titles ul li:before {
-  content: '';
-  width: 0.05555556rem;
-  height: 0.05555556rem;
-  display: inline-block;
-  background: #2fc2c0;
-  border-radius: 50%;
-}
-.xn-module-article .article-titles ul li span {
-  display: inline-block;
-  max-width: 6.2rem;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  vertical-align: middle;
-  margin-left: 0.11111111rem;
-}
-.xn-module-article .article-titles ul li .label {
-  background: #ff9a41;
-  font-size: 0.22222222rem;
-  vertical-align: middle;
-  color: #fff;
-  border-radius: 20%;
-  padding: 0 0.09259259rem;
-  font-style: normal;
-  margin-left: 0.13888889rem;
-}
-.xn-module-article .swiper-container {
+.xn-module-title .swiper-container {
+  height: 0.83333333rem;
+  color: #ff6941;
+  margin: 0 auto;
   position: relative;
   overflow: hidden;
   direction: ltr;
@@ -59,7 +20,7 @@
   /* Fix of Webkit flickering */
   z-index: 1;
 }
-.xn-module-article .swiper-wrapper {
+.xn-module-title .swiper-wrapper {
   position: relative;
   width: 100%;
   -webkit-transition-property: -webkit-transform, left, top;
@@ -87,7 +48,7 @@
   -moz-box-sizing: content-box;
   box-sizing: content-box;
 }
-.xn-module-article .swiper-free-mode > .swiper-wrapper {
+.xn-module-title .swiper-free-mode > .swiper-wrapper {
   -webkit-transition-timing-function: ease-out;
   -moz-transition-timing-function: ease-out;
   -ms-transition-timing-function: ease-out;
@@ -95,25 +56,25 @@
   transition-timing-function: ease-out;
   margin: 0 auto;
 }
-.xn-module-article .swiper-slide {
+.xn-module-title .swiper-slide {
   float: left;
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;
 }
-.xn-module-article .swiper-wp8-horizontal {
+.xn-module-title .swiper-wp8-horizontal {
   -ms-touch-action: pan-y;
 }
-.xn-module-article .swiper-wp8-vertical {
+.xn-module-title .swiper-wp8-vertical {
   -ms-touch-action: pan-x;
 }
-.xn-module-article a:-webkit-any-link {
+.xn-module-title a:-webkit-any-link {
   color: #363636;
 }
-.xn-module-article .fl {
+.xn-module-title .fl {
   float: left;
 }
-.xn-module-article .fr {
+.xn-module-title .fr {
   float: right;
 }
 .clearfix:after,

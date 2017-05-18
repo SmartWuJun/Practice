@@ -1,68 +1,102 @@
-body {
-  background: #f2f2f2;
+.xn-main {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #f2f2f2;
+    padding-bottom: 1.38888889rem;
 }
+
 .xn-module-define {
-  color: #333;
-  font-size: 0.37333333rem;
+    color: #333;
+    font-size: 0.37333333rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
 }
+
 .xn-module-define h1 {
-  height: 1.13333333rem;
-  font-size: 0.48rem;
-  line-height: 1.13333333rem;
-  color: #333;
-  text-align: center;
-  border-bottom: 1px solid #ddd;
-  background: #fff;
+    height: 1.13333333rem;
+    font-size: 0.48rem;
+    line-height: 1.13333333rem;
+    color: #333;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    background: #fff;
 }
+
 .xn-module-define .tabs {
-  display: flex;
-  font-size: 0.37333333rem;
-  height: 1.06666667rem;
-  background: #fff;
-  margin-bottom: 0.26666667rem;
-  overflow: auto;
+    display: flex;
+    font-size: 0.37333333rem;
+    height: 1.06666667rem;
+    background: #fff;
+    margin-bottom: 0.26666667rem;
+    overflow: auto;
 }
+
 .xn-module-define .tabs .tab {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  white-space: nowrap;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    white-space: nowrap;
 }
+
 .xn-module-define .tabs .tab span {
-  display: flex;
-  align-items: center;
-  padding: 0 0.26666667rem;
+    display: flex;
+    align-items: center;
+    padding: 0 0.26666667rem;
 }
+
 .xn-module-define .tabs .tab.active span {
-  border-bottom: 0.05333333rem solid #43cfcd;
-  color: #43cfcd;
+    border-bottom: 0.05333333rem solid #43cfcd;
+    color: #43cfcd;
 }
+
 .xn-module-define ul {
-  background: #fff;
+    flex: 1;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
 }
+
 .xn-module-define ul li {
-  padding: 0.33333333rem 0.8rem 0.33333333rem 0.4rem;
-  border-bottom: 1px solid #ddd;
-  position: relative;
-  left: 0;
-  right: 0;
+    padding: 0.33333333rem 0.8rem 0.33333333rem 0.4rem;
+    border-bottom: 1px solid #ddd;
+    position: relative;
+    left: 0;
+    right: 0;
+    background: #fff;
 }
+
+.xn-module-define ul li span.title {
+    color: #333;
+}
+
 .xn-module-define ul li i.arrow {
-  width: 0.21333333rem;
-  height: 0.21333333rem;
-  display: block;
-  border-top: 0.05333333rem solid #c8c8c8;
-  border-right: 0.05333333rem solid #c8c8c8;
-  top: 50%;
-  right: 0.4rem;
-  transform: rotate(45deg) translateY(-50%);
-  position: absolute;
+    width: 0.21333333rem;
+    height: 0.21333333rem;
+    display: block;
+    border-top: 0.05333333rem solid #c8c8c8;
+    border-right: 0.05333333rem solid #c8c8c8;
+    top: 50%;
+    right: 0.4rem;
+    transform: rotate(45deg) translateY(-50%);
+    position: absolute;
+    outline-color: #c8c8c8;
+    color: #c8c8c8;
 }
+
+.xn-module-define ul a {
+    text-decoration: none;
+}
+
 .clearfix:after,
 .clearfix:before {
-  content: ' ';
-  display: table;
+    content: ' ';
+    display: table;
 }
+
 .clearfix:after {
-  clear: both;
+    clear: both;
 }

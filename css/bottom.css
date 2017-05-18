@@ -1,5 +1,10 @@
-body {
-  background: #ccc;
+.xn-main {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #f2f2f2;
 }
 .xn-module-bottom {
   height: 1.94444444rem;
@@ -42,6 +47,9 @@ body {
   text-align: center;
   z-index: 101;
 }
+.xn-module-bottom .icons .mine a {
+  text-decoration: none;
+}
 .xn-module-bottom .icons .mine .img-box {
   width: 1.2962963rem;
   height: 1.2962963rem;
@@ -55,6 +63,9 @@ body {
 .xn-module-bottom .icons .parts {
   display: flex;
   justify-content: space-between;
+}
+.xn-module-bottom .icons .parts a {
+  text-decoration: none;
 }
 .xn-module-bottom .icons .parts img {
   width: 0.92592593rem;
