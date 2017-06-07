@@ -2,7 +2,7 @@
 <html>
 
 <head>
-
+    <script type="text/javascript" src="http://ebusiness-mb2c-test.xiniunet.com/mb2c/vendor/jquery/jquery.min.js?v=2.31.0"></script>
 </head>
 
 <body>
@@ -32,6 +32,10 @@
         }
 
         window.onInput = onInput;
+
+        $(document).on('input', 'input', function() {
+            console.log($(this).val());
+        })
     </script>
 </body>
 

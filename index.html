@@ -20,16 +20,17 @@
 
         </div>
     </div>
+    <p style='width:200px;height:30px;background:#ccc'>11111111111111111111111111111111</p>
     <div class="result-qrcode">
     </div>
     <script src="lib/zepto.js"></script>
     <script src="lib/qrcode.lib.min.js"></script>
     <script src="lib/qrcode.js"></script>
     <script>
-    //初始化扫描二维码按钮，传入自定义的 node-type 属性
-    $(function() {
-        Qrcode.init($('[node-type=qr-btn]'));
-    });
+        //初始化扫描二维码按钮，传入自定义的 node-type 属性
+        $(function() {
+            Qrcode.init($('[node-type=qr-btn]'));
+        });
     </script>
 </body>
 
