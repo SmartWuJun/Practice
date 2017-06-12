@@ -22,7 +22,7 @@
   width: 0.37037037rem;
   height: 0.84259259rem;
   margin-left: 0.50925926rem;
-  background: url(//192.168.80.58:9000/imgs/search.png) no-repeat;
+  background: url(//192.168.80.58:9000/imgs/search.png) 0 45% no-repeat;
   background-size: contain;
 }
 .xn-module-search .search-box input {
