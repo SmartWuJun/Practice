@@ -5,33 +5,31 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <title>二维码扫描</title>
-    <link rel="stylesheet" type="text/css" href="lib/my.css">
+    <style>
+        .demo {
+            width: 300px;
+            height: 300px;
+            transition: all .5s cubic-bezier(0.455, 0, 0.515, 1);
+            background: #ccc;
+        }
+        
+        .demo2 {
+            width: 1000px;
+        }
+        
+        .demo:hover {
+            width: 900px;
+        }
+    </style>
 </head>
 
 <body>
-    <div>
-        <input type="tel" maxlength="11">
-        <div class="qr-btn" node-type="qr-btn">扫描二维码1
-            <input node-type="jsbridge" type="file" name="myPhoto" value="扫描二维码1" />
-        </div>
-    </div>
-    <div>
-        <div class="qr-btn" node-type="qr-btn">扫描二维码2
-            <input node-type="jsbridge" type="file" name="myPhoto" value="扫描二维码2" />
+    <div class="demo demo2">
 
-        </div>
-    </div>
-    <p style='width:200px;height:30px;background:#ccc'>11111111111111111111111111111111</p>
-    <div class="result-qrcode">
     </div>
     <script src="lib/zepto.js"></script>
-    <script src="lib/qrcode.lib.min.js"></script>
-    <script src="lib/qrcode.js"></script>
+
     <script>
-        //初始化扫描二维码按钮，传入自定义的 node-type 属性
-        $(function() {
-            Qrcode.init($('[node-type=qr-btn]'));
-        });
     </script>
 </body>
 

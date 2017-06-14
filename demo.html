@@ -40,6 +40,35 @@
             <span class='target'> hello world!</span>
         </div>
     </div>
+    <select id="s" style="width:expression((this.offsetWidth < 100) ? '100' : ((this.offsetWidth > 200)? '200' : this.offsetWidth))">    
+   <option value="1" title="1">1</option>   
+   <option value="2" title="2">2</option>   
+   <option value="3" title="3">3</option>   
+   <option value="4" title="4">4</option>   
+   <option value="5" title="5">5</option>   
+   <option value="6">6</option>   
+   <option value="7">7</option>   
+   <option value="8">8</option>   
+   <option value="9" title="--9999999999999999999999999999999999--">--9999999999999999999990000000000000000000000000000000000000000009999999999999--</option>   
+  </select>
+
+    <select id="sa">    
+   <option value="1" title="1">1</option>   
+   <option value="2" title="2">2</option>   
+   <option value="3" title="3">3</option>   
+   <option value="4" title="4">4</option>   
+   <option value="5" title="5">5</option>   
+   <option value="6">6</option>   
+   <option value="7">7</option>   
+   <option value="8">8</option>   
+   <option value="9" title="--9999999999999999999999999999999999--">--9999999999999999000000000000000000000000000000000999999999999999999--</option>   
+  </select>
+    <script type="text/javascript">
+        var sel = document.getElementById("sa");
+        console.log(sel.offsetWidth);
+        // sel.style.width = ((sel.offsetWidth < 100) ? '100' : ((sel.offsetWidth > 200) ? '200' : sel.offsetWidth));
+        sel.style.width = 200;
+    </script>
 </body>
 
 </html>

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>banner</title>
+    <link rel="stylesheet" href="../../../css/chongyin/banner.css">
+</head>
+
+<body>
+    <div id="page-home" role="main">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-5 col-md-4 col-lg-3">
+                    <div class="panel panel-default" id="filter">
+                        <div class="panel-heading">Find your product</div>
+                        <div class="panel-body">
+                            <div class="form-group"><label for="GenderID">Animal</label>
+                                <div class="custom-select form-control"><select name="GenderID" id="GenderID" data-ajax="http://www.petseurope.eu/en/ajax/home.php" data-extratemplates="tpl_home_maincategories tpl_home_categories tpl_home_searchform" data-action="getMainCategories" data-method="post"><option value="1">Dogs</option><option value="2">Cats</option><option value="3">Small pets</option></select></div>
+                            </div>
+                            <div data-template="tpl_home_maincategories" data-effect="replaceWith">
+                                <div class="form-group"><label for="MainCategoryID">Product category</label>
+                                    <div class="custom-select form-control">
+                                        <select name="MainCategoryID" id="MainCategoryID" data-ajax="http://www.petseurope.eu/en/ajax/home.php" data-action="getCategories" data-extratemplates="tpl_home_categories tpl_home_searchform" data-method="post">
+  
+                                            <option value="8">Beds</option>
+                                            <option value="9">Bowls, Feeders &amp; Dispensers</option>
+                                            <option value="23">Wooden Cages</option>
+                                            <option value="24">Small Animal Cages</option>
+                                            <option value="25">Cat Litter Boxes &amp; Trays</option>
+                                            <option value="26">Care &amp; Hygiene</option>
+                                            <option value="27">Leads, Collars &amp; Harnesses</option>
+                                            <option value="28">Travel &amp; Carriers</option>
+                                            <option value="29">Drinking Bottles &amp; Toys</option>
+                                            <option value="30">Cat Trees &amp; Scratchers</option>
+                                            <option value="1">Toys</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-template="tpl_home_categories" data-effect="html">
+                                <div class="form-group"><label for="CategoryID">Product subcategory</label>
+                                    <div class="custom-select form-control">
+                                        <select name="CategoryID" id="CategoryID">
+                                        <option value="20">Beds &amp; Cushions</option>
+                                        <option value="21">Smart Bowls</option>
+                                        <option value="22">Plastic Bowls</option>
+                                        <option value="33">Melamine Bowls</option>
+                                        <option value="23">Drinking Fountains</option>
+                                        <option value="30">Dispensers</option>
+                                        <option value="25">Rabbit Hutches</option>
+                                        <option value="26">Chicken Hutches</option>
+                                        <option value="27">Small Animal Cages</option>
+                                        <option value="28">Cat Litter Boxes</option>
+                                        <option value="29">Cat Litter Trays</option>
+                                        <option value="44">Cat Litter Mats</option>
+                                        <option value="45">Cat Litter Scoops</option>
+                                        <option value="31">Waste Bags</option>
+                                        <option value="32">Training Pads</option>
+                                        <option value="41">Cat Litter</option>
+                                        <option value="34">Tie Out Cables</option>
+                                        <option value="35">Pet carriers</option>
+                                        <option value="37">Crates &amp; Travel bags</option>
+                                        <option value="39">Dog Houses</option>
+                                        <option value="38">Fences</option>
+                                        <option value="36">Drinking Bottles</option>
+                                        <option value="40">Travel accessories</option>
+                                        <option value="42">Drinking Bottles &amp; Toys</option>
+                                        <option value="43">Cat Trees &amp; Scratchers</option>
+                                        <option value="1">Cat Toys</option>
+                                        <option value="46">Toys</option>
+                                        <option value="48">Treat dispensers</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-template="tpl_home_searchform" data-effect="replaceWith" data-jquery="homeController.priceRangeSlider" id="price-form">
+                                <form name="search" action="http://www.petseurope.eu/en/dogs/118/beds/category=beds-cushions" method="get">
+                                    <div class="form-group"><label for="CategoryID" class="text-center">Price range</label><input type="hidden" name="Filters[MinimumPrice]" placeholder="Min." id="MinimumPrice" title="Minimumprijs $0.00" value="0" data-default="0"><input type="hidden"
+                                            name="Filters[MaximumPrice]" placeholder="Max." id="MaximumPrice" title="Maximumprijs $95.00" value="95" data-default="95">
+                                        <div id="price-range" data-minimum="0" data-maximum="95"></div>
+                                    </div>
+                                    <div data-template="tpl_home_button" data-effect="replaceWith"><button type="submit" name="" class="btn btn-default btn-big">Filter</button></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div><a href="http://www.petseurope.eu/en/register" class="btn btn-primary btn-big">Register to view prices</a></div>
+                <div class="col-sm-7 col-md-5 col-lg-6 swiper-container">
+                    <!-- START MAIN SLIDER -->
+                    <div id="main-slider" class=" swiper-wrapper" role="banner">
+                        <!-- Slide -->
+                        <div class='swiper-slide'>
+                            <a href="http://www.petseurope.eu/en/dogs/1273/care-hygiene/training-pads/carbon-dog-training-pads">
+                                <div class="slide bg-responsive" style="background-image:url(http://www.petseurope.eu/Cached/44/piece/476x715/PetsEurope_HomePage_image_1.png)" data-xs="http://www.petseurope.eu/Cached/44/piece/476x715/PetsEurope_HomePage_image_1.png" data-sm="http://www.petseurope.eu/Cached/44/piece/375x525/PetsEurope_HomePage_image_1.png"
+                                    data-md="http://www.petseurope.eu/Cached/44/piece/375x525/PetsEurope_HomePage_image_1.png" data-lg="http://www.petseurope.eu/Cached/44/piece/375x525/PetsEurope_HomePage_image_1.png">
+                                    <div class="container">
+                                        <div class="slick-caption">
+                                            <h1>Check out our Carbon Dog Training Pads</h1>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Slide -->
+                        <div class='swiper-slide'>
+                            <a class='' href="http://www.petseurope.eu/en/brands/111/m-pets">
+                                <div class="slide bg-responsive" style="background-image:url(http://www.petseurope.eu/Cached/45/piece/476x715/PetsEurope_HomePage_image_2_cat.png)" data-xs="http://www.petseurope.eu/Cached/45/piece/476x715/PetsEurope_HomePage_image_2_cat.png" data-sm="http://www.petseurope.eu/Cached/45/piece/375x525/PetsEurope_HomePage_image_2_cat.png"
+                                    data-md="http://www.petseurope.eu/Cached/45/piece/375x525/PetsEurope_HomePage_image_2_cat.png" data-lg="http://www.petseurope.eu/Cached/45/piece/375x525/PetsEurope_HomePage_image_2_cat.png">
+                                    <div class="container">
+                                        <div class="slick-caption">
+                                            <h1>M-PETS product range</h1>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="pagination"></div>
+                    <!-- END MAIN SLIDER -->
+                </div>
+
+                <div class="clearfix visible-sm-block"></div>
+                <div class="col-md-3">
+                    <a href="http://www.petseurope.eu/en/dogs/119/bowls-feeders-dispensers/category=smart%20bowls" class="cta">
+                        <h3>See our latest Smart Bowls</h3>
+                        <p>Be inspired by M-PETS</p><span class="arrow"></span></a>
+                    <a href="http://www.petseurope.eu/en/contact" class="cta">
+                        <h3>Request our Catalogue in pdf</h3>
+                        <p> </p><span class="arrow"></span></a>
+                    <a href="http://www.petseurope.eu/en/contact" class="cta">
+                        <h3>Contact us!</h3>
+                        <p>Get in touch, we'll get back to you asap!</p><span class="arrow"></span></a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src='http://file.40017.cn/dujia/cn/v/dujia/modules/jquery_1e357de.js'></script>
+    <script src="http://www.petseurope.eu/js/vendor/bootstrap/bootstrap.min.js"></script>
+    <script src="http://www.petseurope.eu/js/vendor/jquery/jquery-ui.min.js"></script>
+    <script src='../../../js/swiper.js'></script>
+    <script>
+        var Vendor = function() {
+
+            /*
+             * Create a carousel using Slick
+             * @param selector - Selector to load Slick
+             * @param options - Object with slick options - http://kenwheeler.github.io/slick/
+             * Slick docs: https://github.com/kenwheeler/slick/
+             */
+            this.carousel = function(selector, options) {
+
+                // Fade carousel in on init
+                $(selector).on('init', function(event, slick, currentSlide, nextSlide) {
+                    $(this).fadeTo(500, 1);
+                });
+
+                // Create slider and apply options
+                var carousel = new $(selector).slick(options);
+                return carousel;
+            };
+
+            /*
+             * Create a lightbox using baguetteBox
+             * @param selector - Selector to load baguetteBox
+             * @param options - Object with lightbox options - https://github.com/feimosi/baguetteBox.js#usage
+             * BaguetteBox docs: https://github.com/feimosi/baguetteBox.js
+             */
+            this.lightbox = function(selector, options) {
+                baguetteBox.run(selector, options);
+            };
+
+            /*
+             * Create a masonry type grid
+             * @param masonryID - Selector ID to load Masonry (in Bootstrap environment this will be usually a .row with a custom ID)
+             * @param options - Object with masonry options - http://masonry.desandro.com/options.html
+             * Masonry docs: http://masonry.desandro.com/
+             */
+            this.masonry = function(masonryID, options) {
+
+                // Define Masonry container
+                var container = document.querySelector(masonryID);
+
+                // Initialize Masonry after all images have loaded
+                imagesLoaded(container, function() {
+                    var msnry = new Masonry(container, options);
+                });
+            };
+
+            /*
+             * Create a jquery ui range slider
+             * @param selector - Selector to turn into a range slider
+             * @param options - Object with slider options - https://jqueryui.com/slider/
+             * jQuery UI docs: http://api.jqueryui.com/
+             */
+            this.rangeSlider = function(selector, options) {
+                $(String(selector)).slider(options);
+            };
+        };
+
+
+        var mySwiper = new Swiper('.swiper-container', {
+            autoplay: 5000, //可选选项，自动滑动
+            loop: true, //可选选项，开启循环
+            pagination: '.pagination'
+        })
+        var vendor = new Vendor();
+        var priceRangeSlider = function() {
+            var selector = $('#price-range');
+            vendor.rangeSlider('#price-range', {
+                range: true,
+                min: parseInt(selector.data('minimum')),
+                max: parseInt(selector.data('maximum')),
+                //step : Math.ceil((parseInt(selector.data('maximum')) - parseInt(selector.data('minimum'))) / 10),
+                values: [selector.parent().find('input[name="Filters[MinimumPrice]"]').val(), selector.parent().find('input[name="Filters[MaximumPrice]"]').val()],
+                create: function(event, ui) {
+                    $('#price-min-value').text("€ " + selector.parent().find('input[name="Filters[MinimumPrice]"]').val());
+                    $('#price-max-value').text("€ " + selector.parent().find('input[name="Filters[MaximumPrice]"]').val());
+                },
+                slide: function(event, ui) {
+                    repositionTooltip(event, ui);
+
+                    // Update hidden filters
+                    selector.parent().find('input[name="Filters[MinimumPrice]"]').val(Math.floor(parseFloat(ui.values[0])));
+                    selector.parent().find('input[name="Filters[MaximumPrice]"]').val(Math.ceil(parseFloat(ui.values[1])));
+                },
+                stop: function(event, ui) {
+                    repositionTooltip(event, ui);
+
+                    console.log("test");
+                    $('input[name="MinimumPrice"]').trigger('change');
+                }
+            });
+
+
+            $("#price-range .ui-slider-handle:first").attr('data-original-title', selector.parent().find('input[name="Filters[MinimumPrice]"]').val()).tooltip({
+                trigger: "manual"
+            }).tooltip("show");
+            $("#price-range .ui-slider-handle:last").attr('data-original-title', selector.parent().find('input[name="Filters[MaximumPrice]"]').val()).tooltip({
+                trigger: "manual"
+            }).tooltip("show");
+
+
+            function repositionTooltip(event, ui) {
+                selector.parent().find('input[name="Filters[MinimumPrice]"]').val(Math.floor(parseFloat(ui.values[0])));
+                selector.parent().find('input[name="Filters[MaximumPrice]"]').val(Math.ceil(parseFloat(ui.values[1])));
+
+                //Check which slider is moved
+                if (ui.values[0] == ui.value) {
+                    //Min slider
+                    //$("#price-range .ui-slider-handle:first").attr('data-original-title', parseFloat(ui.values[0])).tooltip( {trigger: "manual"}).tooltip("show");
+                    $("#price-range .ui-slider-handle:first").attr('data-original-title', parseFloat(ui.values[0]));
+                } else if (ui.values[1] == ui.value) {
+                    //Max slider
+                    //$("#price-range .ui-slider-handle:last").attr('data-original-title', parseFloat(ui.values[1])).tooltip( {trigger: "manual"}).tooltip("show");
+                    $("#price-range .ui-slider-handle:last").attr('data-original-title', parseFloat(ui.values[1]));
+                }
+
+                // If you're on Bootstrap 3.x change "tooltip" to "bs.tooltip"
+                // Props to @fd_tl in the comments for the tip!
+                var div = $(ui.handle).data("bs.tooltip").$tip[0];
+                var pos = $.extend({}, $(ui.handle).offset(), {
+                    width: $(ui.handle).get(0).offsetWidth,
+                    height: $(ui.handle).get(0).offsetHeight
+                });
+
+                var actualWidth = div.offsetWidth;
+
+                tp = {
+                    left: pos.left + pos.width / 2 - actualWidth / 2
+                };
+                $(div).offset(tp);
+
+                $(div).find(".tooltip-inner").text(ui.value);
+            }
+
+        };
+        priceRangeSlider();
+    </script>
+
+
+</body>
+
+</html>
