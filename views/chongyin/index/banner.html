@@ -75,8 +75,10 @@
                             </div>
                             <div data-template="tpl_home_searchform" data-effect="replaceWith" data-jquery="homeController.priceRangeSlider" id="price-form">
                                 <form name="search" action="http://www.petseurope.eu/en/dogs/118/beds/category=beds-cushions" method="get">
-                                    <div class="form-group"><label for="CategoryID" class="text-center">Price range</label><input type="hidden" name="Filters[MinimumPrice]" placeholder="Min." id="MinimumPrice" title="Minimumprijs $0.00" value="0" data-default="0"><input type="hidden"
-                                            name="Filters[MaximumPrice]" placeholder="Max." id="MaximumPrice" title="Maximumprijs $95.00" value="95" data-default="95">
+                                    <div class="form-group">
+                                        <label for="CategoryID" class="text-center">Price range</label>
+                                        <input type="hidden" name="Filters[MinimumPrice]" placeholder="Min." id="MinimumPrice" title="Minimumprijs $0.00" value="0" data-default="0">
+                                        <input type="hidden" name="Filters[MaximumPrice]" placeholder="Max." id="MaximumPrice" title="Maximumprijs $95.00" value="95" data-default="95">
                                         <div id="price-range" data-minimum="0" data-maximum="95"></div>
                                     </div>
                                     <div data-template="tpl_home_button" data-effect="replaceWith"><button type="submit" name="" class="btn btn-default btn-big">Filter</button></div>

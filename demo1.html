@@ -1,35 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang='en'>
 
 <head>
-    <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/2.2.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="http://www.bootcss.com/p/bootstrap-datetimepicker/bootstrap-datetimepicker/css/datetimepicker.css">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/common/sui.css" />
+    <link rel="stylesheet" href="http://g.alicdn.com/sj/dpl/1.5.1/css/sui-append.min.css">
 
-    <script href='http://cdn.bootcss.com/jquery/1.9.1/jquery.min.js'></script>
-    <script href="http://cdn.bootcss.com/twitter-bootstrap/2.2.2/bootstrap.min.js"></script>
-    <script href='http://www.bootcss.com/p/bootstrap-datetimepicker/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js'></script>
+
 </head>
 
 <body>
-    <!--<input size="16" type="text" value="2012-06-15 14:45" readonly class="form_datetime">
+    <input id='date' type="text" value="2014-03-02 12:48">
+    <script type="text/javascript" src="http://g.alicdn.com/sj/lib/jquery/dist/jquery.min.js"></script>
+    <script src='js/sui.js'></script>
+    <script>
+        //这里和正常的datepicker保持一致
 
-    <script type="text/javascript">
-        $(".form_datetime").datetimepicker({
-            format: 'yyyy-mm-dd hh:ii'
+        $('#date').datepicker({
+            timepicker: true,
+            autoclose: false, //这里最好设置为false
         });
-    </script>-->
-
-    <div class="input-append date form_datetime">
-        <input size="16" type="text" value="" readonly>
-        <span class="add-on"><i class="icon-th"></i></span>
-    </div>
-
-    <script type="text/javascript">
-        $(function() {
-            $(".form_datetime").datetimepicker({
-                format: "dd MM yyyy - hh:ii"
-            });
-        })
     </script>
 </body>
 

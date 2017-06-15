@@ -1,0 +1,148 @@
+@charset "UTF-8";
+
+/* IMPORTS */
+
+
+/*!
+ * Bootstrap v3.3.5 (http://getbootstrap.com)
+ * Copyright 2011-2015 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
+
+
+/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+
+html {
+    font-family: sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+html {
+    font-size: 10px;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: "proxima-nova", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    line-height: 1.428571429;
+    color: #857977;
+    background-color: #f3f1f1;
+}
+
+
+/**
+*
+* This file should only contain imports and comments
+* http://sass-guidelin.es/#main-file
+*
+**/
+
+
+/*# sourceMappingURL=main.css.map */
+
+.container {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    background: #fff;
+}
+
+.container:before,
+.container:after {
+    content: " ";
+    display: table;
+}
+
+.container:after {
+    clear: both;
+}
+
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+
+.quick-nav {
+    height: 60px;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.quick-nav ul {
+    border-bottom: 1px solid #dadada;
+    list-style-type: none;
+    text-align: left;
+    padding-left: 0px;
+    margin-top: -5px;
+}
+
+.quick-nav ul li {
+    display: inline-block;
+    width: 100px;
+    text-align: center;
+    margin: 0 4px;
+    position: relative;
+    padding-bottom: 10px;
+    vertical-align: middle;
+    height: 50px;
+    margin-bottom: -1px;
+}
+
+.quick-nav ul li a {
+    font-size: 13px;
+    font-size: 1.3rem;
+    width: 100%;
+    color: #857977;
+}
+
+.quick-nav ul li a:hover {
+    color: #1fb6bb;
+    text-decoration: none;
+}
+
+.quick-nav ul li.active a {
+    color: #1fb6bb;
+}
+
+.quick-nav ul li a {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
