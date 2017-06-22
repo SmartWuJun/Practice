@@ -3,217 +3,236 @@
 
 <head>
     <title>nav</title>
-    <link rel="stylesheet" href="../../../css/chongyin/topnav.css">
+    <link rel="stylesheet" href="../../../css/chongyin/topnav1.css">
 </head>
 
 <body>
-    <header id="top" class="header">
+    <header class="header">
         <div class="container">
 
             <!-- START NAVBAR BOTTOM -->
-            <div id="navbar-bottom" class="navbar-default navbar-static-top">
+            <div id="navbar-bottom" class="navbar-default navbar-static-top navbar-bottom">
                 <!-- Navbar header -->
-                <div class="navbar-header"><button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false" aria-controls="navbar"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                <div class="navbar-header">
+
                     <a class="navbar-brand" href="http://www.petseurope.eu/en/home" title="">
-                        <picture>
-                            <source srcset="http://www.petseurope.eu/graphics/svg/europepet.svg" type="image/svg+xml"><img class="img-responsive" srcset="http://www.petseurope.eu/graphics/fallback/europepet.png" alt="PetsEurope"></picture>
+
+                        <img class="img-responsive" src="http://www.petseurope.eu/graphics/fallback/europepet.png" alt="PetsEurope">
                     </a>
                 </div>
                 <!-- Navbar items -->
-                <div class="navbar-collapse collapse">
+                <div class="navbar-collapse collapse clearfix">
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Cart -->
                         <li class="header-cart navbar-right" data-template="tpl_cart_summary" data-effect="html">
                             <a href="http://www.petseurope.eu/en/cart" title="" class="btn btn-primary">
-                                <img class='icon-cart' src="../../../imgs/chongyin/shop-cart.png" alt=""> Cart
+                                <img class='icon-cart' src="http://localhost:9000/imgs/chongyin/shop-cart.png" alt=""> Cart
                                 <span class="badge amount">0</span></a>
                         </li>
                     </ul>
                     <div class='xn-nav-tabs clearfix'>
-                        <ul class="nav navbar-nav navbar-right J_menu" id="menu">
-                            <li><a href="http://www.petseurope.eu/en/dogs" id="dogs" data-toggle="#dogs-navigation">Dogs</a></li>
-                            <li><a href="http://www.petseurope.eu/en/cats" id="cats" data-toggle="#cats-navigation">Cats</a></li>
-                            <li><a href="http://www.petseurope.eu/en/small-pets" id="small-pets" data-toggle="#small-pets-navigation">Small pets</a></li>
+                        <ul class="nav navbar-nav navbar-right J_menu menu" id="menu">
+                            <li>
+                                <a href="http://www.petseurope.eu/en/dogs">
+                                    <img class='icon-pet' src="http://www.petseurope.eu/graphics/dogs.png" alt=""> Dogs
+                                </a>
+                                <!--<a href="http://www.petseurope.eu/en/dogs" class="tab ">
+                                    <img class='icon-pet' src="http://www.petseurope.eu/graphics/dogs.png" alt="">Dogs
+                                </a>-->
+                                <div class="submenu J_submenu">
+
+                                    <div class="content">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <ul>
+                                                    <li><a href="http://www.petseurope.eu/en/dogs/118/beds">Beds</a></li>
+                                                    <li class="has-submenu"><a href="http://www.petseurope.eu/en/dogs/119/bowls-feeders-dispensers">Bowls, Feeders &amp; Dispensers</a>
+                                                        <div class="menu-wrapper">
+                                                            <ul class="menu1" id="toys-submenu">
+                                                                <li><a href="http://www.petseurope.eu/en/dogs/119/bowls-feeders-dispensers/category=smart bowls">Smart Bowls</a></li>
+                                                                <li><a href="http://www.petseurope.eu/en/dogs/119/bowls-feeders-dispensers/category=plastic bowls">Plastic Bowls</a></li>
+                                                                <li><a href="http://www.petseurope.eu/en/dogs/119/bowls-feeders-dispensers/category=melamine bowls">Melamine Bowls</a></li>
+                                                                <li><a href="http://www.petseurope.eu/en/dogs/119/bowls-feeders-dispensers/category=drinking fountains">Drinking Fountains</a></li>
+                                                                <li><a href="http://www.petseurope.eu/en/dogs/119/bowls-feeders-dispensers/category=dispensers">Dispensers</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </li>
+                                                    <li class="has-submenu"><a href="http://www.petseurope.eu/en/dogs/1226/care-hygiene">Care &amp; Hygiene</a>
+                                                        <div class="menu-wrapper">
+                                                            <ul class="menu1" id="toys-submenu">
+                                                                <li><a href="http://www.petseurope.eu/en/dogs/1226/care-hygiene/category=waste bags">Waste Bags</a></li>
+                                                                <li><a href="http://www.petseurope.eu/en/dogs/1226/care-hygiene/category=training pads">Training Pads</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </li>
+                                                    <li><a href="http://www.petseurope.eu/en/dogs/1227/leads-collars-harnesses">Leads, Collars &amp; Harnesses</a></li>
+                                                    <li class="has-submenu"><a href="http://www.petseurope.eu/en/dogs/1228/travel-carriers">Travel &amp; Carriers</a>
+                                                        <div class="menu-wrapper">
+                                                            <ul class="menu1" id="toys-submenu">
+                                                                <li><a href="http://www.petseurope.eu/en/dogs/1228/travel-carriers/category=pet carriers">Pet carriers</a></li>
+                                                                <li><a href="http://www.petseurope.eu/en/dogs/1228/travel-carriers/category=crates &amp; travel bags">Crates &amp; Travel bags</a></li>
+                                                                <li><a href="http://www.petseurope.eu/en/dogs/1228/travel-carriers/category=dog houses">Dog Houses</a></li>
+                                                                <li><a href="http://www.petseurope.eu/en/dogs/1228/travel-carriers/category=fences">Fences</a></li>
+                                                                <li><a href="http://www.petseurope.eu/en/dogs/1228/travel-carriers/category=drinking bottles">Drinking Bottles</a></li>
+                                                                <li><a href="http://www.petseurope.eu/en/dogs/1228/travel-carriers/category=travel accessories">Travel accessories</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </li>
+                                                    <li class="has-submenu"><a href="http://www.petseurope.eu/en/dogs/111/toys">Toys</a>
+                                                        <div class="menu-wrapper">
+                                                            <ul class="menu1" id="toys-submenu">
+                                                                <li><a href="http://www.petseurope.eu/en/dogs/111/toys/category=toys">Toys</a></li>
+                                                                <li><a href="http://www.petseurope.eu/en/dogs/111/toys/category=treat dispensers">Treat dispensers</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+
+                                                        <img class="img-responsive" src="http://www.petseurope.eu/Cached/41/piece/173x230/PetsEurope_Navigation_dogs_800x600.png">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <img class="img-responsive" src="http://www.petseurope.eu/Cached/42/piece/173x230/PetsEurope_Navigation_dogs_800x600_1.png">
+
+                                                    </div>
+                                                </div>
+                                                <img class="img-responsive" srcset="http://www.petseurope.eu/Cached/43/piece/122x491/PetsEurope_Navigation_dogs_800x600_2.png">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="http://www.petseurope.eu/en/cats">
+                                    <img class='icon-pet' src="http://www.petseurope.eu/graphics/cats.png" alt=""> Cats
+                                </a>
+                                <div class="submenu J_submenu">
+                                    <div class="content">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <ul>
+                                                    <li><a href="http://www.petseurope.eu/en/cats/118/beds">Beds</a></li>
+                                                    <li class="has-submenu"><a href="http://www.petseurope.eu/en/cats/119/bowls-feeders-dispensers">Bowls, Feeders &amp; Dispensers</a>
+                                                        <div class="menu-wrapper">
+                                                            <ul class="menu1" id="toys-submenu">
+                                                                <li><a href="http://www.petseurope.eu/en/cats/119/bowls-feeders-dispensers/category=smart bowls">Smart Bowls</a></li>
+                                                                <li><a href="http://www.petseurope.eu/en/cats/119/bowls-feeders-dispensers/category=drinking fountains">Drinking Fountains</a></li>
+                                                                <li><a href="http://www.petseurope.eu/en/cats/119/bowls-feeders-dispensers/category=dispensers">Dispensers</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </li>
+                                                    <li class="has-submenu"><a href="http://www.petseurope.eu/en/cats/1225/cat-litter-boxes-trays">Cat Litter Boxes &amp; Trays</a>
+                                                        <div class="menu-wrapper">
+                                                            <ul class="menu1" id="toys-submenu">
+                                                                <li><a href="http://www.petseurope.eu/en/cats/1225/cat-litter-boxes-trays/category=cat litter boxes">Cat Litter Boxes</a></li>
+                                                                <li><a href="http://www.petseurope.eu/en/cats/1225/cat-litter-boxes-trays/category=cat litter trays">Cat Litter Trays</a></li>
+                                                                <li><a href="http://www.petseurope.eu/en/cats/1225/cat-litter-boxes-trays/category=cat litter mats">Cat Litter Mats</a></li>
+                                                                <li><a href="http://www.petseurope.eu/en/cats/1225/cat-litter-boxes-trays/category=cat litter scoops">Cat Litter Scoops</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </li>
+                                                    <li><a href="http://www.petseurope.eu/en/cats/1226/care-hygiene">Care &amp; Hygiene</a></li>
+                                                    <li><a href="http://www.petseurope.eu/en/cats/1230/cat-trees-scratchers">Cat Trees &amp; Scratchers</a></li>
+                                                    <li><a href="http://www.petseurope.eu/en/cats/111/toys">Toys</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <picture>
+                                                            <!--[if IE 9]><video style="display: none;"><![endif]-->
+                                                            <!--<source srcset="img/lg.webp" media="(min-width: 1200px)" type="image/webp">-->
+                                                            <source srcset="http://www.petseurope.eu/Cached/52/piece/173x230/PetsEurope_Navigation_CATS_800x600_3.png" media="(min-width:1200px)">
+                                                            <source srcset="http://www.petseurope.eu/Cached/52/piece/173x230/PetsEurope_Navigation_CATS_800x600_3.png" media="(min-width:992px)">
+                                                            <source srcset="http://www.petseurope.eu/Cached/52/piece/173x230/PetsEurope_Navigation_CATS_800x600_3.png" media="(min-width:480px)">
+                                                            <!--[if IE 9]> </video><![endif]--><img class="img-responsive" srcset="http://www.petseurope.eu/Cached/52/piece/173x230/PetsEurope_Navigation_CATS_800x600_3.png"></picture>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <picture>
+                                                            <!--[if IE 9]><video style="display: none;"><![endif]-->
+                                                            <!--<source srcset="img/lg.webp" media="(min-width: 1200px)" type="image/webp">-->
+                                                            <source srcset="http://www.petseurope.eu/Cached/50/piece/173x230/PetsEurope_Navigation_CATS_800x600_2.png" media="(min-width:1200px)">
+                                                            <source srcset="http://www.petseurope.eu/Cached/50/piece/173x230/PetsEurope_Navigation_CATS_800x600_2.png" media="(min-width:992px)">
+                                                            <source srcset="http://www.petseurope.eu/Cached/50/piece/173x230/PetsEurope_Navigation_CATS_800x600_2.png" media="(min-width:480px)">
+                                                            <!--[if IE 9]> </video><![endif]--><img class="img-responsive" srcset="http://www.petseurope.eu/Cached/50/piece/173x230/PetsEurope_Navigation_CATS_800x600_2.png"></picture>
+                                                    </div>
+                                                </div>
+                                                <picture>
+                                                    <!--[if IE 9]><video style="display: none;"><![endif]-->
+                                                    <!--<source srcset="img/lg.webp" media="(min-width: 1200px)" type="image/webp">-->
+                                                    <source srcset="http://www.petseurope.eu/Cached/49/piece/122x491/PetsEurope_Navigation_CATS_800x600_1.png" media="(min-width:1200px)">
+                                                    <source srcset="http://www.petseurope.eu/Cached/49/piece/122x491/PetsEurope_Navigation_CATS_800x600_1.png" media="(min-width:992px)">
+                                                    <source srcset="http://www.petseurope.eu/Cached/49/piece/122x491/PetsEurope_Navigation_CATS_800x600_1.png" media="(min-width:480px)">
+                                                    <!--[if IE 9]> </video><![endif]--><img class="img-responsive" srcset="http://www.petseurope.eu/Cached/49/piece/122x491/PetsEurope_Navigation_CATS_800x600_1.png"></picture>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="http://www.petseurope.eu/en/small-pets">
+                                    <img class='icon-pet' src="http://www.petseurope.eu/graphics/small-animals.png" alt=""> Small pets</a>
+                                <div class="submenu J_submenu">
+                                    <div class="content">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <ul>
+                                                    <li class="has-submenu"><a href="http://www.petseurope.eu/en/small-pets/1223/wooden-cages">Wooden Cages</a>
+                                                        <div class="menu-wrapper">
+                                                            <ul class="menu1" id="toys-submenu">
+                                                                <li><a href="http://www.petseurope.eu/en/small-pets/1223/wooden-cages/category=rabbit hutches">Rabbit Hutches</a></li>
+                                                                <li><a href="http://www.petseurope.eu/en/small-pets/1223/wooden-cages/category=chicken hutches">Chicken Hutches</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </li>
+                                                    <li><a href="http://www.petseurope.eu/en/small-pets/1224/small-animal-cages">Small Animal Cages</a></li>
+                                                    <li><a href="http://www.petseurope.eu/en/small-pets/1229/drinking-bottles-toys">Drinking Bottles &amp; Toys</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <picture>
+                                                            <!--[if IE 9]><video style="display: none;"><![endif]-->
+                                                            <!--<source srcset="img/lg.webp" media="(min-width: 1200px)" type="image/webp">-->
+                                                            <source srcset="http://www.petseurope.eu/Cached/89/piece/173x230/PetsEurope_Navigation_small_animals_800x600_2.png" media="(min-width:1200px)">
+                                                            <source srcset="http://www.petseurope.eu/Cached/89/piece/173x230/PetsEurope_Navigation_small_animals_800x600_2.png" media="(min-width:992px)">
+                                                            <source srcset="http://www.petseurope.eu/Cached/89/piece/173x230/PetsEurope_Navigation_small_animals_800x600_2.png" media="(min-width:480px)">
+                                                            <!--[if IE 9]> </video><![endif]--><img class="img-responsive" srcset="http://www.petseurope.eu/Cached/89/piece/173x230/PetsEurope_Navigation_small_animals_800x600_2.png"></picture>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <picture>
+                                                            <!--[if IE 9]><video style="display: none;"><![endif]-->
+                                                            <!--<source srcset="img/lg.webp" media="(min-width: 1200px)" type="image/webp">-->
+                                                            <source srcset="http://www.petseurope.eu/Cached/87/piece/173x230/PetsEurope_Navigation_small_animals_800x600.png" media="(min-width:1200px)">
+                                                            <source srcset="http://www.petseurope.eu/Cached/87/piece/173x230/PetsEurope_Navigation_small_animals_800x600.png" media="(min-width:992px)">
+                                                            <source srcset="http://www.petseurope.eu/Cached/87/piece/173x230/PetsEurope_Navigation_small_animals_800x600.png" media="(min-width:480px)">
+                                                            <!--[if IE 9]> </video><![endif]--><img class="img-responsive" srcset="http://www.petseurope.eu/Cached/87/piece/173x230/PetsEurope_Navigation_small_animals_800x600.png"></picture>
+                                                    </div>
+                                                </div>
+                                                <picture>
+                                                    <!--[if IE 9]><video style="display: none;"><![endif]-->
+                                                    <!--<source srcset="img/lg.webp" media="(min-width: 1200px)" type="image/webp">-->
+                                                    <source srcset="http://www.petseurope.eu/Cached/88/piece/122x491/PetsEurope_Navigation_small_animals_800x600_1.png" media="(min-width:1200px)">
+                                                    <source srcset="http://www.petseurope.eu/Cached/88/piece/122x491/PetsEurope_Navigation_small_animals_800x600_1.png" media="(min-width:992px)">
+                                                    <source srcset="http://www.petseurope.eu/Cached/88/piece/122x491/PetsEurope_Navigation_small_animals_800x600_1.png" media="(min-width:480px)">
+                                                    <!--[if IE 9]> </video><![endif]--><img class="img-responsive" srcset="http://www.petseurope.eu/Cached/88/piece/122x491/PetsEurope_Navigation_small_animals_800x600_1.png"></picture>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
                             <li><a href="http://www.petseurope.eu/en/novelties" title="View our novelties">Novelties</a></li>
                             <li><a href="http://www.petseurope.eu/en/brands/111/m-pets" title="View our M-Pets products">M-Pets</a></li>
                             <li><a href="http://www.petseurope.eu/en/brands/114/petphabet" title="View our Petphabet products">Petphabet</a></li>
                         </ul>
-                        <div class="submenu J_submenu" id="dogs-navigation"><a href="http://www.petseurope.eu/en/dogs" class="tab">Dogs</a>
-                            <div class="content">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <ul>
-                                            <li><a href="http://www.petseurope.eu/en/dogs/118/beds">Beds</a></li>
-                                            <li class="has-submenu"><a href="http://www.petseurope.eu/en/dogs/119/bowls-feeders-dispensers">Bowls, Feeders &amp; Dispensers</a>
-                                                <div class="menu-wrapper">
-                                                    <ul class="menu" id="toys-submenu">
-                                                        <li><a href="http://www.petseurope.eu/en/dogs/119/bowls-feeders-dispensers/category=smart bowls">Smart Bowls</a></li>
-                                                        <li><a href="http://www.petseurope.eu/en/dogs/119/bowls-feeders-dispensers/category=plastic bowls">Plastic Bowls</a></li>
-                                                        <li><a href="http://www.petseurope.eu/en/dogs/119/bowls-feeders-dispensers/category=melamine bowls">Melamine Bowls</a></li>
-                                                        <li><a href="http://www.petseurope.eu/en/dogs/119/bowls-feeders-dispensers/category=drinking fountains">Drinking Fountains</a></li>
-                                                        <li><a href="http://www.petseurope.eu/en/dogs/119/bowls-feeders-dispensers/category=dispensers">Dispensers</a></li>
-                                                    </ul>
-                                                </div>
-                                            </li>
-                                            <li class="has-submenu"><a href="http://www.petseurope.eu/en/dogs/1226/care-hygiene">Care &amp; Hygiene</a>
-                                                <div class="menu-wrapper">
-                                                    <ul class="menu" id="toys-submenu">
-                                                        <li><a href="http://www.petseurope.eu/en/dogs/1226/care-hygiene/category=waste bags">Waste Bags</a></li>
-                                                        <li><a href="http://www.petseurope.eu/en/dogs/1226/care-hygiene/category=training pads">Training Pads</a></li>
-                                                    </ul>
-                                                </div>
-                                            </li>
-                                            <li><a href="http://www.petseurope.eu/en/dogs/1227/leads-collars-harnesses">Leads, Collars &amp; Harnesses</a></li>
-                                            <li class="has-submenu"><a href="http://www.petseurope.eu/en/dogs/1228/travel-carriers">Travel &amp; Carriers</a>
-                                                <div class="menu-wrapper">
-                                                    <ul class="menu" id="toys-submenu">
-                                                        <li><a href="http://www.petseurope.eu/en/dogs/1228/travel-carriers/category=pet carriers">Pet carriers</a></li>
-                                                        <li><a href="http://www.petseurope.eu/en/dogs/1228/travel-carriers/category=crates &amp; travel bags">Crates &amp; Travel bags</a></li>
-                                                        <li><a href="http://www.petseurope.eu/en/dogs/1228/travel-carriers/category=dog houses">Dog Houses</a></li>
-                                                        <li><a href="http://www.petseurope.eu/en/dogs/1228/travel-carriers/category=fences">Fences</a></li>
-                                                        <li><a href="http://www.petseurope.eu/en/dogs/1228/travel-carriers/category=drinking bottles">Drinking Bottles</a></li>
-                                                        <li><a href="http://www.petseurope.eu/en/dogs/1228/travel-carriers/category=travel accessories">Travel accessories</a></li>
-                                                    </ul>
-                                                </div>
-                                            </li>
-                                            <li class="has-submenu"><a href="http://www.petseurope.eu/en/dogs/111/toys">Toys</a>
-                                                <div class="menu-wrapper">
-                                                    <ul class="menu" id="toys-submenu">
-                                                        <li><a href="http://www.petseurope.eu/en/dogs/111/toys/category=toys">Toys</a></li>
-                                                        <li><a href="http://www.petseurope.eu/en/dogs/111/toys/category=treat dispensers">Treat dispensers</a></li>
-                                                    </ul>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <div class="row">
-                                            <div class="col-md-6">
 
-                                                <img class="img-responsive" src="http://www.petseurope.eu/Cached/41/piece/173x230/PetsEurope_Navigation_dogs_800x600.png">
-                                            </div>
-                                            <div class="col-md-6">
-                                                <img class="img-responsive" src="http://www.petseurope.eu/Cached/42/piece/173x230/PetsEurope_Navigation_dogs_800x600_1.png">
 
-                                            </div>
-                                        </div>
-                                        <img class="img-responsive" srcset="http://www.petseurope.eu/Cached/43/piece/122x491/PetsEurope_Navigation_dogs_800x600_2.png">
 
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="submenu J_submenu" id="cats-navigation"><a href="http://www.petseurope.eu/en/cats" class="tab">Cats</a>
-                            <div class="content">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <ul>
-                                            <li><a href="http://www.petseurope.eu/en/cats/118/beds">Beds</a></li>
-                                            <li class="has-submenu"><a href="http://www.petseurope.eu/en/cats/119/bowls-feeders-dispensers">Bowls, Feeders &amp; Dispensers</a>
-                                                <div class="menu-wrapper">
-                                                    <ul class="menu" id="toys-submenu">
-                                                        <li><a href="http://www.petseurope.eu/en/cats/119/bowls-feeders-dispensers/category=smart bowls">Smart Bowls</a></li>
-                                                        <li><a href="http://www.petseurope.eu/en/cats/119/bowls-feeders-dispensers/category=drinking fountains">Drinking Fountains</a></li>
-                                                        <li><a href="http://www.petseurope.eu/en/cats/119/bowls-feeders-dispensers/category=dispensers">Dispensers</a></li>
-                                                    </ul>
-                                                </div>
-                                            </li>
-                                            <li class="has-submenu"><a href="http://www.petseurope.eu/en/cats/1225/cat-litter-boxes-trays">Cat Litter Boxes &amp; Trays</a>
-                                                <div class="menu-wrapper">
-                                                    <ul class="menu" id="toys-submenu">
-                                                        <li><a href="http://www.petseurope.eu/en/cats/1225/cat-litter-boxes-trays/category=cat litter boxes">Cat Litter Boxes</a></li>
-                                                        <li><a href="http://www.petseurope.eu/en/cats/1225/cat-litter-boxes-trays/category=cat litter trays">Cat Litter Trays</a></li>
-                                                        <li><a href="http://www.petseurope.eu/en/cats/1225/cat-litter-boxes-trays/category=cat litter mats">Cat Litter Mats</a></li>
-                                                        <li><a href="http://www.petseurope.eu/en/cats/1225/cat-litter-boxes-trays/category=cat litter scoops">Cat Litter Scoops</a></li>
-                                                    </ul>
-                                                </div>
-                                            </li>
-                                            <li><a href="http://www.petseurope.eu/en/cats/1226/care-hygiene">Care &amp; Hygiene</a></li>
-                                            <li><a href="http://www.petseurope.eu/en/cats/1230/cat-trees-scratchers">Cat Trees &amp; Scratchers</a></li>
-                                            <li><a href="http://www.petseurope.eu/en/cats/111/toys">Toys</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <picture>
-                                                    <!--[if IE 9]><video style="display: none;"><![endif]-->
-                                                    <!--<source srcset="img/lg.webp" media="(min-width: 1200px)" type="image/webp">-->
-                                                    <source srcset="http://www.petseurope.eu/Cached/52/piece/173x230/PetsEurope_Navigation_CATS_800x600_3.png" media="(min-width:1200px)">
-                                                    <source srcset="http://www.petseurope.eu/Cached/52/piece/173x230/PetsEurope_Navigation_CATS_800x600_3.png" media="(min-width:992px)">
-                                                    <source srcset="http://www.petseurope.eu/Cached/52/piece/173x230/PetsEurope_Navigation_CATS_800x600_3.png" media="(min-width:480px)">
-                                                    <!--[if IE 9]> </video><![endif]--><img class="img-responsive" srcset="http://www.petseurope.eu/Cached/52/piece/173x230/PetsEurope_Navigation_CATS_800x600_3.png"></picture>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <picture>
-                                                    <!--[if IE 9]><video style="display: none;"><![endif]-->
-                                                    <!--<source srcset="img/lg.webp" media="(min-width: 1200px)" type="image/webp">-->
-                                                    <source srcset="http://www.petseurope.eu/Cached/50/piece/173x230/PetsEurope_Navigation_CATS_800x600_2.png" media="(min-width:1200px)">
-                                                    <source srcset="http://www.petseurope.eu/Cached/50/piece/173x230/PetsEurope_Navigation_CATS_800x600_2.png" media="(min-width:992px)">
-                                                    <source srcset="http://www.petseurope.eu/Cached/50/piece/173x230/PetsEurope_Navigation_CATS_800x600_2.png" media="(min-width:480px)">
-                                                    <!--[if IE 9]> </video><![endif]--><img class="img-responsive" srcset="http://www.petseurope.eu/Cached/50/piece/173x230/PetsEurope_Navigation_CATS_800x600_2.png"></picture>
-                                            </div>
-                                        </div>
-                                        <picture>
-                                            <!--[if IE 9]><video style="display: none;"><![endif]-->
-                                            <!--<source srcset="img/lg.webp" media="(min-width: 1200px)" type="image/webp">-->
-                                            <source srcset="http://www.petseurope.eu/Cached/49/piece/122x491/PetsEurope_Navigation_CATS_800x600_1.png" media="(min-width:1200px)">
-                                            <source srcset="http://www.petseurope.eu/Cached/49/piece/122x491/PetsEurope_Navigation_CATS_800x600_1.png" media="(min-width:992px)">
-                                            <source srcset="http://www.petseurope.eu/Cached/49/piece/122x491/PetsEurope_Navigation_CATS_800x600_1.png" media="(min-width:480px)">
-                                            <!--[if IE 9]> </video><![endif]--><img class="img-responsive" srcset="http://www.petseurope.eu/Cached/49/piece/122x491/PetsEurope_Navigation_CATS_800x600_1.png"></picture>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="submenu J_submenu" id="small-pets-navigation"><a href="http://www.petseurope.eu/en/small-pets" class="tab">Small pets</a>
-                            <div class="content">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <ul>
-                                            <li class="has-submenu"><a href="http://www.petseurope.eu/en/small-pets/1223/wooden-cages">Wooden Cages</a>
-                                                <div class="menu-wrapper">
-                                                    <ul class="menu" id="toys-submenu">
-                                                        <li><a href="http://www.petseurope.eu/en/small-pets/1223/wooden-cages/category=rabbit hutches">Rabbit Hutches</a></li>
-                                                        <li><a href="http://www.petseurope.eu/en/small-pets/1223/wooden-cages/category=chicken hutches">Chicken Hutches</a></li>
-                                                    </ul>
-                                                </div>
-                                            </li>
-                                            <li><a href="http://www.petseurope.eu/en/small-pets/1224/small-animal-cages">Small Animal Cages</a></li>
-                                            <li><a href="http://www.petseurope.eu/en/small-pets/1229/drinking-bottles-toys">Drinking Bottles &amp; Toys</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <picture>
-                                                    <!--[if IE 9]><video style="display: none;"><![endif]-->
-                                                    <!--<source srcset="img/lg.webp" media="(min-width: 1200px)" type="image/webp">-->
-                                                    <source srcset="http://www.petseurope.eu/Cached/89/piece/173x230/PetsEurope_Navigation_small_animals_800x600_2.png" media="(min-width:1200px)">
-                                                    <source srcset="http://www.petseurope.eu/Cached/89/piece/173x230/PetsEurope_Navigation_small_animals_800x600_2.png" media="(min-width:992px)">
-                                                    <source srcset="http://www.petseurope.eu/Cached/89/piece/173x230/PetsEurope_Navigation_small_animals_800x600_2.png" media="(min-width:480px)">
-                                                    <!--[if IE 9]> </video><![endif]--><img class="img-responsive" srcset="http://www.petseurope.eu/Cached/89/piece/173x230/PetsEurope_Navigation_small_animals_800x600_2.png"></picture>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <picture>
-                                                    <!--[if IE 9]><video style="display: none;"><![endif]-->
-                                                    <!--<source srcset="img/lg.webp" media="(min-width: 1200px)" type="image/webp">-->
-                                                    <source srcset="http://www.petseurope.eu/Cached/87/piece/173x230/PetsEurope_Navigation_small_animals_800x600.png" media="(min-width:1200px)">
-                                                    <source srcset="http://www.petseurope.eu/Cached/87/piece/173x230/PetsEurope_Navigation_small_animals_800x600.png" media="(min-width:992px)">
-                                                    <source srcset="http://www.petseurope.eu/Cached/87/piece/173x230/PetsEurope_Navigation_small_animals_800x600.png" media="(min-width:480px)">
-                                                    <!--[if IE 9]> </video><![endif]--><img class="img-responsive" srcset="http://www.petseurope.eu/Cached/87/piece/173x230/PetsEurope_Navigation_small_animals_800x600.png"></picture>
-                                            </div>
-                                        </div>
-                                        <picture>
-                                            <!--[if IE 9]><video style="display: none;"><![endif]-->
-                                            <!--<source srcset="img/lg.webp" media="(min-width: 1200px)" type="image/webp">-->
-                                            <source srcset="http://www.petseurope.eu/Cached/88/piece/122x491/PetsEurope_Navigation_small_animals_800x600_1.png" media="(min-width:1200px)">
-                                            <source srcset="http://www.petseurope.eu/Cached/88/piece/122x491/PetsEurope_Navigation_small_animals_800x600_1.png" media="(min-width:992px)">
-                                            <source srcset="http://www.petseurope.eu/Cached/88/piece/122x491/PetsEurope_Navigation_small_animals_800x600_1.png" media="(min-width:480px)">
-                                            <!--[if IE 9]> </video><![endif]--><img class="img-responsive" srcset="http://www.petseurope.eu/Cached/88/piece/122x491/PetsEurope_Navigation_small_animals_800x600_1.png"></picture>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -225,19 +244,18 @@
     <script>
         $(function() {
             $('.J_menu li').hover(function() {
-                $('.J_submenu').hide();
-                var id = $(this).find('a').attr('data-toggle');
-                if (id) {
-                    $(id).show().siblings().find('.J_submenu').hide();
+                var submenu = $(this).find('.J_submenu');
+                if (submenu.length) {
+                    $(this).addClass('active');
+                    submenu.show();
                     console.log(2);
                 }
+            }, function() {
+                $(this).find('.J_submenu').hide();
+                $(this).removeClass('active');
             });
 
-            $('.J_submenu').hover(function() {
-                $(this).show();
-            }, function() {
-                $(this).hide();
-            });
+
 
             $('.J_submenu .has-submenu').hover(function() {
                 console.log(22);

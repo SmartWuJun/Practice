@@ -5,7 +5,36 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <title>二维码扫描</title>
+    <meta http-equiv="Content-Type" content="text/html">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="Expires" CONTENT="0">
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Cache-Control" CONTENT="no-store">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+
+
+
+
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="description" content="ERP 应用">
+    <meta name="author" content="犀牛网络">
+    <link href="https://cdn.xiniunet.com/img/favicon.ico" rel="Shortcut Icon" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://pos-ult-dev.xiniunet.com/pos/dist/styles/global.min.css?v=2.22.5"></link>
+    <link rel="stylesheet" href="https://pos-ult-dev.xiniunet.com/pos/dist/styles/local.min.css?v=2.22.5"></link>
+    <link rel="stylesheet" href="https://cdn.xiniunet.com/font/xn-icon-common/2.0.6/iconfont.min.css">
+    <link rel="stylesheet" href="https://cdn.xiniunet.com/js/xn-top/1.0.2/style.min.css">
+    <link rel="stylesheet" type="text/css" href="https://pos-ult-dev.xiniunet.com/pos/vendor/colors/jquery.minicolors.css?v=2.22.5"></link>
+    <script type="text/javascript" src="https://pos-ult-dev.xiniunet.com/pos/dist/scripts/base.min.js?v=2.22.5"></script>
+    <script type="text/javascript" src="https://pos-ult-dev.xiniunet.com/pos/vendor/colors/jquery.minicolors.min.js?v=2.22.5"></script>
     <style>
+        body {
+            overflow-x: hidden;
+        }
+        
         .demo {
             width: 300px;
             height: 300px;
@@ -14,11 +43,19 @@
         }
         
         .demo2 {
-            width: 1000px;
+            width: 100px;
         }
         
         .demo:hover {
-            width: 900px;
+            width: 90px;
+        }
+        
+        .dialog {
+            width: 500px;
+            height: 300px;
+            position: absolute;
+            right: -500px;
+            background: #ccc;
         }
     </style>
 </head>
@@ -27,6 +64,9 @@
     <a>Find your products</a>
     <div class="demo demo2">
 
+
+    </div>
+    <div class="dialog">
 
     </div>
     <!--<a href="" style='width:0;height:0;overflow:hidden;' id="J_jump"></a>-->
@@ -47,6 +87,11 @@
 
         // var a = $('#J_jump').attr('href', 'https://www.baidu.com');
         // a.click();
+
+        $(function() {
+
+            alert($('body').width());
+        });
     </script>
 </body>
 

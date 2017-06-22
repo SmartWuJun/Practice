@@ -1,0 +1,563 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+ :focus {
+    outline: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.header {
+    font-family: "proxima-nova", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    line-height: 1.428571429;
+    color: #857977;
+    background-color: #fff;
+}
+
+header.header .container {
+    padding: 0px;
+    background-color: white;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+
+.navbar-static-top {
+    padding: 0 45px;
+    background-color: rgba(31, 182, 187, 0.1);
+    height: 55px;
+    border-width: 0 0 1px;
+}
+
+.navbar-static-top.navbar-default {
+    background-color: white;
+    border-color: #eeeeee;
+}
+
+.navbar-default .navbar-collapse {
+    padding-left: 0;
+    padding-right: 0;
+    display: block !important;
+    height: auto !important;
+    padding-bottom: 0;
+    overflow: visible !important;
+    width: auto;
+    border-top: 0;
+    box-shadow: none;
+}
+
+header.header .navbar-bottom .navbar-right {
+    margin: 0px;
+    font-size: 12px;
+    font-size: 1.2rem;
+    float: right !important;
+}
+
+header.header .navbar-bottom .navbar-right .header-cart {
+    margin-top: 70px;
+}
+
+header.header .navbar-bottom .navbar-right a.btn {
+    color: white !important;
+    position: relative;
+    padding: 9px 15px;
+}
+
+.btn {
+    font-size: 15px;
+    text-shadow: 0px 2px 2px rgba(150, 150, 150, 0.5);
+    box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.3), 0px 5px 5px 0px rgba(133, 121, 119, 0.25), inset 0px 1px 1px 0px rgba(255, 255, 255, 0.8);
+    letter-spacing: 0.065em;
+    transition: all 0.5s cubic-bezier(0.455, 0, 0.515, 1);
+    border-radius: 12px;
+    text-transform: uppercase;
+    font-weight: 800;
+    height: 37px;
+    color: white;
+}
+
+.btn.btn-primary {
+    box-shadow: 0px 1px 1px 0px #093721, 0px 7px 7px 0px rgba(133, 121, 119, 0.15), inset 0px 1px 1px 0px rgba(255, 255, 255, 0);
+    background: #1fba6f;
+    border-color: transparent;
+}
+
+.badge {
+    display: inline-block;
+    min-width: 10px;
+    padding: 3px 7px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff;
+    line-height: 1;
+    vertical-align: middle;
+    white-space: nowrap;
+    text-align: center;
+    background-color: #eeeeee;
+    border-radius: 10px;
+}
+
+.none {
+    display: none !important;
+}
+
+header.header .header-cart .badge {
+    font-size: 13px;
+    position: absolute;
+    border-radius: 8px;
+    right: -10px;
+    top: -10px;
+    padding: 5px 10px;
+    height: 24px;
+    background-color: #188b8f;
+    color: white;
+}
+
+.nav {
+    margin-bottom: 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+.nav>li {
+    position: relative;
+    display: block;
+}
+
+.navbar-nav>li>a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    line-height: 18px;
+}
+
+header.header .navbar-bottom .menu {
+    width: 675px;
+    /*border-radius: 15px;
+    border: 1px solid #d2d2d2;*/
+    height: 36px;
+    margin-right: 20px;
+    margin-top: 70px;
+    position: relative;
+}
+
+header.header ul {
+    font-size: 12px;
+}
+
+header.header .navbar-bottom .menu>li {
+    width: 16.6666667%;
+    float: left;
+    text-align: center;
+    border-right: 1px solid #d2d2d2;
+    border-top: 1px solid #d2d2d2;
+    border-bottom: 1px solid #d2d2d2;
+    position: static;
+}
+
+header.header .navbar-bottom .menu a {
+    /*transition: all 0.5s cubic-bezier(0.455, 0, 0.515, 1);*/
+    font-size: 14px;
+    padding: 8px;
+}
+
+header.header .navbar-bottom .menu>li:first-child>a {
+    border-top-left-radius: 15px;
+}
+
+header.header ul li a {
+    color: #a59e88;
+}
+
+header.header .navbar-bottom .menu>li:first-child {
+    /*border: 0;*/
+    border-left: 1px solid #d2d2d2;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+header.header .navbar-bottom .menu>li:last-child {
+    /*border: 0;*/
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+header.header .navbar-bottom .menu>li:last-child a {
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+header.header .navbar-bottom .menu>li.active {
+    color: #857977;
+    border-bottom: 0;
+    background: #fff;
+}
+
+header.header .navbar-bottom .menu>li.active:first-child {
+    border-bottom-left-radius: 0;
+}
+
+
+/*header.header .navbar-bottom .menu>li.active>a {
+    display: none;
+}*/
+
+header.header .navbar-bottom .menu>li.active>a.tab {
+    display: none;
+}
+
+header.header .submenu .content .menu-wrapper {
+    z-index: -4000;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 260px;
+    border-right: 1px solid #d2d2d2;
+    height: 100%;
+    background-color: white;
+}
+
+header.header .submenu .content .menu-wrapper ul.menu {
+    width: 258px;
+    z-index: 4000;
+    border-right: none;
+    bottom: auto;
+}
+
+header.header .submenu .content ul {
+    padding-left: 0px;
+    list-style-type: none;
+    margin-bottom: 0px;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    z-index: 5000;
+    background-color: white;
+    width: 259px;
+    margin: 0;
+}
+
+header.header ul {
+    font-size: 12px;
+}
+
+header.header .submenu .content ul li {
+    border-bottom: 1px solid #d2d2d2;
+    background-color: white;
+}
+
+.nav>li>a {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+}
+
+.icon-cart {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+}
+
+.xn-nav-tabs {
+    position: relative;
+    display: inline-block;
+    float: right;
+    border: 0;
+}
+
+header.header .submenu {
+    position: absolute;
+    width: 800px;
+    z-index: 2000;
+    display: none;
+    top: 34px;
+    left: 0px;
+}
+
+header.header .submenu .content ul:after {
+    display: block;
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 259px;
+    height: 100%;
+    background-color: white;
+    z-index: -1000;
+}
+
+header.header .submenu#dogs-navigation .tab {
+    border-top-left-radius: 15px;
+}
+
+header.header .submenu .tab {
+    font-size: 14px;
+    overflow: hidden;
+    position: absolute;
+    text-align: center;
+    display: inline-block;
+    top: -35px;
+    z-index: 3000;
+    border: 1px solid #d2d2d2;
+    padding: 7px 16px;
+    padding-right: 14px;
+    padding-bottom: 8px;
+    border-bottom: none;
+    cursor: pointer;
+    background-color: white;
+    width: 113px;
+    color: #857977;
+    text-decoration: none;
+}
+
+
+/*header.header .submenu#dogs-navigation .tab:before {
+    content: url(http://www.petseurope.eu/graphics/dogs.png);
+    left: 5px;
+    position: absolute;
+    display: block;
+    bottom: -5px;
+}*/
+
+
+/*header.header .navbar-bottom #menu a#dogs:before {
+    content: url(http://www.petseurope.eu/graphics/dogs.png);
+    position: absolute;
+    left: 5px;
+    bottom: -5px;
+}*/
+
+header.header .navbar-bottom .menu .icon-pet {
+    width: 42px;
+    height: 36px;
+    position: absolute;
+    left: 0px;
+    bottom: 0;
+}
+
+header.header .navbar-bottom .menu .tab {
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100%;
+    display: none
+}
+
+header.header #navbar-bottom .menu a#cats:before {
+    content: url(http://www.petseurope.eu/graphics/cats.png);
+    position: absolute;
+    left: 10px;
+    bottom: -5px;
+}
+
+header.header .submenu#cats-navigation .tab:before {
+    content: url(http://www.petseurope.eu/graphics/cats.png);
+    position: absolute;
+    display: block;
+    left: 10px;
+}
+
+header.header #navbar-bottom #menu a#small-pets:before {
+    content: url(http://www.petseurope.eu/graphics/small-animals.png);
+    position: absolute;
+    left: 0px;
+    bottom: -5px;
+}
+
+header.header .submenu#small-pets-navigation .tab:before {
+    content: url(http://www.petseurope.eu/graphics/small-animals.png);
+    position: absolute;
+    display: block;
+    left: 0px;
+    bottom: -5px;
+}
+
+header.header .submenu .content {
+    overflow: hidden;
+    background: white;
+    border-radius: 15px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border: 1px solid #d2d2d2;
+}
+
+header.header .submenu .content .row {
+    display: table;
+}
+
+.row {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.row:before,
+.row:after {
+    content: " ";
+    display: table;
+}
+
+.row:after {
+    clear: both;
+}
+
+header.header .submenu .content .row {
+    display: table;
+}
+
+header.header .submenu .content>.row>div:first-child {
+    border-right: 1px solid #d2d2d2;
+    padding-right: 0px !important;
+}
+
+header.header .submenu .content>.row>div {
+    display: table-cell;
+    background-color: white;
+    vertical-align: top;
+    position: relative;
+    float: none;
+    height: 100%;
+}
+
+header.header .submenu .content ul {
+    padding-left: 0px;
+    list-style-type: none;
+    margin-bottom: 0px;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    z-index: 5000;
+    background-color: white;
+    width: 259px;
+    font-size: 12px;
+}
+
+header.header .submenu .content ul li a {
+    transition: background-color, color 0.5s cubic-bezier(0.455, 0, 0.515, 1);
+    display: block;
+    padding: 15px;
+}
+
+header.header .submenu .content .has-submenu {
+    position: static;
+}
+
+header.header .submenu .content ul li {
+    border-bottom: 1px solid #d2d2d2;
+    background-color: white;
+}
+
+header.header .submenu .content .col-md-8 {
+    padding-top: 10px;
+    padding-right: 45px;
+}
+
+.col-md-4 {
+    width: 33.3333333333%;
+}
+
+.col-md-6 {
+    width: 50%;
+}
+
+.col-md-8 {
+    width: 66.6666666667%
+}
+
+[class*=col-md-] {
+    min-height: 1px;
+    padding-left: 15px;
+    float: left;
+    padding-right: 15px;
+}
+
+.navbar-header {
+    float: left;
+}
+
+header.header .navbar-brand {
+    margin-top: 10px;
+    width: 234px;
+    height: 85px;
+    padding-left: 0px;
+    margin-bottom: 35px;
+}
+
+.navbar-brand {
+    float: left;
+    padding: 16px 15px;
+    font-size: 17px;
+    line-height: 18px;
+}
+
+header.header .submenu .content ul li a:hover {
+    background-color: whitesmoke;
+    text-decoration: none;
+}
+
+header.header .submenu .content img {
+    margin: 20px 0px;
+}
+
+header.header .submenu#cats-navigation .tab {
+    left: 113px;
+}
+
+header.header .submenu#small-pets-navigation .tab {
+    padding: 7px 5px;
+    padding-bottom: 8px;
+    left: 225px;
+}
+
+header.header .navbar-bottom .menu>li>a:not(.tab):hover {
+    box-shadow: 0px 5px 5px 0px rgba(133, 121, 119, 0.25);
+    background: #1fb6bb;
+    color: white;
+}
+
+header.header .submenu .content .has-submenu>a {
+    background-image: url(http://www.petseurope.eu/graphics/arrow-right-green.png);
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+}
+
+header.header .container .navbar-bottom .xn-nav-tabs .menu>li.active>a {
+    background: #fff !important;
+    color: #857977;
+    box-shadow: none;
+    top: 0;
+    z-index: 2001;
+}

@@ -25,29 +25,36 @@
                     </ol>
                 </div>
                 <div id="products">
-                    <div data-template="tpl_webshop_overview_sorting" data-effect="replaceWith">
+                    <div>
                         <div id="sort-options" class="clearfix">
                             <div class="filter">View:
-                                <div class="switch switch-view"><input type="radio" class="switch-input autofilter" name="View" value="grid" id="GridView" checked>
-                                    <label for="GridView" class="switch-label switch-label-off">
+                                <div class="switch switch-view">
+                                    <input type="radio" class="switch-input autofilter" name="View" value="grid" id="GridView" checked>
+                                    <label for="GridView" class="switch-label switch-label-off J_switch active" data-id='#grid'>
                                     <img src="" alt="">
                                     Grid View
                                     </label>
-                                    <input type="radio" class="switch-input autofilter" name="View" value="list" id="ListView"><label for="ListView" class="switch-label switch-label-on">
+                                    <input type="radio" class="switch-input autofilter" name="View" value="list" id="ListView">
+                                    <label for="ListView" class="switch-label switch-label-on  J_switch" data-id='#list'>
                                         <img src="" alt="">
                                         List View
                                         </label>
                                     <span class="switch-selection"></span>
                                 </div>
-                                <div class="dropdown">Sort by<button class="btn dropdown-toggle" type="button" id="sorting" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><a href="">Sort by</a><span class="caret"></span></button>
-                                    <ul class="dropdown-menu" aria-labelledby="sorting">
+                                <div class="dropdown">
+                                    Sort by
+                                    <button class="btn J_dropdown " type="button" id="sorting" dropdown-toggle='sorting'>
+                                        <a href="">Sort by</a>
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" dropdown-menu="sorting">
                                         <li data-id="new" id="SortNew" data-name="Sorting" data-value="new" class="autofilter"><a href="">Latest</a></li>
                                         <li data-id="price-asc" id="SortPriceAsc" data-name="Sorting" data-value="price-asc" class="autofilter"><a href="">Price ascending</a></li>
                                         <li data-id="price-desc" id="SortPriceDesc" data-name="Sorting" data-value="price-desc" class="autofilter"><a href="">Price descending</a></li>
                                         <li data-id="popularity" id="SortPopularity" data-name="Sorting" data-value="popularity" class="autofilter"><a href="">Popularity</a></li>
                                     </ul>
                                 </div>
-                                <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="number" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><a href="">24</a><span class="caret"></span></button>
+                                <div class="dropdown"><button class="btn btn-default dropdown-toggle J_dropdown" type="button" id="number" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><a href="">24</a><span class="caret"></span></button>
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
                                         <li data-id="24" id="Limit24" data-name="Limit" data-value="24" class="autofilter default"><a href="">24</a></li>
                                         <li data-id="48" id="Limit48" data-name="Limit" data-value="48" class="autofilter"><a href="">48</a></li>
@@ -56,14 +63,15 @@
                                     </ul>Products per page</div><span class="text-right info">Showing 24 of 27 products</span></div>
                         </div>
                     </div>
-                    <div data-template="tpl_webshop_overview_products" data-effect="replaceWith">
-                        <div data-template="tpl_webshop_overview_products_grid" data-effect="replaceWith">
+                    <div>
+                        <div>
                             <div class="row" id="products">
-                                <div id="grid" class="products-wrapper">
+
+                                <!--Grid-->
+                                <div id="grid" class="products-wrapper ">
                                     <!-- Products -->
                                     <div class="col-md-3 col-sm-6 no-padding">
-                                        <a href="http://www.petseurope.eu/en/dogs/1246/care-hygiene/waste-bags/dog-waste-bag-green-grass-scented-300-pcs" onclick="trackProductClick(http://www.petseurope.eu/en/dogs/1246/care-hygiene/waste-bags/dog-waste-bag-green-grass-scented-300-pcs); return !ga.loaded;"
-                                            title="" class="thumbnail product">
+                                        <a href="http://www.petseurope.eu/en/dogs/1246/care-hygiene/waste-bags/dog-waste-bag-green-grass-scented-300-pcs" title="" class="thumbnail product">
                                             <div class="labels-wrapper"></div>
                                             <div class="img-container">
                                                 <img class="img-responsive" src="http://www.petseurope.eu/Cached/108/resize/550x580/10100103-DOG-Waste-Bags-300-680x680.png">
@@ -77,8 +85,7 @@
                                     </div>
                                     <!-- Products -->
                                     <div class="col-md-3 col-sm-6 no-padding">
-                                        <a href="http://www.petseurope.eu/en/dogs/1247/care-hygiene/waste-bags/dog-waste-bag-with-handles-green-grass-scented-120-pcs" onclick="trackProductClick(http://www.petseurope.eu/en/dogs/1247/care-hygiene/waste-bags/dog-waste-bag-with-handles-green-grass-scented-120-pcs); return !ga.loaded;"
-                                            title="" class="thumbnail product">
+                                        <a href="http://www.petseurope.eu/en/dogs/1247/care-hygiene/waste-bags/dog-waste-bag-with-handles-green-grass-scented-120-pcs" title="" class="thumbnail product">
                                             <div class="labels-wrapper"></div>
                                             <div class="img-container">
                                                 <img class="img-responsive" src="http://www.petseurope.eu/Cached/108/resize/550x580/10100103-DOG-Waste-Bags-300-680x680.png">
@@ -92,8 +99,7 @@
                                     </div>
                                     <!-- Products -->
                                     <div class="col-md-3 col-sm-6 no-padding">
-                                        <a href="http://www.petseurope.eu/en/dogs/1251/care-hygiene/waste-bags/dog-waste-bag-dispenser-black" onclick="trackProductClick(http://www.petseurope.eu/en/dogs/1251/care-hygiene/waste-bags/dog-waste-bag-dispenser-black); return !ga.loaded;" title=""
-                                            class="thumbnail product">
+                                        <a href="http://www.petseurope.eu/en/dogs/1251/care-hygiene/waste-bags/dog-waste-bag-dispenser-black" class="thumbnail product">
                                             <div class="labels-wrapper"></div>
                                             <div class="img-container">
                                                 <img class="img-responsive" src="http://www.petseurope.eu/Cached/108/resize/550x580/10100103-DOG-Waste-Bags-300-680x680.png">
@@ -107,8 +113,7 @@
                                     </div>
                                     <!-- Products -->
                                     <div class="col-md-3 col-sm-6 no-padding">
-                                        <a href="http://www.petseurope.eu/en/dogs/1252/care-hygiene/waste-bags/dog-waste-bag-dispenser-multicolor" onclick="trackProductClick(http://www.petseurope.eu/en/dogs/1252/care-hygiene/waste-bags/dog-waste-bag-dispenser-multicolor); return !ga.loaded;"
-                                            title="" class="thumbnail product">
+                                        <a href="http://www.petseurope.eu/en/dogs/1252/care-hygiene/waste-bags/dog-waste-bag-dispenser-multicolor" title="" class="thumbnail product">
                                             <div class="labels-wrapper"></div>
                                             <div class="img-container">
                                                 <img class="img-responsive" src="http://www.petseurope.eu/Cached/108/resize/550x580/10100103-DOG-Waste-Bags-300-680x680.png">
@@ -122,8 +127,7 @@
                                     </div>
                                     <!-- Products -->
                                     <div class="col-md-3 col-sm-6 no-padding">
-                                        <a href="http://www.petseurope.eu/en/dogs/1260/care-hygiene/waste-bags/dog-waste-bags-blacks-4-rolls" onclick="trackProductClick(http://www.petseurope.eu/en/dogs/1260/care-hygiene/waste-bags/dog-waste-bags-blacks-4-rolls); return !ga.loaded;" title=""
-                                            class="thumbnail product">
+                                        <a href="http://www.petseurope.eu/en/dogs/1260/care-hygiene/waste-bags/dog-waste-bags-blacks-4-rolls" class="thumbnail product">
                                             <div class="labels-wrapper"></div>
                                             <div class="img-container">
                                                 <img class="img-responsive" src="http://www.petseurope.eu/Cached/108/resize/550x580/10100103-DOG-Waste-Bags-300-680x680.png">
@@ -137,8 +141,7 @@
                                     </div>
                                     <!-- Products -->
                                     <div class="col-md-3 col-sm-6 no-padding">
-                                        <a href="http://www.petseurope.eu/en/dogs/1255/care-hygiene/waste-bags/dog-waste-bags-lavender-4-rolls" onclick="trackProductClick(http://www.petseurope.eu/en/dogs/1255/care-hygiene/waste-bags/dog-waste-bags-lavender-4-rolls); return !ga.loaded;" title=""
-                                            class="thumbnail product">
+                                        <a href="http://www.petseurope.eu/en/dogs/1255/care-hygiene/waste-bags/dog-waste-bags-lavender-4-rolls" class="thumbnail product">
                                             <div class="labels-wrapper"></div>
                                             <div class="img-container">
                                                 <img class="img-responsive" src="http://www.petseurope.eu/Cached/108/resize/550x580/10100103-DOG-Waste-Bags-300-680x680.png">
@@ -152,7 +155,7 @@
                                     </div>
                                     <!-- Products -->
                                     <div class="col-md-3 col-sm-6 no-padding">
-                                        <a href="http://www.petseurope.eu/en/dogs/1253/care-hygiene/waste-bags/dog-waste-bags-lemon-4-rolls" onclick="trackProductClick(http://www.petseurope.eu/en/dogs/1253/care-hygiene/waste-bags/dog-waste-bags-lemon-4-rolls); return !ga.loaded;" title="" class="thumbnail product">
+                                        <a href="http://www.petseurope.eu/en/dogs/1253/care-hygiene/waste-bags/dog-waste-bags-lemon-4-rolls" class="thumbnail product">
                                             <div class="labels-wrapper"></div>
                                             <div class="img-container">
                                                 <img class="img-responsive" src="http://www.petseurope.eu/Cached/108/resize/550x580/10100103-DOG-Waste-Bags-300-680x680.png">
@@ -166,7 +169,7 @@
                                     </div>
                                     <!-- Products -->
                                     <div class="col-md-3 col-sm-6 no-padding">
-                                        <a href="http://www.petseurope.eu/en/dogs/1254/care-hygiene/waste-bags/dog-waste-bags-rose-4-rolls" onclick="trackProductClick(http://www.petseurope.eu/en/dogs/1254/care-hygiene/waste-bags/dog-waste-bags-rose-4-rolls); return !ga.loaded;" title="" class="thumbnail product">
+                                        <a href="http://www.petseurope.eu/en/dogs/1254/care-hygiene/waste-bags/dog-waste-bags-rose-4-rolls" class="thumbnail product">
                                             <div class="labels-wrapper"></div>
                                             <div class="img-container">
                                                 <img class="img-responsive" src="http://www.petseurope.eu/Cached/108/resize/550x580/10100103-DOG-Waste-Bags-300-680x680.png">
@@ -180,7 +183,7 @@
                                     </div>
                                     <!-- Products -->
                                     <div class="col-md-3 col-sm-6 no-padding">
-                                        <a href="http://www.petseurope.eu/en/dogs/1261/care-hygiene/waste-bags/dog-waste-bags-black-8-rolls" onclick="trackProductClick(http://www.petseurope.eu/en/dogs/1261/care-hygiene/waste-bags/dog-waste-bags-black-8-rolls); return !ga.loaded;" title="" class="thumbnail product">
+                                        <a href="http://www.petseurope.eu/en/dogs/1261/care-hygiene/waste-bags/dog-waste-bags-black-8-rolls" title="" class="thumbnail product">
                                             <div class="labels-wrapper"></div>
                                             <div class="img-container">
                                                 <img class="img-responsive" src="http://www.petseurope.eu/Cached/108/resize/550x580/10100103-DOG-Waste-Bags-300-680x680.png">
@@ -194,8 +197,7 @@
                                     </div>
                                     <!-- Products -->
                                     <div class="col-md-3 col-sm-6 no-padding">
-                                        <a href="http://www.petseurope.eu/en/dogs/1259/care-hygiene/waste-bags/dog-waste-bags-lavender-8-rolls" onclick="trackProductClick(http://www.petseurope.eu/en/dogs/1259/care-hygiene/waste-bags/dog-waste-bags-lavender-8-rolls); return !ga.loaded;" title=""
-                                            class="thumbnail product">
+                                        <a href="http://www.petseurope.eu/en/dogs/1259/care-hygiene/waste-bags/dog-waste-bags-lavender-8-rolls" title="" class="thumbnail product">
                                             <div class="labels-wrapper"></div>
                                             <div class="img-container">
                                                 <img class="img-responsive" src="http://www.petseurope.eu/Cached/108/resize/550x580/10100103-DOG-Waste-Bags-300-680x680.png">
@@ -209,7 +211,7 @@
                                     </div>
                                     <!-- Products -->
                                     <div class="col-md-3 col-sm-6 no-padding">
-                                        <a href="http://www.petseurope.eu/en/dogs/1257/care-hygiene/waste-bags/dog-waste-bags-lemon-8-rolls" onclick="trackProductClick(http://www.petseurope.eu/en/dogs/1257/care-hygiene/waste-bags/dog-waste-bags-lemon-8-rolls); return !ga.loaded;" title="" class="thumbnail product">
+                                        <a href="http://www.petseurope.eu/en/dogs/1257/care-hygiene/waste-bags/dog-waste-bags-lemon-8-rolls" title="" class="thumbnail product">
                                             <div class="labels-wrapper"></div>
                                             <div class="img-container">
                                                 <img class="img-responsive" src="http://www.petseurope.eu/Cached/108/resize/550x580/10100103-DOG-Waste-Bags-300-680x680.png">
@@ -223,7 +225,7 @@
                                     </div>
                                     <!-- Products -->
                                     <div class="col-md-3 col-sm-6 no-padding">
-                                        <a href="http://www.petseurope.eu/en/dogs/1258/care-hygiene/waste-bags/dog-waste-bags-rose-8-rolls" onclick="trackProductClick(http://www.petseurope.eu/en/dogs/1258/care-hygiene/waste-bags/dog-waste-bags-rose-8-rolls); return !ga.loaded;" title="" class="thumbnail product">
+                                        <a href="http://www.petseurope.eu/en/dogs/1258/care-hygiene/waste-bags/dog-waste-bags-rose-8-rolls" title="" class="thumbnail product">
                                             <div class="labels-wrapper"></div>
                                             <div class="img-container">
                                                 <img class="img-responsive" src="http://www.petseurope.eu/Cached/108/resize/550x580/10100103-DOG-Waste-Bags-300-680x680.png">
@@ -237,8 +239,7 @@
                                     </div>
                                     <!-- Products -->
                                     <div class="col-md-3 col-sm-6 no-padding">
-                                        <a href="http://www.petseurope.eu/en/dogs/1262/care-hygiene/waste-bags/dog-waste-bag-sausage-6-rolls" onclick="trackProductClick(http://www.petseurope.eu/en/dogs/1262/care-hygiene/waste-bags/dog-waste-bag-sausage-6-rolls); return !ga.loaded;" title=""
-                                            class="thumbnail product">
+                                        <a href="http://www.petseurope.eu/en/dogs/1262/care-hygiene/waste-bags/dog-waste-bag-sausage-6-rolls" title="" class="thumbnail product">
                                             <div class="labels-wrapper"></div>
                                             <div class="img-container">
                                                 <img class="img-responsive" src="http://www.petseurope.eu/Cached/108/resize/550x580/10100103-DOG-Waste-Bags-300-680x680.png">
@@ -252,7 +253,7 @@
                                     </div>
                                     <!-- Products -->
                                     <div class="col-md-3 col-sm-6 no-padding">
-                                        <a href="http://www.petseurope.eu/en/dogs/1263/care-hygiene/waste-bags/biodegradable-waste-bags" onclick="trackProductClick(http://www.petseurope.eu/en/dogs/1263/care-hygiene/waste-bags/biodegradable-waste-bags); return !ga.loaded;" title="" class="thumbnail product">
+                                        <a href="http://www.petseurope.eu/en/dogs/1263/care-hygiene/waste-bags/biodegradable-waste-bags" title="" class="thumbnail product">
                                             <div class="labels-wrapper"></div>
                                             <div class="img-container">
                                                 <img class="img-responsive" src="http://www.petseurope.eu/Cached/108/resize/550x580/10100103-DOG-Waste-Bags-300-680x680.png">
@@ -266,8 +267,7 @@
                                     </div>
                                     <!-- Products -->
                                     <div class="col-md-3 col-sm-6 no-padding">
-                                        <a href="http://www.petseurope.eu/en/dogs/1266/care-hygiene/waste-bags/lavender-scented-waste-bag-10-rolls" onclick="trackProductClick(http://www.petseurope.eu/en/dogs/1266/care-hygiene/waste-bags/lavender-scented-waste-bag-10-rolls); return !ga.loaded;"
-                                            title="" class="thumbnail product">
+                                        <a href="http://www.petseurope.eu/en/dogs/1266/care-hygiene/waste-bags/lavender-scented-waste-bag-10-rolls" title="" class="thumbnail product">
                                             <div class="labels-wrapper"></div>
                                             <div class="img-container">
                                                 <img class="img-responsive" src="http://www.petseurope.eu/Cached/108/resize/550x580/10100103-DOG-Waste-Bags-300-680x680.png">
@@ -281,7 +281,7 @@
                                     </div>
                                     <!-- Products -->
                                     <div class="col-md-3 col-sm-6 no-padding">
-                                        <a href="http://www.petseurope.eu/en/dogs/1267/care-hygiene/waste-bags/unscented-waste-bag-10-rolls" onclick="trackProductClick(http://www.petseurope.eu/en/dogs/1267/care-hygiene/waste-bags/unscented-waste-bag-10-rolls); return !ga.loaded;" title="" class="thumbnail product">
+                                        <a href="http://www.petseurope.eu/en/dogs/1267/care-hygiene/waste-bags/unscented-waste-bag-10-rolls" title="" class="thumbnail product">
                                             <div class="labels-wrapper"></div>
                                             <div class="img-container">
                                                 <img class="img-responsive" src="http://www.petseurope.eu/Cached/108/resize/550x580/10100103-DOG-Waste-Bags-300-680x680.png">
@@ -295,8 +295,7 @@
                                     </div>
                                     <!-- Products -->
                                     <div class="col-md-3 col-sm-6 no-padding">
-                                        <a href="http://www.petseurope.eu/en/dogs/1268/care-hygiene/waste-bags/lavender-scented-waste-bag-20-rolls" onclick="trackProductClick(http://www.petseurope.eu/en/dogs/1268/care-hygiene/waste-bags/lavender-scented-waste-bag-20-rolls); return !ga.loaded;"
-                                            title="" class="thumbnail product">
+                                        <a href="http://www.petseurope.eu/en/dogs/1268/care-hygiene/waste-bags/lavender-scented-waste-bag-20-rolls" title="" class="thumbnail product">
                                             <div class="labels-wrapper"></div>
                                             <div class="img-container">
                                                 <img class="img-responsive" src="http://www.petseurope.eu/Cached/108/resize/550x580/10100103-DOG-Waste-Bags-300-680x680.png">
@@ -310,7 +309,7 @@
                                     </div>
                                     <!-- Products -->
                                     <div class="col-md-3 col-sm-6 no-padding">
-                                        <a href="http://www.petseurope.eu/en/dogs/1269/care-hygiene/waste-bags/unscented-waste-bag-20-rolls" onclick="trackProductClick(http://www.petseurope.eu/en/dogs/1269/care-hygiene/waste-bags/unscented-waste-bag-20-rolls); return !ga.loaded;" title="" class="thumbnail product">
+                                        <a href="http://www.petseurope.eu/en/dogs/1269/care-hygiene/waste-bags/unscented-waste-bag-20-rolls" title="" class="thumbnail product">
                                             <div class="labels-wrapper"></div>
                                             <div class="img-container">
                                                 <img class="img-responsive" src="http://www.petseurope.eu/Cached/108/resize/550x580/10100103-DOG-Waste-Bags-300-680x680.png">
@@ -324,7 +323,7 @@
                                     </div>
                                     <!-- Products -->
                                     <div class="col-md-3 col-sm-6 no-padding">
-                                        <a href="http://www.petseurope.eu/en/dogs/1298/care-hygiene/training-pads/puppy-pad-holder-silicone" onclick="trackProductClick(http://www.petseurope.eu/en/dogs/1298/care-hygiene/training-pads/puppy-pad-holder-silicone); return !ga.loaded;" title="" class="thumbnail product">
+                                        <a href="http://www.petseurope.eu/en/dogs/1298/care-hygiene/training-pads/puppy-pad-holder-silicone" title="" class="thumbnail product">
                                             <div class="labels-wrapper"></div>
                                             <div class="img-container">
                                                 <img class="img-responsive" src="http://www.petseurope.eu/Cached/108/resize/550x580/10100103-DOG-Waste-Bags-300-680x680.png"> </div>
@@ -337,7 +336,7 @@
                                     </div>
                                     <!-- Products -->
                                     <div class="col-md-3 col-sm-6 no-padding">
-                                        <a href="http://www.petseurope.eu/en/dogs/1299/care-hygiene/training-pads/classic-pad-holder-grey" onclick="trackProductClick(http://www.petseurope.eu/en/dogs/1299/care-hygiene/training-pads/classic-pad-holder-grey); return !ga.loaded;" title="" class="thumbnail product">
+                                        <a href="http://www.petseurope.eu/en/dogs/1299/care-hygiene/training-pads/classic-pad-holder-grey" title="" class="thumbnail product">
                                             <div class="labels-wrapper"></div>
                                             <div class="img-container">
                                                 <img class="img-responsive" src="http://www.petseurope.eu/Cached/108/resize/550x580/10100103-DOG-Waste-Bags-300-680x680.png"> </div>
@@ -350,8 +349,7 @@
                                     </div>
                                     <!-- Products -->
                                     <div class="col-md-3 col-sm-6 no-padding">
-                                        <a href="http://www.petseurope.eu/en/dogs/13100/care-hygiene/training-pads/puppy-training-pads--size-45-x-60-cm" onclick="trackProductClick(http://www.petseurope.eu/en/dogs/13100/care-hygiene/training-pads/puppy-training-pads--size-45-x-60-cm); return !ga.loaded;"
-                                            title="" class="thumbnail product">
+                                        <a href="http://www.petseurope.eu/en/dogs/13100/care-hygiene/training-pads/puppy-training-pads--size-45-x-60-cm" title="" class="thumbnail product">
                                             <div class="labels-wrapper"><span class="label label-danger bg-info ">new</span></div>
                                             <div class="img-container">
                                                 <img class="img-responsive" src="http://www.petseurope.eu/Cached/108/resize/550x580/10100103-DOG-Waste-Bags-300-680x680.png"> </div>
@@ -364,8 +362,7 @@
                                     </div>
                                     <!-- Products -->
                                     <div class="col-md-3 col-sm-6 no-padding">
-                                        <a href="http://www.petseurope.eu/en/dogs/13101/care-hygiene/training-pads/puppy-training-pads-size-60-x-60-cm" onclick="trackProductClick(http://www.petseurope.eu/en/dogs/13101/care-hygiene/training-pads/puppy-training-pads-size-60-x-60-cm); return !ga.loaded;"
-                                            title="" class="thumbnail product">
+                                        <a href="http://www.petseurope.eu/en/dogs/13101/care-hygiene/training-pads/puppy-training-pads-size-60-x-60-cm" title="" class="thumbnail product">
                                             <div class="labels-wrapper"><span class="label label-danger bg-info ">new</span></div>
                                             <div class="img-container">
                                                 <img class="img-responsive" src="http://www.petseurope.eu/Cached/108/resize/550x580/10100103-DOG-Waste-Bags-300-680x680.png"> </div>
@@ -378,8 +375,7 @@
                                     </div>
                                     <!-- Products -->
                                     <div class="col-md-3 col-sm-6 no-padding">
-                                        <a href="http://www.petseurope.eu/en/dogs/13102/care-hygiene/training-pads/puppy-training-pads-size-90-x-60-cm" onclick="trackProductClick(http://www.petseurope.eu/en/dogs/13102/care-hygiene/training-pads/puppy-training-pads-size-90-x-60-cm); return !ga.loaded;"
-                                            title="" class="thumbnail product">
+                                        <a href="http://www.petseurope.eu/en/dogs/13102/care-hygiene/training-pads/puppy-training-pads-size-90-x-60-cm" title="" class="thumbnail product">
                                             <div class="labels-wrapper"><span class="label label-danger bg-info ">new</span></div>
                                             <div class="img-container">
                                                 <img class="img-responsive" src="http://www.petseurope.eu/Cached/108/resize/550x580/10100103-DOG-Waste-Bags-300-680x680.png"> </div>
@@ -392,8 +388,7 @@
                                     </div>
                                     <!-- Products -->
                                     <div class="col-md-3 col-sm-6 no-padding">
-                                        <a href="http://www.petseurope.eu/en/dogs/13103/care-hygiene/training-pads/carbon-dog-training-pads-25" onclick="trackProductClick(http://www.petseurope.eu/en/dogs/13103/care-hygiene/training-pads/carbon-dog-training-pads-25); return !ga.loaded;" title=""
-                                            class="thumbnail product">
+                                        <a href="http://www.petseurope.eu/en/dogs/13103/care-hygiene/training-pads/carbon-dog-training-pads-25" title="" class="thumbnail product">
                                             <div class="labels-wrapper"></div>
                                             <div class="img-container">
                                                 <img class="img-responsive" src="http://www.petseurope.eu/Cached/108/resize/550x580/10100103-DOG-Waste-Bags-300-680x680.png"> </div>
@@ -405,6 +400,386 @@
                                         </a>
                                     </div>
                                 </div>
+                                <!--Grid-->
+                                <!--List-->
+                                <div id="list" class="products-wrapper none">
+                                    <div class="list-product">
+                                        <div class="col-sm-4">
+                                            <a href="http://www.petseurope.eu/en/dogs/1246/care-hygiene/waste-bags/dog-waste-bag-green-grass-scented-300-pcs" class="img-container">
+
+                                                <img class="img-responsive" src="http://www.petseurope.eu/Cached/108/resize/550x580/10100103-DOG-Waste-Bags-300-680x680.png">
+                                            </a>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <div class="row">
+                                                <form action="http://www.petseurope.eu/en/ajax/webshop_detail.php" method="post" data-ajax="http://www.petseurope.eu/en/ajax/webshop_detail.php" data-templateid="46" data-method="post" data-action="add">
+                                                    <div class="col-md-7 no-padding-right">
+                                                        <a href="#" class="brand">M-PETS</a><a href="http://www.petseurope.eu/en/dogs/1246/care-hygiene/waste-bags/dog-waste-bag-green-grass-scented-300-pcs" class="article-title">Dog Waste Bag - Green Grass Scented 300 pcs</a>
+                                                        <table border="0">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Size</th>
+                                                                    <th>Dimensions</th>
+                                                                    <th>Price</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr data-unit="Container">
+                                                                    <td>
+                                                                        <div class="checkbox"><input type="checkbox" name="WebshopProductVariantDetailID[]" id="Detail135" value="135" checked="" data-webshopproductvariantdetailid="135" data-size="S"><label for="Detail135">S</label></div>
+                                                                    </td>
+                                                                    <td>36.00 x 18.00 x 49.00</td>
+                                                                    <td><strong>$2.21</strong></td>
+                                                                </tr>
+                                                                <tr data-unit="Container">
+                                                                    <td>
+                                                                        <div class="checkbox"><input type="checkbox" name="WebshopProductVariantDetailID[]" id="Detail136" value="136" data-webshopproductvariantdetailid="136" data-size="M"><label for="Detail136">M</label></div>
+                                                                    </td>
+                                                                    <td>41.00 x 23.00 x 61.00</td>
+                                                                    <td><strong>$3.29</strong></td>
+                                                                </tr>
+                                                                <tr data-unit="Container">
+                                                                    <td>
+                                                                        <div class="checkbox"><input type="checkbox" name="WebshopProductVariantDetailID[]" id="Detail137" value="137" data-webshopproductvariantdetailid="137" data-size="L"><label for="Detail137">L</label></div>
+                                                                    </td>
+                                                                    <td>57.00 x 25.00 x 80.00</td>
+                                                                    <td><strong>$5.15</strong></td>
+                                                                </tr>
+                                                                <tr data-unit="Container">
+                                                                    <td>
+                                                                        <div class="checkbox"><input type="checkbox" name="WebshopProductVariantDetailID[]" id="Detail138" value="138" data-webshopproductvariantdetailid="138" data-size="XL"><label for="Detail138">XL</label></div>
+                                                                    </td>
+                                                                    <td>72.00 x 30.00 x 100.00</td>
+                                                                    <td><strong>$8.00</strong></td>
+                                                                </tr>
+                                                                <tr data-unit="Container">
+                                                                    <td>
+                                                                        <div class="checkbox"><input type="checkbox" name="WebshopProductVariantDetailID[]" id="Detail139" value="139" data-webshopproductvariantdetailid="139" data-size="XXL"><label for="Detail139">XXL</label></div>
+                                                                    </td>
+                                                                    <td>83.00 x 36.00 x 120.00</td>
+                                                                    <td><strong>$12.00</strong></td>
+                                                                </tr>
+                                                                <tr data-unit="Box" style="display:none">
+                                                                    <td>
+                                                                        <div class="radio"><input type="radio" name="WebshopProductVariantDetailID[]" id="Detail140" value="140" data-webshopproductvariantdetailid="140"><label for="Detail140">S</label></div>
+                                                                    </td>
+                                                                    <td>36.00 x 18.00 x 49.00</td>
+                                                                    <td><strong>$2.63</strong></td>
+                                                                </tr>
+                                                                <tr data-unit="Box" style="display:none">
+                                                                    <td>
+                                                                        <div class="radio"><input type="radio" name="WebshopProductVariantDetailID[]" id="Detail141" value="141" data-webshopproductvariantdetailid="141"><label for="Detail141">M</label></div>
+                                                                    </td>
+                                                                    <td>41.00 x 23.00 x 61.00</td>
+                                                                    <td><strong>$3.91</strong></td>
+                                                                </tr>
+                                                                <tr data-unit="Box" style="display:none">
+                                                                    <td>
+                                                                        <div class="radio"><input type="radio" name="WebshopProductVariantDetailID[]" id="Detail142" value="142" data-webshopproductvariantdetailid="142"><label for="Detail142">L</label></div>
+                                                                    </td>
+                                                                    <td>57.00 x 25.00 x 80.00</td>
+                                                                    <td><strong>$6.11</strong></td>
+                                                                </tr>
+                                                                <tr data-unit="Box" style="display:none">
+                                                                    <td>
+                                                                        <div class="radio"><input type="radio" name="WebshopProductVariantDetailID[]" id="Detail143" value="143" data-webshopproductvariantdetailid="143"><label for="Detail143">XL</label></div>
+                                                                    </td>
+                                                                    <td>72.00 x 30.00 x 100.00</td>
+                                                                    <td><strong>$9.50</strong></td>
+                                                                </tr>
+                                                                <tr data-unit="Box" style="display:none">
+                                                                    <td>
+                                                                        <div class="radio"><input type="radio" name="WebshopProductVariantDetailID[]" id="Detail144" value="144" data-webshopproductvariantdetailid="144"><label for="Detail144">XXL</label></div>
+                                                                    </td>
+                                                                    <td>83.00 x 36.00 x 120.00</td>
+                                                                    <td><strong>$14.25</strong></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    <div class="col-md-5">
+                                                        <div class="total">
+                                                            <p class="title"><strong>Price starts from</strong></p><span class="price">$2.27</span></div>
+                                                        <div class="add">
+                                                            <div data-template="tpl_webshop_overview_list_detail" data-templateid="46" data-effect="replaceWith">
+                                                                <fieldset>
+                                                                    <div><label for="Unit329">Unit: </label>
+                                                                        <div class="custom-select form-control"><select name="Unit" id="Unit329" class="unit-changer" data-webshopproductvariantdetailid="329"><option value="Container">Container</option><option value="Box">Master carton</option></select></div>
+                                                                    </div>
+                                                                    <div><label for="Amount">Quantity: </label><input type="number" class="form-control" name="Amount" id="Amount" value="1" step="1"></div><input type="hidden" name="WebshopProductVariantID"
+                                                                        value="46"><input type="submit" class="btn btn-primary" value="Add to Cart"></fieldset>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                    <div class="combined-container-wrapper col-md-12 hidden">
+                                                        <p class="h4">Combined container:</p>
+                                                        <table id="container-bar-46" width="100%" cellspacing="0" cellpadding="0" border="0" class="JColResizer">
+                                                            <tbody>
+                                                                <tr></tr>
+                                                            </tbody>
+                                                        </table>
+                                                        <fieldset class="form-horizontal">
+                                                            <div class="row selected-container-sizes-46"></div>
+                                                        </fieldset>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="list-product">
+                                        <div class="col-sm-4">
+                                            <a href="http://www.petseurope.eu/en/dogs/1246/care-hygiene/waste-bags/dog-waste-bag-green-grass-scented-300-pcs" class="img-container">
+
+                                                <img class="img-responsive" src="http://www.petseurope.eu/Cached/108/resize/550x580/10100103-DOG-Waste-Bags-300-680x680.png">
+                                            </a>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <div class="row">
+                                                <form action="http://www.petseurope.eu/en/ajax/webshop_detail.php" method="post" data-ajax="http://www.petseurope.eu/en/ajax/webshop_detail.php" data-templateid="47" data-method="post" data-action="add">
+                                                    <div class="col-md-7 no-padding-right">
+                                                        <a href="#" class="brand">M-PETS</a><a href="http://www.petseurope.eu/en/dogs/1246/care-hygiene/waste-bags/dog-waste-bag-green-grass-scented-300-pcs" class="article-title">Dog Waste Bag - Green Grass Scented 300 pcs</a>
+                                                        <table border="0">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Size</th>
+                                                                    <th>Dimensions</th>
+                                                                    <th>Price</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr data-unit="Container">
+                                                                    <td>
+                                                                        <div class="checkbox"><input type="checkbox" name="WebshopProductVariantDetailID[]" id="Detail135" value="135" checked="" data-webshopproductvariantdetailid="135" data-size="S"><label for="Detail135">S</label></div>
+                                                                    </td>
+                                                                    <td>36.00 x 18.00 x 49.00</td>
+                                                                    <td><strong>$2.21</strong></td>
+                                                                </tr>
+                                                                <tr data-unit="Container">
+                                                                    <td>
+                                                                        <div class="checkbox"><input type="checkbox" name="WebshopProductVariantDetailID[]" id="Detail136" value="136" data-webshopproductvariantdetailid="136" data-size="M"><label for="Detail136">M</label></div>
+                                                                    </td>
+                                                                    <td>41.00 x 23.00 x 61.00</td>
+                                                                    <td><strong>$3.29</strong></td>
+                                                                </tr>
+                                                                <tr data-unit="Container">
+                                                                    <td>
+                                                                        <div class="checkbox"><input type="checkbox" name="WebshopProductVariantDetailID[]" id="Detail137" value="137" data-webshopproductvariantdetailid="137" data-size="L"><label for="Detail137">L</label></div>
+                                                                    </td>
+                                                                    <td>57.00 x 25.00 x 80.00</td>
+                                                                    <td><strong>$5.15</strong></td>
+                                                                </tr>
+                                                                <tr data-unit="Container">
+                                                                    <td>
+                                                                        <div class="checkbox"><input type="checkbox" name="WebshopProductVariantDetailID[]" id="Detail138" value="138" data-webshopproductvariantdetailid="138" data-size="XL"><label for="Detail138">XL</label></div>
+                                                                    </td>
+                                                                    <td>72.00 x 30.00 x 100.00</td>
+                                                                    <td><strong>$8.00</strong></td>
+                                                                </tr>
+                                                                <tr data-unit="Container">
+                                                                    <td>
+                                                                        <div class="checkbox"><input type="checkbox" name="WebshopProductVariantDetailID[]" id="Detail139" value="139" data-webshopproductvariantdetailid="139" data-size="XXL"><label for="Detail139">XXL</label></div>
+                                                                    </td>
+                                                                    <td>83.00 x 36.00 x 120.00</td>
+                                                                    <td><strong>$12.00</strong></td>
+                                                                </tr>
+                                                                <tr data-unit="Box" style="display:none">
+                                                                    <td>
+                                                                        <div class="radio"><input type="radio" name="WebshopProductVariantDetailID[]" id="Detail140" value="140" data-webshopproductvariantdetailid="140"><label for="Detail140">S</label></div>
+                                                                    </td>
+                                                                    <td>36.00 x 18.00 x 49.00</td>
+                                                                    <td><strong>$2.63</strong></td>
+                                                                </tr>
+                                                                <tr data-unit="Box" style="display:none">
+                                                                    <td>
+                                                                        <div class="radio"><input type="radio" name="WebshopProductVariantDetailID[]" id="Detail141" value="141" data-webshopproductvariantdetailid="141"><label for="Detail141">M</label></div>
+                                                                    </td>
+                                                                    <td>41.00 x 23.00 x 61.00</td>
+                                                                    <td><strong>$3.91</strong></td>
+                                                                </tr>
+                                                                <tr data-unit="Box" style="display:none">
+                                                                    <td>
+                                                                        <div class="radio"><input type="radio" name="WebshopProductVariantDetailID[]" id="Detail142" value="142" data-webshopproductvariantdetailid="142"><label for="Detail142">L</label></div>
+                                                                    </td>
+                                                                    <td>57.00 x 25.00 x 80.00</td>
+                                                                    <td><strong>$6.11</strong></td>
+                                                                </tr>
+                                                                <tr data-unit="Box" style="display:none">
+                                                                    <td>
+                                                                        <div class="radio"><input type="radio" name="WebshopProductVariantDetailID[]" id="Detail143" value="143" data-webshopproductvariantdetailid="143"><label for="Detail143">XL</label></div>
+                                                                    </td>
+                                                                    <td>72.00 x 30.00 x 100.00</td>
+                                                                    <td><strong>$9.50</strong></td>
+                                                                </tr>
+                                                                <tr data-unit="Box" style="display:none">
+                                                                    <td>
+                                                                        <div class="radio"><input type="radio" name="WebshopProductVariantDetailID[]" id="Detail144" value="144" data-webshopproductvariantdetailid="144"><label for="Detail144">XXL</label></div>
+                                                                    </td>
+                                                                    <td>83.00 x 36.00 x 120.00</td>
+                                                                    <td><strong>$14.25</strong></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    <div class="col-md-5">
+                                                        <div class="total">
+                                                            <p class="title"><strong>Price starts from</strong></p><span class="price">$2.27</span></div>
+                                                        <div class="add">
+                                                            <div data-template="tpl_webshop_overview_list_detail" data-templateid="46" data-effect="replaceWith">
+                                                                <fieldset>
+                                                                    <div><label for="Unit329">Unit: </label>
+                                                                        <div class="custom-select form-control"><select name="Unit" id="Unit329" class="unit-changer" data-webshopproductvariantdetailid="329"><option value="Container">Container</option><option value="Box">Master carton</option></select></div>
+                                                                    </div>
+                                                                    <div><label for="Amount">Quantity: </label><input type="number" class="form-control" name="Amount" id="Amount" value="1" step="1"></div><input type="hidden" name="WebshopProductVariantID"
+                                                                        value="46"><input type="submit" class="btn btn-primary" value="Add to Cart"></fieldset>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                    <div class="combined-container-wrapper col-md-12 hidden">
+                                                        <p class="h4">Combined container:</p>
+                                                        <table id="container-bar-46" width="100%" cellspacing="0" cellpadding="0" border="0" class="JColResizer">
+                                                            <tbody>
+                                                                <tr></tr>
+                                                            </tbody>
+                                                        </table>
+                                                        <fieldset class="form-horizontal">
+                                                            <div class="row selected-container-sizes-46"></div>
+                                                        </fieldset>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="list-product">
+                                        <div class="col-sm-4">
+                                            <a href="http://www.petseurope.eu/en/dogs/1246/care-hygiene/waste-bags/dog-waste-bag-green-grass-scented-300-pcs" class="img-container">
+
+                                                <img class="img-responsive" src="http://www.petseurope.eu/Cached/108/resize/550x580/10100103-DOG-Waste-Bags-300-680x680.png">
+                                            </a>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <div class="row">
+                                                <form action="http://www.petseurope.eu/en/ajax/webshop_detail.php" method="post" data-ajax="http://www.petseurope.eu/en/ajax/webshop_detail.php" data-templateid="48" data-method="post" data-action="add">
+                                                    <div class="col-md-7 no-padding-right">
+                                                        <a href="#" class="brand">M-PETS</a><a href="http://www.petseurope.eu/en/dogs/1246/care-hygiene/waste-bags/dog-waste-bag-green-grass-scented-300-pcs" class="article-title">Dog Waste Bag - Green Grass Scented 300 pcs</a>
+                                                        <table border="0">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Size</th>
+                                                                    <th>Dimensions</th>
+                                                                    <th>Price</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr data-unit="Container">
+                                                                    <td>
+                                                                        <div class="checkbox"><input type="checkbox" name="WebshopProductVariantDetailID[]" id="Detail135" value="135" checked="" data-webshopproductvariantdetailid="135" data-size="S"><label for="Detail135">S</label></div>
+                                                                    </td>
+                                                                    <td>36.00 x 18.00 x 49.00</td>
+                                                                    <td><strong>$2.21</strong></td>
+                                                                </tr>
+                                                                <tr data-unit="Container">
+                                                                    <td>
+                                                                        <div class="checkbox"><input type="checkbox" name="WebshopProductVariantDetailID[]" id="Detail136" value="136" data-webshopproductvariantdetailid="136" data-size="M"><label for="Detail136">M</label></div>
+                                                                    </td>
+                                                                    <td>41.00 x 23.00 x 61.00</td>
+                                                                    <td><strong>$3.29</strong></td>
+                                                                </tr>
+                                                                <tr data-unit="Container">
+                                                                    <td>
+                                                                        <div class="checkbox"><input type="checkbox" name="WebshopProductVariantDetailID[]" id="Detail137" value="137" data-webshopproductvariantdetailid="137" data-size="L"><label for="Detail137">L</label></div>
+                                                                    </td>
+                                                                    <td>57.00 x 25.00 x 80.00</td>
+                                                                    <td><strong>$5.15</strong></td>
+                                                                </tr>
+                                                                <tr data-unit="Container">
+                                                                    <td>
+                                                                        <div class="checkbox"><input type="checkbox" name="WebshopProductVariantDetailID[]" id="Detail138" value="138" data-webshopproductvariantdetailid="138" data-size="XL"><label for="Detail138">XL</label></div>
+                                                                    </td>
+                                                                    <td>72.00 x 30.00 x 100.00</td>
+                                                                    <td><strong>$8.00</strong></td>
+                                                                </tr>
+                                                                <tr data-unit="Container">
+                                                                    <td>
+                                                                        <div class="checkbox"><input type="checkbox" name="WebshopProductVariantDetailID[]" id="Detail139" value="139" data-webshopproductvariantdetailid="139" data-size="XXL"><label for="Detail139">XXL</label></div>
+                                                                    </td>
+                                                                    <td>83.00 x 36.00 x 120.00</td>
+                                                                    <td><strong>$12.00</strong></td>
+                                                                </tr>
+                                                                <tr data-unit="Box" style="display:none">
+                                                                    <td>
+                                                                        <div class="radio"><input type="radio" name="WebshopProductVariantDetailID[]" id="Detail140" value="140" data-webshopproductvariantdetailid="140"><label for="Detail140">S</label></div>
+                                                                    </td>
+                                                                    <td>36.00 x 18.00 x 49.00</td>
+                                                                    <td><strong>$2.63</strong></td>
+                                                                </tr>
+                                                                <tr data-unit="Box" style="display:none">
+                                                                    <td>
+                                                                        <div class="radio"><input type="radio" name="WebshopProductVariantDetailID[]" id="Detail141" value="141" data-webshopproductvariantdetailid="141"><label for="Detail141">M</label></div>
+                                                                    </td>
+                                                                    <td>41.00 x 23.00 x 61.00</td>
+                                                                    <td><strong>$3.91</strong></td>
+                                                                </tr>
+                                                                <tr data-unit="Box" style="display:none">
+                                                                    <td>
+                                                                        <div class="radio"><input type="radio" name="WebshopProductVariantDetailID[]" id="Detail142" value="142" data-webshopproductvariantdetailid="142"><label for="Detail142">L</label></div>
+                                                                    </td>
+                                                                    <td>57.00 x 25.00 x 80.00</td>
+                                                                    <td><strong>$6.11</strong></td>
+                                                                </tr>
+                                                                <tr data-unit="Box" style="display:none">
+                                                                    <td>
+                                                                        <div class="radio"><input type="radio" name="WebshopProductVariantDetailID[]" id="Detail143" value="143" data-webshopproductvariantdetailid="143"><label for="Detail143">XL</label></div>
+                                                                    </td>
+                                                                    <td>72.00 x 30.00 x 100.00</td>
+                                                                    <td><strong>$9.50</strong></td>
+                                                                </tr>
+                                                                <tr data-unit="Box" style="display:none">
+                                                                    <td>
+                                                                        <div class="radio"><input type="radio" name="WebshopProductVariantDetailID[]" id="Detail144" value="144" data-webshopproductvariantdetailid="144"><label for="Detail144">XXL</label></div>
+                                                                    </td>
+                                                                    <td>83.00 x 36.00 x 120.00</td>
+                                                                    <td><strong>$14.25</strong></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    <div class="col-md-5">
+                                                        <div class="total">
+                                                            <p class="title"><strong>Price starts from</strong></p><span class="price">$2.27</span></div>
+                                                        <div class="add">
+                                                            <div data-template="tpl_webshop_overview_list_detail" data-templateid="46" data-effect="replaceWith">
+                                                                <fieldset>
+                                                                    <div><label for="Unit329">Unit: </label>
+                                                                        <div class="custom-select form-control"><select name="Unit" id="Unit329" class="unit-changer" data-webshopproductvariantdetailid="329"><option value="Container">Container</option><option value="Box">Master carton</option></select></div>
+                                                                    </div>
+                                                                    <div><label for="Amount">Quantity: </label><input type="number" class="form-control" name="Amount" id="Amount" value="1" step="1"></div><input type="hidden" name="WebshopProductVariantID"
+                                                                        value="46"><input type="submit" class="btn btn-primary" value="Add to Cart"></fieldset>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                    <div class="combined-container-wrapper col-md-12 hidden">
+                                                        <p class="h4">Combined container:</p>
+                                                        <table id="container-bar-46" width="100%" cellspacing="0" cellpadding="0" border="0" class="JColResizer">
+                                                            <tbody>
+                                                                <tr></tr>
+                                                            </tbody>
+                                                        </table>
+                                                        <fieldset class="form-horizontal">
+                                                            <div class="row selected-container-sizes-46"></div>
+                                                        </fieldset>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                                <!--List-->
                             </div>
                         </div>
                     </div>
@@ -421,6 +796,10 @@
             </div>
         </div>
     </div>
+
+    <script src='http://file.40017.cn/dujia/cn/v/dujia/modules/jquery_1e357de.js'></script>
+    <script src='/lib/colResizable-1.6.min.js'></script>
+    <script src='/js/page/list.js'></script>
 </body>
 
 </html>

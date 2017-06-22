@@ -11108,35 +11108,6 @@ h2,
     text-rendering: optimizeLegibility;
 }
 
-.page-header {
-    border-bottom: none;
-    border-top: 1px solid #dadada;
-}
-
-.page-header .h2 {
-    margin-bottom: 0px;
-}
-
-.brand-primary {
-    fill: #1fb6bb;
-}
-
-.link-hover-color {
-    fill: #147679;
-}
-
-.body-bg {
-    fill: #f3f1f1;
-}
-
-.gray-darker {
-    fill: #272727;
-}
-
-.gray {
-    fill: #857977;
-}
-
 header.header .header-wishlist,
 header.header .header-cart {
     margin-top: 70px;

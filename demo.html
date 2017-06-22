@@ -1,73 +1,1731 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <title>Datepicker for Bootstrap, from Twitter</title>
-    <link href="http://www.eyecon.ro/bootstrap-datepicker/css/bootstrap.css" rel="stylesheet">
-    <link href="http://www.eyecon.ro/bootstrap-datepicker/css/datepicker.css" rel="stylesheet">
+    <meta http-equiv="Content-Type" content="charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="keywords" content="dsfds" />
+    <meta name="description" content="dsfs" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <!--栅格系统-->
+    <meta content="modeName=750-12" name="grid" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <!-- uc强制竖屏 -->
+    <meta name="screen-orientation" content="portrait">
+    <!-- QQ强制竖屏 -->
+    <meta name="x5-orientation" content="portrait">
+    <!-- UC强制全屏 -->
+    <meta name="full-screen" content="yes">
+    <!-- QQ强制全屏 -->
+    <meta name="x5-fullscreen" content="true">
+    <!-- UC应用模式 -->
+    <meta name="browsermode" content="application">
+    <!-- QQ应用模式 -->
+    <meta name="x5-page-mode" content="app">
+    <!-- windows phone 点击无高光 -->
+    <meta name="msapplication-tap-highlight" content="no">
+    <!-- 适应移动端end -->
+    <!--屏幕自动适配  lib-flexible-->
+    <script>
+        ! function() {
+            var a = "@charset \"utf-8\";html{color:#000;background:#fff;overflow-y:scroll;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}html *{outline:0;-webkit-text-size-adjust:none;-webkit-tap-highlight-color:rgba(0,0,0,0)}html,body{font-family:sans-serif}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{margin:0;padding:0}input,select,textarea{font-size:100%}table{border-collapse:collapse;border-spacing:0}fieldset,img{border:0}abbr,acronym{border:0;font-variant:normal}del{text-decoration:line-through}address,caption,cite,code,dfn,em,th,var{font-style:normal;font-weight:500}ol,ul{list-style:none}caption,th{text-align:left}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:500}q:before,q:after{content:''}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-.5em}sub{bottom:-.25em}a:hover{text-decoration:underline}ins,a{text-decoration:none}",
+                b = document.createElement("style");
+            if (document.getElementsByTagName("head")[0].appendChild(b), b.styleSheet) b.styleSheet.disabled || (b.styleSheet.cssText = a);
+            else try {
+                b.innerHTML = a
+            } catch (c) {
+                b.innerText = a
+            }
+        }();
+        ! function(a, b) {
+            function c() {
+                var b = f.getBoundingClientRect().width;
+                b / i > 540 && (b = 540 * i);
+                var c = b / 10;
+                f.style.fontSize = c + "px", k.rem = a.rem = c
+            }
+            var d, e = a.document,
+                f = e.documentElement,
+                g = e.querySelector('meta[name="viewport"]'),
+                h = e.querySelector('meta[name="flexible"]'),
+                i = 0,
+                j = 0,
+                k = b.flexible || (b.flexible = {});
+            if (g) {
+                console.warn("将根据已有的meta标签来设置缩放比例");
+                var l = g.getAttribute("content").match(/initial\-scale=([\d\.]+)/);
+                l && (j = parseFloat(l[1]), i = parseInt(1 / j))
+            } else if (h) {
+                var m = h.getAttribute("content");
+                if (m) {
+                    var n = m.match(/initial\-dpr=([\d\.]+)/),
+                        o = m.match(/maximum\-dpr=([\d\.]+)/);
+                    n && (i = parseFloat(n[1]), j = parseFloat((1 / i).toFixed(2))), o && (i = parseFloat(o[1]), j = parseFloat((1 / i).toFixed(2)))
+                }
+            }
+            if (!i && !j) {
+                var p = (a.navigator.appVersion.match(/android/gi), a.navigator.appVersion.match(/iphone/gi)),
+                    q = a.devicePixelRatio;
+                i = p ? q >= 3 && (!i || i >= 3) ? 3 : q >= 2 && (!i || i >= 2) ? 2 : 1 : 1, j = 1 / i
+            }
+            if (f.setAttribute("data-dpr", i), !g)
+                if (g = e.createElement("meta"), g.setAttribute("name", "viewport"), g.setAttribute("content", "initial-scale=" + j + ", maximum-scale=" + j + ", minimum-scale=" + j + ", user-scalable=no"), f.firstElementChild) f.firstElementChild.appendChild(g);
+                else {
+                    var r = e.createElement("div");
+                    r.appendChild(g), e.write(r.innerHTML)
+                }
+            a.addEventListener("resize", function() {
+                clearTimeout(d), d = setTimeout(c, 300)
+            }, !1), a.addEventListener("pageshow", function(a) {
+                a.persisted && (clearTimeout(d), d = setTimeout(c, 300))
+            }, !1), "complete" === e.readyState ? e.body.style.fontSize = 12 * i + "px" : e.addEventListener("DOMContentLoaded", function() {
+                e.body.style.fontSize = 12 * i + "px"
+            }, !1), c(), k.dpr = a.dpr = i, k.refreshRem = c, k.rem2px = function(a) {
+                var b = parseFloat(a) * this.rem;
+                return "string" == typeof a && a.match(/rem$/) && (b += "px"), b
+            }, k.px2rem = function(a) {
+                var b = parseFloat(a) / this.rem;
+                return "string" == typeof a && a.match(/px$/) && (b += "rem"), b
+            }
+        }(window, window.lib || (window.lib = {}));
+
+        function requestFullScreen() {
+            var de = document.documentElement;
+            if (de.requestFullscreen) {
+                de.requestFullscreen();
+            } else if (de.mozRequestFullScreen) {
+                de.mozRequestFullScreen();
+            } else if (de.webkitRequestFullScreen) {
+                de.webkitRequestFullScreen();
+            }
+        }
+        requestFullScreen();
+    </script>
+
+
+    <link rel="stylesheet" type="text/css" href="https://ebusiness-mb2b-dev.xiniunet.com/mb2c/dist/styles/base.min.css?v=2.32.0" />
+    <link rel="stylesheet" type="text/css" href="https://ebusiness-mb2b-dev.xiniunet.com/mb2c/dist/styles/other.css?v=2.32.0" />
+    <link rel="stylesheet" type="text/css" href="https://ebusiness-mb2b-dev.xiniunet.com/mb2c/vendor/xn-icon-ebusiness/iconfont.css?v=2.32.0" />
+    <!--公共部分-->
+
+    <script type="text/javascript" src="https://ebusiness-mb2b-dev.xiniunet.com/mb2c/vendor/jquery/jquery.min.js?v=2.32.0"></script>
+    <script type="text/javascript" src="https://ebusiness-mb2b-dev.xiniunet.com/mb2c/vendor/jquery/jquery-form.js?v=2.32.0"></script>
+    <script type="text/javascript" src="https://ebusiness-mb2b-dev.xiniunet.com/mb2c/dist/scripts/base.min.js?v=2.32.0"></script>
+    <script type="text/javascript" src="https://cdn.xiniunet.com/js/swiper/2.7.0/swiper.min.js"></script>
+
+
+
+    <script>
+        var test = window.location.href;
+        if (test.indexOf(".html") != -1) {
+            var url = "/api/common.do?method=transfer.url";
+            $.ajax({
+                type: "post",
+                url: url,
+                dataType: "json",
+                contentType: "application/json;charset=UTF-8",
+                data: JSON.stringify({}),
+                success: function(data) {
+                    if (data && data.transferUrl) {
+                        window.location = data.transferUrl;
+                    }
+                }
+            });
+        }
+
+        // 加载统计代码
+        (function() {
+            var stat = document.createElement('script');
+            stat.src = 'https://stat.xiniunet.com/stat.js';
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(stat, s);
+        });
+    </script>
     <style>
-        .container {
+        .xn-myCoupons .tabMenu .selected a {
+            color: #414abf !important;
+            border-color: #414abf !important;
+        }
+        
+        .xn-commodity-top {
+            background-color: #414abf !important;
+        }
+        
+        .xn-login .register .register-btn {
+            border-color: #414abf !important;
+            color: #414abf !important;
+        }
+        
+        .xn-personalIndex .personal-Info .rightContent .signBtn {
+            background-color: #414abf !important;
+        }
+        
+        .xn-personalIndex .personal-Info .leftContent .content .levelBar .process {
+            background-color: #414abf !important;
+        }
+        
+        .xn-personalIndex .personal-Info .leftContent .content .levelBar {
+            border-color: #414abf !important;
+        }
+        
+        .xn-personalIndex .personal-Info .leftContent .content .description .red {
+            color: #414abf !important;
+        }
+        
+        .xn-header .icon-header {
+            color: #414abf !important;
+        }
+        /*积分商城 选中 */
+        
+        .xn-foot .font-active {
+            color: #414abf;
+        }
+        
+        .xn-foot .font-active .footer-name {
+            color: #414abf;
+        }
+        
+        .xn-foot .submitBtn {
+            background: #414abf !important;
+        }
+        
+        .btn-danger {
+            background: #414abf !important;
+            border-color: #414abf !important;
+        }
+        
+        .pay-sunccess-btn .btn-danger {
+            background: #414abf !important;
+            border-color: #414abf !important;
+        }
+        
+        .icon-bg {
+            background: #414abf !important;
+        }
+        
+        .submitBtn {
+            background: #414abf !important;
+        }
+        
+        .xn-shop-btn {
+            background: #414abf !important;
+        }
+        
+        .xn-buy-btn {
+            color: #414abf !important;
+            background: #fff !important;
+        }
+        
+        .xn-pay-foot {
+            border-color: #414abf !important;
+        }
+        
+        .xn-buy-foot {
+            border-color: #414abf !important;
+        }
+        
+        .xn-shop-themeColor {
+            color: #fff!important;
+            background: #414abf !important;
+        }
+        
+        .xn-module-address .pop-layout .pop-address-tab .tab-active {
+            border-color: #414abf !important;
+            color: #414abf !important;
+        }
+        
+        .themeBg {
+            background: #414abf !important;
+        }
+        
+        .themeBtn {
+            background: #414abf !important;
+            border: 0 !important;
+            color: #fff !important;
+        }
+        
+        .themeBc {
+            background-color: #414abf !important;
+        }
+        
+        .theme-border-color {
+            border-color: #414abf !important;
+            color: #414abf !important;
+        }
+        
+        .theme-border {
+            border-color: #414abf !important;
+        }
+        
+        .theme-color {
+            color: #414abf !important;
+        }
+        
+        input:checked+.theme-check {
+            background: #414abf !important;
+        }
+        
+        .theme.selected {
+            color: #414abf !important;
+            border-color: #414abf !important;
+        }
+        
+        .selected>.theme {
+            color: #414abf !important;
+            border-color: #414abf !important;
+        }
+        
+        .active.theme {
+            color: #414abf !important;
+            border-color: #414abf !important;
+        }
+        
+        .icon-click.theme-active {
+            color: #414abf !important;
+        }
+        
+        .active.theme-border-active {
+            border-color: #414abf !important;
+        }
+        
+        .themeBg-O {
+            background-color: #414abf !important;
+            opacity: 0.6;
+        }
+        
+        .selected.theme-border-active {
+            border-color: #414abf !important;
+        }
+        
+        .parent-category-item-selected.theme-color-active {
+            color: #414abf !important;
+        }
+        
+        .theme-color-border {
+            color: #414abf !important;
+            border-color: #414abf !important;
+            background: #fff !important;
+        }
+    </style>
+
+    <style>
+        #widget_876680158835249197 .xn-module-search {
+            padding: 0.23148148148148148rem 0;
+            background: #43cfcd;
+        }
+        
+        #widget_876680158835249197 .xn-module-search .catalog {
+            margin-left: 0.37037037037037035rem;
+            width: 0.5462962962962963rem;
+            height: 0.8425925925925926rem;
+            background: url("//cdn.xiniunet.com/img/site/m060/catalog.png") no-repeat;
+            background-size: contain;
+        }
+        
+        #widget_876680158835249197 .xn-module-search .search-box {
+            width: 7.5rem;
+            height: 0.8333333333333334rem;
+            margin-left: 0.37037037037037035rem;
+            background: #fff;
+            border-radius: 5px;
+            position: relative;
+        }
+        
+        #widget_876680158835249197 .xn-module-search .search-box .icon-search {
+            display: block;
+            width: 0.37037037037037035rem;
+            height: 0.8425925925925926rem;
+            margin-left: 0.5092592592592593rem;
+            background: url("//cdn.xiniunet.com/img/site/m060/search.png") 0 45% no-repeat;
+            background-size: contain;
+        }
+        
+        #widget_876680158835249197 .xn-module-search .search-box input {
+            width: 6.111111111111111rem;
+            height: 0.5555555555555556rem;
+            border: none;
+            position: absolute;
+            left: 1.0185185185185186rem;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        #widget_876680158835249197 .xn-module-search .shop-cart {
+            width: 0.6481481481481481rem;
+            height: 0.8425925925925926rem;
+            margin-right: 0.32407407407407407rem;
+            background: url("//cdn.xiniunet.com/img/site/m060/shopCart.png") no-repeat;
+            background-size: contain;
+        }
+        
+        #widget_876680158835249197 .xn-module-search .fl {
+            float: left;
+        }
+        
+        #widget_876680158835249197 .xn-module-search .fr {
+            float: right;
+        }
+        
+        #widget_876680158835249197 .clearfix:after,
+        #widget_876680158835249197 .clearfix:before {
+            content: ' ';
+            display: table;
+        }
+        
+        #widget_876680158835249197 .clearfix:after {
+            clear: both;
+        }
+        
+        #widget_876680158835249198 .xn-module-article {
+            padding: 0.32407407407407407rem 0.46296296296296297rem;
             background: #fff;
         }
         
-        .main {
-            height: 200px;
-            width: 100%;
-            /*vertical-align: middle;
-            display: inline-block;*/
+        #widget_876680158835249198 .xn-module-article img {
+            width: 1.0555555555555556rem;
+            height: 0.9722222222222222rem;
+            border: 0;
         }
         
-        .verticalAlign {
-            vertical-align: middle;
+        #widget_876680158835249198 .xn-module-article .article-titles {
+            font-size: 0.2962962962962963rem;
+            line-height: 0.4444444444444444rem;
+            height: 1rem;
+            width: calc(100% - 1.5rem);
+            color: #363636;
+            margin-left: 0.37037037037037035rem;
+            overflow: hidden;
+        }
+        
+        #widget_876680158835249198 .xn-module-article .article-titles ul {
+            height: 0.9rem;
+            overflow: hidden;
+        }
+        
+        #widget_876680158835249198 .xn-module-article .article-titles ul li:before {
+            content: '';
+            width: 0.05555555555555555rem;
+            height: 0.05555555555555555rem;
             display: inline-block;
-            height: 100%;
-            width: 1px;
-            margin-left: -1px;
+            background: #2fc2c0;
+            border-radius: 50%;
         }
         
-        .target {
+        #widget_876680158835249198 .xn-module-article .article-titles ul li span {
+            display: inline-block;
+            max-width: 5.2rem;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
             vertical-align: middle;
+            margin-left: 0.1111111111111111rem;
+        }
+        
+        #widget_876680158835249198 .xn-module-article .article-titles ul li .label {
+            background: #ff9a41;
+            font-size: 0.2222222222222222rem;
+            vertical-align: middle;
+            color: #fff;
+            border-radius: 20%;
+            padding: 0 0.09259259259259259rem;
+            font-style: normal;
+            margin-left: 0.1388888888888889rem;
+        }
+        
+        #widget_876680158835249198 .xn-module-article .swiper-container {
+            position: relative;
+            overflow: hidden;
+            direction: ltr;
+            -webkit-backface-visibility: hidden;
+            -moz-backface-visibility: hidden;
+            -ms-backface-visibility: hidden;
+            -o-backface-visibility: hidden;
+            backface-visibility: hidden;
+            /* Fix of Webkit flickering */
+            z-index: 1;
+        }
+        
+        #widget_876680158835249198 .xn-module-article .swiper-wrapper {
+            position: relative;
+            width: 100%;
+            -webkit-transition-property: -webkit-transform, left, top;
+            -webkit-transition-duration: 0s;
+            -webkit-transform: translate3d(0px, 0, 0);
+            -webkit-transition-timing-function: ease;
+            -moz-transition-property: -moz-transform, left, top;
+            -moz-transition-duration: 0s;
+            -moz-transform: translate3d(0px, 0, 0);
+            -moz-transition-timing-function: ease;
+            -o-transition-property: -o-transform, left, top;
+            -o-transition-duration: 0s;
+            -o-transform: translate3d(0px, 0, 0);
+            -o-transition-timing-function: ease;
+            -o-transform: translate(0px, 0px);
+            -ms-transition-property: -ms-transform, left, top;
+            -ms-transition-duration: 0s;
+            -ms-transform: translate3d(0px, 0, 0);
+            -ms-transition-timing-function: ease;
+            transition-property: transform, left, top;
+            transition-duration: 0s;
+            transform: translate3d(0px, 0, 0);
+            transition-timing-function: ease;
+            -webkit-box-sizing: content-box;
+            -moz-box-sizing: content-box;
+            box-sizing: content-box;
+        }
+        
+        #widget_876680158835249198 .xn-module-article .swiper-free-mode>.swiper-wrapper {
+            -webkit-transition-timing-function: ease-out;
+            -moz-transition-timing-function: ease-out;
+            -ms-transition-timing-function: ease-out;
+            -o-transition-timing-function: ease-out;
+            transition-timing-function: ease-out;
+            margin: 0 auto;
+        }
+        
+        #widget_876680158835249198 .xn-module-article .swiper-slide {
+            -webkit-box-sizing: content-box;
+            -moz-box-sizing: content-box;
+            box-sizing: content-box;
+            height: 0.5rem;
+        }
+        /* IE10 Windows Phone 8 Fixes */
+        
+        #widget_876680158835249198 .xn-module-article .swiper-wp8-horizontal {
+            -ms-touch-action: pan-y;
+        }
+        
+        #widget_876680158835249198 .xn-module-article .swiper-wp8-vertical {
+            -ms-touch-action: pan-x;
+        }
+        
+        #widget_876680158835249198 .xn-module-article a:-webkit-any-link {
+            color: #363636;
+        }
+        
+        #widget_876680158835249198 .xn-module-article .fl {
+            float: left;
+        }
+        
+        #widget_876680158835249198 .xn-module-article .fr {
+            float: right;
+        }
+        
+        #widget_876680158835249198 .clearfix:after,
+        #widget_876680158835249198 .clearfix:before {
+            content: ' ';
+            display: table;
+        }
+        
+        #widget_876680158835249198 .clearfix:after {
+            clear: both;
+        }
+        
+        #widget_876680158835249199 .xn-module-vedio {
+            height: 4.685185185185185rem;
+            width: 100%;
+        }
+        
+        #widget_876680158835249199 .xn-module-vedio .mobile-vedio {
+            height: 4.685185185185185rem;
+            width: 10rem;
+            padding: 0;
+            margin: 0;
+            border: 0;
+        }
+        
+        #widget_876680158835249199 .clearfix:after,
+        #widget_876680158835249199 .clearfix:before {
+            content: ' ';
+            display: table;
+        }
+        
+        #widget_876680158835249199 .clearfix:after {
+            clear: both;
+        }
+        
+        #widget_876680158835249200 .xn-module-category {
+            background: #fff;
+            margin-bottom: 0.32rem;
+            height: 4rem;
+            /*overflow-y: hidden;
+            overflow-x: auto;*/
+            white-space: nowrap;
+        }
+        
+        #widget_876680158835249200 .xn-module-category .swiper-slide {
+            width: 100%;
+            float: left;
+        }
+        
+        #widget_876680158835249200 .xn-module-category .header {
+            background: #f2f2f2;
+        }
+        
+        #widget_876680158835249200 .xn-module-category .header .ul {
+            height: 0.833rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        #widget_876680158835249200 .xn-module-category .header .ul .li {
+            margin: 0 0.065rem;
+            font-size: 0.37rem;
+            color: #363636;
+        }
+        
+        #widget_876680158835249200 .xn-module-category .header .ul .li span:first-child {
+            color: #2fc2c0;
+        }
+        
+        #widget_876680158835249200 .xn-module-category .header .ul .cir1 {
+            width: 0.065rem;
+            height: 0.065rem;
+            border-radius: 60%;
+            background: #2fc2c0;
+        }
+        
+        #widget_876680158835249200 .xn-module-category .header .ul .cir2 {
+            width: 0.0833rem;
+            height: 0.0833rem;
+            border-radius: 60%;
+            background: #2fc2c0;
+        }
+        
+        #widget_876680158835249200 .xn-module-category .header .ul .cir3 {
+            width: 0.11rem;
+            height: 0.11rem;
+            border-radius: 60%;
+            background: #2fc2c0;
+        }
+        
+        #widget_876680158835249200 .xn-module-category .category-list {
+            height: 3rem;
+            width: 100%;
+        }
+        
+        #widget_876680158835249200 .xn-module-category .category-list .category-item {
+            float: left;
+            margin: 0.4rem 0;
+            width: 25%;
+            height: 2.2rem;
+        }
+        
+        #widget_876680158835249200 .xn-module-category .category-list .category-item .category-link {
+            height: 2.2rem;
+            display: block;
+            text-align: center;
+        }
+        
+        #widget_876680158835249200 .xn-module-category .category-list .category-item .category-icon {
+            width: 1.4rem;
+            height: 1.4rem;
+            margin: auto;
+        }
+        
+        #widget_876680158835249200 .xn-module-category .category-list .category-item .category-name {
+            width: 100%;
+            height: 0.4rem;
+            overflow: hidden;
+            text-align: center;
+            line-height: 0.4rem;
+            text-decoration: none;
+        }
+        
+        #widget_876680158835249200 .xn-module-category .category-list .category-item .category-price {
+            width: 100%;
+            height: 0.4rem;
+            overflow: hidden;
+            text-align: center;
+            line-height: 0.4rem;
+            text-decoration: none;
+            color: #ff6941;
+            font-size: 16px;
+        }
+        
+        #widget_876680158835249201 .xn-module-customize {
+            background: #fff;
+        }
+        
+        #widget_876680158835249201 .xn-module-customize ul li {
+            width: 50%;
+            height: 3.1481481481481484rem;
+            float: left;
+            border-bottom: 1px solid #eaeaea;
+            box-sizing: border-box;
+            position: relative;
+            left: 0;
+            top: 0;
+        }
+        
+        #widget_876680158835249201 .xn-module-customize ul li .type-title {
+            position: absolute;
+            top: 0.18518518518518517rem;
+            left: 0.32407407407407407rem;
+            z-index: 10;
+        }
+        
+        #widget_876680158835249201 .xn-module-customize ul li .type-title .type-title-name {
+            font-size: 0.3333333333333333rem;
+            line-height: 0.3888888888888889rem;
+        }
+        
+        #widget_876680158835249201 .xn-module-customize ul li .type-title .type-title-name img {
+            height: 0.3888888888888889rem;
+            border: 0;
+            vertical-align: bottom;
+            width: 100%;
+        }
+        
+        #widget_876680158835249201 .xn-module-customize ul li .type-title .type-title-name span.hot {
+            color: #fe0000;
+        }
+        
+        #widget_876680158835249201 .xn-module-customize ul li .type-title .type-title-name span.limit-time {
+            color: #2396d4;
+        }
+        
+        #widget_876680158835249201 .xn-module-customize ul li .type-title .type-title-name span.must-buy {
+            color: #1cc3c1;
+        }
+        
+        #widget_876680158835249201 .xn-module-customize ul li .type-title .type-title-name span.select {
+            color: #fe8f00;
+        }
+        
+        #widget_876680158835249201 .xn-module-customize ul li .type-title .type-title-description {
+            font-size: 0.2777777777777778rem;
+            line-height: 0.3888888888888889rem;
+            color: #363636;
+        }
+        
+        #widget_876680158835249201 .xn-module-customize ul li .type-img {
+            width: auto;
+            height: 2.0833333333333335rem;
+            border: 0;
+            position: absolute;
+            bottom: 0.23148148148148148rem;
+            right: 0.32407407407407407rem;
+        }
+        
+        #widget_876680158835249201 .xn-module-customize ul li:nth-child(odd) {
+            border-right: 1px solid #eaeaea;
+        }
+        
+        #widget_876680158835249201 .clearfix:after,
+        #widget_876680158835249201 .clearfix:before {
+            content: ' ';
+            display: table;
+        }
+        
+        #widget_876680158835249201 .clearfix:after {
+            clear: both;
+        }
+        
+        #widget_876680158835249202 body {
+            background: #ccc;
+        }
+        
+        #widget_876680158835249202 .xn-site-widget .widgetControl {
+            z-index: 100;
+        }
+        
+        #widget_876680158835249202 .xn-module-bottom {
+            height: 1.9444444444444444rem;
+            width: 100%;
+            background: url('http://cdn.xiniunet.com/img/site/m064/bottom.png') no-repeat;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            background-size: cover;
+            z-index: 1;
+        }
+        
+        #widget_876680158835249202 .xn-module-bottom .wai-hu {
+            position: absolute;
+            border: 1px solid #eaeaea;
+            box-shadow: 0 -1px 0px 0px #eaeaea;
+            border-radius: 50%;
+            bottom: 0.2777777777777778rem;
+            width: 1.6666666666666667rem;
+            height: 1.6666666666666667rem;
+            z-index: 99;
+            left: 50%;
+            background: #fff;
+            transform: translateX(-50%);
+        }
+        
+        #widget_876680158835249202 .xn-module-bottom .icons {
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 1.3888888888888888rem;
+            box-sizing: border-box;
+            padding: 0.2777777777777778rem 0.32407407407407407rem 0.18518518518518517rem;
+            z-index: 100;
+            background: #fff;
+        }
+        
+        #widget_876680158835249202 .xn-module-bottom .icons .mine {
+            position: absolute;
+            left: 50%;
+            top: -50%;
+            transform: translateX(-50%);
+            text-align: center;
+            z-index: 101;
+        }
+        
+        #widget_876680158835249202 .xn-module-bottom .icons .mine .img-box {
+            width: 1.2962962962962963rem;
+            height: 1.2962962962962963rem;
+            margin-top: 0.3rem;
+        }
+        
+        #widget_876680158835249202 .xn-module-bottom .icons .mine .img-box img {
+            width: 1.2962962962962963rem;
+            height: 1.2962962962962963rem;
+            display: block;
+        }
+        
+        #widget_876680158835249202 .xn-module-bottom .icons .parts {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        #widget_876680158835249202 .xn-module-bottom .icons .parts img {
+            width: 0.9259259259259259rem;
+            height: 0.5185185185185185rem;
+            border: 0;
+            margin: 0 auto 0.1rem;
+            display: block;
+        }
+        
+        #widget_876680158835249202 .xn-module-bottom .icons .parts .left-part {
+            width: 3.240740740740741rem;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        #widget_876680158835249202 .xn-module-bottom .icons .parts .right-part {
+            width: 3.240740740740741rem;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        #widget_876680158835249202 .xn-module-bottom .icons .name {
+            font-size: 0.24074074074074073rem;
+            color: #363636;
+        }
+        
+        #widget_876680158835249202 .clearfix:after,
+        #widget_876680158835249202 .clearfix:before {
+            content: ' ';
+            display: table;
+        }
+        
+        #widget_876680158835249202 .clearfix:after {
+            clear: both;
+        }
+        
+        #widget_876680158835249203 .xn-module-like .header {
+            background: #f2f2f2;
+        }
+        
+        #widget_876680158835249203 .xn-module-like .header ul {
+            height: 0.8333333333333334rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        #widget_876680158835249203 .xn-module-like .header ul li {
+            margin: 0 0.06481481481481481rem;
+            font-size: 0.37037037037037035rem;
+            color: #363636;
+        }
+        
+        #widget_876680158835249203 .xn-module-like .header ul li span:first-child {
+            color: #2fc2c0;
+        }
+        
+        #widget_876680158835249203 .xn-module-like .header ul .cir1 {
+            width: 0.06481481481481481rem;
+            height: 0.06481481481481481rem;
+            border-radius: 50%;
+            background: #2fc2c0;
+        }
+        
+        #widget_876680158835249203 .xn-module-like .header ul .cir2 {
+            width: 0.08333333333333333rem;
+            height: 0.08333333333333333rem;
+            border-radius: 50%;
+            background: #2fc2c0;
+        }
+        
+        #widget_876680158835249203 .xn-module-like .header ul .cir3 {
+            width: 0.1111111111111111rem;
+            height: 0.1111111111111111rem;
+            border-radius: 50%;
+            background: #2fc2c0;
+        }
+        
+        #widget_876680158835249203 .xn-module-like .shop-list li {
+            padding: 0.37037037037037035rem 0.32407407407407407rem;
+            border-bottom: 1px solid #eaeaea;
+            width: 50%;
+            box-sizing: border-box;
+            position: relative;
+            left: 0;
+            top: 0;
+            float: left;
+        }
+        
+        #widget_876680158835249203 .xn-module-like .shop-list li:nth-child(odd) {
+            border-right: 1px solid #eaeaea;
+        }
+        
+        #widget_876680158835249203 .xn-module-like .shop-list li .icon-shop {
+            position: absolute;
+            top: 0.37037037037037035rem;
+            left: 0.32407407407407407rem;
+            width: 0.7592592592592593rem;
+            height: 0.7777777777777778rem;
+        }
+        
+        #widget_876680158835249203 .xn-module-like .shop-list li img.shop {
+            width: 100%;
+            margin-bottom: 0.7407407407407407rem;
+        }
+        
+        #widget_876680158835249203 .xn-module-like .shop-list li .shop-description {
+            margin-right: 0.37037037037037035rem;
+            font-size: 0.2962962962962963rem;
+            line-height: 0.4444444444444444rem;
+            color: #363636;
+        }
+        
+        #widget_876680158835249203 .xn-module-like .shop-list li .shop-info {
+            margin: 0.2777777777777778rem 0;
+        }
+        
+        #widget_876680158835249203 .xn-module-like .shop-list li .shop-info .shop-price {
+            float: left;
+            font-size: 0.4444444444444444rem;
+            line-height: 0.4444444444444444rem;
+            color: #ff6941;
+        }
+        
+        #widget_876680158835249203 .xn-module-like .shop-list li .shop-info .people-payed {
+            float: right;
+            font-size: 0.2222222222222222rem;
+            color: #8c8c8c;
+            line-height: 0.4444444444444444rem;
+        }
+        
+        #widget_876680158835249203 .clearfix:after,
+        #widget_876680158835249203 .clearfix:before {
+            content: ' ';
+            display: table;
+        }
+        
+        #widget_876680158835249203 .clearfix:after {
+            clear: both;
+        }
+        
+        #widget_876680158835249204 .xn-category-layout {
+            border-bottom: 1px solid #ddd;
+        }
+        
+        #widget_876680158835249204 .xn-category-layout .category-item {
+            float: left;
+            margin: 0 0.2rem -1px;
+            width: 2.1rem;
+            height: 2rem;
+            padding: 0.2rem 0;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        #widget_876680158835249204 .xn-category-layout .category-item .link {
+            margin: 0 -0.2rem;
+            width: 2.5rem;
+            height: 1.6rem;
+            display: block;
+            padding: 0.15rem 0.2rem;
+            border-right: 1px solid #ddd;
+            text-align: center;
+        }
+        
+        #widget_876680158835249204 .xn-category-layout .category-item .link .img {
+            margin: 0 auto;
+            width: 0.8rem;
+            height: 0.8rem;
+            overflow: hidden;
+            display: block;
+            background-size: contain;
+            background-position: center 50%;
+            background-repeat: no-repeat;
+        }
+        
+        #widget_876680158835249204 .xn-category-layout .category-item .link .img-0 {
+            background-image: url("https://img-dev.xiniunet.com/801689539428098048/801689539881086976/871651962721275904.PNG");
+        }
+        
+        #widget_876680158835249204 .xn-category-layout .category-item .link .img-1 {
+            background-image: url("https://img-dev.xiniunet.com/801689539428098048/801689539881086976/873048698828230656.png");
+        }
+        
+        #widget_876680158835249204 .xn-category-layout .category-item .link .img-2 {
+            background-image: url("https://img-dev.xiniunet.com/801689539428098048/801689539881086976/867664362016739328.png");
+        }
+        
+        #widget_876680158835249204 .xn-category-layout .category-item .link .img-3 {
+            background-image: url("https://img-dev.xiniunet.com/801689539428098048/801689539881086976/867313856861835264.jpg");
+        }
+        
+        #widget_876680158835249204 .xn-category-layout .category-item .link .name {
+            height: 0.5rem;
+            line-height: 0.5rem;
+            overflow: hidden;
+            text-align: center;
+            width: 100%;
+        }
+        
+        #widget_876680158835249204 .xn-category-layout .category-item:nth-child(4n+0) .link {
+            border-right: 1px solid transparent;
         }
     </style>
 
 </head>
 
-<body>
-    <div class="container">
-        <div class="main">
-            <span class="verticalAlign"></span>
-            <span class='target'> hello world!</span>
-        </div>
-    </div>
-    <select id="s" style="width:expression((this.offsetWidth < 100) ? '100' : ((this.offsetWidth > 200)? '200' : this.offsetWidth))">    
-   <option value="1" title="1">1</option>   
-   <option value="2" title="2">2</option>   
-   <option value="3" title="3">3</option>   
-   <option value="4" title="4">4</option>   
-   <option value="5" title="5">5</option>   
-   <option value="6">6</option>   
-   <option value="7">7</option>   
-   <option value="8">8</option>   
-   <option value="9" title="--9999999999999999999999999999999999--">--9999999999999999999990000000000000000000000000000000000000000009999999999999--</option>   
-  </select>
+<body class="xn-page-container" ontouchstart>
+    <div class="xnLoading"></div>
+    <script>
+        //隐藏导航
+        $.callAppMethod("xn_hideNavbar", function(callData) {}, {});
+    </script>
+    <style>
+        .xn-main {
+            padding: 0 0 40px;
+        }
+        
+        .xn-foot {
+            background: transparent;
+            height: 60px;
+            border: 0;
+        }
+    </style>
 
-    <select id="sa">    
-   <option value="1" title="1">1</option>   
-   <option value="2" title="2">2</option>   
-   <option value="3" title="3">3</option>   
-   <option value="4" title="4">4</option>   
-   <option value="5" title="5">5</option>   
-   <option value="6">6</option>   
-   <option value="7">7</option>   
-   <option value="8">8</option>   
-   <option value="9" title="--9999999999999999999999999999999999--">--9999999999999999000000000000000000000000000000000999999999999999999--</option>   
-  </select>
-    <script type="text/javascript">
-        var sel = document.getElementById("sa");
-        console.log(sel.offsetWidth);
-        // sel.style.width = ((sel.offsetWidth < 100) ? '100' : ((sel.offsetWidth > 200) ? '200' : sel.offsetWidth));
-        sel.style.width = 200;
+    <title>sdf</title>
+
+
+    <main class="xn-main  clearfix">
+        <div id="page">
+            <div class="xn-site-body">
+                <div class="xn-site-section" data-section-code="page_top">
+
+                    <div class="xn-site-widget" data-widget-id="876680158835249197" id="widget_876680158835249197">
+                        <div class="widgetContent clearfix" data-dpr="1">
+
+                            <div class="xn-module-search clearfix">
+                                <a href="http://ebusiness-mb2b-dev.xiniunet.com/mb2b/drpCategory.htm">
+                                    <div class="catalog fl"></div>
+                                </a>
+                                <div class="search-box fl">
+                                    <i class="icon-search"></i>
+                                    <form action="http://ebusiness-mb2b-dev.xiniunet.com/mb2b/drpSearch.htm">
+                                        <input type="search" name="keyword" placeholder="请输入宝贝关键字">
+                                    </form>
+
+                                </div>
+                                <a href="http://ebusiness-mb2b-dev.xiniunet.com/mb2b/drpCart.htm">
+                                    <div class="shop-cart fr"></div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="xn-site-widget" data-widget-id="876680158835249198" id="widget_876680158835249198">
+                        <div class="widgetContent clearfix" data-dpr="1">
+                            <div class="xn-module-article clearfix ">
+                                <img class="fl" src="https://img-dev.xiniunet.com/801689539428098048/801689539881086976/867664362016739328.png" alt="">
+                                <div class="article-titles fl swiper-container">
+                                    <ul class="swiper-wrapper">
+
+                                        <li class="clearfix swiper-slide">
+                                            <a href="http://ebusiness-mb2b-dev.xiniunet.com/mb2b/commodity.htm?commodityId=809631224455897088.html">
+                                                <span>袁政碉堡了哈哈哈</span>
+                                                <i class="label">热议</i>
+                                            </a>
+                                        </li>
+
+                                        <li class="clearfix swiper-slide">
+                                            <a href="http://ebusiness-mb2b-dev.xiniunet.com/mb2b/commodity.htm?commodityId=809645469272780800.html">
+                                                <span>瑶瑶是吃货啦啦啦</span>
+                                                <i class="label">精品</i>
+                                            </a>
+                                        </li>
+
+                                        <li class="clearfix swiper-slide">
+                                            <a href="http://ebusiness-mb2b-dev.xiniunet.com/mb2b/commodity.htm?commodityId=809630386039697408.html">
+                                                <span>呈健大胖子呼呼呼</span>
+                                                <i class="label">对头</i>
+                                            </a>
+                                        </li>
+
+                                        <li class="clearfix swiper-slide">
+                                            <a href="http://ebusiness-mb2b-dev.xiniunet.com/mb2b/commodity.htm?commodityId=809625718995693568.html">
+                                                <span>沈欣妤富婆嘎嘎嘎</span>
+                                                <i class="label">快来抢</i>
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="xn-site-widget" data-widget-id="876680158835249199" id="widget_876680158835249199">
+                        <div class="widgetContent clearfix" data-dpr="1">
+
+                            <div class="xn-module-vedio">
+                                <video id="mobile-vedio" class="mobile-vedio" controls="" preload="auto" data-setup="{&quot;example_option&quot;:true}">
+            <source src="https://xiniunet-dev.oss.aliyuncs.com/801689539428098048/872289739079028736/872748157011103744.mp4" type="video/mp4">
+        </video>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="xn-site-widget" data-widget-id="876680158835249204" id="widget_876680158835249204">
+                        <div class="widgetContent clearfix" data-dpr="1">
+
+                            <ul class="xn-category-layout clearfix">
+
+                                <li class="category-item">
+                                    <a class="link" href="https://ebusiness-mb2b-dev.xiniunet.com/mb2b/commodity_list.htm?categoryId=1">
+                                        <div class="img img-0"></div>
+                                        <div class="name">奶茶</div>
+                                    </a>
+                                </li>
+
+                                <li class="category-item">
+                                    <a class="link" href="https://ebusiness-mb2b-dev.xiniunet.com/mb2b/commodity_list.htm?categoryId=2">
+                                        <div class="img img-1"></div>
+                                        <div class="name">点心</div>
+                                    </a>
+                                </li>
+
+                                <li class="category-item">
+                                    <a class="link" href="https://ebusiness-mb2b-dev.xiniunet.com/mb2b/commodity_list.htm?categoryId=3">
+                                        <div class="img img-2"></div>
+                                        <div class="name">正餐</div>
+                                    </a>
+                                </li>
+
+                                <li class="category-item">
+                                    <a class="link" href="https://ebusiness-mb2b-dev.xiniunet.com/mb2b/commodity_list.htm?categoryId=4">
+                                        <div class="img img-3"></div>
+                                        <div class="name">水果</div>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="xn-site-widget" data-widget-id="876680158835249203" id="widget_876680158835249203">
+                        <div class="widgetContent clearfix" data-dpr="1">
+
+                            <div class="xn-module-like clearfix">
+                                <div class="header">
+                                    <ul>
+                                        <li class="cir1"></li>
+                                        <li class="cir2"></li>
+                                        <li class="cir3"></li>
+                                        <li>
+                                            <span>猜你</span>
+                                            <span>喜欢</span>
+                                        </li>
+                                        <li class="cir3"></li>
+                                        <li class="cir2"></li>
+                                        <li class="cir1"></li>
+                                    </ul>
+                                </div>
+                                <ul class="shop-list clearfix">
+                                    <li>
+                                        <img src="http://192.168.80.58:9000/imgs/icon.png" alt="" class="icon-shop">
+                                        <img src="http://192.168.80.58:9000/imgs/photo.png" alt="" class="shop">
+                                        <div class="shop-description">MPETS 威奇托WICHITA创意猫抓板 不易变形 环保材质</div>
+                                        <div class="shop-info clearfix">
+                                            <div class="shop-price">￥12.5</div>
+                                            <div class="people-payed"><span>1250</span> 人已付款</div>
+                                        </div>
+                                    </li>
+                                    <li>
+
+                                        <img src="http://192.168.80.58:9000/imgs/photo.png" alt="" class="shop">
+                                        <div class="shop-description">MPETS 威奇托WICHITA创意猫抓板 不易变形 环保材质</div>
+                                        <div class="shop-info clearfix">
+                                            <div class="shop-price">￥12.5</div>
+                                            <div class="people-payed"><span>1250</span> 人已付款</div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="xn-site-widget" data-widget-id="876680158835249200" id="widget_876680158835249200">
+                        <div class="widgetContent clearfix" data-dpr="1">
+
+                            <div class="xn-module-category clearfix">
+                                <div class="header">
+                                    <ul class="ul">
+                                        <li class="cir1 li"></li>
+                                        <li class="cir2 li"></li>
+                                        <li class="cir3 li"></li>
+                                        <li class="li">
+                                            <span>推荐好货</span>
+                                        </li>
+                                        <li class="cir3 li"></li>
+                                        <li class="cir2 li"></li>
+                                        <li class="cir1 li"></li>
+                                    </ul>
+                                </div>
+                                <div class="swiper-container">
+                                    <div class="swiper-wrapper">
+
+
+
+                                        <div class="swiper-slide">
+                                            <ul class="category-list clearfix">
+                                                <li class="category-item">
+                                                    <a class="category-link" href="http://ebusiness-mb2b-dev.xiniunet.com/mb2b/commodity.htm?commodityId=809631224455897088">
+                                                        <img class="category-icon" src="https://img-dev.xiniunet.com/801689539428098048/801689539881086976/867665368783917056.png" alt="">
+                                                        <div class="category-price">￥10</div>
+                                                        <div class="category-name">商品1</div>
+                                                    </a>
+                                                </li>
+
+
+
+                                                <li class="category-item">
+                                                    <a class="category-link" href="http://ebusiness-mb2b-dev.xiniunet.com/mb2b/commodity.htm?commodityId=809645469272780800">
+                                                        <img class="category-icon" src="https://img-dev.xiniunet.com/801689539428098048/801689539881086976/871651962721275904.PNG" alt="">
+                                                        <div class="category-price">￥20</div>
+                                                        <div class="category-name">商品2</div>
+                                                    </a>
+                                                </li>
+
+
+
+                                                <li class="category-item">
+                                                    <a class="category-link" href="http://ebusiness-mb2b-dev.xiniunet.com/mb2b/commodity.htm?commodityId=863756660525895680">
+                                                        <img class="category-icon" src="https://img-dev.xiniunet.com/801689539428098048/801689539881086976/860331795353571328.jpg" alt="">
+                                                        <div class="category-price">￥30</div>
+                                                        <div class="category-name">商品3我很长很常常</div>
+                                                    </a>
+                                                </li>
+
+
+
+                                                <li class="category-item">
+                                                    <a class="category-link" href="http://ebusiness-mb2b-dev.xiniunet.com/mb2b/commodity.htm?commodityId=863998292697419776">
+                                                        <img class="category-icon" src="https://img-dev.xiniunet.com/801689539428098048/801689539881086976/871651962721275904.PNG" alt="">
+                                                        <div class="category-price">￥40</div>
+                                                        <div class="category-name">商品4</div>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+
+
+                                        <div class="swiper-slide">
+                                            <ul class="category-list clearfix">
+                                                <li class="category-item">
+                                                    <a class="category-link" href="http://ebusiness-mb2b-dev.xiniunet.com/mb2b/commodity.htm?commodityId=809630386039697408.html">
+                                                        <img class="category-icon" src="https://img-dev.xiniunet.com/801689539428098048/801689539881086976/867665368783917056.png" alt="">
+                                                        <div class="category-price">￥50</div>
+                                                        <div class="category-name">商品5</div>
+                                                    </a>
+                                                </li>
+
+
+
+                                                <li class="category-item">
+                                                    <a class="category-link" href="http://ebusiness-mb2b-dev.xiniunet.com/mb2b/commodity.htm?commodityId=809633042766372864.html">
+                                                        <img class="category-icon" src="https://xiniunet-dev.oss.aliyuncs.com/801689539428098048/801689539881086976/871653559790604288.GIF" alt="">
+                                                        <div class="category-price">￥60</div>
+                                                        <div class="category-name">商品6</div>
+                                                    </a>
+                                                </li>
+
+
+
+                                                <li class="category-item">
+                                                    <a class="category-link" href="http://ebusiness-mb2b-dev.xiniunet.com/mb2b/commodity.htm?commodityId=864001512828178432.html">
+                                                        <img class="category-icon" src="商品7" alt="">
+                                                        <div class="category-price">￥70</div>
+                                                        <div class="category-name">商品7</div>
+                                                    </a>
+                                                </li>
+
+
+
+                                                <li class="category-item">
+                                                    <a class="category-link" href="http://ebusiness-mb2b-dev.xiniunet.com/mb2b/commodity.htm?commodityId=863757839762853888.html">
+                                                        <img class="category-icon" src="https://xiniunet-dev.oss.aliyuncs.com/801689539428098048/801689539881086976/871653559790604288.GIF" alt="">
+                                                        <div class="category-price">￥80</div>
+                                                        <div class="category-name">商品8</div>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+
+
+                                        <div class="swiper-slide">
+                                            <ul class="category-list clearfix">
+                                                <li class="category-item">
+                                                    <a class="category-link" href="https://ebusiness-mb2b-dev.xiniunet.com/mb2b/commodity.htm?commodityId=809631224455897088.html">
+                                                        <img class="category-icon" src="https://img-dev.xiniunet.com/801689539428098048/801689539881086976/873026147955642368.png" alt="">
+                                                        <div class="category-price">￥90</div>
+                                                        <div class="category-name">9</div>
+                                                    </a>
+                                                </li>
+
+
+
+                                                <li class="category-item">
+                                                    <a class="category-link" href="https://ebusiness-mb2b-dev.xiniunet.com/mb2b/commodity.htm?commodityId=809631224455897088.html">
+                                                        <img class="category-icon" src="https://img-dev.xiniunet.com/801689539428098048/801689539881086976/873026168394485760.png" alt="">
+                                                        <div class="category-price">￥100</div>
+                                                        <div class="category-name">10</div>
+                                                    </a>
+                                                </li>
+
+
+
+                                                <li class="category-item">
+                                                    <a class="category-link" href="https://ebusiness-mb2b-dev.xiniunet.com/mb2b/commodity.htm?commodityId=809645469272780800.html">
+                                                        <img class="category-icon" src="https://img-dev.xiniunet.com/801689539428098048/801689539881086976/871651962721275904.PNG" alt="">
+                                                        <div class="category-price">￥110</div>
+                                                        <div class="category-name">11</div>
+                                                    </a>
+                                                </li>
+
+
+
+                                                <li class="category-item">
+                                                    <a class="category-link" href="https://ebusiness-mb2b-dev.xiniunet.com/mb2b/commodity.htm?commodityId=864005906592305152.html">
+                                                        <img class="category-icon" src="https://img-dev.xiniunet.com/801689539428098048/801689539881086976/871651962721275904.PNG" alt="">
+                                                        <div class="category-price">￥120</div>
+                                                        <div class="category-name">12</div>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+
+
+                                        <div class="swiper-slide">
+                                            <ul class="category-list clearfix">
+                                                <li class="category-item">
+                                                    <a class="category-link" href="https://ebusiness-mb2b-dev.xiniunet.com/mb2b/commodity.htm?commodityId=809631224455897088.html">
+                                                        <img class="category-icon" src="https://img-dev.xiniunet.com/801689539428098048/801689539881086976/873048698828230656.png" alt="">
+                                                        <div class="category-price">￥130</div>
+                                                        <div class="category-name">13</div>
+                                                    </a>
+                                                </li>
+
+
+
+                                                <li class="category-item">
+                                                    <a class="category-link" href="https://ebusiness-mb2b-dev.xiniunet.com/mb2b/commodity.htm?commodityId=829578526779908096.html">
+                                                        <img class="category-icon" src="https://img-dev.xiniunet.com/801689539428098048/801689539881086976/873026168394485760.png" alt="">
+                                                        <div class="category-price">￥140</div>
+                                                        <div class="category-name">14</div>
+                                                    </a>
+                                                </li>
+
+
+
+                                                <li class="category-item">
+                                                    <a class="category-link" href="https://ebusiness-mb2b-dev.xiniunet.com/mb2b/commodity.htm?commodityId=863757839762853888.html">
+                                                        <img class="category-icon" src="https://img-dev.xiniunet.com/801689539428098048/801689539881086976/873026147955642368.png" alt="">
+                                                        <div class="category-price">￥150</div>
+                                                        <div class="category-name">15</div>
+                                                    </a>
+                                                </li>
+
+
+
+                                                <li class="category-item">
+                                                    <a class="category-link" href="https://ebusiness-mb2b-dev.xiniunet.com/mb2b/commodity.htm?commodityId=829578526779908096.html">
+                                                        <img class="category-icon" src="https://img-dev.xiniunet.com/801689539428098048/801689539881086976/873026168394485760.png" alt="">
+                                                        <div class="category-price">￥160</div>
+                                                        <div class="category-name">16</div>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+
+
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="xn-site-widget" data-widget-id="876680158835249201" id="widget_876680158835249201">
+                        <div class="widgetContent clearfix" data-dpr="1">
+                            <div class="xn-module-customize clearfix">
+                                <ul>
+
+                                    <a href="http://ebusiness-mb2b-dev.xiniunet.com/mb2b/commodity.htm?commodityId=809645469272780800.html">
+                                        <li>
+                                            <div class="type-title">
+                                                <div class="type-title-name hot">
+                                                    <img src="https://img-dev.xiniunet.com/801689539428098048/801689539881086976/867313856861835264.jpg" alt="">
+                                                </div>
+                                                <div class="type-title-description">
+                                                    今天是个好日子
+                                                </div>
+                                            </div>
+                                            <img class="type-img" src="https://img-dev.xiniunet.com/801689539428098048/801689539881086976/871651962721275904.PNG" alt="">
+                                        </li>
+                                    </a>
+
+                                    <a href="http://ebusiness-mb2b-dev.xiniunet.com/mb2b/commodity.htm?commodityId=809625718995693568.html">
+                                        <li>
+                                            <div class="type-title">
+                                                <div class="type-title-name hot">
+                                                    <img src="https://img-dev.xiniunet.com/801689539428098048/801689539881086976/852717556153585664.jpg" alt="">
+                                                </div>
+                                                <div class="type-title-description">
+                                                    奖金翻倍
+                                                </div>
+                                            </div>
+                                            <img class="type-img" src="https://img-dev.xiniunet.com/801689539428098048/801689539881086976/867665368783917056.png" alt="">
+                                        </li>
+                                    </a>
+
+                                    <a href="http://ebusiness-mb2b-dev.xiniunet.com/mb2b/commodity.htm?commodityId=809630386039697408.html">
+                                        <li>
+                                            <div class="type-title">
+                                                <div class="type-title-name hot">
+                                                    <img src="https://img-dev.xiniunet.com/801689539428098048/801689539881086976/852719541019873280.jpg" alt="">
+                                                </div>
+                                                <div class="type-title-description">
+                                                    中了五千万
+                                                </div>
+                                            </div>
+                                            <img class="type-img" src="https://img-dev.xiniunet.com/801689539428098048/801689539881086976/860331795353571328.jpg" alt="">
+                                        </li>
+                                    </a>
+
+                                    <a href="http://ebusiness-mb2b-dev.xiniunet.com/mb2b/commodity.htm?commodityId=809645469272780800.html">
+                                        <li>
+                                            <div class="type-title">
+                                                <div class="type-title-name hot">
+                                                    <img src="https://img-dev.xiniunet.com/801689539428098048/801689539881086976/867313856861835264.jpg" alt="">
+                                                </div>
+                                                <div class="type-title-description">
+                                                    大保健免费送
+                                                </div>
+                                            </div>
+                                            <img class="type-img" src="https://img-dev.xiniunet.com/801689539428098048/801689539881086976/852717556153585664.jpg" alt="">
+                                        </li>
+                                    </a>
+
+                                </ul>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="xn-foot">
+
+        <div class="xn-site-widget" data-widget-id="876680158835249202" id="widget_876680158835249202">
+            <div class="widgetContent clearfix" data-dpr="1">
+
+                <div class="xn-module-bottom">
+                    <div class="icons">
+
+
+                        <div class="parts">
+                            <div class="left-part">
+                                <div class="afterScale">
+                                    <a href="http://ebusiness-mb2b-dev.xiniunet.com/mb2b/know.htm?categoryCode=001">
+
+                                        <img src="https://img-dev.xiniunet.com/801689539428098048/801689539881086976/873048698828230656.png" alt="">
+
+
+                                        <div class="name">宠银售后</div>
+
+                                    </a>
+                                </div>
+
+
+
+                                <div class="konw">
+                                    <a href="http://ebusiness-mb2b-dev.xiniunet.com/mb2b/know.htm?categoryCode=002">
+
+                                        <img src="https://img-dev.xiniunet.com/801689539428098048/801689539881086976/873048721905291264.png" alt="">
+
+
+                                        <div class="name">宠银知道</div>
+
+                                    </a>
+                                </div>
+                            </div>
+
+
+
+                            <div class="mine">
+                                <a href="http://ebusiness-mb2b-dev.xiniunet.com/mb2b/drpMy.htm">
+                                    <div class="img-box">
+
+                                        <img src="https://img-dev.xiniunet.com/801689539428098048/801689539881086976/873048829887647744.png" alt="">
+
+                                    </div>
+
+                                    <div class="name">我的</div>
+
+                                </a>
+                            </div>
+
+
+
+                            <div class="right-part">
+                                <div class="phone">
+                                    <a href="tel:123456">
+
+                                        <img src="https://img-dev.xiniunet.com/801689539428098048/801689539881086976/873048755698798592.png" alt="">
+
+
+                                        <div class="name">联系我们</div>
+
+                                    </a>
+                                </div>
+
+
+
+                                <div class="link">
+                                    <a href="#">
+
+                                        <img src="https://img-dev.xiniunet.com/801689539428098048/801689539881086976/873048755698798592.png" alt="">
+
+
+                                        <div class="name">友情链接</div>
+
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </footer>
+    <script>
+        $(".xn-site-widget").each(function() {
+            var widgetId = $(this).attr("data-widget-id");
+            $(this).attr("id", "widget_" + widgetId);
+        });
+        $(function() {
+            (function() {
+                var widget = $('#widget_876680158835249197');
+            })();
+            (function() {
+                var widget = $('#widget_876680158835249198');
+                var mySwiper = new Swiper("#" + widget.attr("id") + ' .swiper-container', {
+                    autoplay: 5000, //可选选项，自动滑动
+                    loop: true, //可选选项，开启循环
+                    mode: 'vertical',
+                    slidesPerGroup: 2,
+                    slidesPerView: 2,
+
+                })
+            })();
+            (function() {
+                var widget = $('#widget_876680158835249200');
+                var mySwiper = new Swiper("#" + widget.attr("id") + ' .swiper-container', {
+                    autoplay: 5000, //可选选项，自动滑动
+                })
+            })();
+            (function() {
+                var widget = $('#widget_876680158835249201');
+            })();
+            (function() {
+                var widget = $('#widget_876680158835249202');
+            })();
+            (function() {
+                var widget = $('#widget_876680158835249203');
+                var toAmount = function(number) {
+                    var amount = number - 0;
+                    if (amount) {
+                        amount = Math.round(amount * 100000) / 100000 + "";
+                        var list = amount.split(".");
+                        if (list.length == 1) {
+                            return list[0] + ".00";
+                        } else {
+                            for (var i = list[1].length - 1; i > 1; i--) {
+                                if ('0' == list[1].charAt(i)) {
+                                    list[1] = list[1].substring(0, i);
+                                } else {
+                                    break;
+                                }
+                            }
+                            if (list[1].length == 0) {
+                                list[1] = "00";
+                            }
+                            if (list[1].length == 1) {
+                                list[1] += "0";
+                            }
+                            return list[0] + "." + list[1];
+                        }
+                    } else {
+                        return "0.00";
+                    }
+
+                };
+
+                var itemList = JSON.parse('[{"iconlink":"https://img-dev.xiniunet.com/801689539428098048/801689539881086976/852719541019873280.jpg","linkUrl":"https://ebusiness-mb2b-dev.xiniunet.com/mb2b/commodity.htm?commodityId=809630386039697408.html","commodityId":"809630386039697408"},{"iconlink":"https://img-dev.xiniunet.com/801689539428098048/801689539881086976/852719623014322176.jpg","linkUrl":"https://ebusiness-mb2b-dev.xiniunet.com/mb2b/commodity.htm?commodityId=809630386039697408.html","commodityId":"809630386039697408"},{"iconlink":"https://img-dev.xiniunet.com/801689539428098048/801689539881086976/873026147955642368.png","linkUrl":"https://ebusiness-mb2b-dev.xiniunet.com/mb2b/commodity.htm?commodityId=809630386039697408.html","commodityId":"809630386039697408"},{"iconlink":"https://img-dev.xiniunet.com/801689539428098048/801689539881086976/873048755698798592.png","linkUrl":"https://ebusiness-mb2b-dev.xiniunet.com/mb2b/commodity.htm?commodityId=809630386039697408.html","commodityId":"809630386039697408"}]');
+                var commodityIds = [];
+                for (var i = 0; i < itemList.length; i++) {
+                    if (itemList[i].commodityId) {
+                        commodityIds.push(itemList[i].commodityId);
+                    }
+                }
+
+                if (commodityIds.length > 0) {
+                    $.ajax({
+                        type: 'POST',
+                        url: 'https://ebusiness-mb2b-dev.xiniunet.com/outApi.do?method=commodity.find',
+                        data: JSON.stringify({
+                            ids: commodityIds,
+                            systemType: 'B2B',
+                            deviceType: 'MOBILE',
+                            pageSize: 0
+                        }),
+                        xhrFields: {
+                            withCredentials: true
+                        },
+                        contentType: "application/json;charset=UTF-8",
+                        dataType: 'json',
+                        timeout: 30000,
+                        success: function(data) {
+                            var commodityList = data.result;
+
+                            $.ajax({
+                                type: 'POST',
+                                url: 'https://ebusiness-mb2b-dev.xiniunet.com/outApi.do?method=commodity.statistic.find',
+                                data: JSON.stringify({
+                                    commodityIds: commodityIds,
+                                    pageSize: 0
+                                }),
+                                xhrFields: {
+                                    withCredentials: true
+                                },
+                                contentType: "application/json;charset=UTF-8",
+                                dataType: 'json',
+                                timeout: 30000,
+                                success: function(data) {
+                                    var commodityStatisticsList = data.result;
+                                    var htmlStr = '';
+
+                                    for (var j = 0; j < itemList.length; j++) {
+                                        for (var i = 0; i < commodityList.length; i++) {
+                                            var commodity = commodityList[i];
+                                            var item = itemList[j];
+                                            if (commodity.id == item.commodityId) {
+                                                var salesQuantity = 0;
+                                                for (var k = 0; k < commodityStatisticsList.length; k++) {
+                                                    if (commodity.id == commodityStatisticsList[k].id) {
+                                                        salesQuantity = commodityStatisticsList[k].salesQuantityCount;
+                                                        break;
+                                                    }
+                                                }
+                                                var tempHtml = '<li>';
+                                                if (item.iconlink) {
+                                                    tempHtml = tempHtml + '<img src="' + item.iconlink + '" alt="" class="icon-shop">';
+                                                }
+                                                tempHtml = tempHtml + '<img src="' + commodity.pictureUrl + '" alt="" class="shop"><div class="shop-description">';
+                                                tempHtml = tempHtml + commodity.title + '</div><div class="shop-info clearfix"><div class="shop-price">￥' + toAmount(commodity.showPrice) + '</div>';
+                                                tempHtml = tempHtml + '<div class="people-payed"><span>' + salesQuantity + '</span>人已付款</div></div></li>';
+                                                htmlStr += tempHtml;
+                                                break;
+                                            }
+                                        }
+                                    }
+                                    widget.find(".shop-list").html(htmlStr);
+                                },
+                                error: function(xhr, type) {
+
+                                }
+                            });
+
+
+                        },
+                        error: function(xhr, type) {
+
+                        }
+                    });
+                }
+            })();
+            (function() {
+                var widget = $('#widget_876680158835249204');
+            })();
+        });
+        var dpr = $("html").attr("data-dpr");
+        $(".widgetContent").attr("data-dpr", dpr);
+        //foot chusli
+        $("#page").css("bottom", dpr * 50 + "px");
+        $(".xn-footer").attr("data-dpr", dpr);
+
+        window.onload = function() {
+            //        if($("#page")){
+            //            $("#page").css({
+            //                width:$(".xn-main").outerWidth()+"px",
+            //                margin: "auto"
+            //            });
+            //            $(".xn-main").css({
+            //                float:"left",
+            //                width:"100%"
+            //            });
+            //        } else {
+            //            $(".xn-main").css({
+            //                width:$(".xn-main").outerWidth()+"px",
+            //                margin: "auto"
+            //            });
+            //        }
+            $(".xn-page-container").css({
+                width: $(".xn-main").outerWidth() + "px",
+                margin: "auto"
+            });
+
+        }
+
+        $(function() {
+            $(".xnLoading").css({
+                display: 'none'
+            });
+        });
     </script>
 </body>
 

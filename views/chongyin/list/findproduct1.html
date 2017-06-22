@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>findproduct</title>
+    <link rel="stylesheet" href="/js/jquery.range.css">
+    <link rel="stylesheet" href="../../../css/chongyin/findproduct.1.css">
+</head>
+
+<body>
+
+    <div class="xn-findproduct ">
+        <aside id="sidebar">
+            <div class="sidebar-block">
+                <div class="panel panel-default">
+                    <div class="panel-heading" id="headingCategory">
+                        <p class="panel-title">
+                            <a href="#collapseCategory">Find your products</a>
+                            <a href="" class="J_clear clear">Clear all</a>
+                        </p>
+                    </div>
+                    <div id="collapseCategory" class="panel-collapse collapse in">
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <p class="title">Category</p>
+                            </li>
+                            <li class="list-group-item">
+                                <ul class="autofilter" data-name="Category">
+                                    <li>
+                                        <a href="http://www.petseurope.eu/en/dogs/1226/care-hygiene/category=waste bags">Waste Bags</a>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.petseurope.eu/en/dogs/1226/care-hygiene/category=training pads">Training Pads</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="list-group-item">
+                                <p class="title">Brands</p>
+                            </li>
+                            <li class="list-group-item">
+                                <ul class="autofilter" data-name="Brand">
+                                    <li><a href="http://www.petseurope.eu/en/brands/111/m-pets">M-PETS</a></li>
+                                    <li><a href="http://www.petseurope.eu/en/brands/114/petphabet">petphabet</a></li>
+                                </ul>
+                            </li>
+                            <li class="list-group-item">
+                                <p class="title">Price</p>
+                            </li>
+                            <li class="list-group-item" id="price">
+                                <input class="range-slider J_range" type="hidden" value="0,9" />
+                            </li>
+                            <li class="list-group-item">
+                                <p class="title">Color</p>
+                            </li>
+                            <li class="list-group-item">
+                                <ul class="colors autofilter" data-name="VariantType">
+                                    <li id="VariantType2" title="Blue" data-id="2"><a href="#" style="background-color: #0247d1" title="Blue">Blue</a></li>
+                                    <li id="VariantType5" title="Pink" data-id="5"><a href="#" style="background-color: #f082f0" title="Pink">Pink</a></li>
+                                    <li id="VariantType9" title="Grey" data-id="9"><a href="#" style="background-color: #888688" title="Grey">Grey</a></li>
+                                    <li id="VariantType15" title="Purple" data-id="15"><a href="#" style="background-color: #640e8f" title="Purple">Purple</a></li>
+                                    <li id="VariantType16" title="Yellow" data-id="16"><a href="#" style="background-color: #ffff00" title="Yellow">Yellow</a></li>
+                                    <li id="VariantType18" title="Black" data-id="18"><a href="#" style="background-color: #000000" title="Black">Black</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <form name="FilterForm" method="post" action="#" data-ajax="http://www.petseurope.eu/en/ajax/webshop_overview.php" data-action="filter" data-extratemplates="tpl_urlchanger tpl_webshop_overview_products tpl_pagination"><input type="hidden" name="GenderID" class="default" value="1"><input type="hidden" name="WebshopProductMainCategoryID" class="default" value="26"></form>
+        </aside>
+    </div>
+
+
+
+    <script src='http://file.40017.cn/dujia/cn/v/dujia/modules/jquery_1e357de.js'></script>
+    <script src='/js/jquery.range.js'></script>
+    <script>
+        $(function() {
+            var width = $('.J_range').parents('.list-group-item').width();
+            // console.log(width);
+            $('.J_range').jRange({
+                from: 0,
+                to: 9,
+                step: 1,
+                scale: [],
+                format: '%s',
+                width: width,
+                showLabels: true,
+                isRange: true
+
+            });
+        });
+    </script>
+</body>
+
+</html>
