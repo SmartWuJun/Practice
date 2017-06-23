@@ -1,0 +1,93 @@
+<html>
+
+<head>
+    <style>
+        .loading {
+            position: fixed;
+            height: 100%;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.75);
+            z-index: 10001;
+        }
+        
+        .loading .wrapper {
+            border: 4px solid #1fb6bb;
+            border-radius: 100%;
+            width: 125px;
+            height: 125px;
+            overflow: hidden;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+        
+        .loading .wrapper .icons {
+            -webkit-animation: up-and-down 4s infinite;
+            animation: up-and-down 4s infinite;
+            -webkit-animation-timing-function: cubic-bezier(0.21, 1.58, 0.51, 0.99);
+            animation-timing-function: cubic-bezier(0.21, 1.58, 0.51, 0.99);
+        }
+        
+        .loading .wrapper .icon-wrapper {
+            width: 125px;
+            height: 125px;
+            position: relative;
+            margin-left: -4px;
+        }
+        
+        .loading .wrapper .icon-wrapper svg {
+            fill: #1fb6bb;
+            width: 75px;
+            height: 75px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+        
+        .icon {
+            display: inline-block;
+            vertical-align: middle;
+            transition: 0.5s cubic-bezier(0.455, 0, 0.515, 1);
+        }
+        
+        @keyframes up-and-down {
+            0%,
+            100% {
+                margin-top: 0px;
+            }
+            25%,
+            75% {
+                margin-top: -125px;
+            }
+            50% {
+                margin-top: -250px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="loader" class="loading hidden">
+        <div class="wrapper hidden">
+            <div class="icons">
+                <div class="icon-wrapper">
+                    <img src="/imgs/chongyin/cat.png" alt="">
+                </div>
+                <div class="icon-wrapper">
+                    <img src="/imgs/chongyin/dog.png" alt="">
+                </div>
+                <div class="icon-wrapper">
+                    <img src="/imgs/chongyin/bird.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

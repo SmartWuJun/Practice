@@ -18,12 +18,23 @@ $(function() {
             self.hideEdit();
         });
         //防止点击span 触发 hideEdit
+        $(document).on('click', '.J_edit', function(e) {
+            console.log(12);
+        });
+        //防止点击span 触发 hideEdit
         $(document).on('click', '.J_edit span', function(e) {
             e.stopPropagation();
         });
         //获取修改数据
         $(document).on('blur', '.J_edit span', function() {
-            console.log($(this).text());
+            if ($(this).attr('contenteditable') == 'true') {
+                console.log($(this).text());
+            }
+
+        });
+        //获取修改数据
+        $(document).on('focus', '.J_edit span', function() {
+            console.log(888);
         });
         //点击修改
         $(document).on('click', '.J_edit em', function(e) {
@@ -31,6 +42,7 @@ $(function() {
             e.stopPropagation();
             var cur = $(this).parents('.J_edit');
             $(this).addClass('none');
+
             cur.find('span').attr('contenteditable', true).focus();
         });
 
