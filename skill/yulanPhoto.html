@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="http://ebusiness-mb2c-test.xiniunet.com/mb2c/vendor/jquery/jquery.min.js?v=2.31.0"></script>
+</head>
+
+<body>
+    <input type="file" id="imgFile">
+    <div class="preview_wrap"></div>
+
+    <input type="file" id="imgFile1">
+    <div class="preview_wrap1"></div>
+
+    <script>
+        //preview img ： filereader方式
+        document.getElementById('imgFile').onchange = function(e) {
+            var ele = document.getElementById('imgFile').files[0];
+
+            var fr = new FileReader();
+            fr.onload = function(ele) {
+
+                var pvImg = new Image();
+                pvImg.src = ele.target.result;
+                pvImg.setAttribute('id', 'previewImg');
+
+                $('.preview_wrap').html('').append(pvImg);
+
+            }
+            fr.readAsDataURL(ele);
+        }
+
+
+
+        //preview img ： URL.createObjectURL 方式
+        document.getElementById('imgFile1').onchange = function(e) {
+            var ele = document.getElementById('imgFile1').files[0];
+
+            var createObjectURL = function(blob) {
+                return window[window.webkitURL ? 'webkitURL' : 'URL']['createObjectURL'](blob);
+            };
+            var newimgdata = createObjectURL(ele);
+
+            var pvImg = new Image();
+            pvImg.src = newimgdata;
+            pvImg.setAttribute('id', 'previewImg1');
+
+            $('.preview_wrap1').html('').append(pvImg);
+        }
+    </script>
+</body>
+
+</html>

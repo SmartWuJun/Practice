@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/css/sui.css">
+    <script type="text/javascript" src="http://ebusiness-mb2c-test.xiniunet.com/mb2c/vendor/jquery/jquery.min.js?v=2.31.0"></script>
+    <script src='/js/formvalidate/sui.js'></script>
+
+</head>
+
+<body>
+    <form id="form-msg" class="sui-form form-horizontal sui-validate" novalidate="novalidate">
+        <div class="control-group">
+            <label for="inputEmail" class="control-label">邮箱：</label>
+            <div class="controls">
+                <input type="text" id="inputEmail" name="email" placeholder="邮箱" data-rules="email">
+            </div>
+        </div>
+        <div class="control-group">
+            <label for="inputPassword" class="control-label">密码：</label>
+            <div class="controls">
+                <input type="password" id="inputPassword" name="password" placeholder="密码" data-rules="required" title="密码">
+            </div>
+        </div>
+        <div class="control-group">
+            <label for="inputRepassword" class="control-label">重复密码：</label>
+            <div class="controls">
+                <input type="password" id="inputRepassword" name="repassword" placeholder="重复密码" data-rules="required|match=password" data-error-msg="昵称必须是2-6位">
+            </div>
+        </div>
+        <div class="control-group">
+            <label for="inputNick" class="control-label">昵称：</label>
+            <div class="controls">
+                <input type="text" id="inputNick" name="nick" placeholder="昵称" data-rules="required|minlength=2|maxlength=6" data-error-msg="昵称必须是2-6位" data-empty-msg="亲，昵称别忘记填了">
+            </div>
+        </div>
+        <div class="control-group">
+            <label for="sanwei" class="control-label"></label>
+            <div class="controls">
+                <button type="submit" class="sui-btn btn-primary J_save">立即注册</button>
+            </div>
+        </div>
+    </form>
+    <script>
+        $('#form-msg').validate({
+            success: function(r) {
+                alert(1)
+                console.log(r);
+                return false;
+            }
+        });
+    </script>
+</body>
+
+</html>
