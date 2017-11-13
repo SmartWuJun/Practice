@@ -1,18 +1,19 @@
 {
-  "name": "testgulp",
-  "version": "1.0.0",
-  "description": "",
-  "main": "gulpfile.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "gulp": "^3.9.1",
-    "gulp-clean": "^0.3.2",
-    "gulp-gzip": "^1.4.0",
-    "gulp-less": "^3.3.0",
-    "gulp-load-plugins": "^1.5.0"
-  }
+    "name": "testgulp",
+    "version": "1.0.0",
+    "description": "",
+    "main": "gulpfile.js",
+    "scripts": {
+        "start": "node index",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "gulp": "^3.9.1",
+        "gulp-clean": "^0.3.2",
+        "gulp-gzip": "^1.4.0",
+        "gulp-less": "^3.3.0",
+        "gulp-load-plugins": "^1.5.0"
+    }
 }

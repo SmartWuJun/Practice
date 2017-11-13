@@ -9,23 +9,47 @@
 </head>
 
 <body>
-    <div class="input-append date form_datetime">
-        <input size="16" type="text" value="" readonly>
-        <span class="add-on"><i class="icon-th"></i></span>
+    <div id="main">
+        <div id="mainContainer">main content</div>
     </div>
-    <script src="http://www.eyecon.ro/bootstrap-datepicker/js/jquery.js"></script>
+    <div id="left">
+        <div id="leftContainer" class="inner">left content</div>
+    </div>
+    <div id="right">
+        <div id="rightContainer" class="inner">right</div>
+    </div>
 
-    <script src="http://cdn.bootcss.com/twitter-bootstrap/2.2.2/bootstrap.min.js"></script>
-    <script src="http://www.bootcss.com/p/bootstrap-datetimepicker/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
-    <script type="text/javascript">
-        $(".form_datetime").datetimepicker({
-            language: 'zh-CN',
-            format: "dd MM yyyy",
-            autoclose: true,
-            todayBtn: false,
-            pickerPosition: "bottom-left"
-        });
-    </script>
+    <style>
+        #main {
+            float: left;
+            width: 100%;
+        }
+        
+        #mainContainer {
+            margin: 0 230px;
+            height: 200px;
+            background: green;
+        }
+        
+        #left {
+            float: left;
+            margin-left: -100%;
+            width: 230px
+        }
+        
+        #right {
+            float: left;
+            margin-left: -230px;
+            width: 230px;
+        }
+        
+        #left .inner,
+        #right .inner {
+            background: orange;
+            margin: 0 10px;
+            height: 200px;
+        }
+    </style>
 </body>
 
 </html>

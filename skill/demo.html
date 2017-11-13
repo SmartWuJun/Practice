@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>JS Bin</title>
+    <style>
+        .demo {
+            border: 1px solid #ccc;
+            position: relative;
+            padding: 0 20px;
+            min-height: 50px;
+        }
+        
+        .rongqi {
+            /*//容器*/
+            height: 15px;
+            overflow: hidden;
+            position: absolute;
+            top: 10px;
+            /*left: 0;*/
+        }
+        
+        .wenan {
+            /*//文案*/
+            float: left;
+            position: relative;
+            /*设置层级不被三角形挡住*/
+            z-index: 3;
+            height: 15px;
+            padding-left: 4px;
+            line-height: 16px;
+            color: #fff;
+            font-size: 10px;
+            background: #c59c53;
+        }
+        
+        .script {
+            width: 0;
+            height: 0;
+            border-right: 20px solid transparent;
+            /*//这里的30px实际上远远超出容器的高度*/
+            border-top: 30px solid #c59c53;
+            /*//就是为了高度超出被挡住做出梯形的效果，兼容各种机型*/
+            float: right;
+            margin-left: -9px;
+        }
+    </style>
+
+    <style>
+        .ent-li {
+            margin-left: 45px;
+            height: 44px;
+            display: -webkit-box;
+            /*//box布局并做好兼容*/
+            display: box;
+            position: relative;
+        }
+        
+        .ent-li .left {
+            -webkit-box-flex: 1;
+            /*//box-flex:1控制宽度自适应*/
+            box-flex: 1;
+            text-align: left;
+            line-height: 45px;
+            font-size: 16px;
+            color: #333;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        
+        .ent-li .right {
+            /*//右侧啥都不用管*/
+            text-align: right;
+            line-height: 45px;
+            font-size: 12px;
+            color: #999;
+            padding-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="demo">
+        <b>三角形</b>
+        <p class="rongqi">
+            <span class="wenan">跟团游</span>
+            <span class="script"></span>
+        </p>
+    </div>
+
+    <div class="demo">
+        <ul>
+            <li class="ent-li">
+                <!--<img class="ent-img" src="imgs/search.png">-->
+                <div class="left">主题门票</div>
+                <div class="right">10</div>
+            </li>
+            <li class="ent-li">
+                <!--<img class="ent-img" src="imgs/search.png">-->
+                <div class="left">主题门票主题门票主题门票主题门票主题门票</div>
+                <div class="right">10</div>
+            </li>
+            <li class="ent-li">
+                <!--<img class="ent-img" src="imgs/search.png">-->
+                <div class="left">主题门票</div>
+                <div class="right">101010101010101010</div>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>
