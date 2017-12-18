@@ -185,3 +185,57 @@
      vertical-align: middle;
      border: 0;
  }
+ 
+ #navbar-top ul {
+     list-style: none;
+     padding: 0;
+     margin: 0;
+ }
+ 
+ #navbar-top ul li:hover {
+     background: rgba(31, 182, 187, 0.1)
+ }
+ 
+ .language {
+     margin-left: 10px;
+     cursor: pointer;
+     position: relative;
+ }
+ 
+ .language img {
+     width: 24px;
+     height: 16px;
+     float: left;
+     margin: 0 5px;
+ }
+ 
+ .languages {
+     position: absolute;
+     top: 34px;
+     z-index: 100;
+ }
+ 
+ .none {
+     display: none;
+ }
+ 
+ .selected:after {
+     content: " ";
+     width: 0;
+     height: 0;
+     display: inline-block;
+     border-top: 8px solid #666;
+     border-left: 6px solid transparent;
+     border-right: 6px solid transparent;
+     margin-left: 8px;
+ }
+ 
+ .clearfix:before,
+ .clearfix:after {
+     content: ' ';
+     display: table;
+ }
+ 
+ .clearfix:after {
+     clear: both;
+ }
