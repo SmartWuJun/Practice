@@ -1,0 +1,131 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.useCenter {
+    width: 99%;
+    height: 60px;
+    border: 1px solid #d6d6d6;
+    margin-bottom: 10px;
+}
+
+.icon-xn {
+    color: #39f;
+    font-size: 14px;
+    display: block;
+    margin-top: 12px;
+    float: left;
+    margin-left: 70px;
+    font-style: normal;
+}
+
+.useCenter span {
+    float: left;
+    margin-top: 11px;
+    color: #39f;
+    font-weight: 700;
+    font-size: 16px;
+    margin-left: 5px;
+}
+
+.useCenter div {
+    float: left;
+    font-size: 12px;
+    color: #999;
+    margin-left: 56px;
+}
+
+.xn-sidebar .member-info {
+    width: 290px;
+    border: 2px solid #ededed;
+    border-bottom: none;
+    box-sizing: border-box;
+}
+
+.member-info .member-header {
+    height: 60px;
+    padding: 9px 19px;
+    border-bottom: 2px solid #d6d6d6;
+}
+
+.member-header .portrait {
+    border-radius: 6px;
+}
+
+.member-header .info {
+    margin-left: 10px;
+}
+
+.f-left {
+    float: left!important;
+}
+
+.member-header .name {
+    color: #333;
+}
+
+.member-header .note {
+    font-size: 12px;
+    color: #999;
+}
+
+.member-info .items-wrap {
+    background: #fafafa;
+}
+
+li,
+ol,
+ul {
+    list-style: none;
+}
+
+.items-wrap .items {
+    height: 38px;
+    line-height: 38px;
+    padding: 0 19px;
+    border-bottom: 2px solid #e4e4e4;
+}
+
+.items-wrap .items .artic {
+    background: url(artic.png) left center no-repeat;
+}
+
+.items-wrap .items .colle {
+    background: url(colle.png) left center no-repeat;
+}
+
+.items-wrap .items .interest {
+    background: url(interest.png) left center no-repeat;
+}
+
+.items-wrap .items .be-interest {
+    background: url(be-interest.png) left center no-repeat;
+}
+
+.items-wrap .items .name {
+    padding-left: 34px;
+    color: #333;
+    text-decoration: none;
+}
+
+.items-wrap .items .views {
+    font-size: 12px;
+    color: #666;
+}
+
+.xn-module-application {
+    width: 290px;
+}
+
+.member-info {
+    width: 290px;
+    border: 2px solid #ededed;
+    border-bottom: none;
+    box-sizing: border-box;
+}
+
+.f-right {
+    float: right!important;
+}

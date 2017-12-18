@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>cart</title>
+    <meta charset="utf-8">
+    <style>
+       .module-rightNav{
+        width: 50px;
+           position: fixed;
+           right: 10px;
+           bottom: 100px;
+           border-top: 1px solid #ddd;
+           border-left: 1px solid #ddd;
+           border-right: 1px solid #ddd;
+       }
+       .module-rightNav .ul{
+           list-style: none;
+           margin: 0;
+
+       }
+       .module-rightNav .ul .li{
+        width: 50px;
+        height: 44px;
+        display: block;
+        float: right;
+        font-size: 14px;
+        line-height: 17px;
+        color: #666;
+        padding: 4px 9px;
+        box-sizing: border-box;
+        text-align: center;
+        border-bottom: 1px solid #ddd;
+        cursor: pointer;
+        position: relative;
+
+       }
+       .module-rightNav .ul .li .module-phone{
+            position: absolute;
+            left: -4px;
+            transform: translateX(-100%);
+            top: 0;
+            padding: 15px 10px;
+            font-size: 12px;
+            height: 44px;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            white-space: nowrap;
+       }
+       .module-code{
+            position: absolute;
+            left: -4px;
+            transform: translateX(-100%);
+            top: -44px;
+            padding: 15px 10px 0 10px;
+            font-size: 12px;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+       }
+       .code-name{
+           line-height: 36px;
+           color: #999;
+       }
+       .module-rightNav .ul .li>img{
+        width: 24px;
+        height: 24px;
+        margin-top: 5px;
+       }
+       .module-rightNav .ul .li .big-code{
+        width: 100px;
+        height: 100px;
+       }
+       .module-rightNav .ul .arrow{
+           background: url(/imgs/arrow.png) center no-repeat;
+           background-size: 24px;
+       }
+       .module-code{
+           width: 120px;
+       }
+       .none{
+           display: none;
+       }
+       .clearfix:after,.clearfix:before{
+            content: '';
+            display: table;
+       }
+       .clearfix:after{
+           clear:both;
+       }
+
+
+    </style>
+</head>
+
+<body>
+    <div class="module-rightNav m040 " >
+        <div class="clearfix ul">
+            <div class="phone-list "> 
+                <div class="J_nav li">
+                 咨询电话 <div class="module-phone J_detail none">0512-123456</div>
+                </div>
+                <div class="J_nav li">
+                        咨询电话 <div class="module-phone J_detail none">0512-123456</div>
+                       </div>
+                </div>
+            <div class="code-list ">
+                <div class="J_nav li">
+                <img src="/imgs/code.png" alt=""> <div class="module-code clearfix J_detail none"><img class="big-code" src="/imgs/code.png" alt=""><div class="code-name">微信公众号</div></div> 
+            </div>
+            </div>
+            <div class="arrow li"  alt=""></div>
+        </div>
+    </div>
+
+    <script src='http://file.40017.cn/dujia/cn/v/dujia/modules/jquery_1e357de.js'></script>
+    </script>
+    <script>
+       $('.J_nav').hover(function(){
+            $('.J_detail').addClass('none');
+            $(this).find('.J_detail').removeClass('none');
+       },function(){
+        $('.J_detail').addClass('none');
+       });
+    </script>
+</body>
+
+</html>
