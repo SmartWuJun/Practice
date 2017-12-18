@@ -120,6 +120,7 @@
 
     <script>
         var test = window.location.href;
+        console.log(123);
         if (test.indexOf(".html") != -1) {
             var url = "/api/common.do?method=transfer.url";
             $.ajax({
