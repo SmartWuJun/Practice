@@ -30,6 +30,7 @@
     function foo(something) {
         console.log(this.a, something);
         return this.a + something;
+
     }
 
     function bind(fn, obj) {
@@ -47,6 +48,35 @@
     var b = bar(3);
 
     console.log(b);
+</script>
+
+<script>
+    let myObject = {
+        get a() {
+            return this._a_;
+        },
+        set a(v) {
+            this._a_ = v * 4;
+        }
+
+    }
+
+    Object.defineProperty(myObject, 'b', {
+        get() {
+            return this.a * 5;
+        },
+        set(v) {
+            this.a = 100 * v;
+        },
+        enumerable: true
+    })
+    myObject.a = 10;
+    console.log(myObject.a);
+    console.log(myObject.b);
+    myObject.b = 3;
+    console.log(myObject.b);
+
+    console.log(myObject.a);
 </script>
 
 <body>
