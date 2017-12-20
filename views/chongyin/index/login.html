@@ -12,31 +12,67 @@
             <div id="navbar-top" class="navbar-inverse navbar-static-top">
                 <!-- START NAVBAR COLLAPSE -->
                 <div class="navbar-collapse collapse">
-                    <!-- Support --><span class="navbar-left"><strong>Help &amp; Support</strong>Contact +32 0800 88 88 on Monday - Friday (8h-18h)</span>
-                    <div class="info pull-right">
-                        <ul class="nav navbar-nav navbar-left" id="login">
-                            <!-- Login -->
-                            <li><a href="http://www.petseurope.eu/en/my-profile" title="">Sherry Wei</a></li>
-                            <li><a href="http://www.petseurope.eu/en/signout">Logout</a></li>
-                        </ul>
-                        <!-- Languages -->
-                        <!-- Search -->
-                        <form class="navbar-form navbar-left" role="search" action='#'>
-                            <div class="form-group">
-                                <label class="sr-only">Search</label>
-                                <input type="text" class="form-control" placeholder="Search">
-                            </div>
-                            <button type="submit" class=" btn-search">
+                    <span class="navbar-left"><strong>Help &amp; Support</strong>Contact +32 0800 88 88 on Monday - Friday (8h-18h)</span>
+                    <span class="navbar-left language">
+                      
+                    <div class=" J_language clearfix">
+                        <img src="/imgs/chongyin/1.png" alt="">
+                        <span class="selected">chinese</span>
+                </div>
+                <ul class="languages J_languages none">
+                    <li><img src="/imgs/chongyin/1.png" alt="">chinese</li>
+                    <li><img src="/imgs/chongyin/2.png" alt="">english</li>
+                    <li><img src="/imgs/chongyin/3.png" alt="">japan</li>
+                </ul>
+                </span>
+                <div class="info pull-right">
+                    <ul class="nav navbar-nav navbar-left" id="login">
+                        <!-- Login -->
+                        <li><a href="http://www.petseurope.eu/en/my-profile" title="">Sherry Wei</a></li>
+                        <li><a href="http://www.petseurope.eu/en/signout">Logout</a></li>
+                    </ul>
+                    <!-- Languages -->
+                    <!-- Search -->
+                    <form class="navbar-form navbar-left" role="search" action='#'>
+                        <div class="form-group">
+                            <label class="sr-only">Search</label>
+                            <input type="text" class="form-control" placeholder="Search">
+                        </div>
+                        <button type="submit" class=" btn-search">
                                    <img class='icon-search' src="https://cdn.xiniunet.com/img/site/m060/search.png" alt="">
                             </button>
-                        </form>
-                    </div>
+                    </form>
                 </div>
-                <!-- END NAVBAR COLLAPSE -->
             </div>
+            <!-- END NAVBAR COLLAPSE -->
+        </div>
 
         </div>
     </header>
+    <script src="http://www.petseurope.eu/js/vendor/jquery-2.1.4.min.js"></script>
+    <script>
+        $(document).on('click', '.J_language', function(e) {
+            e.stopPropagation();
+            if ($('.J_languages').hasClass('none')) {
+                $('.J_languages').removeClass('none');
+            } else {
+                $('.J_languages').addClass('none');
+            }
+
+        });
+        $(document).on('click', '.J_languages li', function(e) {
+            e.stopPropagation();
+            var name = $(this).text();
+            var photo = $(this).find('img').attr('src');
+            $('.J_language span').text(name);
+            $('.J_language').find('img').attr('src', photo);
+            $('.J_languages').addClass('none');
+
+        });
+        $(document).on('click', function() {
+            $('.J_languages').addClass('none');
+        })
+    </script>
 </body>
 
 </html>

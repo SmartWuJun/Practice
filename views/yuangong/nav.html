@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>cart</title>
+    <meta charset="utf-8">
+    <style>
+        .module-nav {
+            background: #fff;
+            width: 100%;
+        }
+
+        .module-center {
+            width: 1190px;
+            margin: 0 auto;
+            padding: 20px 0;
+            height: 80px;
+            box-sizing: border-box;
+        }
+
+        .nav-logo {
+            margin-right: 90px;
+            width: 260px;
+            height: 40px;
+            background: url(http://img-dev.xiniunet.com/512824102474878976/757825797028712448/791833206399045632.png) center no-repeat;
+        }
+
+        .module-nav .nav-title {
+            float: left;
+            font-size: 16px;
+            color: #333;
+            margin-right: 50px;
+            line-height: 40px;
+            cursor: pointer;
+            /* position: relative; */
+        }
+
+        .module-nav .nav-title:hover {
+            color: #39f;
+        }
+        .module-nav .nav-title:hover .icon-arrow{
+            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAHCAYAAAAxrNxjAAAAAXNSR0IArs4c6QAAAHhJREFUGBljYEADVov+i9nO+y+KJszAiCwAUvD9D8N+kBgnC4Pj4STG1zB5uEKYov//GbRBkoyMDFeRFYMVIisCKQApBGlAVsyIrghkCkghyAnIill+/GEIRRaAuQtogCNMMUgNSDOD6az/WSCTwRwkAhQCIDmQEAAnUEkPnLSzXQAAAABJRU5ErkJggg==) no-repeat;
+        }
+        .nav-btn {
+            border: 1px solid #ddd;
+            width: 58px;
+            text-align: center;
+            height: 26px;
+            line-height: 26px;
+            color: #333;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 2px;
+        }
+
+        .nav-btns {
+            padding: 6px 0;
+        }
+        .module-nav .nav-title:hover .second-nav-panel{
+            display: block;
+        }
+        .module-nav .nav-title:hover .sanjiao{
+            display: block;
+        }
+        .second-nav-panel {
+            background: #f5f5f5;
+            position: absolute;
+            top: 80px;
+            left: 0;
+            right: 0;
+            display: none;
+            z-index: 10;
+        }
+
+        .second-nav-content {
+            width: 1190px;
+            margin: 0 auto;
+            padding: 30px 0 70px
+        }
+
+        .second-nav {
+            width: 232px;
+            background: #ebebeb;
+            padding: 8px 18px 8px 16px;
+            font-size: 16px;
+            color: #333;
+            border-radius: 8px;
+            float: left;
+            box-sizing: border-box;
+        }
+
+        .second-nav+.second-nav {
+            margin-left: 85px;
+        }
+
+        .second-nav:hover {
+            background: #39f;
+            color: #fff;
+        }
+
+        .second-nav:hover .sub-name {
+            color: #fff;
+        }
+
+        .second-nav .sub-name {
+            font-size: 12px;
+            color: #666;
+            line-height: 20px;
+        }
+        .icon-arrow{
+            display: inline-block;
+            width: 10px;
+            height: 7px;
+            margin-left: 3px;
+            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAHCAYAAAAxrNxjAAAAAXNSR0IArs4c6QAAAHpJREFUGBltkLENgCAQRT06BtAlrGlIKFxH53EdLZjBKRyAhAL0mVyCxivg/v/vgNB1dznn5hBCT98WHhme0JRSVhE5rLVTjPEkAEop7bXW0RizSGsoDKiQevKdJsDjJIW45QG/MLqFHs2i5b0fcs4bun2v5q8d+O8HLp+7SxXhjRSQAAAAAElFTkSuQmCC) no-repeat;
+        }
+
+        .sanjiao {
+            display: none;
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 10px solid #f5f5f5;
+            position: relative;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .fl {
+            float: left;
+        }
+
+        .clearfix:after,
+        .clearfix:before {
+            content: '';
+            display: table;
+        }
+
+        .clearfix:after {
+            clear: both;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="module-nav clearfix m045 ">
+        <div class="module-center">
+            <div class="nav-logo fl">
+            </div>
+            <div class="nav-titles clearfix fl">
+                <a class="nav-title ">
+                    <text>首页</text>
+                    <div class="icon-arrow"></div>
+                    <div class="sanjiao"></div>
+                    <div class="second-nav-panel">
+                        <div class="second-nav-content clearfix">
+                            <div class="second-nav">
+                                <div class="name">主标题</div>
+                                <div class="sub-name">副标题</div>
+                            </div>
+                            <div class="second-nav">
+                                <div class="name">主标题</div>
+                                <div class="sub-name">副标题</div>
+                            </div>
+                            <div class="second-nav">
+                                <div class="name">主标题</div>
+                                <div class="sub-name">副标题</div>
+                            </div>
+                            <div class="second-nav">
+                                <div class="name">主标题</div>
+                                <div class="sub-name">副标题</div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a class="nav-title">
+                    <text>零售分销</text>
+                    <div class="icon-arrow"></div>
+                </a>
+                <a class="nav-title">
+                    <text>智慧运营</text>
+                    <div class="icon-arrow"></div>
+                </a>
+                <a class="nav-title">
+                    <text>智慧运营</text>
+                    <div class="icon-arrow"></div>
+                </a>
+                <a class="nav-title">
+                    <text>智慧运营</text>
+                    <div class="icon-arrow"></div>
+                </a>
+                <a class="nav-title">
+                    <text>智慧运营</text>
+                    <div class="icon-arrow"></div>
+                </a>
+            </div>
+            <div class="nav-btns fl">
+                <div class="nav-btn">登录</div>
+            </div>
+        </div>
+    </div>
+
+    <script src='http://file.40017.cn/dujia/cn/v/dujia/modules/jquery_1e357de.js'></script>
+
+</body>
+
+</html>

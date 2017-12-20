@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <link rel="stylesheet" href="search.css">
+    <script src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
+</head>
+
+<body>
+    <div class="xn-module-search">
+        <div class="search-box clearfix">
+            <input class="form-control search-input J_keyword" type="text" placeholder="请输入关键字搜索文章">
+            <div class="btn btn-primary search-btn J_search">
+                <i class="icon icon-search"></i>
+            </div>
+        </div>
+        <div class="panels ">
+            <div class="panel-cell panel-search">
+                <div class="panel-header">历史搜索</div>
+
+                <div class="panel-cont J_history">
+                    <!-- ngRepeat: keyword in keyWordsList --><span ng-repeat="keyword in keyWordsList" class="tag ng-binding ng-scope">1</span>
+                    <!-- end ngRepeat: keyword in keyWordsList --><span ng-repeat="keyword in keyWordsList" class="tag ng-binding ng-scope">143251</span>
+                    <!-- end ngRepeat: keyword in keyWordsList --><span ng-repeat="keyword in keyWordsList" class="tag ng-binding ng-scope">a</span>
+                    <!-- end ngRepeat: keyword in keyWordsList --><span ng-repeat="keyword in keyWordsList" class="tag ng-binding ng-scope">ce</span>
+                    <!-- end ngRepeat: keyword in keyWordsList --><span ng-repeat="keyword in keyWordsList" class="tag ng-binding ng-scope">555</span>
+                    <!-- end ngRepeat: keyword in keyWordsList -->
+                </div>
+                <!-- end ngIf: keyWordsList.length > 0 -->
+            </div>
+            <div class="panel-cell panel-hot">
+                <div class="panel-header">热门文章</div>
+                <ul class="panel-nav clearfix">
+                    <li class="f-left J_type active">24小时</li>
+                    <li class="f-left J_type">周榜</li>
+                    <li class="f-left J_type">月榜</li>
+                    <li class="f-left J_type">全部</li>
+                </ul>
+                <div class="panel-inner">
+                    <div class="panel-cont show">
+                        <ul class="hot-list">
+                            <!-- ngRepeat: rand in randList -->
+                            <li class="hot-cell ">
+                                <a href="/employee/detail?id=891977308209287168">
+                                    <span class="article-title ng-binding">测试文章类型</span>
+                                </a>
+                                <span class="read ng-binding">（阅读：1）</span>
+                            </li>
+                            <!-- end ngRepeat: rand in randList -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-cell panel-popular">
+                <div class="panel-header">牛气榜</div>
+                <div class="panel-inner">
+                    <div class="panel-cont">
+                        <ul class="popular-list">
+                            <li>
+                                <img class="head-pic" src="tag.png" alt="">
+                                <span class='user-name'>小军</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-cell panel-ad">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var Index = {};
+
+        Index.init = function() {
+            this.initEvent();
+            Index.showHistory();
+        }
+
+        Index.initEvent = function() {
+            var self = this;
+            $(document).on('click', '.J_search', function() {
+                var key = $('.J_keyword').val();
+                self.search(key);
+
+            })
+
+            $(document).on('keyup', '.J_keyword', function(e) {
+                if (e.keyCode == 13) {
+                    var key = $('.J_keyword').val();
+                    self.search(key);
+                }
+
+
+            })
+
+
+            $(document).on('click', '.J_type', function() {
+                $(this).addClass('active').siblings().removeClass('active');
+            });
+        }
+
+        Index.getHistory = function() {
+            var history = localStorage.getItem('KEY_SEARCH');
+            if (history) {
+                return history.split(',');
+            } else {
+                return [];
+            }
+        }
+
+        Index.addHistory = function(value) {
+            var old = this.getHistory();
+            old.push(value);
+            localStorage.setItem('KEY_SEARCH', old);
+        }
+
+        Index.search = function(key) {
+            this.addHistory(key);
+            // window.location.href = '/employee/article/search?keyword=' + key;
+            window.location.reload();
+        }
+
+        Index.showHistory = function() {
+            var list = this.getHistory();
+            var str = '';
+            for (var i = 0; i < list.length; i++) {
+                str += '<span  class="tag ">' + list[i] + '</span>';
+            }
+            $('.J_history').html(str);
+        }
+
+        Index.init();
+    </script>
+</body>
+
+</html>

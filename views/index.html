@@ -4,25 +4,45 @@
 <head>
     <meta charset="utf-8" />
     <title></title>
+    <script src="/js/zepto.js"></script>
+    <script src="/js/touch.js"></script>
 
+    <style>
+        .btn {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: #39f;
+            margin: 0 auto;
+            vertical-align: middle;
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
-    <select name="" id="">
-			<option value="123">hellohellohellohellohellohellohellohello</option>
-			<option value="123">hellohellohellohellohellohellohellohello</option>
-			<option value="123">hellohellohellohellohellohellohellohello</option>
-		</select>
+    <div class="btn">button</div>
 
-    <video id="video" width="640" height="480" autoplay></video>
-    <button id="snap">Snap Photo</button>
-    <canvas id="canvas" width="640" height="480"></canvas>
-
-    <input type="file" accept="image/*;capture=camera">
     <script>
-        var html = '北京市';
-        document.cookie = "CITY_COOKIE=" + escape(html) + "";
-        alert(document.cookie);
+        var t, t1;
+        $('.btn').on('click', function() {
+            console.log('--------------2');
+            // console.time('click')
+            t = Date.now();
+            // console.timeEnd('click')
+            console.log(t - t1);
+            $('body').append('-------------------2<br>');
+        })
+
+
+        $('.btn').tap(function(e) {
+            // e.preventDefault();
+            console.log('----------1');
+            t1 = Date.now();
+
+            $('body').append('-------------------1<br>');
+
+        })
     </script>
 </body>
 
