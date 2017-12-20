@@ -1,0 +1,51 @@
+<html ng-app="myApp">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>无标题</title>
+    <link rel="stylesheet" type="text/css" href="../directive/style.css">
+    <link rel="stylesheet" type="text/css" href="../spm_modules/xn-icon-common/1.0.0/iconfont.css">
+    <link rel="stylesheet" type="text/css" href="../spm_modules/bootstrap-css/1.0.0/bootstrap.css">
+    <script type="text/javascript" src="../spm_modules/jquery/1.7.2/jquery.js"></script>
+    <script type="text/javascript" src="../spm_modules/xn-angular/1.0.0/angular.js"></script>
+    <script type="text/javascript" src="../spm_modules/angular-ui/1.0.0/bootstraptpls.js"></script>
+    <script type="text/javascript" src="../spm_modules/xn-service-method/1.0.2/service/method.js"></script>
+    <script type="text/javascript" src="../directive/commons.js"></script>
+</head>
+<body ng-controller="MyController">
+
+<!--<input type="hidden" style="width:300px" xn-tag-input="multi" ng-model="multi2Value"/>-->
+
+
+<!--<textarea name="content" xn-markdown ng-model="markdownValue" rows="10"></textarea>-->
+<!--<div xn-radio-list ng-model="functionType" data-radio-list="functionTypeList" layout="horizontal"></div>-->
+
+
+<div style="margin: 500px auto; width:500px;">
+    <!--<a href="javascript:void(0)" xn-makesure content="您确定要删除吗？" title="删除" method="show()">click me</a>-->
+    <div type="checkbox" xn-checkbox-list  checkbox-list="list" ng-model="val" method="show()" layout="vertical"></div>
+
+    <a href="javascript:void(0)" ng-click="change()">click me</a>
+</div>
+
+<!--<a href="javascript:void(0)" ng-click="show()">click me</a>-->
+</body>
+<script type="text/javascript">
+    angular.module("myApp", ["ui.bootstrap", "xn.directive.common"])
+            .controller("MyController", ["$scope", function($scope) {
+                $scope.list = [];
+                $scope.list.push({value:"Jason", key:1, state:true, hide: true});
+                $scope.list.push({value:"Tom", key:2, state:true});
+                $scope.list.push({value:"Marry", key:3, state:true});
+
+                $scope.multi2Value = '';
+
+                $scope.show = function() {
+                    console.log($scope.val);
+                };
+
+                $scope.change = function() {
+                    $scope.list[0].hide = !$scope.list[0].hide;
+                };
+            }]);
+</script>
+</html>

@@ -1,0 +1,84 @@
+
+
+/*反馈页面*/
+.xn-feedback {
+    display: inline-block;
+    width: 100%;
+    padding: 20px 20px 30px 20px;
+}
+.xn-feedback-success {
+    background: @xn-box-success-bg;
+    border: 1px solid @xn-box-success-bd;
+}
+.xn-feedback-success .title .before {
+    display: inline-block;
+    content: "";
+    width: 22px;
+    height: 22px;
+
+    background-position: -32px 0 ;
+    background-size: 300px 300px;
+    vertical-align: middle;
+    margin: -5px 5px 0 0;
+}
+.xn-feedback-fail {
+    background: @xn-box-error-bg;
+    border: 1px solid @xn-box-error-bd;
+}
+.xn-feedback-fail .title .before {
+    display: inline-block;
+    content: "";
+    width: 22px;
+    height: 22px;
+    background-position: 0 0 ;
+    background-size: 300px 300px;
+    vertical-align: middle;
+    margin: -5px 5px 0 0;
+}
+.xn-feedback-warn {
+    background: @xn-box-warn-bg;
+    border: 1px solid @xn-box-warn-bd;
+}
+.xn-feedback-warn .title .before {
+    display: inline-block;
+    content: "";
+    width: 22px;
+    height: 22px;
+    background-position: -64px 0 ;
+    background-size: 300px 300px;
+    vertical-align: middle;
+    margin: -5px 5px 0 0;
+}
+
+
+.xn-feedback .title {
+    font-size: 18px;
+    color: @xn-font-primary;
+    margin-bottom: 10px;
+}
+.xn-feedback .content {
+    font-size: @xn-font-size;
+    color: @xn-font-auxiliary;
+    margin-bottom: 10px;
+    padding-left: 25px;
+}
+.xn-feedback .return-back {
+    color: @xn-font-blue;
+    font-size: @xn-font-size;
+    position: relative;
+    text-decoration: none;
+    padding-left: 25px;
+}
+.xn-feedback .return-back:after {
+    position: absolute;
+    content: "";
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 4px solid @xn-font-blue;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    border-right: 0 solid transparent;
+    top: 5px;
+    right: -10px;
+}

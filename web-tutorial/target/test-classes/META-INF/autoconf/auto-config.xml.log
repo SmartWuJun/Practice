@@ -1,0 +1,9 @@
+Last Configured at: Thu Mar 30 09:15:50 CST 2017
+
+Base URL: file:/D:/workspace/web-tutorial/target/test-classes/
+Descriptor: META-INF/autoconf/auto-config.xml
+
+Generating ../classes/uris.xml [UTF-8] => ../classes/uris.xml [UTF-8]
+Generating ../classes/config.properties [UTF-8] => ../classes/config.properties [UTF-8]
+Generating ../classes/setting.properties [UTF-8] => ../classes/setting.properties [UTF-8]
+Generating ../classes/dubbo.properties [UTF-8] => ../classes/dubbo.properties [UTF-8]

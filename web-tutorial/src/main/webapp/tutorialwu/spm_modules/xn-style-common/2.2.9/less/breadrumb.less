@@ -1,0 +1,32 @@
+
+/*面包屑*/
+.xn-breadcrumb .breadcrumb{
+    background: #fff;
+    font-size: @xn-font-size-sm;
+    margin-bottom: 0;
+    color: @xn-font-blue;
+    padding: 10px 0;
+    line-height: 18px;
+}
+.xn-breadcrumb .breadcrumb > li{
+    display: inline-block;
+}
+.xn-breadcrumb .breadcrumb > li + li:before {
+    display: inline-block;
+    padding: 0 5px;
+    color: @xn-font-auxiliary;
+    content:">";
+}
+.xn-breadcrumb .breadcrumb > .active {
+    color: @xn-font-auxiliary;
+}
+.xn-breadcrumb .breadcrumb a {
+    text-decoration: none;
+    color: @xn-minor-blue;
+    display: inline-block;
+    line-height: 18px;
+}
+.xn-breadcrumb .line{
+    margin: 0px;
+    border-top: 1px solid #eee;
+}
