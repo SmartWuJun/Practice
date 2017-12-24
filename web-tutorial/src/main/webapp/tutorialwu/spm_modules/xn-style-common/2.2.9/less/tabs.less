@@ -1,0 +1,35 @@
+﻿
+/*tab切换*/
+.xn-tabs {
+    font-size: @xn-font-size;
+    display: block;
+    height: 34px;
+    border-bottom: 1px solid @xn-bc;
+}
+.xn-tabs .tab-item {
+    display: inline-block;
+    height: 34px;
+    line-height: 34px;
+    padding: 0 20px;
+    cursor: pointer;
+    position: relative;
+    font-weight: bold;
+}
+.xn-tabs .selected {
+    color: @xn-theme;
+}
+.xn-tabs .selected:after {
+    position: absolute;
+    content: "";
+    display: inline-block;
+    border-top: 1px solid @xn-bc;
+    border-left: 1px solid @xn-bc;
+    background: #fff;
+    width: 10px;
+    height: 10px;
+    bottom: -5px;
+    left: 50%;
+    margin-left: -6px;
+    transform:rotate(45deg);
+}
+

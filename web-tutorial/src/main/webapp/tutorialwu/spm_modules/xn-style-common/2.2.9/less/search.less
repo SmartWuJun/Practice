@@ -1,0 +1,89 @@
+
+/*高级搜索*/
+.xn-search {
+    margin-bottom: 15px;
+    padding: 0;
+
+    .xn_back_btn {
+        display: inline-block;
+        height: 28px;
+        line-height: 28px;
+        border: 1px solid @xn-bc;
+        color: @xn-font-auxiliary;
+        text-align: center;
+        width: 160px;
+        cursor: pointer;
+        background: #fff;
+    }
+
+    .xn_search_box {
+        width: 100%;
+        padding: 15px 0;
+        border: 1px solid @xn-bc;
+
+        .xn-input-line {
+            margin-bottom: 10px;
+            .xn-label {
+                margin-left: 0;
+                width: inherit;
+            }
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+        input[type="radio"]{
+            float: left;
+            margin-right: 5px;
+            margin-top: 8px;
+
+        }
+    }
+
+    .btn-link {
+        font-size: 15px;
+        color: #3299fe;
+        height: 30px;
+        line-height: 30px;
+        display: inline-block;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .search-box {
+        position: relative;
+        .form-control {
+            padding: 6px 35px 6px 12px;
+        }
+    }
+}
+
+.xn-search-many{
+    background: #f2f2f2;
+    margin-bottom: 10px;
+    .is-show{
+        margin-top: -10px;
+        position: relative;
+        color: @xn-font-minor;
+        height: 24px;
+        line-height: 24px;
+        text-align: center;
+    }
+    .is-hide{
+        color: @xn-font-minor;
+        line-height: 30px;
+        text-align: center;
+        width: 200px;
+        margin: auto;
+    }
+    .xn-input-line{
+        margin-bottom: 15px;
+    }
+    .icon-packup,.icon-expand {
+        font-size: @xn-font-size-sm;
+    }
+    input[type="radio"]{
+        float: left;
+        margin-right: 5px;
+        margin-top: 8px;
+
+    }
+}

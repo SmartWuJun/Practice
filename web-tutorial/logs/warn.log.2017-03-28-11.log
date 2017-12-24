@@ -1,0 +1,30 @@
+[11:04:56:115] [WARN] - com.alibaba.citrus.service.configuration.support.PropertiesConfigurationSupport.init(PropertiesConfigurationSupport.java:77) - Application is running in Development Mode.
+[11:04:57:095] [WARN] - com.xiniunet.framework.util.PropertiesPool.readFile(PropertiesPool.java:74) - 配置文件setting.properties中的deploy.mode=development已被定义
+[11:05:11:321] [WARN] - com.alibaba.citrus.service.configuration.support.PropertiesConfigurationSupport.init(PropertiesConfigurationSupport.java:77) - Application is running in Development Mode.
+[11:05:12:417] [WARN] - com.alibaba.citrus.service.configuration.support.PropertiesConfigurationSupport.init(PropertiesConfigurationSupport.java:77) - Application is running in Development Mode.
+[11:05:13:352] [WARN] - com.alibaba.citrus.service.configuration.support.PropertiesConfigurationSupport.init(PropertiesConfigurationSupport.java:77) - Application is running in Development Mode.
+[11:05:14:260] [WARN] - com.alibaba.citrus.service.configuration.support.PropertiesConfigurationSupport.init(PropertiesConfigurationSupport.java:77) - Application is running in Development Mode.
+[11:32:33:091] [WARN] - com.alibaba.citrus.service.configuration.support.PropertiesConfigurationSupport.init(PropertiesConfigurationSupport.java:77) - Application is running in Development Mode.
+[11:32:34:069] [WARN] - com.xiniunet.framework.util.PropertiesPool.readFile(PropertiesPool.java:74) - 配置文件setting.properties中的deploy.mode=development已被定义
+[11:32:48:320] [WARN] - com.alibaba.citrus.service.configuration.support.PropertiesConfigurationSupport.init(PropertiesConfigurationSupport.java:77) - Application is running in Development Mode.
+[11:32:49:344] [WARN] - com.alibaba.citrus.service.configuration.support.PropertiesConfigurationSupport.init(PropertiesConfigurationSupport.java:77) - Application is running in Development Mode.
+[11:32:50:281] [WARN] - com.alibaba.citrus.service.configuration.support.PropertiesConfigurationSupport.init(PropertiesConfigurationSupport.java:77) - Application is running in Development Mode.
+[11:32:51:190] [WARN] - com.alibaba.citrus.service.configuration.support.PropertiesConfigurationSupport.init(PropertiesConfigurationSupport.java:77) - Application is running in Development Mode.
+[11:34:03:377] [ERROR] - com.alibaba.citrus.service.velocity.impl.Slf4jLogChute.log(Slf4jLogChute.java:84) - Left side ($myTaskCount) of '>' operation has null value at /control/index.vm[line 25, column 42]
+[11:34:03:378] [ERROR] - com.alibaba.citrus.service.velocity.impl.Slf4jLogChute.log(Slf4jLogChute.java:84) - Left side ($myIssueCount) of '>' operation has null value at /control/index.vm[line 67, column 43]
+[11:34:03:378] [ERROR] - com.alibaba.citrus.service.velocity.impl.Slf4jLogChute.log(Slf4jLogChute.java:84) - Left side ($myPlanCount) of '>' operation has null value at /control/index.vm[line 105, column 38]
+[11:34:03:498] [ERROR] - com.alibaba.citrus.service.velocity.impl.Slf4jLogChute.log(Slf4jLogChute.java:84) - Left side ($myTaskCount) of '>' operation has null value at /control/index.vm[line 25, column 42]
+[11:34:03:499] [ERROR] - com.alibaba.citrus.service.velocity.impl.Slf4jLogChute.log(Slf4jLogChute.java:84) - Left side ($myIssueCount) of '>' operation has null value at /control/index.vm[line 67, column 43]
+[11:34:03:500] [ERROR] - com.alibaba.citrus.service.velocity.impl.Slf4jLogChute.log(Slf4jLogChute.java:84) - Left side ($myPlanCount) of '>' operation has null value at /control/index.vm[line 105, column 38]
+[11:34:16:146] [ERROR] - com.alibaba.citrus.service.velocity.impl.Slf4jLogChute.log(Slf4jLogChute.java:84) - Left side ($myTaskCount) of '>' operation has null value at /control/index.vm[line 25, column 42]
+[11:34:16:146] [ERROR] - com.alibaba.citrus.service.velocity.impl.Slf4jLogChute.log(Slf4jLogChute.java:84) - Left side ($myIssueCount) of '>' operation has null value at /control/index.vm[line 67, column 43]
+[11:34:16:147] [ERROR] - com.alibaba.citrus.service.velocity.impl.Slf4jLogChute.log(Slf4jLogChute.java:84) - Left side ($myPlanCount) of '>' operation has null value at /control/index.vm[line 105, column 38]
+[11:34:18:654] [ERROR] - com.alibaba.citrus.service.velocity.impl.Slf4jLogChute.log(Slf4jLogChute.java:84) - Left side ($myTaskCount) of '>' operation has null value at /control/index.vm[line 25, column 42]
+[11:34:18:654] [ERROR] - com.alibaba.citrus.service.velocity.impl.Slf4jLogChute.log(Slf4jLogChute.java:84) - Left side ($myIssueCount) of '>' operation has null value at /control/index.vm[line 67, column 43]
+[11:34:18:654] [ERROR] - com.alibaba.citrus.service.velocity.impl.Slf4jLogChute.log(Slf4jLogChute.java:84) - Left side ($myPlanCount) of '>' operation has null value at /control/index.vm[line 105, column 38]
+[11:36:50:603] [ERROR] - com.alibaba.citrus.service.velocity.impl.Slf4jLogChute.log(Slf4jLogChute.java:84) - Left side ($myTaskCount) of '>' operation has null value at /control/index.vm[line 25, column 42]
+[11:36:50:604] [ERROR] - com.alibaba.citrus.service.velocity.impl.Slf4jLogChute.log(Slf4jLogChute.java:84) - Left side ($myIssueCount) of '>' operation has null value at /control/index.vm[line 67, column 43]
+[11:36:50:605] [ERROR] - com.alibaba.citrus.service.velocity.impl.Slf4jLogChute.log(Slf4jLogChute.java:84) - Left side ($myPlanCount) of '>' operation has null value at /control/index.vm[line 105, column 38]
+[11:36:50:806] [ERROR] - com.alibaba.citrus.service.velocity.impl.Slf4jLogChute.log(Slf4jLogChute.java:84) - Left side ($myTaskCount) of '>' operation has null value at /control/index.vm[line 25, column 42]
+[11:36:50:807] [ERROR] - com.alibaba.citrus.service.velocity.impl.Slf4jLogChute.log(Slf4jLogChute.java:84) - Left side ($myIssueCount) of '>' operation has null value at /control/index.vm[line 67, column 43]
+[11:36:50:807] [ERROR] - com.alibaba.citrus.service.velocity.impl.Slf4jLogChute.log(Slf4jLogChute.java:84) - Left side ($myPlanCount) of '>' operation has null value at /control/index.vm[line 105, column 38]

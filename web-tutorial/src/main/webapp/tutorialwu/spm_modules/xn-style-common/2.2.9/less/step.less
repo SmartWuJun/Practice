@@ -1,0 +1,61 @@
+
+/*步骤条样式*/
+.xn-step-bar {
+    display: block;
+    width: 100%;
+    color: @xn-font-primary;
+    font-size: @xn-font-size;
+    height: 30px;
+}
+.xn-step-bar .step-item {
+    display: inline-block;
+    background: @xn-step-undo;
+    width: 32%;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    position: relative;
+    margin-left: 5px;
+}
+.xn-step-bar .step-start{
+    margin-left: 0;
+}
+.xn-step-bar .step-start:before, .xn-step-bar .step-process:before {
+    position: absolute;
+    display: inline-block;
+    width: 21.21px;
+    height: 21.21px;
+    content: "";
+    transform:rotate(45deg);
+    top: 4px;
+    right: -11px;
+    z-index: 900;
+    background: @xn-step-undo;
+}
+.xn-step-bar .step-process .triangle, .xn-step-bar .step-end .triangle {
+    position: absolute;
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 15px solid #fff;
+    border-bottom: 15px solid transparent;
+    border-top: 15px solid transparent;
+    border-right: 0px solid transparent;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+}
+.xn-step-bar .step-now {
+    color: #fff;
+    background: @xn-step-doing;
+}
+.xn-step-bar .step-now:before {
+    background: @xn-step-doing;
+}
+.xn-step-bar .step-pass {
+    color: #fff;
+    background: @xn-step-done;
+}
+.xn-step-bar .step-pass:before {
+    background: @xn-step-done;
+}
