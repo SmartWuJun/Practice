@@ -3,15 +3,13 @@
 <html class="no-js">
 
 <head>
-<meta charset="UTF-8">
-<title>test</title>
-<meta name="viewport" content="width=640,target-densitydpi=device-dpi,user-scalable=no" />
+    <meta charset="UTF-8">
+    <title>test</title>
+    <meta name="viewport" content="width=640,target-densitydpi=device-dpi,user-scalable=no" />
 
 </head>
 <div class="btn">
-    buttom
-qqq 
-    00000000000000
+    buttom 00000000000000
 </div>
 <div>
     first commit
@@ -19,7 +17,6 @@ qqq
 <div>
     second commit
 </div>
-
 <script>
     // function foo() {
     //     "use strict";
@@ -71,6 +68,8 @@ qqq
             return this.a * 5;
         },
         set(v) {
+            console.log('v', v);
+
             this.a = 100 * v;
         },
         enumerable: true
@@ -84,10 +83,41 @@ qqq
     console.log(myObject.a);
 </script>
 
+<script>
+    function Mother(age) {
+        this.age = age;
+        this.hobby = ["running", 'football'];
+
+    }
+    Mother.prototype.showAge = function() {
+        console.log(this.age);
+
+    }
+
+    function Person(name, age) {
+        // Mother.call(this, age);
+        this.name = name;
+    }
+    Person.prototype = new Mother();
+    Person.prototype.constructor = Person;
+    Person.prototype.showName = function() {
+        console.log(this.name);
+
+    }
+    let p1 = new Person('Jack', 20);
+    p1.hobby.push('backetball');
+
+    let p2 = new Person('Mark', 18);
+
+    console.log('p1', p1);
+    console.log('p2', p2);
+</script>
+
 <body>
-<div><img src="imgs/code.jpg" alt="二维码图片" /></div>
-<div style="position:absolute; top:660px; left:225px; z-index:1000;"><img src="imgs/code.jpg" alt="二维码图片" /></div>
+    <div><img src="imgs/code.jpg" alt="二维码图片" /></div>
+    <div style="position:absolute; top:660px; left:225px; z-index:1000;"><img src="imgs/code.jpg" alt="二维码图片" /></div>
 
 
 </body>
+
 </html>
