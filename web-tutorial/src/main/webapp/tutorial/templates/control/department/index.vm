@@ -1,0 +1,178 @@
+$page.setTitle($xnI18n.get("department.title.index"))
+<!--主体部分-->
+<div class="xn-main xn-width auto clearfix" ng-controller="DepartmentIndexController">
+    <!--面包屑-->
+    <div class="xn-breadcrumb clearfix">
+        <ul class="breadcrumb">
+            <li><a href="$tutorialLink.setTarget("index")">$xnI18n.get("common.menu.index")</a></li>
+            <li class="active">$xnI18n.get("department.meaning")</li>
+        </ul>
+    </div>
+    <!--创建部分-->
+    <div class="clearfix mb-10">
+        <a class="f-right btn  btn-primary ml-20 " ng-click="addTree()">$xnI18n.get("common.action.create")</a>
+        <a class="f-right btn  btn-primary ml-20 " ng-click="doSort()">一级排序</a>
+        <div class="f-right  ml-20"   xn-import-line  ng-model="import"></div>
+    </div>
+    <!--搜索部分内容-->
+    <div class="xn-search-many clearfix pt-15">
+        <form class="form-horizontal xn-form clearfix"  role="form"   xn-form-validate  novalidate name="validateForm">
+            <div class="xn-input-line clearfix">
+                <label class="xn-lh xn-text-right xn-col-md-3">$xnI18n.get("common.tip.search_tips")</label>
+                <div class="xn-col-md-10">
+                    <input class="form-control" type="text" name="keyword" id="keyword" ng-model="keyword"  autofocus  placeholder="$xnI18n.get("department.placeholder.keyword")">
+                </div>
+                <div class="xn-col-md-2">
+                    <button class="btn  btn-success btn-sm " xn-submit-enter="treeSearch()">$xnI18n.get("common.action.search")</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!--表格内容-->
+    <div class="xn-table-wrap ">
+        <table class="table table-bordered table-striped">
+            <thead>
+            <tr>
+                <th class="xn-col-md-11">$xnI18n.get("department.name.meaning")</th>
+                <th class="xn-col-md-4"></th>
+                <th class="xn-col-md-3">$xnI18n.get("department.code.meaning")</th>
+                <th class="xn-col-md-2">$xnI18n.get("department.manager.meaning")</th>
+                <th class="xn-col-md-4">$xnI18n.get("department.description.meaning")</th>
+            </tr>
+            </thead>
+            <tbody >
+            <tr class="xn-table-tree " ng-repeat="tree in treeList" ng-if="tree.visable"
+                ng-mouseenter="showDetail=true" ng-init="showDetail=false" ng-mouseleave="showDetail=false">
+                <td class="first_td">
+                    <div class="tree tree-{{tree.row}} tree-{{tree.level}} clearfix">
+                        <!--操作-->
+                        <!--展开 -->
+                        <div class="tree-collapsed">
+                            <i  ng-if="tree.childState && tree.collapsed"    class="icon icon-add"   ng-click="toggle($index)"  ></i>
+                            <i ng-if="!(tree.childState && tree.collapsed)" class="icon icon-dash"  ng-click="toggle($index)"  ></i>
+                        </div>
+                        <!--名称-->
+                        <div class="tree-content">{{tree.name}}</div>
+                    </div>
+
+                </td>
+                <td class="xn-text-left">
+                    <div class="tree-operating " ng-show="showDetail" >
+                        <i ng-show="tree.childState" class="icon icon-sort"  ng-click="doSort(tree,$index)"  ></i>
+                        <i class="icon icon-add" ng-click="addTree(tree)"  ></i>
+                        <i class="icon icon-edit"      ng-click="edit(tree)"  ></i>
+                        <i class="icon icon-delete"   ng-click="delete(tree)" ></i>
+
+                    </div>
+                </td>
+                <td class="xn-text-left">
+                    {{tree.code}}
+                </td>
+                <td class="xn-text-left">
+                    {{tree.ownerEmployeeName}}
+                </td>
+                <td class="xn-text-left">
+                    {{tree.description}}
+                </td>
+            </tr>
+            <tr ng-show="vm.isLoading">
+                <td colspan="5" class="xn-center" >
+                    <div class="loading-img auto"></div>
+                    <div>$xnI18n.get("common.tip.loading")</div>
+                </td>
+            </tr>
+            <tr  ng-show="!vm.isLoading && trees.length==0">
+                <td colspan="5" class="xn-center">$xnI18n.get("common.tip.no_result")</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script type="text/ng-template" id="eidtTree.html">
+    <form  class="form-horizontal xn-form clearfix" role="form"  xn-form-validate novalidate  name="validateForm" >
+        <div class="modal-header" >
+            <h3 class="modal-title"> {{vm.title}}</h3>
+            <div class="xn-close xn-cursor" ng-click="clean()">
+                <i class="icon icon-delete"></i>
+            </div>
+        </div>
+        <div class="modal-body clearfix">
+            <div  class="xn-input-line clearfix"  ng-if="vm.parentId">
+                <label class="xn-col-md-7 xn-text-right xn-lh">$xnI18n.get("department.parent_name.meaning")</label>
+                <div class="xn-col-md-12 xn-lh">{{vm.parentName}} </div>
+            </div>
+            <div class="xn-input-line clearfix" >
+                <!-- 创建页面布局  xn-col-md-8  、12  剩余部分可以做说明 -->
+                <label class="xn-col-md-7  xn-text-right xn-lh"><span class="f-right label-txt">$xnI18n.get("department.name.meaning")</span><i class="xn-required-i f-right"></i></label>
+                <div class="xn-col-md-12">
+                    <input class="form-control" type="text"  name="name" ng-model="vm.name"  required="required"   maxlength="50"    autofocus>
+                </div>
+            </div>
+            <div class="xn-input-line clearfix" >
+                <!-- 创建页面布局  xn-col-md-8  、12  剩余部分可以做说明 -->
+                <label class="xn-col-md-7  xn-text-right xn-lh"><span class="f-right label-txt">$xnI18n.get("department.code.meaning")</span><i class="xn-required-i f-right"></i></label>
+                <div class="xn-col-md-12">
+                    <input class="form-control" type="text"  name="code" ng-model="vm.code"  required="required"  maxlength="50" >
+                </div>
+            </div>
+            <div class="xn-input-line clearfix" >
+                <label class="xn-col-md-7  xn-text-right xn-lh"><span class="f-right label-txt">$xnI18n.get("department.type.meaning")</span><i class="xn-required-i f-right"></i></label>
+                <div class="xn-col-md-12">
+                    <input class="form-control" type="text"  name="type"  ng-model="vm.type"  required="required" maxlength="50" >
+                </div>
+            </div>
+            <div class="xn-input-line clearfix" >
+                <label class="xn-col-md-7  xn-text-right xn-lh"><span class="f-right label-txt">$xnI18n.get("department.manager.meaning")</span></label>
+                <div class="xn-col-md-12">
+                    <div  xn-lookup   ng-model="ownerEmployee"  name="ownerEmployee"    data-method="findOwnerEmployeeList(data)"
+                          placeholder="请输入姓名或工号"   data-search-val="name|number" ></div>
+                </div>
+            </div>
+            <div class="xn-input-line clearfix" >
+                <label class="xn-col-md-7  xn-text-right xn-lh"><span class="f-right label-txt">$xnI18n.get("department.description.meaning")</span></label>
+                <div class="xn-col-md-12">
+                    <textarea class="form-control" rows="5"  ng-model="vm.description"  name="description" ></textarea>
+                </div>
+            </div>
+            <div class="xn-input-line clearfix" ng-show="validateForm.$errors.length > 0">
+                <div class=" xn-col-md-12 xn-col-md-offset-7 xn-lh">
+                    <div class="alert-danger pl-5 pr-5">
+                        <i class="glyphicon glyphicon-remove-sign mr_5" ng-click="closeAlert(0,validateForm.$errors)"></i>
+                        {{validateForm.$errors[0]}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <input type="button"  class="btn btn-primary btn-sm"  xn-form-submit="doSave()" value="$xnI18n.get("common.action.confirm")">
+            <input type="button"  class="btn btn-default btn-sm"  ng-click="clean()" value="$xnI18n.get("common.action.cancel")">
+        </div>
+    </form>
+</script>
+<script type="text/ng-template" id="treeSort.html">
+
+    <div class="modal-header">
+        <h3 class="modal-title">设置常用应用</h3>
+
+        <div class="xn-close xn-cursor" ng-click="clean()">
+            <i class="icon icon-delete"></i>
+        </div>
+    </div>
+    <div class="modal-body clearfix">
+        <ul class="sortList-ul ">
+            <div ui-sortable="sortableOptions" ng-model="sortList"    class="sortList-ul-box">
+                <li class="clearfix sortList-ul-box-li app" ng-repeat="item in sortList">
+                    {{$index+1}} {{item.item.name}}
+                </li>
+            </div>
+        </ul>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary " ng-click="doSave()">确定</button>
+        <a ng-click="clean()" class="btn btn-default ">取消</a>
+    </div>
+
+</script>
+
+<script src="$tutorialContent.getURI('dist/scripts/page/department.js')" ></script>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en" >
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="../spm_modules/bootstrap-css/1.0.0/bootstrap.css" rel="stylesheet">
+    <link href="../demo/base.css" rel="stylesheet">
+
+    <script type="text/javascript" src="../spm_modules/jquery/1.7.2/jquery.js"></script>
+    <script type="text/javascript" src="../spm_modules/angular/1.3.9/angular.js"></script>
+    <script type="text/javascript" src="../spm_modules/angular-ui/1.0.0/bootstraptpls.js"></script>
+</head>
+<body ng-controller="MyController">
+
+<a href="index.html">返回</a>
+<div class="clearfix"></div>
+<div class="col-sm-3 ">
+    <div class="input-group openData">
+        <input type="text" class="form-control" id="inpuStartTime" placeholder="开始时间"
+               ng-model="vm.startTime"  is-open="startTime"  today-disabled="true"
+               datepicker-popup="yyyy-MM-dd" max-date="maxDate"
+               datepicker-options="dateOptions"    name="textStartTime"
+               close-text="关闭" clear-text="清除" current-text="今天" >
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button"   ng-click="startData($event)">
+                        <i class="glyphicon glyphicon-calendar"></i>
+                    </button>
+                </span>
+    </div>
+</div>
+<label for="inpuName" class="control-label col-sm-1 xn-text-center">到</label>
+<div class="col-sm-3 ">
+    <div class="input-group openData">
+        <input type="text" class="form-control" id="inpuEndTime" placeholder="结束时间"
+               ng-model="vm.endTime"  is-open="endTime"  today-disabled="true"
+               datepicker-popup="yyyy-MM-dd"  name="textEndTime"  mix-date="minDate" datepicker-options="dateOptions"
+               current-text="今天" close-text="关闭" clear-text="清除"  date-disabled="disabled(date, mode)">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" ng-click="endDate($event)">
+                        <i class="glyphicon glyphicon-calendar"></i>
+                    </button>
+                </span>
+    </div>
+</div>
+<div class="clearfix"></div>
+
+<h3>使用说明</h3>
+
+
+
+<script type="text/javascript">
+    angular.module("myApp", ["ui.bootstrap"])
+            .controller("MyController", ["$scope", function($scope) {
+                $scope.vm={};
+
+                //弹出式日历触发函数
+                $scope.startData = function ($event) {
+                    if ($scope.vm.endTime !== null) {
+                        $scope.maxDate = $scope.vm.endTime;
+                    }
+                    $event.preventDefault();
+                    $event.stopPropagation();
+                    $scope.startTime = true;
+                };
+                $scope.endDate = function ($event) {
+                    if ($scope.vm.startTime !== null) {
+                        $scope.minDate = $scope.vm.startTime;
+                    }
+                    $event.preventDefault();
+                    $event.stopPropagation();
+                    $scope.endTime = true;
+                };
+
+
+
+            }]);
+</script>
+
+</body>
+</html>
+
+

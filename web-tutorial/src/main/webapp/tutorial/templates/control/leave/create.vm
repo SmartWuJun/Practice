@@ -1,0 +1,126 @@
+$page.setTitle("请假申请单创建")
+<!--主体部分-->
+<div class="xn-main  xn-width auto clearfix" ng-controller="LeaveCreateController">
+    <!--面包屑-->
+    <div class="xn-breadcrumb clearfix">
+        <ul class="breadcrumb">
+            <li><a href="$tutorialLink.setTarget("index")">首页</a></li>
+            <li><a href="$tutorialLink.setTarget("leave/index")">请假单</a></li>
+            <li class="active">创建</li>
+        </ul>
+    </div>
+    <div class="xn-sidebar clearfix receipt-head">
+        <div class="sidebar-left xn-col-md-18 clearfix" >
+            <div class="sidebar-title">
+                <span class="xn-fw" >请假单</span>
+            </div>
+            <!-- xn-form-validate  请查看 xn-form-validate 指令 文档-->
+            <form class="form-horizontal xn-form"  role="form"   xn-form-validate  novalidate name="validateForm">
+                <!-- xn-input-line 占用一行，并且下面间隔15像素   -->
+
+                <div class="xn-input-line clearfix" >
+                    <label class="xn-col-md-8  sidebar-padding-0 xn-text-right"><span class="f-right label-txt">员工：</span><i class="xn-required-i f-right"></i></label>
+                    <div class="xn-col-md-12">
+                        <!--  xn-lookup  请查看文档说明-->
+                        <div  xn-lookup    ng-model="employee"  name="employee"  required="required"  data-method="findEmployeeList(data)"
+                              placeholder="请输入姓名或工号"   data-search-val="name|number" ></div>
+                    </div>
+                </div>
+                <div class="xn-input-line clearfix" >
+                    <!-- 创建页面布局  xn-col-md-8  、12  剩余部分可以做说明 -->
+                    <label class="xn-col-md-8  sidebar-padding-0 xn-text-right"><span class="f-right label-txt">请假类型：</span></label>
+                    <div class="xn-col-md-12 xn-lh">
+                        <label class="xn-cursor mr-10" for="PERSONAL_LEAVE">   <input type="radio"   id="PERSONAL_LEAVE"    ng-model="leave.type" name="type"  value="PERSONAL_LEAVE" >事假</label>
+                        <label class="xn-cursor mr-10" for="SICK_LEAVE">       <input type="radio"   id="SICK_LEAVE"         ng-model="leave.type" name="type"   value="SICK_LEAVE" >病假</label>
+                        <label class="xn-cursor mr-10" for="ANNUAL_LEAVE">      <input type="radio"   id="ANNUAL_LEAVE"     ng-model="leave.type" name="type"  value="ANNUAL_LEAVE" >年假</label>
+                        <label class="xn-cursor mr-10" for="DEFERED_LEAVE">    <input type="radio"   id="DEFERED_LEAVE"     ng-model="leave.type" name="type"  value="DEFERED_LEAVE" >调休</label>
+                        <label class="xn-cursor mr-10" for="MARITAL_LEAVE">    <input type="radio"   id="MARITAL_LEAVE"     ng-model="leave.type" name="type"  value="MARITAL_LEAVE" >婚假</label>
+                        <label class="xn-cursor mr-10" for="FUNERAL_LEAVE">    <input type="radio"   id="FUNERAL_LEAVE"     ng-model="leave.type" name="type"  value="FUNERAL_LEAVE" >丧假</label>
+                        <label class="xn-cursor mr-10" for="MATERNITY_LEAVE">  <input type="radio"   id="MATERNITY_LEAVE"  ng-model="leave.type" name="type"  value="MATERNITY_LEAVE" >产假</label>
+                        <label class="xn-cursor mr-10" for="NURSE_LEAVE">      <input type="radio"   id="NURSE_LEAVE"       ng-model="leave.type" name="type"  value="NURSE_LEAVE" >看护假</label>
+                    </div>
+                </div>
+
+                <div class="xn-input-line clearfix" >
+                    <!-- 创建页面布局  xn-col-md-8  、12  剩余部分可以做说明 -->
+                    <label class="xn-col-md-8  sidebar-padding-0 xn-text-right"><span class="f-right label-txt">开始时间：</span><i class="xn-required-i f-right"></i></label>
+                    <div class="xn-col-md-6">
+                        <!-- 日历组件  请查看文档说明-->
+                        <div class="input-group openData" >
+                            <input  class="form-control"  type="text"  ng-model="leave.beginDate" name="beginDate"
+                                   datepicker-popup="yyyy-MM-dd" is-open="beginDate"  max-date="leave.endDate"  required="required" >
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button"  ng-click="openBeginDate($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                </span>
+                        </div>
+                    </div>
+                    <div class="xn-col-md-2">
+                        <select  ng-model="leave.beginTime" class="form-control" ng-options="hour.key as hour.value for hour in hours"></select>
+                    </div>
+                    <div class="xn-col-md-1 xn-lh">时</div>
+                </div>
+                <div class="xn-input-line clearfix" >
+                    <!-- 创建页面布局  xn-col-md-8  、12  剩余部分可以做说明 -->
+                    <label class="xn-col-md-8  sidebar-padding-0 xn-text-right"><span class="f-right label-txt">结束时间：</span><i class="xn-required-i f-right"></i></label>
+                    <div class="xn-col-md-6">
+                        <!-- 日历组件  请查看文档说明-->
+                        <div class="input-group openData" >
+                            <input  class="form-control"  type="text"  ng-model="leave.endDate" name="entryDate"
+                                   datepicker-popup="yyyy-MM-dd" is-open="entryDate" min-date="leave.beginDate"  required="required" >
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button"  ng-click="openEndDate($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                </span>
+                        </div>
+                    </div>
+                    <div class="xn-col-md-2">
+                        <select  ng-model="leave.endTime" class="form-control" ng-options="hour.key as hour.value for hour in hours"></select>
+                    </div>
+                    <div class="xn-col-md-1 xn-lh">时</div>
+                </div>
+                <div class="xn-input-line clearfix" >
+                    <label class="xn-col-md-8  sidebar-padding-0 xn-text-right"><span class="f-right label-txt">请假天数：</span><i class="xn-required-i f-right"></i></label>
+                    <div class="xn-col-md-6">
+                        <input class="form-control xn-text-right" type="text" name="leaveDays" ng-model="leave.leaveDays"  ng-pattern="/^\d+(\.\d)?$/"  required="required" />
+                    </div>
+                    <div class="xn-col-md-1 xn-lh">天</div>
+                </div>
+                <div class="xn-input-line clearfix" >
+                    <label class="xn-col-md-8  sidebar-padding-0 xn-text-right"><span class="f-right label-txt">原因：</span></label>
+                    <div class="xn-col-md-12">
+                        <textarea class="form-control" rows="5" name="description" ng-model="leave.description"></textarea>
+                    </div>
+                </div>
+                <div class="xn-input-line clearfix" >
+                    <label class="xn-col-md-8  sidebar-padding-0 xn-text-right"><span class="f-right label-txt">摘要说明：</span></label>
+                    <div class="xn-col-md-12">
+                        <textarea class="form-control" rows="5" name="summary" ng-model="leave.summary"  ></textarea>
+                    </div>
+                </div>
+                <div class="xn-input-line clearfix" >
+                    <!-- 操作-->
+                    <div class="xn-col-md-12 xn-col-md-offset-8">
+                        <input type="button"  class="btn btn-primary " xn-form-submit="doSave('submit')"  value="提交">
+                        <input type="button"  class="btn btn-normal ml-10"  xn-form-submit="doSave()" value="创建">
+                        <a  href="$tutorialLink.setTarget("leave/index")" class="btn  btn-normal  ml-10">取消</a>
+                    </div>
+                </div>
+                <!-- 报错提示-->
+                <div class="xn-input-line clearfix" ng-show="validateForm.$errors.length > 0">
+                    <div class="xn-col-md-12 xn-col-md-offset-8  xn-lh">
+                        <div class="alert-danger pl-5 pr-5">
+                            <i class="glyphicon glyphicon-remove-sign mr_5" ng-click="closeAlert(0,validateForm.$errors)"></i>
+                            {{validateForm.$errors[0]}}
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="sidebar-right xn-col-md-6  f-right clearfix">
+            <!-- 当前项目介绍-->
+            <span class="sidebar-right-title">申请单须知</span>
+            <p class="sidebar-right-discription">请假，是指因病或因事请求在一定时期不工作或学习或有特殊事情。</p>
+        </div>
+    </div>
+</div>
+
+<script src="$tutorialContent.getURI('dist/scripts/page/leave.js')" ></script>

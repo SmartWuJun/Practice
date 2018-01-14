@@ -1,0 +1,67 @@
+$page.setTitle("视频上传")
+<!--主体部分-->
+<div class="xn-main  xn-width auto clearfix" ng-controller="VideoUploadController" >
+
+    <!--面包屑-->
+    <div class=" xn-breadcrumb clearfix">
+        <ul class="breadcrumb xn-col-md-12">
+            <li><a href="$tutorialLink.setTarget("index")">首页</a></li>
+            <li><a href="$tutorialLink.setTarget("video/index")">视频</a></li>
+            <li class="active">上传</li>
+        </ul>
+        <ul class="xn-col-md-12 mt-10 xn-lh">
+            <li class="operation-li f-right" ><a class="operation-a" href="$tutorialLink.setTarget("video/index")"><i class="icon icon-return"></i>返回</a></li>
+        </ul>
+    </div>
+
+    <div class="xn-sidebar clearfix receipt-head">
+        <div class="sidebar-left xn-col-md-18 clearfix" >
+            <div class="sidebar-title">
+                <span class="xn-fw" >视频上传</span>
+            </div>
+
+        ##    文件上传相关元素
+            <input type="file" id="files" class="none"/>
+
+            <!-- xn-form-validate  请查看 xn-form-validate 指令 文档-->
+            <form class="form-horizontal xn-form"  role="form"   xn-form-validate  novalidate name="validateForm">
+                <!-- xn-input-line 占用一行，并且下面间隔15像素   -->
+
+                <div class="xn-input-line clearfix" >
+                    <label class="xn-col-md-8  sidebar-padding-0 xn-text-right"><span class="f-right label-txt">视频文件：</span></label>
+                    <div class="xn-col-md-12">
+                        <label>{{video.title}}</label>
+                    </div>
+                    <input type="button"  class="btn btn-primary " ng-click="selectFile()" value="浏览">
+                </div>
+                <div class="xn-input-line clearfix" >
+                    <label class="xn-col-md-8  sidebar-padding-0 xn-text-right"><span class="f-right label-txt"></span></label>
+
+                    <div class="xn-col-md-12">
+                        <div class="upload-process"></div>
+                        <div ng-show="video.percent">已上传：{{video.percent}}</div>
+                    </div>
+                </div>
+                <!-- 报错提示-->
+                <div class="xn-input-line clearfix" ng-show="validateForm.$errors.length > 0">
+                    <div class="xn-col-md-12 xn-col-md-offset-8  xn-lh">
+                        <div class="alert-danger pl-5 pr-5">
+                            <i class="glyphicon glyphicon-remove-sign mr_5" ng-click="closeAlert(0,validateForm.$errors)"></i>
+                            {{validateForm.$errors[0]}}
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="sidebar-right xn-col-md-6  f-right clearfix">
+            <!-- 当前项目介绍-->
+            <span class="sidebar-right-title">视频文件上传须知</span>
+            <p class="sidebar-right-discription">文件将直接上传至文件存储服务器，请耐心等待上传完成。请勿刷新此页面。</p>
+        </div>
+    </div>
+</div>
+
+## 加载阿里云视频上传SDK
+<script src="$tutorialContent.getURI('vendor/vod-sdk-upload-1.0.6.min.js')" ></script>
+<script src="$tutorialContent.getURI('vendor/aliyun-sdk.min.js')" ></script>
+<script src="$tutorialContent.getURI('dist/scripts/page/video.js')" ></script>

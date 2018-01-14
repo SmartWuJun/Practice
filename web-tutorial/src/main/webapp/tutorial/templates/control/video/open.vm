@@ -1,0 +1,89 @@
+$page.setTitle("查看视频")
+<!--主体部分-->
+<div class="xn-main  xn-width auto clearfix" ng-controller="VideoOpenController">
+
+    <!--面包屑-->
+    <div class=" xn-breadcrumb clearfix">
+        <ul class="breadcrumb xn-col-md-12">
+            <li><a href="$tutorialLink.setTarget("index")">首页</a></li>
+            <li><a href="$tutorialLink.setTarget("video/index")">视频</a></li>
+            <li class="active">查看</li>
+        </ul>
+        <ul class="xn-col-md-12 mt-10 xn-lh">
+            <li class="operation-li f-right"><a class="operation-a" href="$tutorialLink.setTarget("video/index")"><i class="icon icon-return"></i>返回</a></li>
+            <li class="operation-li f-right"><a class="operation-a" ng-click="doDelete()"><i class=" icon icon-trash"></i>删除</a></li>
+            <li class="operation-li f-right" ng-if="video.status=='UNPUBLISH'"><a class="operation-a" ng-click="online()"><i class=" icon icon-trash"></i>上线</a></li>
+            <li class="operation-li f-right" ng-if="video.status=='PUBLISHED'"><a class="operation-a" ng-click="offline()"><i class=" icon icon-trash"></i>下线</a></li>
+##            <li class="operation-li f-right"><a class="operation-a" href="$tutorialLink.setTarget("video/edit")?id={{video.id}}"><i class=" icon icon-compose"></i>编辑</a></li>
+        </ul>
+    </div>
+
+    <!--编辑主体部分-->
+    <!---查看添加 xn-view-layout--->
+    <div class="xn-edit-layout xn-view-layout">
+        <div class="edit-title line">
+            <div class="title-name">视频详情</div>
+        </div>
+        <div class="edit-body xn-lh pt-15">
+            <div class="xn-input-line clearfix">
+                <label class="xn-col-md-3 font-auxiliary xn-text-right"><span class="f-right label-txt">封面：</span></label>
+                <div class="xn-col-md-5">
+                    <div class="xn-video-photo" >
+                        <img class="photo-img" ng-if="!video.coverUrl"  src="$tutorialContent.getURI('images/employee-photo.png')">
+                        <img class="photo-img" ng-if="video.coverUrl"  ng-src="{{video.coverUrl}}?x-oss-process=image/resize,m_lfit,w_240,h_180">
+                    </div>
+                </div>
+            </div>
+            <div class="xn-input-line clearfix">
+                <label class="xn-col-md-4  font-auxiliary xn-text-right"><span class="f-right label-txt">名称：</span></label>
+                <div class="xn-col-md-5" >{{video.title}} </div>
+                <div class="xn-col-md-1"></div>
+##                <label class="xn-col-md-4 font-auxiliary xn-text-right"><span class="f-right label-txt">时长：</span></label>
+##                <div class="xn-col-md-5 " ng-bind="video.duration | duration"></div>
+##                <div class="xn-col-md-1"></div>
+            </div>
+            <div class="xn-input-line clearfix">
+##                <label class="xn-col-md-4 font-auxiliary xn-text-right"><span class="f-right label-txt">状态：</span></label>
+##                <div class="xn-col-md-5" ng-bind="video.status"></div>
+##                <div class="xn-col-md-1"></div>
+                <label class="xn-col-md-4 font-auxiliary xn-text-right"><span class="f-right label-txt">描述：</span></label>
+                <div class="xn-col-md-5" ng-bind="video.description"></div>
+                <div class="xn-col-md-1"></div>
+            </div>
+            <div class="xn-input-line line clearfix"></div>
+            <div class="xn-input-line clearfix">
+                <label class="xn-col-md-3 font-auxiliary xn-text-right"><span class="f-right label-txt">视频截图：</span></label>
+                <div class="xn-col-md-21 ">
+                    <div class="xn-col-md-6" ng-repeat="snapshot in video.snapshotList">
+                        <img class="video-snapshot" ng-src="{{snapshot.fileUrl}}?x-oss-process=image/resize,m_lfit,w_240,h_180" >
+                    </div>
+                </div>
+            </div>
+            <div class="xn-input-line line clearfix"></div>
+            <div class="xn-input-line clearfix">
+                <label class="xn-col-md-3 font-auxiliary xn-text-right"><span class="f-right label-txt">视频播放信息：</span></label>
+                <div class="xn-col-md-21">
+                    <div class="xn-col-md-6 video-play-view" ng-repeat="play in video.playList">
+                        <div class="head">
+                            <img class="head-img" ng-src="{{video.coverUrl}}?x-oss-process=image/resize,m_lfit,w_240,h_180" />
+                            <div class="head-shadow">
+                                <div class="shadow-play clearfix">
+                                    <a href="$tutorialLink.setTarget("/video/play.htm")?id={{video.id}}&playId={{play.id}}" target="_blank">
+                                        <img class="play-button" src="$tutorialContent.getURI("/images/video_play.png")" />
+                                        <img class="play-button-hover" src="$tutorialContent.getURI("/images/video_play_hover.png")" />
+                                        <label class="play-text">播放</label>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="body">
+                            <label class="video-platform">{{play.platform}}</label>
+                            <label class="video-size">{{play.size | fileSize}}</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="$tutorialContent.getURI('dist/scripts/page/video.js')" ></script>

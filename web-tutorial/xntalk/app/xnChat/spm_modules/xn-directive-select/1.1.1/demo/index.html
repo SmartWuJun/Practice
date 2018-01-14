@@ -1,0 +1,187 @@
+<html ng-app="myApp">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+	<title>无标题</title>
+    <link href="../directive/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="../spm_modules/xn-style-common/1.0.1/xn-style-common.less">
+    <link rel="stylesheet" href="../spm_modules/xn-icon-common/1.0.5/iconfont.css">
+    <link rel="stylesheet" href="../spm_modules/bootstrap-css/1.0.0/bootstrap.css">
+</head>
+<body ng-controller="MyController">
+
+
+    <!--<h3 ng-click="show()">输入或选择</h3>-->
+    <!--<div xn-filter-input  ng-model="inputData"  data-select-list="sourceInputList"  name="nothing"  required="true"></div>-->
+
+    <!--<div both-list-select data-select-data="users" ng-model="persons" select-title="人员"></div>-->
+    <!--<div both-list-select data-select-data="users" ng-model="persons" select-title="人员"></div>-->
+     <!--<h3 ng-click="show()">输入或选择</h3>-->
+        <!--{{inputData}}-->
+    <!--<div xn-filter-input  ng-model="inputData"  data-select-list="sourceInputList"  name="nothing"  required="true"></div>-->
+    <!--<div xn-filter-input  ng-model="inputData"  data-select-list="sourceInputList"  name="nothing"  required="true"></div>-->
+    <!--<div xn-create-select data-select-data="fnModuleList" create-link="$isvLink.setTarget('product/create/preCreate')" create-info="新建功能模块" ng-model="fnModule" name="fnModuleId"></div>-->
+
+
+    <div style="width:380px; margin:20px auto">
+        <!--<lookup options="options" show-field="line.name" ng-model="line.id" name="user" search-parameter="parameter" placeholder="提示信息">-->
+            <!--<table>-->
+                <!--<thead>-->
+                <!--<tr>-->
+                    <!--<td>会计科目编码</td>-->
+                    <!--<td>会计科目名称</td>-->
+                <!--</tr>-->
+                <!--</thead>-->
+                <!--<tbody>-->
+                <!--<tr ng-repeat="user in users">-->
+                    <!--<td>{{user.id}}</td>-->
+                    <!--<td>{{user.name}}</td>-->
+                <!--</tr>-->
+                <!--</tbody>-->
+            <!--</table>-->
+        <!--</lookup>-->
+
+        <!--<input type="hidden" xn-filter-select  ng-model="result" required="true" data-select-data="sourceList" name="nothing"/>-->
+
+
+        <div class="clearfix"></div>
+        {{result1}}
+        <div xn-multiple-select-tree type="text" select-data="sourceList" ng-model="result1" name="result"></div>
+
+        <div class="clearfix"></div>
+
+        <div style="width: 1500px" ng-repeat="source in result1">
+            {{source}}
+        </div>
+
+        <!--<input type="text" xn-filter-select class="form-control ng-pristine ng-valid ng-valid-required"  ng-model="result" required="true" data-select-data="sourceList" name="nothing"/>-->
+
+        <!--<div xn-multiple-select-tree type="text" select-data="sourceList" ng-model="result1" name="result"></div>-->
+
+
+
+
+
+
+    <!--<button type="button" class="btn btn-success w_150 f-right"  xn-submit-enter="doQuery()">查询</button>-->
+
+        <!--<trigger-select name="time" select-option="option" ng-model="dd" minus="true" readonly="false"></trigger-select>-->
+
+        <!--<a href="javascript:void(0)" ng-click="show()">点击我</a>-->
+
+    </div>
+
+{{result}}
+
+
+   <div both-tree-list-select   data-select-data="users" ng-model="result"  name="nothing"></div>
+
+
+    <!--<button type="button" class="btn btn-success w_150 f-right"  xn-submit-enter="doQuery()">查询</button>-->
+    <div class="clearfix"></div>
+    <div>111111111111111111</div>
+<div ng-bind-html="description"></div>
+<div ng-bind="description"></div>
+
+
+    <div class="" xn-forwarded  ng-model="xnForwarded">弹出框</div>
+
+</body>
+<script type="text/javascript" src="../spm_modules/jquery/1.7.2/jquery.js"></script>
+<script type="text/javascript" src="../spm_modules/xn-angular/1.0.0/angular.js"></script>
+<script type="text/javascript" src="../spm_modules/angular-ui/1.2.0/bootstraptpls.js"></script>
+<script type="text/javascript" src="../directive/selects.js"></script>
+<script type="text/javascript">
+
+        angular.module("myApp", ["xn.directive.select"])
+        .controller("MyController", ["$scope","$timeout","$sce", function($scope,$timeout,$sce){
+
+
+                    $scope.description= $sce.trustAsHtml("hello,<br><br><b>今天我们去哪里？</b>" );
+
+
+
+
+            $timeout(function () {
+                $scope.sourceList = [];
+                $scope.sourceList.push({name:"你好", id:1});
+                $scope.sourceList.push({name:"是谁", id:2});
+                $scope.sourceList.push({name:"你是信", id:3});
+                $scope.sourceList.push({name:"王响", id:4, parentId:3});
+                $scope.sourceList.push({name:"王响1", id:5, parentId:4});
+                $scope.sourceList.push({name:"王响2", id:6, parentId:4});
+                $scope.sourceList.push({name:"王响3", id:7, parentId:3});
+                $scope.sourceList.push({name:"王响4", id:8, parentId:1});
+
+            },1000);
+
+            $timeout(function () {
+                $scope.result1 = [];
+                $scope.result1.push({name:"是谁", id:2});
+                $scope.result1.push({name:"王响1", id:5, parentId:4});
+                $scope.result1.push({name:"王响2", id:6, parentId:4});
+                $scope.result1.push({name:"王响3", id:7, parentId:3});
+
+
+            },2000);
+
+
+
+            $scope.init = function() {
+                $scope.users = [];
+                $scope.users.push({name:"Tom", id:"0"});
+                $scope.users.push({name:"01Jason", id:"1", pId: "0"});
+                $scope.users.push({name:"02Kitty", id:"2", pId: "0"});
+                $scope.users.push({name:"011Jack", id:"3", pId: "1"});
+                $scope.users.push({name:"021Jack", id:"4", pId: "2"});
+                $scope.users.push({name:"022Jack", id:"5", pId: "2"});
+                $scope.users.push({name:"03Jack", id:"6", pId: "1"});
+                $scope.persons = [];
+                $scope.persons.push({name:"Tom", id:"0"});
+            };
+            $scope.init();
+
+            $timeout(function(){
+                $scope.result=[
+                    {name:"Tom", id:"0"},
+                    {name:"01Jason", id:"1", pId: "0"},
+                    {name:"02Kitty", id:"2", pId: "0"},
+                    {name:"011Jack", id:"3", pId: "1"}
+                ];
+            },1000);
+
+
+
+
+            $scope.option = [0, 60, 5];
+
+            $scope.show = function() {
+                $scope.result1 = [];
+                alert($scope.dd);
+            };
+
+            $scope.options = {
+                pageSize: 10,
+                pageNumber:1,
+                totalCount: 15,
+                methodName: "getInventoryList"
+            };
+             $scope.parameter={name:"zhaoxing"};
+            $scope.getInventoryList=function(){
+
+
+            };
+            //选择框
+            $scope.sourceInputList=[
+                 {"key":"niHao",value:"你好"},
+                 {"key":"niHuai",value:"你坏"},
+                 {"key":"niSha",value:"你傻"},
+                 {"key":"niDai",value:"你呆"}
+            ];
+             $scope.inputData={};
+
+
+
+        }]);
+
+</script>
+</html>

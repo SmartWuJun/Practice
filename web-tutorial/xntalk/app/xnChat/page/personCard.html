@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户信息</title>
+    <style type="text/css">
+
+    </style>
+    <script src="js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="../dist/scripts/base.min.js"></script>
+    <script type="text/javascript" src="../dist/scripts/global.min.js"></script>
+
+    <script src="js/Web_SDK_Base_v2.4.0.js"></script>
+    <script src="js/Web_SDK_NIM_v2.4.0.js"></script>
+    <script src="js/cache.js?v=2"></script>
+    <script src="js/util.js?v=2"></script>
+    <script src="js/sdk.js?v=2"></script>
+
+    <script src="request/request.js"></script>
+    <script src="js/md5.js"></script>
+    <script src="js/xn_api_post.js"></script>
+
+</head>
+<script>
+
+    (function () {
+
+
+        var bodyController = function($scope, $http, $q, $location, $filter, yunXin) {
+
+
+            $scope.head = {"background": ( "url('#url#')").replace("#url#",  $location.search().avatar)};
+
+         //   $scope.head = {"background": "url('images/addTeam.png')"};
+            $scope.vm = [];
+            $scope.vm.name = "杨琦";
+
+            $scope.vm.sex= "--";
+            $scope.vm.birthDate= "1989";
+            $scope.vm.location= "--";
+            $scope.vm.nick= "--";
+            var  unionGetRequest = new UnionGetRequest();
+            unionGetRequest.setId($location.search().unionId);
+            xn_http_post(unionGetRequest, function (data) {
+                $scope.$apply(function () {
+                    console.log(data);;
+                    var union = data.union;
+
+                    if( union.gender)
+                    {
+                        if(union.gender == "F")
+                        {
+                            $scope.vm.sex = "女";
+                        }
+                        else if(union.gender == 'M')
+                        {
+                            $scope.vm.sex = "男";
+                        }
+                    }
+                    if(union.name  != null && union.name != undefined)
+                    {
+                        $scope.vm.name = union.name;
+                    }
+                    if(union.nickName  != null && union.nickName != undefined)
+                    {
+                        $scope.vm.nick = union.nickName;
+                    }
+                    if(union.birthDate  != null && union.birthDate != undefined)
+                    {
+                        $scope.vm.birthDate =$filter('date')(new Date(union.birthDate), 'yyyy-MM-dd')   ;// $filter('dateFormat')(new Date(union.birthDate));
+                    }
+                });
+
+            });
+        };
+       var myApp =  angular.module("myApp", []);
+        myApp.service('yunXin', function() {
+
+        });
+        myApp.config(['$locationProvider', function($locationProvider) {
+            $locationProvider.html5Mode(true);
+        }]);
+        myApp.controller("bodyController", ["$scope", "$http","$q", "$location", "$filter" ,"yunXin", bodyController])
+        //   .controller("FolderController", ["$scope","$modalInstance", "$http", "$modal","diskId", "dialogService", "toolsService", folderController])
+
+    })();
+</script>
+<body ng-app="myApp" ng-controller="bodyController" style="width: 400px;height: 560px;font-family: 微软雅黑;overflow: hidden;">
+<div ng-style="head" class="grayscale2" style="width: 400px;height: 130px;position: fixed;left: 0px;top:0px;-webkit-app-region: drag;-webkit-user-select:none;" ></div>
+<div ng-style="head" style="width: 80px;height: 80px;border-radius: 40px;position: fixed;left: 20px;top: 25px;"  ></div>
+<span style="font-size: 18px;color: #ffffff;position: fixed;left: 120px;top:40px;" ng-bind="vm.name" ></span>
+<button style="width: 20px;height: 20px;position: fixed;left: 120px; top:70px;"></button>
+<!--<div class="frosted-glass"  style="width: 400px;height: 130px; position: fixed;left: 0px;top: 0px;z-index: 999" ></div>-->
+<div style="position: fixed;left: 0px;top: 130px;width: 400px;">
+    <button style="position: absolute;right: 20px;top: 20px;width: 78px;height: 26px;border:1px solid rgb(51,153,255);background: transparent;color: rgb(51,153,255);font-family: 微软雅黑">加为好友</button>
+
+    <span style="color: #333333;left:40px;position:relative;top: 30px;">个人信息</span>
+    <table style="top:30px;position:relative;left: 40px;font-size: 13px" >
+        <tr>
+            <td style="width: 80px">昵称</td>
+            <td ng-bind = "vm.nick">--</td>
+        </tr>
+        <tr >
+            <td>性别</td>
+            <td ng-bind = "vm.sex">--</td>
+        </tr>
+        <tr >
+            <td>生日</td>
+            <td >{{vm.birthDate }}</td>
+        </tr>
+        <tr >
+            <td>地区</td>
+            <td ng-bind = "vm.location">--</td>
+        </tr>
+    </table>
+</div>
+<div style="position: fixed;bottom: 0px;height: 50px;width: 400px;text-align: center">
+    <button style="">发消息</button>
+</div>
+</body>
+
+</html>

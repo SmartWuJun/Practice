@@ -1,0 +1,12 @@
+$scope.login=function () {
+var vm={
+deviceId:"0",
+deviceType:"PC",
+ip:"127.0.0.1",
+account:"18626105941",
+password:"e10adc3949ba59abbe56e057f20f883e"
+};
+talkService.login(vm).success(function (data) {
+console.log(data);
+})
+};

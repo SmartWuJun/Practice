@@ -1,0 +1,177 @@
+
+
+<!--主体部分-->
+<div class="xn-main  xn-width auto clearfix" ng-controller="EmployeeEditController">
+
+    <!--面包屑-->
+    <div class=" xn-breadcrumb clearfix">
+        <ul class="breadcrumb xn-col-md-12">
+            <li><a href="$tutorialLink.setTarget("index")">首页</a></li>
+            <li><a href="$tutorialLink.setTarget("employee/index")">员工</a></li>
+            <li class="active">编辑</li>
+        </ul>
+        <ul class="xn-col-md-12 mt-10 xn-lh">
+            <li class="operation-li f-right"><a class="operation-a" href="$tutorialLink.setTarget("employee/index")"><i class="icon icon-return"></i>返回</a></li>
+        </ul>
+    </div>
+
+    <!--编辑主体部分-->
+    <div class="xn-edit-layout">
+        <div class="edit-title line">
+            <div class="title-name">员工详情</div>
+        </div>
+        <div class="edit-body pt-15">
+            <form class="form-horizontal xn-form"  role="form"   xn-form-validate  novalidate name="validateForm">
+                <div class="xn-input-line clearfix">
+                    <label class="xn-col-md-3 xn-lh xn-text-right"><span class="f-right label-txt">头像：</span></label>
+                    <div class="xn-col-md-5">
+                        <div class="xn-employee-photo" ng-click="upPhoto()">
+                            <img class="photo-img" ng-if="!employee.photoFileUrl"  src="$tutorialContent.getURI('images/employee-photo.png')">
+                            <img class="photo-img" ng-if="employee.photoFileUrl"  ng-src="{{employee.photoFileUrl}}?x-oss-process=image/resize,m_lfit,w_200,h_200">
+                        </div>
+                    </div>
+                    <div class="xn-col-md-16">
+                       员工头像要求： 员工头像尺寸为200*200像素、免冠照
+                    </div>
+                </div>
+                <div class="xn-input-line clearfix">
+                    <label class="xn-col-md-3 xn-lh xn-text-right"><span class="f-right label-txt">姓名：</span><i class="xn-required-i f-right"></i></label>
+                    <div class="xn-col-md-4">
+                        <input class="form-control" type="text" name="name" ng-model="employee.name"  required="required"  maxlength="100" />
+                    </div>
+                    <div class="xn-col-md-1"></div>
+                    <label class="xn-col-md-3 xn-lh xn-text-right"><span class="f-right label-txt">性别：</span></label>
+                    <div class="xn-col-md-4 xn-lh">
+                        <label for="man" class=" xn-cursor mr-10">
+                            <input id="man" type="radio" name="gender" value="MALE"  ng-model="employee.gender"> 男
+                        </label>
+                        <label for="woman" class="xn-cursor mr-10">
+                            <input id="woman" type="radio" name="gender" value="FEMALE" ng-model="employee.gender">女
+                        </label>
+                    </div>
+                    <div class="xn-col-md-1"></div>
+                </div>
+                <div class="xn-input-line clearfix">
+                    <label class="xn-col-md-3 xn-lh xn-text-right"><span class="f-right label-txt">手机：</span></label>
+                    <div class="xn-col-md-4">
+                        <input class="form-control"  type="text" name="mobile" ng-model="employee.mobile"  ng-pattern="/^[0-9]*$/"  />
+                    </div>
+                    <div class="xn-col-md-1"></div>
+                    <label class="xn-col-md-3 xn-lh xn-text-right"><span class="f-right label-txt">邮箱：</span></label>
+                    <div class="xn-col-md-4">
+                        <input class="form-control" type="text" name="email" ng-model="employee.email"    ng-pattern="/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-\_])+\.)+([a-zA-Z0-9]{2,4})+$/" />
+                    </div>
+                    <div class="xn-col-md-1"></div>
+
+                    <label class="xn-col-md-3 xn-lh xn-text-right"><span class="f-right label-txt">生日：</span></label>
+                    <div class="xn-col-md-4">
+                        <div class="input-group openData" >
+                            <input class="form-control" type="text"   ng-model="employee.birthDate" name="birthDate"
+                                   datepicker-popup="yyyy-MM-dd" is-open="birthDate"  name="birthDate" >
+                                    <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button"  ng-click="openBirthDate($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                    </span>
+                        </div>
+                    </div>
+                    <div class="xn-col-md-1"></div>
+                </div>
+                <div class="xn-input-line line clearfix"></div>
+                <div class="xn-input-line clearfix">
+                    <label class="xn-col-md-3 xn-lh xn-text-right"><span class="f-right label-txt">工号：</span></label>
+                    <div class="xn-col-md-4">
+                        <input class="form-control" type="text" name="number" ng-model="employee.number" maxlength="100" />
+                    </div>
+                    <div class="xn-col-md-1"></div>
+
+                    <label class="xn-col-md-3 xn-lh xn-text-right"><span class="f-right label-txt">入职日期：</span><i class="xn-required-i f-right"></i></label>
+                    <div class="xn-col-md-4">
+                        <!-- 日历组件  请查看文档说明-->
+                        <div class="input-group openData" >
+                            <input  class="form-control" type="text"  ng-model="employee.entryDate" name="entryDate"
+                                   datepicker-popup="yyyy-MM-dd" is-open="entryDate" required="required"  >
+                                    <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button"  ng-click="openEntryDatevm($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                    </span>
+                        </div>
+                    </div>
+                    <div class="xn-col-md-1"></div>
+
+                    <label class="xn-col-md-3 xn-lh xn-text-right"><span class="f-right label-txt">部门：</span></label>
+                    <div class="xn-col-md-4">
+                        <!--  xn-lookup  请查看文档说明-->
+                        <div  xn-lookup   ng-model="department" name="department"  data-method="findDepartmentList(data)"
+                              placeholder="请输入部门名称或代码"   data-search-val="name|code" ></div>
+                    </div>
+                    <div class="xn-col-md-1"></div>
+                </div>
+
+                <div class="xn-input-line clearfix">
+                    <label class="xn-col-md-3 xn-lh xn-text-right"><span class="f-right label-txt">薪资：</span></label>
+                    <div class="xn-col-md-4">
+                        <input class="form-control" type="text" name="salary" ng-model="employee.salary" maxlength="100" />
+                    </div>
+                    <div class="xn-col-md-1 xn-lh">元</div>
+
+                </div>
+                <div class="xn-input-line clearfix">
+                    <label class="xn-col-md-3 xn-lh xn-text-right"><span class="f-right label-txt">描述：</span></label>
+                    <div class="xn-col-md-20">
+                        <textarea class="form-control" name="description" rows="5" ng-model="employee.description" ></textarea>
+                    </div>
+                    <div class="xn-col-md-1"></div>
+                </div>
+                <div class="xn-input-line clearfix" >
+                    <div class="xn-col-md-8 xn-col-md-offset-8 xn-text-center mt-20">
+                        <input type="button"  class="btn btn-primary "  xn-form-submit="doSave()" value="保存">
+                        <a  href="$tutorialLink.setTarget("employee/index")" class="btn  btn-normal  ml-10">取消</a>
+                    </div>
+                </div>
+                <div class="xn-input-line clearfix" ng-show="validateForm.$errors.length > 0">
+                    <div class=" xn-col-md-8 xn-col-md-offset-8 xn-lh">
+                        <div class="alert-danger pl-5 pr-5">
+                            <i class="glyphicon glyphicon-remove-sign mr_5" ng-click="closeAlert(0,validateForm.$errors)"></i>
+                            {{validateForm.$errors[0]}}
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+
+<script type="text/ng-template" id="upPhoto.html">
+        <div class="modal-header">
+            <h3 class="modal-title">头像上传</h3>
+            <div class="xn-close xn-cursor" ng-click="clean()">
+                <i class="icon icon-delete"></i>
+            </div>
+        </div>
+        <div class="modal-body  clearfix">
+            <div class="xn-up-photo-layout">
+                <div class="xn-col-md-16 photo-main">
+                    <input type="file" class="file-none" id="fileUp" name="fileUp"  ng-click="fileUp($event)"  contentEditable="false"/>
+                    <label class="photo-title" for="fileUp" >选择图片</label>
+                    <div class="info">图片支持JPG、JPEG、PNG、BMP格式</div>
+                    <div class="cropArea">
+                        <img-crop  image="vm.myImage" result-image="vm.myCroppedImage" area-type="square"></img-crop>
+                    </div>
+                </div>
+
+                <div class="xn-col-md-8">
+                    <div class="photo-title">效果预览</div>
+                    <div class="info">您上传的图片最终大小尺寸为200*200像素，请注意是否清晰</div>
+                    <div class="preview">
+                        <img ng-src="{{vm.myCroppedImage}}" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <input type="button"  class="btn btn-primary btn-sm"  ng-click="doSave()"  value="确定" >
+            <input type="button"  class="btn btn-default btn-sm"  ng-click="clean()"  value="取消" >
+        </div>
+</script>
+
+<script src="$tutorialContent.getURI('dist/scripts/page/employee.js')" ></script>

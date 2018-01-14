@@ -1,0 +1,3 @@
+
+$control.setTemplate("tutorial:video/index.vm")
+

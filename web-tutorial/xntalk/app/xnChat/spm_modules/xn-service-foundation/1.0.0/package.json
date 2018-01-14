@@ -1,0 +1,31 @@
+{
+  "name": "xn-service-foundation",
+  "version": "1.0.0",
+  "description": "xn-service-foundation",
+  "keywords": ["xn-service-foundation"],
+  "homepage": "",
+  "author": "zhaoxing",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "bugs": {
+    "url": ""
+  },
+  "licenses": "MIT",
+  "spm": {
+    "main": "index.js",
+    "dependencies": {
+    },
+    "devDependencies": {
+      "expect.js": "0.3.1"
+    }
+  },
+  "devDependencies": {
+    "spm": "3"
+  },
+  "scripts": {
+    "test": "spm test",
+    "build": "spm build"
+  }
+}

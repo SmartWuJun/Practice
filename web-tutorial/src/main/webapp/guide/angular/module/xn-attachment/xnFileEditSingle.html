@@ -1,0 +1,177 @@
+<!DOCTYPE html  >
+<html lang="zh-CN" ng-app="myApp">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Expires" CONTENT="0">
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Cache-Control" CONTENT="no-store">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--公共引用-->
+    <link rel="Shortcut Icon"  href="https://cdn.xiniunet.com/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.xiniunet.com/css/xn-bootstrap/1.0.2/bootstrap.min.css" >
+    <link rel="stylesheet" href="https://cdn.xiniunet.com/font/xn-icon-common/2.0.7/iconfont.min.css" />
+    <link rel="stylesheet" href="/guide/dist/styles/local.min.css" />
+    <!--公共引用-->
+    <script  type="text/javascript" src="https://cdn.xiniunet.com/js/base/1.2.0/base.min.js" ></script>
+    <!--源码插件-->
+    <link rel="stylesheet" href="/guide/vendor/code-prettify/prettify.css" />
+    <script  type="text/javascript" src="/guide/vendor/code-prettify/prettify.js" ></script>
+
+    <!--需要加载的文件-->
+    <link rel="stylesheet"  href="https://cdn.xiniunet.com/js/xn-common/1.1.6/style.min.css" >
+    <script  type="text/javascript" src="https://cdn.xiniunet.com/js/xn-common/1.1.6/commons.min.js" ></script>
+
+    <link rel="stylesheet"  href="https://cdn.xiniunet.com/js/xn-attachment/1.4.0/style.min.css" >
+      <script  type="text/javascript" src="https://cdn.xiniunet.com/js/xn-attachment/1.4.0/attachments.min.js" ></script>
+
+    <!--<script  type="text/javascript" src="/guide/spm_modules/xn-directive-attachment/1.4.0/directive/attachments.js" ></script>-->
+
+</head>
+<body ng-controller="PageController" >
+<div class="xn-main xn-width mt-20 xn-grid-layout auto clearfix" >
+    <div class="xn-main-header">
+        <span>{{setting.name}}</span>
+        <span class="ml-50 font-sm">{{setting.subtitle}}</span>
+    </div>
+    <div class="xn-main-body xn-grid-14  xn-lh" >
+        <div class="xn-demo">
+            <div class="title"><span class="h3-title">示例：</span></div>
+            <div class="xn-input-line clearfix">
+                <div xn-file-edit-single  ng-model="file" ></div>
+            </div>
+            <div class="xn-input-line clearfix">
+                <div class="sub-title" >ng-Model返回值</div>
+                <div class="xn-col-md-22 xn-col-md-offset-1 xn-callback-data" >{{file}}</div>
+            </div>
+        </div>
+        <div class="xn-options">
+            <div class="title"><span class="h3-title">代码：</span></div>
+            <div class="xn-input-line clearfix">
+                <pre class="prettyprint lang-html linenums prettyprinted" id="options"></pre>
+            </div>
+        </div>
+
+
+        <div class="xn-explain">
+            <div class="title"><span class="h3-title">说明：</span><span class="f-right">(点击标题查看详情)</span></div>
+
+            <div class="xn-input-line clearfix">
+                <div class="sub-title" >ng-model</div>
+                <div class="explain-content" >
+                    <p>必填 : 传入的数据和返回的数据</p>
+                </div>
+                <pre class="prettyprint" >
+                      $scope.fileList ={}  //必须先定义 初始化可以给加  id 属性 值为文件的id
+                </pre>
+            </div>
+
+            <div class="xn-input-line clearfix">
+                <div class="sub-title" ng-click="tabSubNav(2)">disk-id</div>
+                <div class="explain-content" ng-if="setting.subNavActive===2">
+                    <p>可选: 网盘ID,如果没有，会自动通过查询承租人信息获取网盘id。<p>
+                </div>
+            </div>
+            <div class="xn-input-line clearfix">
+                <div class="sub-title" ng-click="tabSubNav(3)">max-size</div>
+                <div class="explain-content" ng-if="setting.subNavActive===3">
+                    <p>可选 :限制上传文件大小，单位为M 。<p>
+                </div>
+            </div>
+            <div class="xn-input-line clearfix">
+                <div class="sub-title" ng-click="tabSubNav(4)">data-type</div>
+                <div class="explain-content" ng-if="setting.subNavActive===4">
+                    <p>可选 : 文件上传类型， "image"|"document"|"video" 默认不限制。<p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="xn-main-body xn-col-md-8 xn-col-md-offset-1 xn-lh" >
+        <div class="xn-info">
+            <div class="title"><span class="h3-title">基本信息</span></div>
+            <div class="xn-input-line clearfix ">
+                <label class="xn-col-md-6 xn-text-right xn-label">隶属于：</label>
+                <div class="xn-col-md-18">{{setting.affiliated}}</div>
+            </div>
+            <div class="xn-input-line clearfix ">
+                <label class="xn-col-md-6 xn-text-right xn-label">version： </label>
+                <div class="xn-col-md-18" >{{setting.version}}</div>
+            </div>
+            <div class="xn-input-line clearfix ">
+                <label class="xn-col-md-6 xn-text-right xn-label">依赖组件：</label>
+                <div class="xn-col-md-18">{{setting.rely}}</div>
+            </div>
+            <div class="xn-input-line clearfix ">
+                <label class="xn-col-md-6 xn-text-right xn-label">CDN路径：</label>
+                <div class="xn-col-md-18 clearfix" >
+                    {{setting.jsUrl}}<br/>{{setting.cssUrl}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    //    配置设置
+    (function () {
+        function htmlEscape(s) {
+            return s
+                    .replace(/&/g, '&amp;')
+                    .replace(/</g, '&lt;')
+                    .replace(/>/g, '&gt;');
+        }
+        // this page's own source code
+
+        var quineHtml = htmlEscape(
+                '<div  xn-file-edit-single  \n' +
+                '   ng-model="{object}" \n' +
+                '   [disk-id="{string}"] \n' +
+                '   [max-size="{number}"] \n' +
+                '   [data-type="{string}"] \n' +
+                '   >\n' +
+                '</div>');
+
+        // Highlight the operative parts:
+        quineHtml = quineHtml.replace(
+                /&lt;script src[\s\S]*?&gt;&lt;\/script&gt;|&lt;!--\?[\s\S]*?--&gt;|&lt;pre\b[\s\S]*?&lt;\/pre&gt;/g,
+                '<span class="operative">$&<\/span>');
+
+        // insert into PRE
+        document.getElementById("options").innerHTML = quineHtml;
+
+    })();
+    var pageController = function ($scope,$timeout) {
+        var version="1.4.0";
+        $scope.setting={
+            name:"文件添加(单选)",
+            subtitle:"xnFileEditSingle",
+            affiliated:"xn.directive.attachment",
+            version:version,
+            rely:"xn.common",
+            jsUrl:"js/xn-select/"+version+"/selects.min.js",
+            cssUrl:"js/xn-select/"+version+"/style.min.css",
+            subNavActive:null
+        };
+        $scope.tabSubNav=function (index) {
+            if($scope.setting.subNavActive==index){
+                $scope.setting.subNavActive=null
+            }else {
+                $scope.setting.subNavActive=index
+            }
+        };
+
+
+        /*逻辑处理*/
+
+
+        $scope.file={};
+    };
+    var xnConfig = {
+        myUrl: "http://my-plat.xiniunet.com/"
+    };
+    angular.module("myApp",["xn.directive.attachment","xn.common"])
+            .value("xnConfig",xnConfig)
+            .controller("PageController", ["$scope","$timeout", pageController]);
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<div class="xn-main xn-width mt-20 xn-grid-layout auto clearfix"  ng-controller="AngularIndexController">
+    <div class="xn-grid-4 xn-grid-nav" >
+        <div class="title clearfix"><span class="h3-title">导航</span></div>
+        <ul class="nav-ul" >
+            <li class="nav-li" ng-repeat="nav in moduleList" ng-class="{'navActive':pageNavActive=='{{$index}}'}">
+                <div class="li-title"   ng-click="setPageActive($index)" ng-bind="nav.title"></div>
+                <ul  class="sub-nav-ul"   ng-if="pageNavActive==$index">
+                    <li class="sub-nav-li" ng-repeat="subNav in nav.childList"><a class="link" ng-href="{{subNav.link}}" title="{{subNav.tip}}" ng-bind="subNav.title"></a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <!--demo-->
+    <div class="xn-grid-20 xn-grid-main xn-lh" ng-controller="AngularIndexController">
+        <div class="title"><span class="h3-title">xnLookup指令</span></div>
+        <div class="xn-input-line clearfix ">
+            <label class="xn-col-md-3 xn-text-right xn-label">隶属组件:</label>
+            <div class="xn-col-md-5">xn.directive.select</div>
+
+            <label class="xn-col-md-3 xn-text-right xn-label">version: </label>
+            <div class="xn-col-md-5"></div>
+        </div>
+        <div class="xn-input-line clearfix ">
+            <label class="xn-col-md-3 xn-text-right xn-label">CDN:</label>
+            <div class="xn-col-md-5">xn.directive.select</div>
+        </div>
+    </div>
+</div>
+
+<script src="$guideContent.getURI('dist/scripts/page/angular.js')" ></script>
+
+<link rel="stylesheet" href="$config.getCdnUrl('js/xn-select/1.1.7/style.min.css')" />   #*选择*#
+<script  type="text/javascript" src="$config.getCdnUrl('js/xn-select/1.1.7/selects.min.js')" ></script>
+
+<script type="text/javascript">
+    var pageModuleController = function ($scope, dialogService) {
+        $scope.set={
+            version:"1.1.7"
+        }
+    };
+    angular.module("page.module",["xn.directive.select"])
+            .controller("PageModuleController", ["$scope", "dialogService", pageModuleController]);
+</script>

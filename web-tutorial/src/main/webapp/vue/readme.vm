@@ -1,0 +1,28 @@
+
+
+
+##参考官网
+
+###开发包
+https://github.com/FountainJS/generator-fountain-vue
+
+###vue官网
+http://cn.vuejs.org/v2/guide/
+
+
+启动方式：
+
+npm run serve
+
+ 或者
+如果安装了全局 gulp-cli可使用：
+gulp serve
+
+打包：
+npm run serve:dist
+
+
+
+###按需加载
+const index = r => require.ensure([], () => r(require('./app/constants/Index.vue')), 'index');
+

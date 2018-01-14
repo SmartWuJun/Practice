@@ -1,0 +1,43 @@
+<script>
+    function getParam(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]); return null;
+    }
+
+    var web = getParam("web");
+    var url = getParam("url");
+
+    switch (web) {
+        case "www":
+            window.location = "$config.getWwwUrl("")"+url;
+            break;
+        case "erp":
+            window.location = "$config.getErpUrl("")"+url;
+            break;
+        case "employee":
+            window.location = "$config.getEmployeeUrl("")"+url;
+            break;
+        case "member":
+            window.location = "$config.getMemberUrl("")"+url;
+            break;
+        case "open":
+            window.location = "$config.getOpenUrl("")"+url;
+            break;
+        case "customer":
+            window.location = "$config.getCustomerUrl("")"+url;
+            break;
+        case "supplier":
+            window.location = "$config.getSupplierUrl("")"+url;
+            break;
+        case "service":
+            window.location = "$config.getServiceUrl("")"+url;
+            break;
+        case "auth":
+            window.location = "$config.getAuthUrl("")"+url;
+            break;
+        default :
+            break;
+    }
+</script>
+

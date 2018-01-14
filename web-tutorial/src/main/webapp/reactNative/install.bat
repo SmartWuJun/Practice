@@ -1,0 +1,1 @@
+react-native bundle --platform android --dev false --entry-file index.android.js --bundle-output output/index.android.bundle --assets-dest output

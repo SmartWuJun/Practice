@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <group>
+        <property name="global.zookeeper.host" defaultValue="192.168.20.2" description="注册中心IP地址" />
+        <property name="global.zookeeper.port" defaultValue="2181" description="注册中心端口号" />
+        <property name="global.deploy.mode" defaultValue="development" description="部署环境模式" />
+        <property name="global.deploy.platform" defaultValue="plat" description="默认发布环境plat  | 淘宝环境taobao" />
+        <property name="global.deploy.platform.name" defaultValue="犀牛企业云" description="部署环境模式：犀牛企业云，魅力惠，樱花卫厨，中恒宠银" />
+        <property name="global.verify.mode" defaultValue="product" description="验证环境" />
+
+        <!-- 全局站点配置 -->
+        <property name="global.site.auth.url"      defaultValue="https://auth-plat.xiniunet.com/" description="Auth域名" />
+        <property name="global.site.employee.url"  defaultValue="https://my-plat.xiniunet.com/employee/" description="Employee域名" />
+        <property name="global.site.my.url"        defaultValue="https://my-plat.xiniunet.com/" description="My域名" />
+        <property name="global.site.www.url"       defaultValue="https://www-plat.xiniunet.com/" description="WWW域名" />
+        <property name="global.site.distribution.url" defaultValue="https://distribution-plat.xiniunet.com/" description="Distribution域名" />
+        <property name="global.site.financial.url" defaultValue="https://financial-plat.xiniunet.com/" description="Financial域名" />
+        <property name="global.site.marketplace.url" defaultValue="https://marketplace-plat.xiniunet.com/" description="Marketplace域名" />
+        <property name="global.site.backend.url" defaultValue="https://backend-plat.xiniunet.com/" description="Backend域名" />
+        <property name="global.site.service.enable" defaultValue="TRUE" description="是否启用服务站点">
+            <validator name="choice" choice="TRUE,FALSE"/>
+        </property>
+        <property name="global.site.service.url"   defaultValue="https://service-plat.xiniunet.com/" description="Service域名" />
+        <property name="global.site.member.url"    defaultValue="https://member-plat.xiniunet.com/" description="Member域名" />
+        <property name="global.site.open.url"      defaultValue="https://open-plat.xiniunet.com/" description="Open域名" />
+        <property name="global.site.siteweb.enable" defaultValue="TRUE" description="是否启用Site站点">
+            <validator name="choice" choice="TRUE,FALSE"/>
+        </property>
+        <property name="global.site.siteweb.url" defaultValue="https://site-plat.xiniunet.com/" description="Siteweb域名" />
+        <property name="global.site.relationship.url" defaultValue="https://relationship-plat.xiniunet.com/" description="Relationship域名" />
+        <property name="global.site.collaboration.url" defaultValue="https://collaboration-plat.xiniunet.com/" description="Collaboration域名" />
+        <property name="global.site.cdn.url" defaultValue="https://cdn.xiniunet.com/" description="CDN域名"/>
+        <property name="global.union.enable" defaultValue="TRUE" description="是否启用统一账号">
+            <validator name="choice" choice="TRUE,FALSE"/>
+        </property>
+        <property name="global.site.tutorial.url" defaultValue="http://tutorial.xiniunet.com/" description="教程域名"/>
+
+        <property name="global.aliyun.oss.url" defaultValue="http://xiniunet-dev.oss-cn-hangzhou.aliyuncs.com/" description="阿里云存储路径" />
+        <property name="global.aliyun.img.url" defaultValue="http://img-dev.xiniunet.com/" description="阿里云图片处理服务路径" />
+
+        <!-- PDF打印功能配置 -->
+        <property name="global.pdf.command.location" defaultValue="C:/Program Files/wkhtmltopdf/bin/wkhtmltopdf.exe" description="PDF转换工具命令路径" />
+
+        <property name="global.flume.enable" defaultValue="false" description="是否启用flume日志" />
+        <property name="global.flume.host" defaultValue="localhost" description="flume的Agent地址" />
+        <property name="global.flume.port" defaultValue="44444" description="flume的Agent端口" />
+
+        <property name="global.sso.protocol" defaultValue="http" description="SSO 协议" />
+        <property name="global.sso.domain" defaultValue="auth-test.yuexiu.com" description="SSO 域名" />
+        <property name="global.sso.public.key" defaultValue="MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCYLUP6kfDQpks6qr+1CVDuLySoOvmwlaSx/T7FcJmL2yzKLHs6bg1g1thmAUz0iAWHVLtagtj6uM+EFppJ/tttu/vMIVCMD00WpqBw5bNi4kQQ07Ez7RFghK+0d1Qqyu24dTXifMYMKvOu8cE0QYZXllrloaMg42A/g6kDMYOJZwIDAQAB" description="SSO 公钥" />
+
+        <property name="web.tutorial.protocol" defaultValue="http" description="SSO网站协议" />
+        <property name="web.tutorial.sso.private.key" defaultValue="MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAKbaz40pXYXP0ePTgdf2uqcmh6U/W/r8AOHDXinWXSgi/TayM+tW4rc91acOljFhuVMObDk823R92WFFGbE3CQgfd++IHg4hAT+VgssCraCqH0/2OnyxExw0ho+2XIS7hZDBKcH31e0F+kMFziMOekRar8d4A2h6f1ndOenSm1g9AgMBAAECgYAVgXhk6mL6f0m/QqCmtE9kgevT2bHCTL7UWnkFjXKeXLwkU52rhJxeH+Ms0A19uenIEcDTM8vZXOsqxVxFYiGQrBdM0HJQGnrnqs2QZT+q66s1KjJsPza+R4OQ6P9Z07z75NnDuC+nElNrwO1hgZjuIjmVU9BhuWPbsb4N5fCxpQJBANsjlYEC/KeSb5WQRpeSalfEz0zulbovaEnzm3bCn0ygoB3ljPKW4sMEd18Vu7cFBykUqB5bqQ/GBKhM+RaVpdcCQQDC68v1QFQnudjjc70Y8XHNqtH2MmagfE/dyhGouhZQp22/nQyAhbUSAAGlp9AU+3mmmRsBG689dWICG+VuJYgLAkEAoBTviw4miTdlAioiF2mi+7jPAtErWZZ2JceqoufrvOt97DkbbL+iqXnixfg3Z6xpna30XjDxYI90KYoJUGFDgwJAY/psKARx5dp2e9vuny+gjrxSa3RYnXKFyJ4PxrqEHaRzL3hPZFCwmmX0clKL8Wc3c5NOfZgEn4Jo3eoPGRsZFwJBANrloE/o1eBZidXhxsvNinA9v8k5SX3wrpPyVl7JxzhCSPdmRwp9QYTj+ZGH8j/12l4BTbWAw0UetH7MX7RVzvY=" description="SSO 公钥" />
+        <property name="web.tutorial.sso.secret.key" defaultValue="ycqskFy4k123DuiAORCYDFWvGugyigad" description="应用加密密钥" />
+
+        <property name="web.tutorial.module.name" defaultValue="web_tutorial" description="模块名称" />
+        <property name="web.tutorial.author" defaultValue="XXX" description="网页作者" />
+        <property name="web.tutorial.log.mail.enable" defaultValue="true" description="是否启用系统日志邮件通知" />
+        <property name="web.tutorial.log.mail.receipt" defaultValue="lvhao@xiniunet.com" description="日志收件人邮箱地址列表，逗号分隔" />
+        <property name="web.tutorial.log.mail.interval" defaultValue="5" description="邮件通知默认频率" />
+    </group>
+    <script>
+        <generate template="../classes/dubbo.properties" charset="UTF-8" outputCharset="UTF-8"/>
+        <generate template="../classes/config.properties" charset="UTF-8" outputCharset="UTF-8"/>
+        <generate template="../classes/setting.properties" charset="UTF-8" outputCharset="UTF-8"/>
+        <generate template="../classes/uris.xml" charset="UTF-8" outputCharset="UTF-8"/>
+    </script>
+</config>

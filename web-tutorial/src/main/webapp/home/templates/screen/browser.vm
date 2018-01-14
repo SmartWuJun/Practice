@@ -1,0 +1,16 @@
+$rundata.setLayoutEnabled(false)
+
+<div id="warning_info" class="text-warning fade in mb_0">
+
+    <strong>您正在使用低版本浏览器，将严重影响您在系统中的正常使用</strong>本系统支持以下浏览器：
+    <div>
+    <ul>
+        <li><a href="http://www.google.cn/intl/zh-CN/chrome/" target="_blank">Chrome-推荐</a></li>
+        <li><a href="www.mozilla.org/en-US/firefox/‎" target="_blank">Firefox</a> </li>
+        <li><a href="http://www.apple.com.cn/safari/" target="_blank">Safari</a> </li>
+        <li><a href="http://www.opera.com/" target="_blank">Opera</a> </li>
+        <li><a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie" target="_blank">
+        Internet Explorer 10</a></li>
+        </ul>
+    </div>
+</div>

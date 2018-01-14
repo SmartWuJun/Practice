@@ -1,0 +1,5 @@
+<div class="xn-main xn-width mt-20 auto clearfix"  ng-controller="IndexController">
+
+</div>
+
+<script src="$guideContent.getURI('dist/scripts/page/index.js')" ></script>

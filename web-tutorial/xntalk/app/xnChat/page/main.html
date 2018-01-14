@@ -1,0 +1,1252 @@
+
+<!DOCTYPE html >
+<html lang="zh-CN" >
+<head>
+	<title>犀牛</title>
+	<meta charset="utf-8">
+	<meta http-equiv="Expires" CONTENT="0">
+	<meta http-equiv="Cache-Control" CONTENT="no-cache">
+	<meta http-equiv="Cache-Control" CONTENT="no-store">
+	<meta http-equiv="Pragma" content="no-cache">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" >
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="犀牛">
+	<meta name="author" content="犀牛网络">
+	<!-- 请特别注意引用的顺序和JQuery的版本-->
+	<link rel="stylesheet" href="../dist/styles/global.min.css"/>
+	<link rel="stylesheet" href="../dist/styles/local.min.css"/>
+	<link rel="stylesheet" href="./css/base.css"/>
+	<link rel="stylesheet" href="./css/animate.css"/>
+	<link rel="stylesheet" href="./css/jquery-ui.css"/>
+	<link rel="stylesheet" type="text/css" href="css/jquery.Jcrop.css" >
+	<link rel="stylesheet" href="./css/main.css"/>
+	<link rel="stylesheet" href="./css/uiKit.css"/>
+	<link rel="stylesheet" href="./css/team.css"/>
+	<link rel="stylesheet" href="./css/CEmojiEngine.css"/>
+	<link rel="stylesheet" href="./css/cloudFileSelect.css"/>
+	<link rel="stylesheet" href="./css/mainCommon.css"/>
+	<link rel="stylesheet" href="./css/groupMemberAdd.css"/>
+	<link rel="stylesheet" href="./css/createTenantGroup.css"/>
+
+	<link rel="icon" href="images/icon.ico" type="image/x-icon"/>
+	<link rel="stylesheet" href="./vender/xn-icon-common/iconfont.css"/>
+	<link rel="stylesheet" href="./vender/xn-icon-pan/iconpanfont.css"/>
+	<link rel="stylesheet" href="./vender/xn-icon-talk/iconfonttalk.css"/>
+
+	<link rel="stylesheet" href="font/iconfontLocal.css">
+	<style>
+		::-webkit-scrollbar{width:4px;}
+	</style>
+	<script src="js/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="../dist/scripts/base.min.js"></script>
+	<script type="text/javascript" src="../dist/scripts/global.min.js"></script>
+	<script type="text/javascript" src="../dist/scripts/local.min.js"></script>
+
+	<script src="./js/3rd/qrcode.min.js"></script>
+	<script src="./js/3rd/jsrender.min.js"></script>
+
+</head>
+
+<body  class="loginBody" ng-controller="BodyController" >
+<div class="bad-network hide tc radius5px" id="j-errorNetwork">已与服务器断开，请检查网络连接</div>
+<div class="wrapper box-sizing" style="background: #efeff4;">
+	<div class="xn-header-xntalk">
+		<div class="operating-darwin-layout xn-no-drag clearfix"  ng-show="global.platform=='darwin'|| global.platform=='linux'">
+			<!--关闭-->
+			<div class="operating"  id="j-quitBtn-darwin"></div>
+			<!--最小化-->
+			<div class="operating" id="j-miniBtn-darwin"></div>
+			<!--最大化-->
+			<div class="operating" id="j-maxBtn-darwin"></div>
+		</div>
+		<div class="xn-talk-logo f-left"  ng-show="global.platform=='win32'">
+			<div class="logo-div">
+				<img class="logo f-left" src="images/xntalk_logo.png">
+				<span id="unionName" class="union-name f-left" data-id=""></span>
+				<span class="triangle-down f-left xn-hidden"></span>
+				<div class="more-content xn-hidden" style="z-index: 99">
+					<div class="triangle-up"></div>
+					<ul class="union-ul">
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="operating-win-layout xn-no-drag clearfix"  ng-show="global.platform=='win32'" >
+			<!--关闭-->
+			<div class="operating" id="j-quitBtn"><i class="xn-icon-talk icon-guanbi"></i></div>
+			<!--最大化-->
+			<div class="operating"  id="j-maxBtn"><i class="xn-icon-talk icon-zuidahua"></i></div>
+			<!--最小化-->
+			<div class="operating" id="j-miniBtn"><i class="xn-icon-talk icon-zuixiaohua"></i></div>
+		</div>
+
+	</div>
+	<div class="xn-main clearfix">
+		<div class="xn-nav-main xn-drag clearfix" id="navMain">
+			<div class="user-layout xn-no-drag clearfix">
+				<div class="user-avatar" ng-click="showPersonCard()">
+					<img src="" alt="" width="56" height="56" class="img radius-circle avatar f-right cursor-pointer" id="j-userPic"  />
+				</div>
+			</div>
+			<ul class="xn-app-nav xn-no-drag clearfix"  id="nav-message">
+				<li class="app-nav app-nav-active"  data-index="1"  ><i class="xn-icon-talk icon-xiaoxi-1"></i> <span class="nav-message dot-message xn-hidden"></span></li>
+				<!--<li class="app-nav" 					  data-index="2"  ><i class="xn-icon-talk icon-faxian-1"></i></li>-->
+				<!--<li class="app-nav" 					  data-index="3"  ><i class="xn-icon-talk icon-yingyong-1"></i></li>-->
+				<!--<li class="app-nav" 					  data-index="4"  ><i class="xn-icon-talk icon-renwu-1"></i></li>-->
+				<!--<li class="app-nav" 					  data-index="5"  ><i class="xn-icon-talk icon-yunpan"></i></li>-->
+				<li   class="app-nav"  data-index="6" >返回</li>
+
+
+			</ul>
+			<!--<div class="xn-setting-layout xn-no-drag clearfix">-->
+				<!--<div class="setting-btn" ng-click="tabNav(5)" ><i class="xn-icon-talk icon-gengduo"></i></div>-->
+			<!--</div>-->
+		</div>
+		<div class="content"  id="content">
+			<div id="no-message-con" class="no-message-con xn-hidden">
+				<!--<iframe id="iframepage" frameborder="0" scrolling="no" height="560" width="900"></iframe>-->
+				<p class="tc">暂未开放，敬请期待！</p>
+			</div>
+			<div class="left-panel" id="con-left">
+				<div class="hide loading" id="j-loading"></div>
+				<div class="search-name-div">
+
+					<div class="search-name-con" id="searchName">
+						<input id="searchName-input" class="name-input" placeholder="请输入联系人姓名"  ng-init="searchContactText=''" ng-model="searchContactText"  ng-keyup="searchContact(searchContactText)" />
+						<div class="search-btn"></div>
+					</div>
+					<contact-select></contact-select>
+
+				</div>
+				<div class="m-devices hide">正在使用犀牛桌面版</div>
+				<div class="panel" id="j-switchPanel">
+					<a href="javascript:;" class="box-sizing tc m-unread panel_tab" data-type="conversations"><span class="icon icon-chat cur"></span><b class="u-unread hide">0</b></a>
+					<a href="javascript:;" class="box-sizing tc panel_tab" data-type="contacts"><span class="icon main_icon-list"></span></a>
+					<a href="javascript:;" class="box-sizing tc panel_tab" data-type="teams"><span class="icon icon-team"></span></a>
+				</div>
+				<div class="friends" id="j-loadConversations" data-type="conversations" style="height: 100%;"><!-- 最近联系人 -->
+					<div class="list">
+						<div class="m-panel">
+							<div class="panel_item m-sysMsg" id="showNotice">
+								<div class="panel_avatar">
+									<img class="panel_image" src="images/notice.png" alt="消息中心"/>
+								</div>
+								<div class="panel_text">
+									<p class="panel_single-row">消息中心</p>
+								</div>
+								<b class="count j-sysMsgCount hide"></b>
+							</div>
+						</div>
+						<div id="j-conversations"  >
+							<p>正在获取最近联系人...</p>
+						</div>
+					</div>
+				</div>
+				<div class="friends hide" id="j-loadContacts" data-type="contacts">
+					<!-- 通讯录 -->
+					<div class="list">
+						<div class="m-panel">
+							<div class="panel_item" id="addFriend">
+								<div class="panel_avatar">
+									<img class="panel_image" src="images/addFriend.png" alt="添加好友"/>
+								</div>
+								<div class="panel_text">
+									<p class="panel_single-row">添加好友</p>
+								</div>
+							</div>
+							<!--<div class="panel_item" id="myApplication">-->
+							<!--<div class="panel_avatar">-->
+							<!--<img class="panel_image" src="images/myApp.png" alt="我的应用"/>-->
+							<!--</div>-->
+							<!--<div class="panel_text">-->
+							<!--<p class="panel_single-row">我的应用</p>-->
+							<!--</div>-->
+							<!--</div>-->
+							<div id="application-div" class="hide">
+								<div class="panel_item">
+									<div class="panel_avatar">
+										<img class="panel_image" src="images/normal.png" alt="犀牛网络"/>
+									</div>
+									<div class="panel_text">
+										<p class="panel_single-row">犀牛网络</p>
+									</div>
+								</div>
+							</div>
+							<div class="panel_item" id="addressList">
+								<div class="panel_avatar">
+									<img class="panel_image" src="images/addrListIco.png" alt="企业通讯录"/>
+								</div>
+								<div class="panel_text">
+									<p class="panel_single-row">企业通讯录</p>
+								</div>
+							</div>
+							<div id="addressListDiv" class="hide">
+								<!--<div class="panel_item">-->
+								<!--<div class="panel_avatar">-->
+								<!--</div>-->
+								<!--<div class="panel_text">-->
+								<!--<p class="panel_single-row">犀牛网络</p>-->
+								<!--</div>-->
+								<!--</div>-->
+							</div>
+							<!--<div class="panel_item" id="showBlacklist">-->
+							<!--<div class="panel_avatar">-->
+							<!--<img class="panel_image" src="images/black.png" alt="黑名单"/>-->
+							<!--</div>-->
+							<!--<div class="panel_text">-->
+							<!--<p class="panel_single-row">黑名单</p>-->
+							<!--</div>-->
+							<!--</div>-->
+							<div class="panel_item" id="myPhone">
+								<div class="panel_avatar">
+									<img class="panel_image" src="images/myPhone.png" alt="我的手机"/>
+								</div>
+								<div class="panel_text">
+									<p class="panel_single-row">我的手机</p>
+								</div>
+							</div>
+							<div class="panel_item" id="myFriends">
+								<div class="panel_avatar">
+									<img class="panel_image" src="images/friends.png" alt="我的好友"/>
+								</div>
+								<div class="panel_text">
+									<p class="panel_single-row">我的好友</p>
+								</div>
+							</div>
+						</div>
+						<div id="j-contacts">
+
+						</div>
+					</div>
+				</div>
+				<div class="friends hide" id="j-loadTeams" data-type="teams" style="height: 100%;">	<!-- 群 -->
+					<div class="list" >
+						<div class="m-panel">
+							<div class="panel_item" id="createTeam">
+								<div class="panel_avatar">
+									<img class="panel_image" src="images/addTeam.png" alt="创建普通群"/>
+								</div>
+								<div class="panel_text">
+									<p class="panel_single-row">创建普通群</p>
+
+								</div>
+
+							</div>
+							<div class="panel_item" id="createTenantTeam" ng-click="createTenantGroupClick()">
+								<div class="panel_avatar">
+									<img class="panel_image" src="images/advanced.png" alt="创建企业群"/>
+								</div>
+								<div class="panel_text">
+									<p class="panel_single-row">创建企业群</p>
+
+								</div>
+
+							</div>
+						</div>
+						<div class="teams m-panel pb-50" id="j-teams"></div>
+					</div>
+				</div>
+			</div>
+			<!-- 聊天面板 -->
+			<div class="right-panel hide radius5px" id="j-rightPanel">
+				<div class="chat-box">
+					<div class="title" id="j-chatTitle">
+						<img src="" width="56" height="56" class="radius-circle img" id="headImg"  />
+						<span id="j-nickName"></span>
+						<div class="cloudMsg tc radius4px" data-record-id="" id="j-cloudMsg"><i class="icon icon-team-info"></i><p>云记录</p></div>
+						<div class="team-info hide tc radius4px" data-team-id="" id="j-teamInfo"><i class="icon icon-team-info"></i><p>资料</p></div>
+					</div>
+					<div class="chat-content box-sizing" id="j-chatContent"> <!-- 聊天记录 -->
+
+					</div>
+					<div class="u-chat-notice">您已退出</div>
+					<div class="chat-mask"></div>
+					<div class="chat-editor box-sizing" id="j-chatEditor" data-disabled="1" style="min-width: 635px; height: 105px;border:1px solid #e6e6e6;right:1px;" >
+						<div style="position: absolute;top:0px;left: 0px;right: 75px;bottom: 30px">
+							<div style="width: 100%;height: 30px;">
+                        <span class="msg-type" id="j-msgType" style="top:0px;left:15px">
+							<a href="javascript:;" class="iconfont icon-xntalk-fujian" data-type="file" style="text-decoration: none;"></a>
+						</span>
+								<div id="emojiTag" class="m-emojiTag"></div>
+								<a href="javascript:;" class="iconfont icon-xntalk-biaoqing" id="j-showEmoji" style="position: absolute;top:0px;left:45px;text-decoration: none;"></a>
+								<a href="javascript:;" class="iconfont icon-xntalk-shangchuan" ng-click="search()"  style="position: absolute;top:0px;left:80px;text-decoration: none;"></a>
+
+								<a href="javascript:;" ng-click="screenShot()" class="iconfont icon-xntalk-jieping"  style="position: absolute;top:0px;left:110px;text-decoration: none;"></a>
+
+							</div>
+
+							<form action="#" id="j-uploadForm">
+								<input multiple="multiple" type="file" name="file" id="j-uploadFile" class="hide"/>
+							</form>
+							<textarea id="j-messageText" class="msg-input2 box-sizing " rows="1" autofocus="autofocus" maxlength="500" ></textarea>
+
+						</div>
+						<a href="javascript:;" class="btn-send2" id="j-sendBtn" >发送</a>
+					</div>
+				</div>
+			</div>
+			<!-- 我的好友 -->
+			<div class="right-panel hide radius5px" id="j-right-friends">
+				<div class="chat-box">
+					<div class="friends-con">
+						<div class="friends-title">我的好友</div>
+						<ul class="friends-ul" id="j-right-friends-ul">
+							<p>正在获取通讯录...</p>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!--通讯录 -->
+			<div class="right-panel hide radius5px" id="j-right-addressList" ng-controller="ListController">
+				<div class="chat-box">
+					<div class="tenantList-con">
+						<div class="friends-title">
+						<span ng-repeat="category in path" >
+							<a class="path-back-new xn-step-doing" ng-show="$index==0" ng-click="jumpTo(category.id,category.name)"> {{category.name}}</a>
+							<a class="path-back-new" ng-show="$index!=0 && $index!=path.length-1" ng-click="jumpTo(category.id,category.name)"><span class="xn-text-auxiliary">> </span>{{category.name}}</a>
+							<a class="path-item" ng-show="$index!=0 && $index==path.length-1" ng-click="jumpTo(category.id,category.name)"><span class="xn-text-auxiliary">> </span>{{category.name}}</a>
+						</span>
+						</div>
+						<div class="clearfix tenantList-con-middle" id="">
+							<ul class="friends-ul m-panel" ng-show="listTotalCount==0">
+								<p class="no-list">暂无人员...</p>
+							</ul>
+							<ul class="friends-ul m-panel" id="j-right-list-branch">
+								<li class="panel_item " ng-repeat="branch in branchList" data-id="{{branch.tenantId}}" ng-click="getList(branch.id,branch.name)">
+									<div class="panel_avatar"><div class="time-icon-leave time-icon-leave-{{branch.idIndex}}" >{{branch.idName}}</div></div>
+									<div class="panel_text xn-text-minor">
+										<p class="panel_multi-row">
+											<span class="panel_nick" >{{branch.name}}</span>
+										</p>
+										<p class="panel_multi-row">{{branch.count}}人</p>
+									</div>
+								</li>
+							</ul>
+							<ul class="friends-ul m-panel" id="j-right-list-person">
+								<li class="panel_item" ng-repeat="person in personList" data-account="{{person.id}}" data-scene="p2p">
+									<div class="panel_avatar" ng-click="showInfo(person,'p2p')">
+										<img class="panel_image" ng-show="person.avatar" src="{{person.avatar}}">
+										<img class="panel_image" ng-show="!person.avatar" src="images/default-icon.png" >
+									</div>
+									<div class="panel_text">
+										<p class="panel_nick" style="line-height: 40px;" ng-click="openChat(person,'p2p')">{{person.name}}</p>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="right-panel hide radius5px devices-container" id="j-devices">
+				<div class="info-box">
+					<div class="title tc">
+						<button class="btn back-btn radius5px" id="j-backBtn2">返回</button>多端登录管理
+					</div>
+					<div class="content">
+						<div class="main">
+							<div class="pic"></div>
+							<div class="mobile hide">
+								<p>犀牛手机版</p>
+								<a class="u-kick j-kickMoblie">下线</a>
+							</div>
+							<div class="pc hide">
+								<p>犀牛PC版</p>
+								<a class="u-kick j-kickPc">下线</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div ng-controller="PanIndexController" id="j-file" class="xn-hidden">
+				<div class="xn-iframe-l">
+					<ul class="pan-menu">
+						<li ng-repeat="menu in panMenu" class="pan-menu-li-hover"  ng-click="doMenu($index)"  ng-class="{'pan-menu-li':menu.state,'bb':menu.bb}"><i class="{{menu.img}}" ></i>{{menu.value}}</li>
+					</ul>
+				</div>
+				<div class="xn-iframe-l-b" >
+					<div ng-show="isShow">
+						<div class="progress">
+							<div class="plan" style={{vm.plan}}></div>
+						</div>
+						<div class="progress-title" > {{page.disk.usedSize | fileSize}}/{{page.disk.maxSize | fileSize}}</div>
+					</div>
+				</div>
+				<div class="xn-iframe-r">
+					<div ng-show="isShow">
+						<div class='xn-attachmentView-bj' ng-show="attachmentState" ng-click="attachmentViewClose()"></div>
+						<div class='xn-attachmentView-box'  ng-show="attachmentState">
+							<div class='xn-attachmentView-box-nr' >
+								<i class='icon main_icon-close' ng-click="attachmentViewClose()"></i>
+								<img class='xn-attachmentView-box-img' ng-src='{{attachmentView}}'>
+							</div>
+						</div>
+						<div class="xn-iframe-r-top clearfix">
+							<div class="top-l ">
+								<!--<label class="btn  btn-primary mr_15"  for="attachment"><i class="xn-icon icon-uploading pl_10 pr_15"></i>上传文件</label>-->
+								<input type="file" id="attachment" class="col-sm-6 pb_10 clearfix none" ng-click="uploadFile()" nv-file-select uploader="uploader"   multiple/>
+								<button class="btn  btn-default mr_15" style="color: #666; border:1px solid #ccc;" ng-click="showCreateFolder();newCreate=true" >
+									<i class="xn-icon icon-create pr_15" ></i><span>新建文件夹</span>
+								</button>
+							</div>
+							<div class="top-r">
+								<!--<button class="xn-btn  btn-link" ng-click="batchDownload()" ><i class="xn-icon  icon-download top-r-three"></i>下载</button>-->
+								<button class="xn-btn  btn-link" ng-click="batchDeleteFolder()"><i class="icon-common icon-delete-common top-r-three"></i>删除</button>
+								<!--<button class="xn-btn  btn-link"  ng-click="shareFile()"><i class="xn-icon  icon-show top-r-three"></i>分享</button>-->
+							</div>
+						</div>
+						<div class="xn-crumb xn-crumb-panel">
+							<div class="crumb-path">
+       					<span>
+							<a class="path-back" ng-if="vm.parentId!=undefined && page.path.length > 1"
+							   ng-click="jumpTo(page.path[page.path.length-2].id, page.path[page.path.length-2].name)">返回上一级 |</a>
+       					</span>
+						<span ng-repeat="category in page.path" ng-if="page.path.length>1">
+							<a class="path-back" ng-show="$index==0" ng-click="jumpTo(category.id,category.name)"> {{category.name}}</a>
+							<a class="path-back" ng-show="$index!=0 && $index!=page.path.length-1" ng-click="jumpTo(category.id,category.name)">/ {{category.name}}</a>
+							<a class="path-item" ng-show="$index==page.path.length-1" ng-click="jumpTo(category.id,category.name)">/ {{category.name}}</a>
+						</span>
+        				<span ng-repeat="category in page.path" ng-if="page.path.length==1">
+        				    <a class="path-item" ng-show="$index==0" ng-click="jumpTo(category.id,category.name)"> {{category.name}}</a>
+        				</span>
+							</div>
+							<div class="xn-display-mode">
+								<a class="text" title="切换到列表视图" ng-click="tab=1" ng-class="tab==1?'text':'text-hover'"><i class="xn-icon icon-list1 pl_20"></i></a>
+								<a class="text" title="切换到大图视图"  ng-click="tab=2" ng-class="tab==2?'text':'text-hover'"><i class="xn-icon icon-thumbnail pl_15"></i></a>
+							</div>
+							<div class="xn-sort" ng-init="showDetail=false" ng-class="showDetail?'showContent':''"
+								 ng-mouseenter="showDetail=true" ng-mouseleave="showDetail=false" >
+								<h2 >
+									<a  class="view" >
+										<i class="xn-icon icon-descendingorder"></i><span>{{sortName}}</span></a>
+								</h2>
+								<ul>
+									<li ng-repeat="sort in sortColumns" ng-click="sortColumn(sort.key)"><a><i class="{{sort.img}}"></i><span>{{sort.value}}</span></a></li>
+								</ul>
+							</div>
+
+						</div>
+						<div class="ml_20 xn-table-content " ng-init="tab=1"  ng-keydown="keydown($event)" ng-keyup="keyup($event)">
+							<table class="col-sm-12 table-list"  ng-show="tab==1">
+								<thead>
+								<tr class="head-tr">
+									<td class="col-sm-5 l-h-34"><input type="checkbox" ng-click="allSelect()" ng-model="all.state"><span class="file-name pl_20">文件名</span></td>
+									<td class="col-sm-2">大小</td>
+									<td class="col-sm-3">创建时间</td>
+									<td class="col-sm-2 xn-center">操作</td>
+								</tr>
+								</thead>
+								<tbody id="tbody">
+								<tr ng-show="page.createFolder" class=" line-tr">
+									<td class="pl_15 mb_10" ng-init="newCreate=false">
+										<input ng-show="newCreate" class="form-control xn-input-sm newCreate" type="text" name="newFolderName"
+											   ng-model="page.newFolderName" ng-blur="newCreate=false;createFolderFile()"  autofocus="autofocus">
+									</td>
+									<td></td>
+									<td></td>
+									<td><a class="view-a" ng-click="createFolder()">创建</a></td>
+								</tr>
+								<tr ng-show="page.path.length > 0" title="{{folder.name}}&#10;创建时间：{{folder.creationTime}}&#10;修改时间：{{folder.lastUpdateTime}}"
+									ng-repeat="folder in page.folderList" class="my-file-tr line-hover" ng-class="folder.state?'line-tr-checked':'line-tr'">
+									<td class="l-h-34" >
+										<div style="width:15px;height: 48px ;background:transparent; float:left" ng-click="folderSingleClick(folder)"></div>
+										<input type="checkbox" ng-model="folder.state">
+										<div ng-click="folderSingleClick(folder)">
+											<div class="ml_20 mr_15 f-left bg-img"  ></div>
+                       				<span class="view-a pl_20 line_height_50"  ng-show="!hasRename" ng-init="hasRename=false" >
+                       				    <a  ng-click="search(folder.id, folder.name)">{{folder.name |substr:10}}<i></i></a>
+                       				</span>
+											<div class="ml_20 hasRename">
+												<input ng-show="hasRename" class="form-control xn-input-sm hasRename" type="text" name="folderName"
+													   ng-model="folder.name" ng-blur="hasRename=false;renameFolder(folder)">
+											</div>
+										</div>
+									</td>
+									<td></td>
+									<td>{{folder.creationTime}}</td>
+									<!--<td>{{folder.lastUpdateTime}}</td>-->
+									<td class="xn-center">
+										<div class="view auto" ng-mouseenter="showDetail=true" ng-init="showDetail=false"
+											 ng-mouseleave="showDetail=false" ng-class="showDetail?'showMessage':''">
+											<a class="view-a" ng-click="search(folder.id, folder.name)">打开<i></i></a>
+											<ul class="view-ul">
+												<li><a ng-click="download(folder.id)"> 下载</a></li>
+												<li><a ng-click="hasRename=true"> 重命名</a></li>
+												<li><a ng-click="openSelectFolder('folder',folder)"> 移动</a></li>
+												<li><a ng-click="deleteFolder(folder.id)"> 删除</a></li>
+											</ul>
+										</div>
+									</td>
+								</tr>
+								<tr ng-show="page.path.length > 0" class="line-hover" title=" {{file.fileName}}&#10;大小：{{file.file.size | fileSize}}&#10;创建时间：{{file.creationTime}}"
+									ng-repeat="file in page.fileList" ng-class="file.state?'line-tr-checked':'line-tr'">
+									<td class="l-h-34">
+										<div style="width:15px;height: 48px ;background:transparent; float:left" ng-click="fileSingleClick(file)"   >
+										</div>
+										<input type="checkbox"  ng-model="file.state">
+										<div ng-click="fileSingleClick(file)"    ng-dblclick="attachmentViewOpen(file)">
+											<div class="ml_20 f-left bg-img {{file.file.extension | diskFileType}}"  ng-style=file.newlineImgUrl ></div>
+                               <span class="view-a pl_20 line_height_50"  ng-show="!hasRename" ng-init="hasRename=false" >
+                            <a ng-click="openFile(file.id)">{{file.fileName |substr:10}}<i></i></a></span>
+											<input ng-show="hasRename" class="form-control xn-input-sm" type="text" name="fileName"
+												   ng-model="file.fileName" ng-blur="hasRename=false;renameFile(file)">
+										</div>
+									</td>
+									<td>{{file.file.size | fileSize}}</td>
+									<td>{{file.creationTime}}</td>
+									<!--<td>{{folder.lastUpdateTime}}</td>-->
+									<td class="xn-center">
+										<div class="view auto" ng-mouseenter="showDetail=true" ng-init="showDetail=false"
+											 ng-mouseleave="showDetail=false" ng-class= "showDetail?'showMessage':''">
+											<a class="view-a" ng-href="http://xiniunet.oss.aliyuncs.com/{{file.file.storagePath}}" download="{{file.fileName}}" target="_blank"> 下载</a>
+											<ul class="view-ul">
+												<li><a ng-click="hasRename=true">重命名</a></li>
+												<li><a ng-click="openSelectFolder('file',file)"> 移动</a></li>
+												<li><a ng-click="deleteFile(file.id)"> 删除</a></li>
+											</ul>
+										</div>
+									</td>
+								</tr>
+								<tr ng-if="page.totalCount == 0"><td colspan="12" class="center tc line-no-message">无法找到相应的记录</td></tr>
+								</tbody>
+							</table>
+							<div ng-show="tab==2" class="icon-layout-arrange clearfix" >
+								<div ng-show="page.createFolder" style="width:120px;height:139px;border:1px solid #dcdcdc;float: left;margin-right:25px;" >
+									<div class="icon-layout-img"></div>
+									<div style="margin: -10px 0 0 15px">
+										<input type="text" ng-show="newCreate" class="form-control newCreate" name="newFolderName" style="display:inline-block;width:90px;padding-left:5px"
+											   ng-model="page.newFolderName" ng-blur="newCreate=false;createFolderFile()" autofocus="autofocus">
+									</div>
+								</div>
+								<div style="position: relative" ng-show="page.path.length > 0"
+									 title="{{folder.name}} &#10;创建时间：{{folder.creationTime}}&#10;更新时间：{{folder.lastUpdateTime}}"
+									 ng-repeat="folder in page.folderList" class="icon-my-file-transparent f-left mb_10" ng-click="folderSingleClick(folder)"
+									 ng-class="folder.state?'icon-my-file':''"#*"{'icon-my-file':folder.state}"*#>
+								<div class="icon-layout-img"></div>
+                         <span class="view-a" ng-show="!hasRename" ng-init="hasRename=false" >
+                    <a class="xn-tab-name"  ng-click="search(folder.id, folder.name)">{{folder.name |substr:5}}<i></i></a></span>
+								<input ng-show="hasRename" class="form-control xn-input-sm" type="text" name="folderName"
+									   ng-model="folder.name" ng-blur="hasRename=false;renameFolder(folder)">
+							</div>
+							<div ng-show="page.path.length > 0" title="{{file.fileName}}&#10;大小：{{file.file.size | fileSize}}&#10;创建时间：{{file.creationTime}}"
+								 ng-repeat="file in page.fileList" class="icon-my-file f-left mb_10"   ng-dblclick="attachmentViewOpen(file)"
+								 ng-class="file.state?'icon-my-file-1':'icon-my-file-transparent-back'" ng-click="fileSingleClick(file)">
+								<div class="icon-layout-img {{file.file.extension|diskFileType}}" ng-style=file.newImgUrl ></div>
+						   <span class="view-a" ng-show="!hasRename" ng-init="hasRename=false" ng-mouseenter="isTip=true" ng-mouseleave="isTip=false" >
+							   <a class="xn-tab-name" ng-click="openFile(file.id)">{{file.fileName |substr:5}}<i></i></a>
+						   </span>
+								<input ng-show="hasRename" class="form-control xn-input-sm" type="text" name="fileName"
+									   ng-model="file.fileName" ng-blur="hasRename=false;renameFile(file)">
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<div ng-show="!isShow">
+					<div class="no-message-con">
+						<p class="tc">暂未开放，敬请期待！</p>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+
+	<div  id="j-tenantHome" class="xn-hidden" style="position: fixed;top:60px;left: 80px;height: 100%;z-index: 2;width: 100%" >
+		<iframe id="j-tenantHome2" style="width: 100%;height:100%"  src="https://site.xiniunet.com/route.do?method=goto.employee.portal"></iframe>
+	</div>
+	<!-- 群资料 -->
+	<div class="team-info-container hide" id="j-teamInfoContainer"></div>
+	<!-- 云记录 -->
+	<div class="cloud-msg-container hide" id="j-cloudMsgContainer"></div>
+	<!-- 创建群，添加成员 -->
+	<div class="create-team-container radius5px hide" id="j-createTeamContainer"></div>
+	<!-- 黑名单 -->
+	<div class="m-blacklist radius5px hide" id="blacklist">
+		<div class="title box-sizing">
+			黑名单
+			<i class="icon main_icon-close j-close"></i>
+		</div>
+		<div class="notice">你不会接收到列表中联系人的任何消息</div>
+		<ul class="f-cb list">
+			<li class="items f-cb">
+				<img src="images/default-icon.png" class="head">
+				<span class="nick">未知</span>
+				<button class="btn  radius4px btn-ok j-rm">解除</button>
+			</li>
+		</ul>
+	</div>
+	<!-- 消息中心 -->
+	<div class="m-notice radius5px hide" id="notice">
+		<div class="title box-sizing">
+			消息中心
+			<i class="icon main_icon-close j-close"></i>
+			<b class="j-rmAllSysNotice rmAll"></b>
+		</div>
+		<ul class="tab f-cb">
+			<li class="crt" data-value="sys">系统通知</li>
+			<li  data-value="other">自定义通知</li>
+		</ul>
+		<div class="content j-sysMsg">
+		</div>
+		<div class="content j-customSysMsg hide">
+		</div>
+	</div>
+	<!-- 搜索高级群 -->
+	<div class="m-dialog hide" id="searchTeamBox">
+		<div class="title box-sizing">
+			搜索高级群
+			<i class="icon main_icon-close j-close"></i>
+		</div>
+		<div class="content tc">
+			<input type="text" class="ipt radius5px box-sizing j-account" placeholder="请输入群id"/>
+			<div class="info f-cb">
+				<img src="images/advanced.png">
+				<div class="desc">
+					<p class="j-name"></p>
+					<p><span class="j-teamId"></span></p>
+				</div>
+			</div>
+		</div>
+		<div class="btns tc">
+			<button class="btn btn-cancel radius4px cancel j-close">取消</button>
+			<button class="btn btn-ok radius4px search j-search">确定</button>
+			<button class="btn btn-cancel radius4px back j-back">继续搜索</button>
+			<button class="btn btn-ok radius4px add j-add">申请加入</button>
+			<button class="btn btn-ok radius4px chat j-chat">聊天</button>
+		</div>
+	</div>
+</div>
+
+<!-- 退出确认框 -->
+<div class="dialog radius5px hide" id="j-logoutDialog">
+	<span class="icon main_icon-close" id="j-closeDialog"></span>
+	<div class="content tc">确定要退出犀牛吗？</div>
+	<div class="buttons tc">
+		<button class="btn radius4px btn-cancel" id="j-cancelBtn">取消</button>
+		<button class="btn radius4px btn-ok" id="j-okBtn">确定</button>
+	</div>
+</div>
+<!-- 添加好友 -->
+<div class="m-dialog hide" id="addFriendBox" ng-controller="addFriendController">
+	<div class="title box-sizing">
+		添加好友
+		<i class="icon main_icon-close j-close"></i>
+	</div>
+	<div class="content tc" style="overflow:visible;padding-top: 0px;"  >
+
+		<div  xn-lookup  ng-model="lookup"  data-method="getList(data)"   placeholder="请输入提示信息"  data-search-val="name" style="width: 300px;left: 50px;"  >
+		</div>
+
+		<!--<select ng-model="engineer.currentActivity"  class="ipt radius5px box-sizing j-account" ng-options="act for act in activities"></select>-->
+		<!--<input type="text" class="ipt radius5px box-sizing j-account" placeholder="请输入帐号"/>-->
+		<div class="info f-cb">
+			<img src="">
+			<div class="desc">
+				<p class="j-nickname"></p>
+				<p><span class="j-username"></span></p>
+			</div>
+		</div>
+		<div class="tip">
+		</div>
+	</div>
+	<div class="btns tc">
+		<button class="btn btn-cancel radius4px cancel j-close">取消</button>
+		<button class="btn btn-ok radius4px search" ng-click="searchClick()" >确定</button>
+		<button class="btn btn-cancel radius4px back j-back">继续搜索</button>
+		<button class="btn btn-ok radius4px add j-add">加为好友</button>
+		<button class="btn btn-ok radius4px done j-close">完成</button>
+		<button class="btn btn-ok radius4px chat j-chat">聊天</button>
+		<button class="btn btn-del radius4px blacklist j-blacklist">移出黑名单</button>
+	</div>
+</div>
+<!-- 人物信息 -->
+<div class="m-card hide" id="personCard">
+	<i class="icon main_icon-close j-close"></i>
+	<div class="uInfo f-cb">
+		<img class="u-icon" src="">
+		<div class="desc">
+			<p class="j-nick nick">超级大饼</p>
+			<img src="" class="j-gender gender">
+			<p><span class="j-username">帐号：caojidabin</span></p>
+			<p><span class="j-nickname">昵称：caojidabin</span></p>
+		</div>
+	</div>
+	<div class="infos">
+		<div class="items alias">
+			<div class="item">备注名</div>
+			<input type="text" class="e-alias ipt" maxlength="16">
+			<a class="j-saveAlias save">保存</a>
+		</div>
+		<div class="items">
+			<div class="item">生日</div>
+			<div class="j-birth">1990-08-18</div>
+		</div>
+		<div class="items">
+			<div class="item">手机</div>
+			<div class="j-tel">18072912974</div>
+		</div>
+		<div class="items">
+			<div class="item">邮箱</div>
+			<div class="j-email">w8@173.com </div>
+		</div>
+		<div class="items">
+			<div class="item">签名</div>
+			<div class="j-sign sign">相信真善美,相信真善美相信真善美相信真善美,相信真善美,相信真善美,相信真善美,相信真善美,相信真善美</div>
+		</div>
+	</div>
+	<ul>
+		<li class="mutelist">消息提醒
+			<div class="u-switch">
+				<img src="images/btn_switch.png">
+				<span class="off">off</span>
+				<span class="on">on</span>
+			</div>
+		</li>
+		<li class="blacklist">黑名单
+			<div class="u-switch">
+				<img src="images/btn_switch.png">
+				<span class="off">off</span>
+				<span class="on">on</span>
+			</div>
+		</li>
+	</ul>
+	<div class="btns tc">
+		<button class="btn btn-del radius4px j-del del">删除好友</button>
+		<button class="btn btn-cancel radius4px j-add add">加为好友</button>
+		<button class="btn btn-ok radius4px j-chat chat">聊天</button>
+	</div>
+</div>
+<!-- 个人信息 -->
+<div class="m-card m-card-1 hide" id="myInfo">
+	<i class="icon main_icon-close j-close"></i>
+	<div class="uInfo f-cb">
+		<img class="u-icon modifyAvatar j-modifyAvatar" src="" alt="更换头像">
+		<div class="desc">
+			<p class="j-nickname nick">超级大饼</p>
+			<img src="" class="j-gender gender">
+			<p><span class="j-username">帐号：caojidabin</span></p>
+		</div>
+	</div>
+	<div class="infos">
+		<div class="operate">
+			<span class="edit j-edit">编辑</span>
+			<span class="save j-save">保存</span>
+			<span class="cancel j-cancel"> 取消</span>
+		</div>
+		<div class="tt">基本信息</div>
+		<div class="showUI">
+			<div class="items">
+				<div class="item">生日</div>
+				<div class="j-birth">1990-08-18</div>
+			</div>
+			<div class="items">
+				<div class="item">手机</div>
+				<div class="j-tel">18072912974</div>
+			</div>
+			<div class="items">
+				<div class="item">邮箱</div>
+				<div class="j-email">w8@173.com </div>
+			</div>
+			<div class="items">
+				<div class="item">签名</div>
+				<div class="j-sign sign">相信真善美,相信真善美相信真善美相信真善美,相信真善美,相信真善美,相信真善美,相信真善美,相信真善美</div>
+			</div>
+		</div>
+		<div class="editUI">
+			<div class="items">
+				<div class="item">昵称</div>
+				<input type="text" class="e-nick ipt" maxlength="10">
+			</div>
+			<div class="items">
+				<div class="item">性别</div>
+				<select class="e-gender slt">
+					<option value="unknown">不显示</option>
+					<option value="male">男</option>
+					<option value="female">女</option>
+				</select>
+			</div>
+			<div class="items">
+				<div class="item">生日</div>
+				<input type="text" class="e-birth ipt" maxlength="20" id="datepicker">
+			</div>
+			<div class="items">
+				<div class="item">手机</div>
+				<input type="text" class="e-tel ipt ipt-1" maxlength="13">
+			</div>
+			<div class="items">
+				<div class="item">邮箱</div>
+				<input type="text" class="e-email ipt ipt-1" maxlength="30">
+			</div>
+			<div class="items">
+				<div class="item">签名</div>
+				<textarea class="e-sign" maxlength="30"></textarea>
+			</div>
+		</div>
+	</div>
+</div>
+<!--////////////////////////////////-->
+<div  class="hide"  ng-controller="personCardController" style="width: 400px;height: 560px;font-family: '微软雅黑';overflow: hidden;background-color:white;z-index:10;position: fixed;left:50%;top:50%;margin-left: -200px;margin-top: -280px"  id="div_personCard" >
+	<div class="grayscale2" style="width: 400px;height: 130px;position: absolute;left: 0px;top:0px;-webkit-user-select:none;background: url('{{head}}')" ></div>
+	<!--<div  style="width: 80px;height: 80px;border-radius: 40px;position: absolute;left: 40px;top: 25px;background-size:80px;background: url({{head}})"  ></div>-->
+	<img src="{{head}}" alt="" width="80" height="80" class="radius-circle avatar f-right cursor-pointer" style="position: absolute;left: 40px;top: 25px;" />
+	<span style="font-size: 18px;color: #ffffff;position: absolute;left:140px;top:40px;" ng-bind="vm.name" ></span>
+	<button id="personQrcode2" style="width: 20px;height: 20px;position: absolute;left: 140px; top:70px;background: url('images/qrcode2.png');border: none;-webkit-app-region: no-drag;background-size: cover" ng-click="personCardQrcodeShowClick()"></button>
+	<div style="z-index:888;position: absolute;left:140px;top:100px;width: 150px;height: 150px;background-color: white;border: 1px solid #ddd" id="personQrcode"  class="personQrcode" ng-init="personCardQrcodeShow=false" ng-show="personCardQrcodeShow">
+		<div id="qrcodeImg" class="qrcodeImg"  width="130" height="130" style="margin-top: 10px;margin-left: 10px;background: url('images/qrcode2.png')"></div>
+	</div>
+	<button style="width: 19px;height: 18px;position: absolute;right: 10px; top:10px;background: url('images/close.png');border: none;-webkit-app-region: no-drag" ng-click="closePersonCard()"></button>
+
+	<!--<div class="frosted-glass"  style="width: 400px;height: 130px; position: fixed;left: 0px;top: 0px;z-index: 999" ></div>-->
+	<div style="position: absolute;left: 0px;top: 130px;width: 400px;overflow-y: auto;height: 100%;max-height: 430px;" ng-init="personCard.edit=false">
+		<button  ng-show="!personCard.edit&&!isSelf&&!isBuddy" style="position: absolute;right: 20px;top: 20px;width: 78px;height: 26px;border:1px solid rgb(51,153,255);background: transparent;color: rgb(51,153,255);font-family: 微软雅黑"  ng-click="personCardAdd()">加为好友</button>
+		<button  ng-show="!personCard.edit&&!isSelf&&isBuddy" style="position: absolute;right: 20px;top: 20px;width: 78px;height: 26px;border:1px solid rgb(51,153,255);background: transparent;color: rgb(51,153,255);font-family: 微软雅黑"  ng-click="personCardRemove()">解除好友</button>
+
+		<button  ng-show="personCard.edit&&isSelf"  style="position: absolute;right: 80px;top: 20px;width: 56px;height: 26px;border:1px solid rgb(255,199,114);background: transparent;color: rgb(255,199,114);font-family: 微软雅黑"  ng-click="personCardUpdateClick()">保存</button>
+		<button  ng-show="!personCard.edit&&isSelf"  style="position: absolute;right: 20px;top: 20px;width: 56px;height: 26px;border:1px solid rgb(255,199,114);background: transparent;color: rgb(255,199,114);font-family: 微软雅黑"  ng-click="personCard.edit = true">编辑</button>
+		<button  ng-show="personCard.edit&&isSelf"  style="position: absolute;right: 20px;top: 20px;width: 56px;height: 26px;border:1px solid rgb(255,199,114);background: transparent;color: rgb(255,199,114);font-family: 微软雅黑"  ng-click="personCard.edit = false">取消</button>
+		<span style="color: #333333;left:40px;position:relative;top: 30px;">个人信息</span>
+		<table style="top:40px;position:relative;left: 40px;font-size: 13px" >
+			<tr>
+				<td style="color: #999;width: 65px">昵称</td>
+				<td ng-bind = "vm.nick" ng-click="personCard.edit = true" ng-show="!personCard.edit"></td>
+				<td><input type="text" ng-show="personCard.edit" style="height:20px;" ng-value="vm.nick" ng-model="vm.nickNew" /></td>
+			</tr>
+			<tr >
+				<td  style="color: #999;">性别</td>
+				<td ng-bind = "vm.sex" ng-click="personCard.edit = true" ng-show="!personCard.edit">--</td>
+				<td>
+					<select ng-show="personCard.edit" style="height:20px;" ng-model="vm.sexNew">
+						<option value = "男" ng-selected="vm.sex=='男'">男</option>
+						<option value = "女" ng-selected="vm.sex=='女'">女</option>
+					</select>
+				</td>
+
+
+			</tr>
+			<tr >
+				<td  style="color: #999;">生日</td>
+				<td ng-click="personCard.edit = true" ng-show="!personCard.edit" >{{vm.birthDate}}</td>
+				<td  ng-show="personCard.edit">
+					<!--<input type="text" style="height:20px;" ng-value="vm.birthDate"   ng-model="vm.birthDateNew"  />-->
+					<form name="reg_testdate">
+						<select id="personCardYead" name="YYYY" onChange="YYYYDD(this.value)" >
+							<option value="">请选择</option>
+						</select>
+						<spn>年</spn>
+						<select id="personCardMonth" name="MM" onChange="MMDD(this.value)"  >
+							<option value="">选择</option>
+						</select>
+						<spn>月</spn>
+						<select id="personCardDay" name="DD" >
+							<option value="">选择</option>
+						</select>
+						<spn>日</spn>
+					</form>
+					<script>
+						function YYYYMMDDstart(){
+							MonHead = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+							//先给年下拉框赋内容
+							var y  = new Date().getFullYear();
+							for (var i = (y-30); i < (y+30); i++) //以今年为准，前30年，后30年
+							{
+								var option = new Option(" "+ i, i);
+								//option.setAttribute('ng-selected', ("birthDateNewYear== '#index#'").replace("#index#", i)) ;
+								document.reg_testdate.YYYY.options.add(option);
+							}
+
+							//赋月份的下拉框
+							for (var i = 1; i < 13; i++)
+								document.reg_testdate.MM.options.add(new Option(" " + i , i));
+
+							document.reg_testdate.YYYY.value = y;
+							document.reg_testdate.MM.value = new Date().getMonth() + 1;
+							var n = MonHead[new Date().getMonth()];
+							if (new Date().getMonth() ==1 && IsPinYear(YYYYvalue)) n++;
+							writeDay(n); //赋日期下拉框Author:meizz
+							document.reg_testdate.DD.value = new Date().getDate();
+
+						}
+						if(document.attachEvent)
+							window.attachEvent("onload", YYYYMMDDstart);
+						else
+							window.addEventListener('load', YYYYMMDDstart, false);
+						function YYYYDD(str) //年发生变化时日期发生变化(主要是判断闰平年)
+						{
+
+							var MMvalue = document.reg_testdate.MM.options[document.reg_testdate.MM.selectedIndex].value;
+							if (MMvalue == ""){ var e = document.reg_testdate.DD; optionsClear(e); return;}
+							var n = MonHead[MMvalue - 1];
+							if (MMvalue ==2 && IsPinYear(str)) n++;
+							writeDay(n)
+
+						}
+						function MMDD(str)   //月发生变化时日期联动
+						{
+							var YYYYvalue = document.reg_testdate.YYYY.options[document.reg_testdate.YYYY.selectedIndex].value;
+							if (YYYYvalue == ""){ var e = document.reg_testdate.DD; optionsClear(e); return;}
+							var n = MonHead[str - 1];
+							if (str ==2 && IsPinYear(YYYYvalue)) n++;
+							writeDay(n)
+						}
+						function writeDay(n)   //据条件写日期的下拉框
+						{
+							var e = document.reg_testdate.DD; optionsClear(e);
+							for (var i=1; i<(n+1); i++)
+								e.options.add(new Option(" "+ i , i));
+						}
+						function IsPinYear(year)//判断是否闰平年
+						{
+							return(0 == year%4 && (year%100 !=0 || year%400 == 0));
+						}
+						function optionsClear(e)
+						{
+							e.options.length = 1;
+						}
+
+					</script>
+				</td>
+
+			</tr>
+			<tr >
+				<td  style="color: #999;">地区</td>
+				<td ng-bind = "vm.provinceName+vm.cityName" ng-click="personCard.edit = true" ng-show="!personCard.edit">--</td>
+				<td ng-show="personCard.edit">
+					<select id="selectProv"  style="width: 70px;">
+						<option value="">请选择省份</option>
+					</select>
+					<select id="selectCity" ></select>
+				</td>
+				<!--<td><input type="text" ng-show="personCard.edit" style="height:20px;" ng-value="vm.location" /></td>-->
+
+			</tr>
+		</table>
+		<div ng-repeat="tenant in tenants"  style="position: relative;top:50px;" >
+			<span style="color: #333333;left:40px;position:relative;top: 10px;">{{tenant.nameAlt}}</span>
+			<table  style="top:20px;position:relative;left: 40px;font-size: 13px">
+				<tr >
+					<td style="width: 65px;color: #999; ">姓名</td>
+					<td ng-bind="tenant.employeeDetail.lastName+ tenant.employeeDetail.firstName"></td>
+				</tr>
+				<tr>
+					<td style="width: 65px;color: #999;">手机</td>
+					<td ng-bind="tenant.employeeDetail.mobilePhone"></td>
+				</tr>
+				<tr>
+					<td style="width: 65px;color: #999;">电话</td>
+					<td ng-bind="tenant.employeeDetail.workPhone"></td>
+				</tr>
+				<tr>
+					<td style="width: 65px;color: #999;">邮箱</td>
+					<td ><a style="color: rgb(51,153,255);font-family: 微软雅黑;" href="mailto:{{tenant.employeeDetail.workEmail}}">{{tenant.employeeDetail.workEmail}}</a></td>
+				</tr>
+			</table>
+		</div>
+
+	</div>
+	<div style="position: absolute;bottom: 0px;height: 50px;width: 400px;text-align: center;background-color: #f5f5f5;border-top: 1px solid #dddddd" ng-hide="isSelf">
+		<button class="send_icon" ng-click="sendMsg()">发消息</button>
+	</div>
+</div>
+
+<div  ng-controller="sendFileController" class="mainCommon_css4"  id="div_sendFile" ng-show="eleSendFileIsShow" ng-init="eleSendFileIsShow = false">
+	<div class="mainCommon_css5">
+		<button  ng-click="eleSendFileIsShow = false"  class="mainCommon_css1" ></button>
+		<span class="mainCommon_css2">发送图片</span>
+		<div style="height: 1px;background-color: #e0e0e0;width: 100%;top: 50px;position: absolute;"></div>
+		<div class="mainCommon_css3">
+			<img src="{{dataBase64}}" style="max-width: 100%;max-height: 100%;"  />
+		</div>
+		<div style="position: absolute;top: 280px; width: 100%;text-align: center">
+			<div>{{fileName}}</div>
+			<div>{{fileSize}}</div>
+			<button class="mainCommon_css6" ng-click="sendFile()">发送</button>
+		</div>
+
+	</div>
+</div>
+
+<div ng-controller="groupMemberAddController" class="groupMemberAdd_css1" ng-show="eleCloudFileSelectisShow" ng-init="eleCloudFileSelectisShow=false" >
+	<div class="groupMemberAdd_css2">
+		<div style="text-align: center;padding-left: 20px; padding-right: 20px; height: 50px;padding-top: 10px;border-bottom: 1px solid #e0e0e0">
+
+			<span style="font-size: 16px;">添加群成员</span>
+			<button  ng-click="eleCloudFileSelectisShow=false"  class="iconfont icon-xntalk-close groupMemberAdd_css3" ></button>
+		</div>
+		<div style="padding-left: 20px;padding-top: 5px;border-right: 1px solid #e0e0e0;width: 600px;height: 100%">
+			<div ng-init = "personSelected = 0">已经添加{{personSelected}}/99人</div>
+			<div  style="padding-top: 20px;width: 100%;height: 270px;overflow-y: auto">
+				<div style="text-align: center;width: 55px; height: 90px;float: left" ng-repeat="(key,object) in objectMap">
+					<!--添加对象到列表-->
+					<img ng-if="object.unionId" width="40px" height="40px"  style="border-radius: 20px;" src="{{object.avatar}}" onerror="this.src='images/advanced.png'" />
+					<span ng-if="!object.unionId" style="border-radius: 20px;text-align:center;display: inline-block;width: 40px; height:40px;line-height:40px;;background-color:{{object.id | nameColor:object.id }}" ng-bind="object.name | leftName" ></span>
+					<!--<img src="" onerror="this.src='images/normal.png'"  width="50px" height="50px"/>-->
+					<span ng-if="!object.unionId" >{{object.name | leftName}}</span>
+					<span ng-if="object.unionId" >{{object.name | rightName:2}}</span>
+				</div>
+
+			</div>
+		</div>
+		<div style="position: absolute;right: 0px;top: 50px;width: 200px;"  ng-init = 'tabIndex=0'>
+			<span style="display: inline-block;padding-left: 10px;padding-top: 5px;">选择联系人</span>
+			<div  style="height: 50px;padding-top: 10px;" >
+				<a  id="a_select2"   ng-click="eleTenantShow=(isTenantGroup() == 0);tabIndex=0;"  style="float: left; "  ng-click="tabIndex=0" ng-class="{0:'itemSelect', 1:'itemUnSelect'}[tabIndex]">{{tenantList[0].name| altName:tenantList[0].nameAlt}}<span class="iconfont icon-xntalk-arrow_down2"></span></a>
+				<a style="float: right;" ng-click="tabIndex=1;friendSelectedClick()" ng-class="{1:'itemSelect', 0:'itemUnSelect'}[tabIndex]" >我的好友</a>
+			</div>
+		</div>
+		<div style="position: absolute;right: 0px;top: 120px;width: 200px;" ng-show="tabIndex == 0">
+			<!--选中组织-->
+			<button ng-click="tenantSelectClick(tenant)"  style="float: left;cursor:default;border: none;background: none; "  >{{tenant.name | altName:tenant.nameAlt }}</button>
+			<span ng-show="branch" style="padding-left: 5px;"><span class="icon-xntalk-arrow_right groupMemberAdd_css7" style="padding-right: 5px;"></span>{{branch.name}}</span>
+		</div>
+
+		<div style="overflow-y:auto;position: absolute; top: 140px; width:200px;right: 0px;background-color: white;;padding: 5px; padding-right: 20px;height: 300px;">
+			<!--展示组织架构-->
+			<div ng-repeat="object in objectSearchList track by $index" style="height: 50px;vertical-align: middle">
+				<img ng-if="object.unionId" width="40px" height="40px" style="border-radius: 20px;" src="{{object.avatar}}" onerror="this.src='images/advanced.png'" />
+				<span ng-if="!object.unionId" style="border-radius: 20px;text-align:center;display: inline-block;width: 40px; height:40px;line-height:40px;;background-color:{{object.id | nameColor:object.id }}" ng-bind="object.name | leftName" ></span>
+
+				<a ng-bind="object.name" ng-click="objectSelectClick(object, $index);" class="groupMemberAdd_css5" style="color: {{(objectMap|isObjectNull:object.id) ?'black':'#6EA4D8'}}" ></a>
+				<a ng-if="!object.unionId"  ng-click=" !(objectMap|isObjectNull:object.id ) || objectEnterClick(object,  $index)" class="iconfont icon-xntalk-arrow_right groupMemberAdd_css4"  style="color: {{(objectMap|isObjectNull:object.id) ?'#6EA4D8 ':'#e0e0e0'}}" ></a>
+			</div>
+		</div>
+
+		<div id="div_TenantShow2" ng-show="eleTenantShow" style="position: absolute;border: 1px solid #e0e0e0; top: 110px; right: 60px;background-color: white;;padding: 5px; padding-right: 20px;">
+			<div ng-repeat="tenant in tenantList track by $index" style="height: 50px; padding-top: 10px;" ng-click="tenantSelectClick(tenant, $index)">
+				<img width="40px" height="30px" style="padding-right: 10px;" src="{{tenantLogo | replaceString:'#tenantId#' :tenant.id}}" onerror="this.src='images/advanced.png'" />
+				<span ng-bind="tenant.name | altName:tenant.nameAlt"></span>
+			</div>
+		</div>
+
+		<a ng-click="addClick()" style="position: absolute;left: 240px;top: 390px;width: 90px;height: 30px;border: 1px solid #6EA4D8;color: #6EA4D8;text-align: center;font-size: 14px;">确认添加</a>
+	</div>
+</div>
+
+<div   ng-controller="cloudFileSelectController"  class="cloudFileSelect_css1"  id="div_cloudFileSelect"  ng-show="eleCloudFileSelectisShow" ng-init="eleCloudFileSelectisShow = false;">
+	<div class="cloudFileSelect_css2">
+		<div class="cloudFileSelect_css3">
+			<a  ng-click="eleCloudFileSelectisShow=false" href="javascript:;" class="iconfont icon-xntalk-close cloudFileSelect_css4" ></a>
+			<span style="font-size: 14px;text-align: center;height: 80px;position: absolute;top: 20px;">选择文件</span>
+		</div>
+		<div class="cloudFileSelect_css5">
+			<div style="display: inline;"  >
+				<span ng-bind="tenant.name" ></span>
+				<a id="a_select" class="icon-xntalk-arrow-down cloudFileSelect_css6"  ng-click="eleTenantShow=true"></a>
+
+				<div ng-repeat="object in openObjectList track by $index" style="display: inline"  >
+					<span>></span>
+					<a  ng-if ="$index != openObjectList.length - 1 " ng-click="itemClick(object, $index)" style="color:#82AAF2">{{object.name}}</a>
+					<a  ng-if ="$index == openObjectList.length - 1 " >{{object.name}}</a>
+				</div>
+			</div>
+		</div>
+		<div class="cloudFileSelect_css9">
+			<table style="width: 100%;"  rules="rows" frame="hsides"   >
+				<tr ng-repeat="object in objectList track by $index" ng-click="itemClick(object, $index)" class="cloudFileSelect_css10" valign="middle">
+					<td style="width: 20px"></td>
+
+					<td ng-if="!object.file" style="width: 10%"><a class="iconfont icon-xntalk-wenjianjia "  style="color: #66ACFF"></a></td>
+					<td ng-if="object.file"  style="width: 10%"><a class="iconfont icon-xntalk-file "  style="color: #66ACFF"></a></td>
+
+					<td ng-if="!object.file" style="width: auto;" align="left" >{{object.name}}</td>
+					<td ng-if="object.file"  style="width: auto;" align="left">{{object.fileName}}</td>
+
+					<td ng-if="object.file"  style="width: 15%" ng-bind="bytesToSize(object.file.size)"></td>
+					<td ng-if="!object.file" style="width: 15%">——</td>
+
+					<td style="width:30px;"   ng-if="object.file"><input  ng-checked="object.isCheck" type="checkbox" width="20px;" /></td>
+					<td style="width:30px;"   ng-if="!object.file"><a class="iconfont icon-xntalk-arrow_right"></a></td>
+
+					<td style="width: 30px"></td>
+				</tr>
+
+			</table>
+
+		</div>
+		<div  style="width: 100%;position: relative;padding-left: 20px;padding-right: 20px; padding-top: 10px;" >
+			<button ng-click="back()" class="cloudFileSelect_css12"> 返回上一级</button>
+			<button class="cloudFileSelect_css11" ng-disabled ="!(selectObjectList.length && selectObjectList.length > 0)"  ng-click="sendFile()">
+				发送
+			</button>
+		</div>
+
+		<div id="div_TenantShow" class="cloudFileSelect_css7" ng-show="eleTenantShow" ng-init = 'eleTenantShow=false'>
+			<div ng-repeat="tenant in tenants track by $index" style="width:100%;height:30px;">
+				<a class="cloudFileSelect_css8" ng-click="tenantSelect(tenant, $index)">{{tenant.name}}</a>
+			</div>
+
+		</div>
+	</div>
+
+
+
+
+</div>
+
+
+
+<create-tenant-group></create-tenant-group>
+<at-group-member></at-group-member>
+
+
+<!-- 修改头像 -->
+<div class="m-modifyAvatar hide" id="modifyAvatar">
+	<i class="icon main_icon-close j-close"></i>
+	<div class="choseFileCtn">
+		<form action="#" class="j-uploadForm">
+			<input type="file" class = "j-upload" style="display: none;">
+		</form>
+		<div class="choseFile j-choseFile"> 选择图片</div>
+	</div>
+	<div class="tt">头像更换</div>
+	<div class="chose" id="cropImg"><img src="" class="hide"></div>
+	<div class="big">
+		<div class="img"><img src="" class="hide"></div>
+		<p>160*160</p>
+	</div>
+	<div class="small">
+		<div class="img">
+			<img src="" class="hide">
+		</div>
+		<p>40*40</p>
+	</div>
+	<div class="btns f-cb">
+		<button class="f-fr btn btn-ok radius4px j-save">保存</button>
+		<button class="f-fr btn btn-cancel radius4p j-reupload">重新选择</button>
+		<button class="f-fr btn btn-cancel radius4p j-close">取消</button>
+	</div>
+</div>
+<div id="j-mask" class="mask hide"></div>
+
+<!--移动文件-->
+<script type="text/ng-template" id="selectFolder.html">
+	<table  class="table table-bordered">
+		<thead>
+		<tr>
+			<th class="col-md-8">选择文件夹</th>
+		</tr>
+		</thead>
+		<tbody id="tbody">
+		<tr class="tree-header-{{tree.level}} td_{{tree.level}}" ng-repeat="tree in trees" ng-if="tree.visable"
+			ng-mouseenter="showDetail=true" ng-init="showDetail=false" ng-mouseleave="showDetail=false">
+			<td class="first_td">
+				<i class="vertical-line-{{tree.level}}"></i>
+				<div class="pt_15 f-left tree-{{tree.level}}">
+
+					<a ng-if="tree.childState && tree.collapsed" class="btn-sm icon-a xn-tree-i"  ng-click="toggle($index)" >
+						<i  class="icon-common icon-add"></i>
+					</a>
+                            <span class="xn-tree-icon-span">
+                                <a ng-if="!(tree.childState && tree.collapsed)" class="btn-sm icon-a xn-tree-i"  ng-click="toggle($index)" >
+									<i  class="icon-common icon-dash"></i>
+								</a>
+                            </span>
+					{{tree.name}}
+				</div>
+                    <span class="f-right xn-text-left mt_7 pr_10">
+                        <button  class="btn icon-a btn-link gray-font" ng-click="selectTarget(tree)"><i class="icon-common icon-send"></i></button>
+                    </span>
+			</td>
+		</tr>
+		<tr ng-if="trees.length == 0">
+			<td colspan="4" class="xn-center">无法找到相应的记录</td>
+		</tr>
+		</tbody>
+	</table>
+</script>
+
+<!-- js-->
+<script src="./js/Web_SDK_Base_v2.4.0.js"></script>
+<script src="./js/Web_SDK_NIM_v2.4.0.js"></script>
+<script src="./js/emoji.js"></script>
+<script src="./js/util.js?v=2"></script>
+<script src="./js/cache.js?v=2"></script>
+<script src="./js/ui.js?v=2"></script>
+<script src="./js/sdk.js?v=2"></script>
+<script src="./js/notification.js?v=2"></script>
+<script src="./js/team.js?v=2"></script>
+<script src="./request/request.js"></script>
+<!--<script src="js/xn-xnTalkService-service-jquery.js"></script>-->
+
+<script src="./js/md5.js"></script>
+<script src="./js/xn_api_post.js"></script>
+<script src="./js/xn-my-filter.js"></script>
+
+<script type="text/javascript" src="../dist/scripts/main.min.js"></script>
+<script type="text/javascript" src="./js/groupMemberAdd.js"></script>
+<script type="text/javascript" src="./js/createTenantGroup.js"></script>
+<script type="text/javascript" src="./js/contactSelect.js"></script>
+<script type="text/javascript" src="./js/atGroupMember.js"></script>
+<script type="text/javascript" src="./js/mainCommon.js"></script>
+<script type="text/javascript" src="./js/location.js"></script>
+<script src="./js/3rd/jquery.caret.min.js"></script>
+<script type="text/javascript">
+
+	angular.element(document).ready(function() {
+		initApp();
+		angular.bootstrap(document.body, ['xn']);
+
+	});
+</script>
+</body>
+
+<div style="max-height: 0"></div>
+
+
+
+<script id="customMsgRender" type="text/x-jsrender">
+
+{{if !!messageType == true && messageType  == 'FOUNDATION_MESSAGE' }}
+<div style="position:relative;width: 330px;height: auto;background-color: white;border-radius:6px; " >
+    <div  style="width: 100%;height: 30px;background-color: #3399ff;color: #fff;overflow:hidden;border-radius:6px 6px 0px 0px">
+        <span style="display: inline-block;padding-left: 10px;padding-top: 5px;">{{:applicationName}}</span>
+    </div>
+    <div class="cell-title" style="padding-left: 10px;">{{:title}}</div>
+    <div class="j-mbox left">
+        <div style="width: 100%;max-height: 150px;text-align:center;padding:10px ; " >
+        {{if !!pictureUrl == true }}
+            <img style="max-width: 100%;max-height: 120px;width: auto;height: auto;float: none"  src="{{:pictureUrl}}" />
+        {{else !!summary == true}}
+        <textarea style="width: 100%;border:none;" readonly="readonly"  >{{:summary}}</textarea>
+        {{/if}}
+        </div>
+        <div class="cell-info" style="padding-left: 10px;">
+            <p class="cell-author"></p>
+            <p class="cell-author ">{{:author}}</p>
+            <p class="cell-author ">时间:{{:time}}</p>
+        </div>
+         {{if !!url == true }}
+                <div style='border-top: 3px solid #ddd;' ></div>
+                <a href="{{:messageUrl}}" style="padding-left: 10px;"  data-tenantId = "{{:tenantId}}" >
+                <span class="cell-author">查看详情</span>
+                </a>
+         {{/if}}
+
+    </div>
+</div>
+{{else}}
+<div style="position:relative;width: 330px;height: auto;background-color: white;border-radius:6px; " >
+    <div  style="width: 100%;height: 30px;background-color: #3399ff;color: #fff;overflow:hidden;border-radius:6px 6px 0px 0px">
+        <span style="display: inline-block;padding-left: 10px;padding-top: 5px;">{{:data.applicationType}}</span>
+    </div>
+    <div class="cell-title" style="padding-left: 10px;">{{:data.title}}</div>
+    <div class="j-mbox left">
+        <div style="width: 100%;height: 150px;text-align:center;padding-top: 5px; padding-bottom: 5px;" >
+            <img style="max-width: 100%;max-height: 100%;width: auto;height: auto;float: none"  src="{{:data.pictureUrl}}" /></div>
+
+        <div class="cell-info" style="padding-left: 10px;"> <p class="cell-author"></p>
+            <p class="cell-author ">{{:data.author}}</p>
+            <p class="cell-author xn-bottom-line">时间:{{:data.time}}</p>
+        </div>
+        <a href="{{:data.url}}" style="padding-left: 10px;"  data-tenantId = "{{:data.tenantId}}" >
+            <span class="cell-author">查看详情</span>
+        </a>
+    </div>
+</div>
+{{/if}}
+
+
+
+</script>
+</html>

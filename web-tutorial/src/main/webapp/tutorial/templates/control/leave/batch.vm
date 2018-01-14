@@ -1,0 +1,104 @@
+$page.setTitle("批量提交请假申请单")
+
+<div class="xn-width auto   clearfix" ng-controller="LeaveBatchSubmitController">
+    <!--面包屑-->
+    <div class="xn-breadcrumb clearfix">
+        <ul class="breadcrumb xn-col-md-12">
+            <li><a href="$tutorialLink.setTarget("index")">首页</a></li>
+            <li><a href="$tutorialLink.setTarget("leave/index")">请假单</a></li>
+            <li class="active">批量提交</li>
+        </ul>
+        <ul class="xn-col-md-12 mt-10 xn-lh">
+            <li class="operation-li f-right"><a class="operation-a" href="$tutorialLink.setTarget("leave/index")"><i class="icon icon-return"></i>返回</a></li>
+        </ul>
+    </div>
+    <!---查看添加 xn-view-layout--->
+    <div class="xn-edit-layout xn-view-layout">
+        <div class="edit-title line">批量提交请假申请单</div>
+        <div class="clearfix mb-20" ng-repeat="leave in leaveList">
+            <div class="edit-sub-title line clearfix" >
+                <span class="sub-title-name f-left">请假申请单</span>
+                <span class="sub-title-num f-left">NO.{{leave.number}}</span>
+            </div>
+            <div class="edit-body xn-lh">
+                <div class="edit-title-sm line clearfix ">
+                    <span class="title-name">请假详情</span>
+                </div>
+                <div class="xn-input-line clearfix">
+                    <div class="xn-col-md-3 xn-text-right font-auxiliary">申请人：</div>
+                    <div class="xn-col-md-4">{{leave.employeeName}}</div>
+                    <div class="xn-col-md-1"></div>
+                    <div class="xn-col-md-3 xn-text-right font-auxiliary">请假类型：</div>
+                    <div class="xn-col-md-4">{{leave.type | leaveType}}</div>
+                    <div class="xn-col-md-1"></div>
+
+                </div>
+                <div class="xn-input-line clearfix">
+                    <div class="xn-col-md-3 xn-text-right font-auxiliary">开始时间：</div>
+                    <div class="xn-col-md-4" >{{leave.beginDate}} {{leave.beginTime}}:00</div>
+                    <div class="xn-col-md-1"></div>
+                    <div class="xn-col-md-3 xn-text-right font-auxiliary">结束时间：</div>
+                    <div class="xn-col-md-4" >{{leave.endDate}} {{leave.beginTime}}:00</div>
+                    <div class="xn-col-md-1"></div>
+                    <div class="xn-col-md-3 xn-text-right font-auxiliary">共计天数：</div>
+                    <div class="xn-col-md-4"><span ng-bind="leave.leaveDays"></span>天</div>
+                    <div class="xn-col-md-1"></div>
+                </div>
+                <div class="xn-input-line clearfix ">
+                    <div class="xn-col-md-3 xn-text-right font-auxiliary">请假原由：</div>
+                    <pre class="xn-col-md-20" ng-bind="leave.description"></pre>
+                </div>
+                <div class="xn-input-line clearfix ">
+                    <div class="xn-col-md-3 xn-text-right font-auxiliary">摘要说明：</div>
+                    <pre class="xn-col-md-20" ng-bind="leave.summary"></pre>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="edit-title-sm line clearfix mb-20 ">
+            <span class="title-name">审批</span>
+        </div>
+        <div class="xn-input-line  clearfix mt_20">
+            <div class="xn-col-md-3 xn-text-right ">审批人：</div>
+            <div class="xn-col-md-20">
+                <div class="approver" ng-repeat="user in approveUserList">
+                    <i class="icon icon-delete" ng-click="removeApproveUser($index)"></i>
+                    <img class="approver-arrow" src="$tutorialLink.setTarget("images/arrow-right.png")" ng-if="$index!=0">
+                    <img class="approver-img" ng-if="!user.photoFileUrl" src="$tutorialLink.setTarget("images/employee-photo.png")">
+                    <img class="approver-img" ng-if="user.photoFileUrl" ng-src="{{user.photoFileUrl}}?x-oss-process=image/resize,m_lfit,w_50,h_50">
+                    <span>{{user.name}}</span>
+                </div>
+                <div class="approver xn-cursor">
+                    <img class="approver-img" src="$tutorialLink.setTarget("images/add.png")"  ng-click="addApproveUser()">
+                    <span ng-click="addApproveUser()">添加审批人</span>
+                    <div class="approver-select" ng-show="approveContent.isAdd">
+                        <div class="xn-input-line xn-text-left clearfix">
+                            <div xn-lookup ng-model="approveContent.user" data-method="getApproveUser(data)"
+                                 placeholder="请输入提示信息" data-search-val="name" >
+                            </div>
+                        </div>
+                        <div class="clearfix">
+                            <a  class="btn btn-primary" ng-click="setUser()" >确定</a>
+                            <a  class="btn btn-default  col-sm-offset-2" ng-click="cancelUser()">取消</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="xn-input-line  clearfix mt_20">
+            <label  class="xn-label"></label>
+            <div class="xn-input-lg font-red">如果没有选择审批人，系统自动通过审批。</div>
+        </div>
+
+        <div class="xn-input-line clearfix">
+            <div class="xn-col-md-8 xn-col-md-offset-8 xn-text-center mt-20">
+                <input type="button"  class="btn btn-primary "  ng-click="doSubmit()"  value="确认提交">
+                <a  href="$tutorialLink.setTarget("leave/index")" class="btn  btn-normal  ml-10">取消</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="$tutorialContent.getURI('dist/scripts/page/leave.js')" ></script>
