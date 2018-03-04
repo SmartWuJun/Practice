@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /**
+         * Question 1
+         */
+
+        var name = 'window'
+
+        var person1 = {
+            name: 'person1',
+            show1: function () {
+                console.log(this.name)
+            },
+            show2: () => console.log(this.name),
+            show3: function () {
+                return function () {
+                    console.log(this.name)
+                }
+            },
+            show4: function () {
+                return () => console.log(this.name)
+            }
+        }
+        var person2 = {
+            name: 'person2'
+        }
+
+        person1.show1() //person1
+        person1.show1.call(person2) //person2
+
+        person1.show2() //woindow
+        person1.show2.call(person2) //window
+
+        person1.show3()() //window
+        person1.show3().call(person2) //person2
+        person1.show3.call(person2)() //window
+
+        person1.show4()() //person1
+        person1.show4().call(person2) //person1
+        person1.show4.call(person2)() //person2
+    </script>
+
+    <script>
+        /**
+         * Question 2
+         */
+        var name = 'window'
+
+        function Person(name) {
+            this.name = name;
+            this.show1 = function () {
+                console.log(this.name)
+            }
+            this.show2 = () => console.log(this.name)
+            this.show3 = function () {
+                return function () {
+                    console.log(this.name)
+                }
+            }
+            this.show4 = function () {
+                return () => console.log(this.name)
+            }
+        }
+
+        var personA = new Person('personA')
+        var personB = new Person('personB')
+
+        console.log(personA);
+
+        personA.show1() //A
+        personA.show1.call(personB) //B
+
+        personA.show2() //A
+        personA.show2.call(personB) //A
+
+        personA.show3()() //window
+        personA.show3().call(personB) //B
+        personA.show3.call(personB)() //w
+
+        personA.show4()() //A
+        personA.show4().call(personB) //A
+        personA.show4.call(personB)() //B
+    </script>
+</body>
+
+</html>

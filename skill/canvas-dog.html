@@ -1,0 +1,164 @@
+<!DOCType html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Walking Dog</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0">
+</head>
+
+<body style="background-color:#ebeced">
+    <canvas id="dog-walking" width="0" height="0" style="position:fixed;bottom:0;left:0"></canvas>
+    <script>
+        ! function () {
+            class DogAnimation {
+                constructor(canvas) {
+                    canvas.width = window.innerWidth;
+                    canvas.height = 200;
+                    window.onresize = () => canvas.width = window.innerWidth;
+                    this.canvas = canvas;
+                    this.ctx = canvas.getContext("2d");
+                    // 记录上一帧的时间
+                    this.lastWalkingTime = Date.now();
+                    // 记录当前画的图片索引
+                    this.keyFrameIndex = -1;
+
+
+                    this.dogPictures = [];
+                    this.PATH = '../imgs/dog';
+                    this.IMG_COUNT = 8
+                    this.dog = {
+                        // 一步10px
+                        stepDistance: 9,
+                        // 狗的速度
+                        speed: .15,
+                        // 鼠标的x坐标
+                        mouseX: -1,
+                        // 往前走停留的位置
+                        frontStopX: -1,
+                        // 往回走停留的位置,
+                        backStopX: window.innerWidth,
+                    }
+
+                    this.start();
+
+                }
+
+                async start() {
+                    await this.loadResource();
+                    this.pictureWidth = this.dogPictures[0].naturalWidth / 2;
+                    // 小狗初始化的位置放在最右边
+                    this.dog.mouseX = window.innerWidth - this.pictureWidth;
+                    this.recordMousePosition();
+                    window.requestAnimationFrame(this.walk.bind(this))
+                }
+                // 记录鼠标位置
+                recordMousePosition() {
+                    window.addEventListener("mousemove", event => {
+                        // 如果没减掉图片的宽度，小狗就跑到鼠标后面去了，因为图片的宽度还要占去空间
+                        this.dog.frontStopX = event.clientX - this.pictureWidth;
+                        this.dog.backStopX = event.clientX;
+                    });
+                    window.addEventListener("touchstart", event => {
+                        this.dog.frontStopX = event.touches[0].clientX - this.pictureWidth;
+                        this.dog.backStopX = event.touches[0].clientX;
+                    });
+                }
+
+                walk() {
+
+                    // 绘制狗的图片，每过100ms就画一张 
+                    let now = Date.now();
+                    let distance = (now - this.lastWalkingTime) * this.dog.speed;
+                    if (distance < this.dog.stepDistance) {
+                        window.requestAnimationFrame(this.walk.bind(this));
+                        return;
+                    }
+                    //获取下一张图片索引
+                    this.keyFrameIndex = ++this.keyFrameIndex % this.IMG_COUNT;
+                    let direct = -1,
+                        stopWalking = false;
+                    // 如果鼠标在狗的前面则往前走
+                    if (this.dog.frontStopX > this.dog.mouseX) {
+                        direct = 1;
+                    }
+                    // 如果鼠标在狗的后面则往回走
+                    else if (this.dog.backStopX < this.dog.mouseX) {
+                        direct = -1;
+                    }
+                    // 如果鼠标在狗在位置
+                    else {
+                        stopWalking = true;
+                        // 如果停住的话用0.png（后面还会加1）
+                        // 如果鼠标在小狗图片中间的右边，则direct为正，否则为负
+                        direct = this.dog.frontStopX === -1 ? -1 :
+                            this.dog.backStopX - this.dog.mouseX >
+                            this.pictureWidth / 2 ? 1 : -1;
+
+                        this.keyFrameIndex = -1;
+                    }
+                    //先清掉上一次画的内容
+                    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
+                    this.ctx.save();
+                    // 计算位置
+                    if (!stopWalking) {
+                        this.dog.mouseX += this.dog.stepDistance * direct;
+                    } // 如果鼠标在狗在位置
+
+                    if (direct === -1) {
+                        this.ctx.scale(direct, 1);
+                    }
+
+                    let img = this.dogPictures[this.keyFrameIndex + 1]
+                    let drawX = 0;
+                    drawX = this.dog.mouseX * direct -
+                        (direct === -1 ? this.pictureWidth : 0);
+                    this.ctx.drawImage(img, 0, 0, img.naturalWidth, img.naturalHeight, drawX, 20, 186,
+                        162);
+
+                    this.ctx.restore();
+                    this.lastWalkingTime = now;
+
+                    // 继续给下一帧注册一个函数
+                    window.requestAnimationFrame(this.walk.bind(this));
+                }
+
+                //加载图片
+                loadResource() {
+                    let imagesPath = [];
+
+                    for (var i = 0; i <= this.IMG_COUNT; i++) {
+                        imagesPath.push(`${this.PATH}/${i}.png`)
+                    }
+
+                    let works = []
+                    imagesPath.forEach(path => {
+                        works.push(new Promise(resolve => {
+                            let image = new Image();
+
+                            image.onload = () => resolve(image);
+                            image.src = path;
+                        }))
+                    })
+
+                    return new Promise(resolve => {
+                        Promise.all(works).then(dogPictures => {
+                            this.dogPictures = dogPictures
+                            resolve();
+                        })
+                    })
+                }
+
+            }
+            let canvas = document.querySelector("#dog-walking");
+
+            let dogAnimation = new DogAnimation(canvas);
+
+            dogAnimation.start()
+
+
+        }()
+    </script>
+</body>
+
+</html>

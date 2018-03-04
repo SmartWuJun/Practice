@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .container {
+            /* width: 100%; */
+            min-height: 200px;
+            padding: 0 200px;
+
+        }
+
+        .middle {
+            float: left;
+            background: #39f;
+            width: 100%;
+            min-height: 200px;
+        }
+
+        .left {
+            float: left;
+            min-height: 200px;
+            width: 200px;
+            background: #f89;
+            margin-left: -100%;
+            position: relative;
+            left: -200px;
+        }
+
+        .right {
+            float: left;
+            min-height: 200px;
+            width: 200px;
+            background: #f00;
+            margin-right: -100%
+        }
+    </style>
+
+    <style>
+        .container1 {
+            overflow: hidden;
+        }
+
+        .middle1,
+        .left1,
+        .right1 {
+            float: left;
+            min-height: 200px;
+        }
+
+        .middle1 {
+            width: 100%;
+
+        }
+
+        .left1 {
+            background: #f89;
+            width: 200px;
+            margin-left: -100%
+        }
+
+        .inner {
+            background: #39f;
+            margin: 0 200px;
+            min-height: 200px;
+        }
+
+        .right1 {
+            background: #f00;
+            width: 200px;
+            margin-right: -100%;
+            position: relative;
+            right: 200px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>双飞翼</div>
+    <div class="container1">
+        <div class="middle1">
+            <div class="inner"></div>
+        </div>
+        <div class="left1"></div>
+        <div class="right1"></div>
+    </div>
+    <div>圣杯</div>
+    <div class="container">
+        <div class="middle"></div>
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+</body>
+
+</html>
