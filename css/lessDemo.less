@@ -1,0 +1,22 @@
+@default:#39f;
+@background-color:#999;
+@width:200px;
+
+#circle(@size:25px){
+    background-color: #4CAF50;
+    border-radius: 100%;
+    width:@size;
+    height:@size;
+  }
+.container{
+    background: @background-color;
+    height:@width*3
+}
+ul{
+    color: @default;
+    #circle
+}
+
+.content{
+    #circle(100px)
+}

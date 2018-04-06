@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function deepClone(obj1, obj2) {
+            for (let k in obj2) {
+                if (typeof obj2[k] == "object") {
+                    if (obj[k] instanceof Array) {
+                        obj1[k] = [];
+                        deepClone(obj1[k], obj2[k])
+                    } else {
+                        obj1[k] = {};
+                        deepClone(obj1[k], obj2[k])
+                    }
+
+                } else {
+                    obj1[k] = obj2[k]
+                }
+            }
+
+        }
+
+        let obj = {
+            a: 1,
+            b: [1, 2, 3],
+            c: {}
+        }
+
+        let emptyObj = Object.create(null);
+        deepClone(emptyObj, obj);
+        console.log(emptyObj.a == obj.a);
+        console.log(emptyObj.b == obj.b);
+        console.log(emptyObj, obj);
+    </script>
+</body>
+
+</html>
