@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // function Animal() {
+        //     this.word = "";
+        //     this.say = function () {
+        //         console.log(this.word);
+
+        //     }
+
+        // }
+
+        // // var Dog = new Animal(); // 实例Dog
+        // // var Cat = new Animal(); //实例Miao
+        // // Dog.word = "Wang";
+        // // Cat.word = "Miao";
+
+        // // Dog.say();
+        // // Cat.say();
+
+        // function Cat() {
+        //     this.word = 'cat'
+        // }
+
+        // function Dog(name) {
+        //     this.word = name
+        //     console.log(this);
+
+        // }
+        // Dog.prototype = new Animal();
+
+        // let dog = new Dog('dog1')
+        // dog.say();
+
+        class Animal {
+            constructor(word) {
+                this.word = word;
+            }
+            say() {
+                console.log(this.word);
+
+            }
+        }
+
+        class Dog extends Animal {
+            constructor(word) {
+                super(word)
+            }
+        }
+
+        new Dog('wang').say();
+    </script>
+</body>
+
+</html>
