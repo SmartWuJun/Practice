@@ -1,0 +1,239 @@
+<div class="xn-tool-content " >
+
+    <!--标题-->
+    <div class="xn-form-title mt_20 mb_30">
+        <h3 class="f-left">表数据修改</h3>
+    </div>
+    <div class="xn-input-line clearfix">
+
+        <button  class="btn btn-success f-left ml_20" ng-click="addField('routine')">常规字段</button>
+        <button  class="btn btn-success f-left ml_20" ng-click="addField('operative')">生效字段</button>
+        <button  class="btn btn-success f-left ml_20" ng-click="addField('form')">表单字段</button>
+    </div>
+
+    <!--头信息-->
+    <div class="xn-input-line clearfix">
+        <label class="xn-label">表名称：</label>
+        <div class="xn-input-sm">
+            <input class="form-control" type="text" ng-model="vm.table.name"  name="name"  required="required"  autofocus   xn-input-regex  regex-first="^[^a-zA-Z]+"  regex-other="[^a-zA-Z0-9_]+"  convert="upper" >
+        </div>
+        <div class="tip ml_10">
+            <!-- <i class="icon edit-icon icon-add icon-edit-add icon-add" id="icon-add-hide"></i>-->
+        </div>
+        <label  class="xn-label" >含义</label>
+        <div class="xn-input-sm">
+            <input class="form-control" type="text" ng-model="vm.table.meaning"  name="meaning"  >
+        </div>
+    </div>
+    <div class="xn-input-line clearfix">
+        <label class="xn-label">是否按承租人：</label>
+        <div class="xn-input-sm">
+            <input class="form-control" type="checkbox" xn-input-checkbox  ng-model="vm.table.isByTenant"  name="isByTenant"  ng-click="selectTenant()"   >
+        </div>
+        <div class="tip ml_10">
+            <!-- <i class="icon edit-icon icon-add icon-edit-add icon-add" id="icon-add-hide"></i>-->
+        </div>
+        <label  class="xn-label" >唯一索引:</label>
+        <div class="xn-input-sm">
+            <input class="form-control" type="text" ng-model="vm.table.uniqueIndex"  name="uniqueIndex"    >
+        </div>
+    </div>
+    <div class="xn-input-line clearfix">
+        <label class="xn-label">描述：</label>
+        <div class="xn-input-lg">
+            <input class="form-control" type="text" ng-model="vm.table.description"  name="description"     >
+        </div>
+    </div>
+    <!--头信息-->
+
+    <!--{{column}}-->
+    <!--<table >-->
+    <!--<tbody ng-sortable="{animation:150}">-->
+    <!--<tr class="draggable" ng-repeat="item in column "><td>{{item.name}}</td></tr>-->
+    <!--</tbody>-->
+    <!--</table>-->
+    <div class="clearfix"></div>
+    <div class="xn-table-wrap clearfix ">
+        <table  class="table table-bordered table-striped ">
+            <thead>
+            <tr>
+                <th class="w_150 xn-text-center">操作</th>
+                <th class="w_350">名称</th>
+                <th class="w_150">类型</th>
+                <th class="w_200m">含义</th>
+                <th class="w_80">最小值</th>
+                <th class="w_80">最大值</th>
+                <th class="w_70 xn-text-center">可查询 </th>
+            </tr>
+            </thead>
+            <tbody  sv-root sv-part="vm.table.columns.column">
+            <tr   ng-if="$index==0"   class="data-line input-shortcuts"  ng-repeat="item in vm.table.columns.column track by $index"   input-shortcuts  method="addLine($index)"  index="$index"  >
+                <td class="w_150 xn-text-center" ng-dblclick="editLine(item)" >
+                    <i class="icon icon-add"  ng-click="addLine($index)"></i>
+                    <i class="icon icon-delete" ng-if="$index!=0" ng-click="deleteLine($index)"></i>
+                    <i class="icon icon-edit" ng-if="$index!=0" ng-click="editLine(item)"></i>
+                </td>
+                <td class="w_350" ><input class=" form-control" type="text"   ng-model="item.name" ng-disabled="$index==0"  xn-input-regex  regex-first="^[^a-zA-Z]+"  regex-other="[^a-zA-Z0-9_]+"  convert="upper"  /></td>
+                <td class="w_150">
+                    <select  name="type"  class="form-control category" ng-model="item.type" ng-change="selectType(item)"  ng-disabled="$index==0"
+                             ng-options="type.key as type.val for type in typeList"  >
+                        <option value="">-请选择-</option>
+                    </select>
+                </td>
+                <td class="w_200m"><input class=" form-control" type="text"  ng-model="item.meaning"  ng-disabled="$index==0" /></td>
+
+                <td class="w_80"><input class=" form-control" type="text"  ng-model="item.min" ng-disabled="$index==0 || !(item.type=='String')"
+                                        xn-input-regex    regex-other="[^0-9]+"  min="0" max="4000"/></td>
+                <td class="w_80"><input class=" form-control" type="text"  ng-model="item.max"  ng-disabled="$index==0 || !(item.type=='String')"
+                                        xn-input-regex    regex-other="[^0-9]+"  min="0" max="4000" /></td>
+                <td class="w_70 xn-text-center"><input class="form-control" type="checkbox"  xn-input-checkbox  ng-model="item.isQueryable"/></td>
+            </tr>
+
+
+            <tr  sv-element   ng-if="$index!=0"    class="data-line input-shortcuts"  ng-repeat="item in vm.table.columns.column track by $index"   input-shortcuts  method="addLine($index)"  index="$index"  >
+                <td class="w_120 xn-text-center" ng-dblclick="editLine(item)" >
+                    <i class="icon icon-sort" sv-handle></i>
+                    <i class="icon icon-add"  ng-click="addLine($index)"></i>
+                    <i class="icon icon-delete" ng-if="$index!=0" ng-click="deleteLine($index)"></i>
+                    <i class="icon icon-edit" ng-if="$index!=0" ng-click="editLine(item)"></i>
+                </td>
+                <td class="w_350" ><input class=" form-control" type="text"   ng-model="item.name" ng-disabled="$index==0"  xn-input-regex  regex-first="^[^a-zA-Z]+"  regex-other="[^a-zA-Z0-9_]+"  convert="upper"  /></td>
+                <td class="w_150">
+                    <select  name="type"  class="form-control category" ng-model="item.type" ng-change="selectType(item)"  ng-disabled="$index==0"
+                             ng-options="type.key as type.val for type in typeList"  >
+                        <option value="">-请选择-</option>
+                    </select>
+                </td>
+                <td class="w_200m"><input class=" form-control" type="text"  ng-model="item.meaning"  ng-disabled="$index==0" /></td>
+
+                <td class="w_80"><input class=" form-control" type="text"  ng-model="item.min" ng-disabled="$index==0 || !(item.type=='String')"
+                                        xn-input-regex    regex-other="[^0-9]+"  min="0" max="4000"/></td>
+                <td class="w_80"><input class=" form-control" type="text"  ng-model="item.max"  ng-disabled="$index==0 || !(item.type=='String')"
+                                        xn-input-regex    regex-other="[^0-9]+"  min="0" max="4000" /></td>
+                <td class="w_70 xn-text-center"><input class="form-control" type="checkbox"  xn-input-checkbox  ng-model="item.isQueryable"/></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="clearfix"></div>
+    <div class="xn-form-line"></div>
+    <div class="clearfix">
+        <div class="clearfix error-box col-sm-6 mb_20 col-sm-offset-3" ng-show="errors.length>0 ">
+            <div class="alert alert-danger"><i class="glyphicon glyphicon-remove-sign mr_5" ng-click="closeAlert(errors)"></i><span ng-bind="errors"></span></div>
+        </div>
+    </div>
+    <div class="xn_btn_group">
+        <button  ng-if="!file.isNew"  class="btn btn-success" ng-click="doSubmitFile()">保存</button>
+        <button   ng-if="file.isNew" class="btn btn-success " ng-click="doSubmitFile()">创建</button>
+        <button  ng-if="!file.isNew" class="btn btn-danger  ml_20" ng-click="delete()">删除</button>
+    </div>
+
+</div>
+<script type="text/ng-template" id="editLine.html">
+    <div class="modal-header">
+        <h3 class="modal-title">编辑</h3>
+        <div class="xn-close xn-cursor" ng-click="cancel()">
+            <i class="icon icon-delete"></i>
+        </div>
+    </div>
+    <div class="modal-body clearfix">
+
+        <div class="xn-input-line clearfix">
+            <label class="col-sm-3  xn-text-right l-h-34">名称：</label>
+            <div class="col-sm-7 row">
+                <input class=" form-control" type="text"   ng-model="item.name"      xn-input-regex  regex-first="^[^a-zA-Z]+"  regex-other="[^a-zA-Z0-9_]+"  convert="upper"  />
+            </div>
+        </div>
+        <div class="xn-input-line clearfix">
+            <label class="col-sm-3  xn-text-right l-h-34">类型：</label>
+            <div class="col-sm-7 row">
+                <select  name="type"  class="form-control category" ng-model="item.type" ng-change="selectType(item)"
+                         ng-options="type.key as type.val for type in typeList"  >
+                    <option value="">-请选择-</option>
+                </select>
+            </div>
+        </div>
+        <div class="xn-input-line clearfix">
+            <label class="col-sm-3  xn-text-right l-h-34">含义：</label>
+            <div class="col-sm-7 row">
+                <input class=" form-control" type="text"  ng-model="item.meaning"   />
+            </div>
+        </div>
+        <div class="xn-input-line clearfix">
+            <label class="col-sm-3  xn-text-right l-h-34">描述：</label>
+            <div class="col-sm-7 row">
+                     <textarea class="form-control" rows="3" ng-model="item.description"
+                               name="contract_description"></textarea>
+            </div>
+        </div>
+        <div class="xn-input-line clearfix">
+            <label class="col-sm-3  xn-text-right l-h-34" for="isRequired">必须：</label>
+            <div class="col-sm-7 row">
+                <input class=" form-control" type="checkbox"   xn-input-checkbox    ng-model="item.isRequired" id="isRequired" />
+            </div>
+        </div>
+        <div class="xn-input-line clearfix">
+            <label class="col-sm-3  xn-text-right l-h-34">最小值：</label>
+            <div class="col-sm-7 row">
+                <input class=" form-control" type="text"  ng-model="item.min" ng-disabled=" item.type!='String'"
+                       xn-input-regex    regex-other="[^0-9]+"  min="0" max="4000"/>
+            </div>
+        </div>
+        <div class="xn-input-line clearfix">
+            <label class="col-sm-3  xn-text-right l-h-34">最大值：</label>
+            <div class="col-sm-7 row">
+                <input class=" form-control" type="text"  ng-model="item.max"  ng-disabled="item.type!='String'"
+                       xn-input-regex    regex-other="[^0-9]+"  min="0" max="4000" />
+            </div>
+        </div>
+        <div class="xn-input-line clearfix">
+            <label class="col-sm-3  xn-text-right l-h-34">关联类型：</label>
+            <div class="col-sm-7 row">
+                <select  name="categoryId" id="categoryId"  class="form-control category" ng-model="item.referenceType"
+                         ng-options="type.key as type.val for type in relateList" required="required">
+                    <option value=""></option>
+                </select>
+            </div>
+        </div>
+        <div class="xn-input-line clearfix">
+            <label class="col-sm-3  xn-text-right l-h-34">关联对象：</label>
+            <div class="col-sm-7 row">
+                     <textarea class="form-control" rows="3" ng-model="item.referenceObject"
+                               name="contract_description"></textarea>
+
+            </div>
+        </div>
+        <div class="xn-input-line clearfix">
+            <label class="col-sm-3  xn-text-right l-h-34" for="isListable">可列表：</label>
+            <div class="col-sm-1 row">
+                <input class="form-control" type="checkbox"  xn-input-checkbox    ng-model="item.isListable"  id="isListable"/>
+            </div>
+            <label class="col-sm-3  xn-text-right l-h-34" for="isExportable">可导出：</label>
+            <div class="col-sm-1 row">
+                <input class="form-control" type="checkbox"  xn-input-checkbox    ng-model="item.isExportable"   id="isExportable" />
+            </div>
+        </div>
+
+        <div class="xn-input-line clearfix">
+            <label class="col-sm-3  xn-text-right l-h-34" for="isQueryable">可查询：</label>
+            <div class="col-sm-1 row ">
+                <input class="form-control" type="checkbox"  xn-input-checkbox   ng-model="item.isQueryable" id="isQueryable"/>
+            </div>
+            <label class="col-sm-3  xn-text-right l-h-34" for="isSortable">可排序：</label>
+            <div class="col-sm-1 row">
+                <input class="form-control" type="checkbox"  xn-input-checkbox  ng-model="item.isSortable"  id="isSortable" />
+            </div>
+        </div>
+        <div class="xn-input-line clearfix">
+            <div class="clearfix error-box col-sm-6  col-sm-offset-3" ng-show="errors.length>0 ">
+                <div class="alert alert-danger"><i class="glyphicon glyphicon-remove-sign mr_5" ng-click="closeAlert(errors)"></i><span ng-bind="errors"></span></div>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-default" ng-click="cancel()">取消</button>
+        <button class="btn btn-success" ng-click="doSave()">确定</button>
+    </div>
+</script>

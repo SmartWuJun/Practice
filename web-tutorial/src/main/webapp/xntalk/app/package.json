@@ -1,0 +1,29 @@
+{
+  "name": "XNTALK",
+  "version": "2.1.2",
+  "private": true,
+  "main": "main.js",
+  "description": "犀牛第一个由node开发的小工具",
+  "registry": "http://cnpm.xiniunet.com:7001",
+  "mode":"debug",
+  "environment":"production",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://gitlab.xiniunet.com/xiniunet/code_tool.git"
+  },
+  "keywords": [
+    "node"
+  ],
+  "author": "犀牛网络科技有限公司",
+  "license": "ISC",
+  "dependencies": {
+    "url": "~0.11.0",
+    "openfin-launcher": "^0.1.8",
+    "adm-zip": "0.4.7",
+    "auto-launch":"4.0.0",
+    "desktop-screenshot":"0.1.1"
+  }
+}

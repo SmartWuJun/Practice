@@ -1,0 +1,42 @@
+{
+  "name": "xn-directive-location",
+  "version": "1.3.1",
+  "description": "address directive",
+  "keywords": [
+    "xn",
+    "directive-location",
+    "xn-directive-location"
+  ],
+  "homepage": "",
+  "author": "Jason",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "bugs": {
+    "url": ""
+  },
+  "licenses": "MIT",
+  "spm": {
+    "main": "index.js",
+    "dependencies": {
+      "angular": "1.3.9",
+      "jquery": "1.7.2",
+      "angular-ui": "1.0.0",
+      "bootstrap-css": "1.0.0",
+      "xn-directive-form": "1.0.1",
+      "xn-underscore": "1.0.0",
+      "xn-icon-common": "1.0.5"
+    },
+    "devDependencies": {
+      "expect.js": "0.3.1"
+    }
+  },
+  "devDependencies": {
+    "spm": "3"
+  },
+  "scripts": {
+    "test": "spm test",
+    "build": "spm build"
+  }
+}

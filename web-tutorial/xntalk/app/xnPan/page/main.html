@@ -1,0 +1,47 @@
+<link rel="stylesheet" href="../../xnPan/vender/xn-icon-pan/iconpanfont.css"/>
+<link rel="stylesheet" href="../../xnPan/dist/styles/local.min.css"/>
+<div id="xnPan" class="xn-main-view" >
+	<div   ui-view  ng-cloak></div>
+</div>
+<script type="text/javascript" src="../../xnPan/dist/scripts/local.min.js"></script>
+
+
+<!--移动文件-->
+<script type="text/ng-template" id="selectFolder.html">
+	<table  class="table table-bordered">
+		<thead>
+		<tr>
+			<th class="col-md-8">选择文件夹</th>
+		</tr>
+		</thead>
+		<tbody id="tbody">
+		<tr class="tree-header-{{tree.level}} td_{{tree.level}}" ng-repeat="tree in trees" ng-if="tree.visable"
+			ng-mouseenter="showDetail=true" ng-init="showDetail=false" ng-mouseleave="showDetail=false">
+			<td class="first_td">
+				<i class="vertical-line-{{tree.level}}"></i>
+				<div class="pt_15 f-left tree-{{tree.level}}">
+
+					<a ng-if="tree.childState && tree.collapsed" class="btn-sm icon-a xn-tree-i"  ng-click="toggle($index)" >
+						<i  class="icon-common icon-add"></i>
+					</a>
+                            <span class="xn-tree-icon-span">
+                                <a ng-if="!(tree.childState && tree.collapsed)" class="btn-sm icon-a xn-tree-i"  ng-click="toggle($index)" >
+									<i  class="icon-common icon-dash"></i>
+								</a>
+                            </span>
+					{{tree.name}}
+				</div>
+                    <span class="f-right xn-text-left mt_7 pr_10">
+                        <button  class="btn icon-a btn-link gray-font" ng-click="selectTarget(tree)"><i class="icon-common icon-send"></i></button>
+                    </span>
+			</td>
+		</tr>
+		<tr ng-if="trees.length == 0">
+			<td colspan="4" class="xn-center">无法找到相应的记录</td>
+		</tr>
+		</tbody>
+	</table>
+</script>
+<script type="text/javascript">
+	angular.bootstrap("#xnPan", ['myApp']);
+</script>

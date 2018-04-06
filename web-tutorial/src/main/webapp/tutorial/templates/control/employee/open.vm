@@ -1,0 +1,124 @@
+
+
+<!--主体部分-->
+<div class="xn-main  xn-width auto clearfix" ng-controller="EmployeeOpenController">
+
+    <!--面包屑-->
+    <div class=" xn-breadcrumb clearfix">
+        <ul class="breadcrumb xn-col-md-12">
+            <li><a href="$tutorialLink.setTarget("index")">首页</a></li>
+            <li><a href="$tutorialLink.setTarget("employee/index")">员工</a></li>
+            <li class="active">查看</li>
+        </ul>
+        <ul class="xn-col-md-12 mt-10 xn-lh">
+            <li class="operation-li f-right" ><a class="operation-a" href="$tutorialLink.setTarget("employee/index")"><i class="icon icon-return"></i>返回</a></li>
+            <li class="operation-li f-right" ><a class="operation-a"  ng-click="doDelete()"><i class=" icon icon-trash"></i>删除</a></li>
+            <li class="operation-li f-right" ng-if="!employee.isResign" ng-click="doResign()"><a class="operation-a" ><i class=" icon icon-close02"></i>离职</a></li>
+            <li class="operation-li f-right" ng-if="!employee.isResign"><a class="operation-a" href="$tutorialLink.setTarget("employee/edit")?id={{employee.id}}"><i class=" icon icon-compose"></i>编辑</a></li>
+        </ul>
+    </div>
+
+    <!--编辑主体部分-->
+    <!---查看添加 xn-view-layout--->
+    <div class="xn-edit-layout xn-view-layout">
+        <div class="edit-title line">
+            <div class="title-name">员工详情</div>
+        </div>
+        <div class="edit-body xn-lh pt-15">
+            <div class="xn-input-line clearfix">
+                <label class="xn-col-md-3 font-auxiliary xn-text-right"><span class="f-right label-txt">头像：</span></label>
+                <div class="xn-col-md-5">
+                    <div class="xn-employee-photo" >
+                        <img class="photo-img" ng-if="!employee.photoFileUrl"  src="$tutorialContent.getURI('images/employee-photo.png')">
+                        <img class="photo-img" ng-if="employee.photoFileUrl"  ng-src="{{employee.photoFileUrl}}?x-oss-process=image/resize,m_lfit,w_200,h_200">
+                    </div>
+                </div>
+            </div>
+            <div class="xn-input-line clearfix">
+                <label class="xn-col-md-3  font-auxiliary xn-text-right"><span class="f-right label-txt">姓名：</span></label>
+                <div class="xn-col-md-4" >{{employee.name}} <span ng-if="employee.isResign" class="ml-10  xn-remark-red">离职</span></div>
+                <div class="xn-col-md-1"></div>
+                <label class="xn-col-md-3 font-auxiliary xn-text-right"><span class="f-right label-txt">性别：</span></label>
+                <div class="xn-col-md-4 " ng-bind="employee.gender | employeeSex"></div>
+                <div class="xn-col-md-1"></div>
+            </div>
+            <div class="xn-input-line clearfix">
+                <label class="xn-col-md-3 font-auxiliary xn-text-right"><span class="f-right label-txt">手机：</span></label>
+                <div class="xn-col-md-4" ng-bind="employee.mobile"></div>
+                <div class="xn-col-md-1"></div>
+                <label class="xn-col-md-3 font-auxiliary xn-text-right"><span class="f-right label-txt">邮箱：</span></label>
+                <div class="xn-col-md-4" ng-bind="employee.email"></div>
+                <div class="xn-col-md-1"></div>
+                <label class="xn-col-md-3 font-auxiliary xn-text-right"><span class="f-right label-txt">生日：</span></label>
+                <div class="xn-col-md-4" ng-bind="employee.birthDate"></div>
+                <div class="xn-col-md-1"></div>
+            </div>
+            <div class="xn-input-line line clearfix"></div>
+            <div class="xn-input-line clearfix">
+                <label class="xn-col-md-3 font-auxiliary xn-text-right"><span class="f-right label-txt">工号：</span></label>
+                <div class="xn-col-md-4" ng-bind="employee.number"></div>
+                <div class="xn-col-md-1"></div>
+                <label class="xn-col-md-3 font-auxiliary xn-text-right"><span class="f-right label-txt">入职日期：</span></label>
+                <div class="xn-col-md-4" ng-bind="employee.entryDate"></div>
+                <div class="xn-col-md-1"></div>
+                <label class="xn-col-md-3 font-auxiliary xn-text-right"><span class="f-right label-txt">所属部门：</span></label>
+                <div class="xn-col-md-4" ng-bind="employee.departmentName"></div>
+                <div class="xn-col-md-1"></div>
+            </div>
+
+            <div class="xn-input-line clearfix">
+                <label class="xn-col-md-3 font-auxiliary xn-text-right"><span class="f-right label-txt">薪资：</span></label>
+                <div class="xn-col-md-4"><span ng-bind="employee.salary | money"></span></div>
+                <div class="xn-col-md-1 xn-lh"></div>
+            </div>
+            <div class="xn-input-line clearfix">
+                <label class="xn-col-md-3 font-auxiliary xn-text-right"><span class="f-right label-txt">描述：</span></label>
+                <pre class="xn-col-md-20" ng-bind="employee.description"></pre>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!--离职编辑框-->
+<script type="text/ng-template" id="resign.html">
+    <form  class="form-horizontal xn-form clearfix" role="form"  xn-form-validate novalidate  name="validateForm" >
+        <div class="modal-header">
+            <h3 class="modal-title"> 离职操作</h3>
+            <div class="xn-close xn-cursor" ng-click="clean()">
+                <i class="icon icon-delete"></i>
+            </div>
+        </div>
+        <div class="modal-body clearfix">
+
+            <div class="xn-input-line clearfix xn-lh" >
+                <i class="f-left  xn-required-i"></i><span class="label-txt">离职日期：</span>
+            </div>
+            <div class="xn-input-line clearfix xn-lh" >
+                <div class="input-group openData xn-col-md-24" >
+                    <input type="text" class="form-control"   ng-model="employee.resignDate" name="resignDate"
+                           datepicker-popup="yyyy-MM-dd" is-open="resignDate" required="required"  >
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" ng-click="openResignDate($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+            </div>
+
+
+            <div class="xn-input-line clearfix" ng-show="validateForm.$errors.length > 0">
+                <div class="xn-col-md-24 xn-lh">
+                    <div class="alert-danger pl-5 pr-5">
+                        <i class="glyphicon glyphicon-remove-sign mr_5" ng-click="closeAlert(0,validateForm.$errors)"></i>
+                        {{validateForm.$errors[0]}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <input type="button"  class="btn btn-primary btn-sm"  xn-form-submit="doSave()" value="保存">
+            <input type="button"  class="btn btn-default btn-sm"  ng-click="clean()" value="取消">
+        </div>
+    </form>
+</script>
+
+<script src="$tutorialContent.getURI('dist/scripts/page/employee.js')" ></script>

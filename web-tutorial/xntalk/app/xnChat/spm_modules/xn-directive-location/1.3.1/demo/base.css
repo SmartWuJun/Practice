@@ -1,0 +1,100 @@
+@charset "utf-8";
+/* --------------------------------------------------------------
+
+   reset.css
+   * Resets default browser CSS.
+
+-------------------------------------------------------------- */
+@font-face { font-family:Barcode; src:
+url('C39HrP36DmTt.TTF');
+}
+
+/*
+select{
+  width: 50%;
+}*/
+@charset "utf-8";
+html {
+    margin:0;
+    padding:0;
+    border:0;
+}
+body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, code,
+del, dfn, em, img, q, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, dialog, figure, footer, header,
+nav, section {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    /* vertical-align: baseline;*/
+
+}
+/* This helps to make newer HTML5 elements behave like DIVs in older browers */
+article, aside, details, figcaption, figure, dialog,
+footer, header,menu, nav, section {
+    display:block;
+}
+pre{background: transparent; font-family:Microsoft Yahei; font-size: 14px}
+ul,ol,li { list-style:none; }
+h1,h2,h3,h4,h5,h6 { margin:0; padding:0; color: #333 }
+/* Line-height should always be unitless! */
+body {
+    line-height: 1.5;
+    background:#f9f9f7;
+    color: #666;
+}
+.modal-content  .xn-close{
+    float: right;
+    position: absolute;
+    right: 5px;
+    top: 0px;
+}
+
+label{
+    font-weight: normal;
+}
+.f-left{
+    float: left;
+}
+.f-right{
+    float: right;
+}
+.auto{margin: 0 auto}
+/* Remove annoying border on linked images. */
+a img { border: none; }
+input[type="file"].none {
+    display: none;
+}
+input[type="radio"], input[type="checkbox"]{
+    width: 20px;
+    height: 20px;
+    float: left;
+    margin-right: 5px;
+    margin-top: 7px;
+}
+textarea{
+    resize: none;
+}
+.xn-fw{
+    font-weight:bold;
+}
+
+.ng-cloak{
+    display: none;
+}
+.none{display: none}
+/* Remember to define your own focus styles! */
+:focus { outline: 0; }
+.clearfix:after{content:".";display:block;clear:both;visibility:hidden;line-height:0;height:0;}
+/**/
+a{ cursor:pointer;}
+.p_10{
+    padding:10px;
+}
+.cursor-pointer{
+    cursor: pointer;
+}

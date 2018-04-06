@@ -1,0 +1,94 @@
+$page.setTitle("员工")
+
+<!--主体部分-->
+<div class="xn-main xn-width auto clearfix" ng-controller="EmployeeIndexController">
+    <!--面包屑-->
+    <div class="xn-breadcrumb clearfix">
+        <ul class="breadcrumb">
+            <li><a href="$tutorialLink.setTarget("index")">首页</a></li>
+            <li class="active">员工</li>
+        </ul>
+    </div>
+    <!--创建部分-->
+    <div class="clearfix mb-10">
+
+        <a class="f-right btn  btn-primary ml-20 " href="$tutorialLink.setTarget("employee/create.vm")">创建员工</a>
+        <div class="f-right  ml-20"   xn-import-line  ng-model="import"></div>
+    </div>
+    <!--搜索部分内容-->
+    <div class="xn-search-many clearfix pt-15" ng-init="searchShow=false">
+        <form class="form-horizontal xn-form clearfix"  role="form"   xn-form-validate  novalidate name="validateForm">
+            <div class="xn-input-line clearfix">
+                <label class="xn-lh xn-text-right xn-col-md-3">请输入查询内容：</label>
+                <div class="xn-col-md-10">
+                    <input type="text" class="form-control" name="keyword" id="keyword" ng-model="vm.keyword"  autofocus  placeholder="姓名查询">
+                </div>
+                <div class="xn-col-md-2">
+                    <button class="btn  btn-success btn-sm " xn-submit-enter="doSearch()">搜索</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+    <!--表格内容-->
+    <div class="xn-table-wrap ">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th class="xn-col-md-3">姓名</th>
+                    <th class="xn-col-md-3" ng-click="orderBy('NUMBER')">
+                        <span class="f-left">工号</span>
+                        <div class="order">
+                            <i class="icon icon-upward order-cur"   ng-class="vm.sortType=='ASC'?'order-cur':''"></i>
+                            <i class="icon icon-downward" ng-class="vm.sortType=='DESC'?'order-cur':''"></i>
+                        </div>
+                    </th>
+                    <th class="xn-col-md-4">手机/邮箱</th>
+                    <th class="xn-col-md-4">入职时间</th>
+                    <th class="xn-col-md-5">所属部门</th>
+                    <th class="xn-col-md-3 xn-center">状态</th>
+                    <th class="xn-col-md-2 xn-center">操作</th>
+                </tr>
+            </thead>
+            <tbody >
+                <tr ng-repeat="employee in employeeList">
+                    <td >{{employee.name}}</td>
+                    <td >{{employee.number}}</td>
+                    <td >
+                        <div ng-if="employee.mobile">{{employee.mobile}}</div>
+                        <div ng-if="employee.email">{{employee.email}}</div>
+                    </td>
+                    <td >{{employee.entryDate}}</td>
+                    <td >{{employee.departmentName}}</td>
+                    <td  class="xn-center">
+                        <span ng-if="employee.isResign ==false" class="state-true">在职</span>
+                        <span ng-if="employee.isResign ==true" class="state-false">
+                            {{employee.resignDate}}<br/>离职
+                        </span>
+                    </td>
+                    <td class="xn-center" >
+                        <a  class="view-a"  href="$tutorialLink.setTarget("employee/open")?id={{employee.id}}" target="_blank">打开</a>
+                    </td>
+                </tr>
+                <tr ng-show="vm.isLoading">
+                    <td colspan="7" class="xn-center" >
+                        <div class="loading-img auto"></div>
+                        <div>正在查询中......</div>
+                    </td>
+                </tr>
+                <tr  ng-show="!vm.isLoading && vm.totalCount==0">
+                    <td colspan="7" class="xn-center">无法找到相应的记录</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="clearfix" >
+            <div class="f-left mt-10 mb_10">共{{vm.totalCount}}条</div>
+            <!--分页组件-->
+            <pagination ng-show="vm.totalCount>vm.pageSize"  class="pagination-sm f-right"  ng-model="vm.pageNumber" items-per-page="vm.pageSize"
+                ng-change="getList()"  total-items="vm.totalCount" max-size="maxPageSize"   boundary-link-numbers="true" rotate="false" ></pagination>
+        </div>
+    </div>
+</div>
+
+<script src="$tutorialContent.getURI('dist/scripts/page/employee.js')" ></script>

@@ -1,0 +1,180 @@
+$page.setTitle("请假单")
+<!--主体部分-->
+<div class="xn-main xn-width auto clearfix" ng-controller="LeaveIndexController">
+    <!--面包屑-->
+    <div class="xn-breadcrumb clearfix">
+        <ul class="breadcrumb">
+            <li><a href="$tutorialLink.setTarget("index")">首页</a></li>
+            <li class="active">请假单</li>
+        </ul>
+    </div>
+
+    <!--搜索部分内容-->
+    <form xn-form-validate novalidate class="form-horizontal xn-form clearfix" role="form" name="validateForm">
+
+        <!--切换--->
+        <ul class="xn-tabs clearfix mb-10">
+            <li class="tab-item f-left" ng-class="{'selected': vm.status==''}"           ng-click="changeTab('')">全部   <span class="font-blue xn-fw">{{vm.allCount}}</span></li>
+            <li class="tab-item f-left" ng-class="{'selected': vm.status=='CREATED'}"   ng-click="changeTab('CREATED')">待提交 <span class="font-blue xn-fw">{{vm.createdCount}}</span></li>
+            <li class="tab-item f-left" ng-class="{'selected': vm.status=='SUBMITTED'}"  ng-click="changeTab('SUBMITTED')">待审批 <span class="font-blue xn-fw">{{vm.submittedCount}}</span></li>
+            <li class="tab-item f-left" ng-class="{'selected': vm.status=='AGREED'}"    ng-click="changeTab('AGREED')">同意 <span class="font-blue xn-fw">{{vm.agreedCount}}</span></li>
+            <li class="tab-item f-left" ng-class="{'selected': vm.status=='REJECTED'}"  ng-click="changeTab('REJECTED')">拒绝 <span class="font-blue xn-fw">{{vm.rejectedCount}}</span></li>
+            <div class="f-right tab-btns">
+                <a class="f-right btn  btn-primary ml-20"  href="$tutorialLink.setTarget("leave/create.htm")">请假申请</a>
+                <div  class="f-right btn btn-normal "  ng-class="batch.batchList.length==0?'btn-normal-disable':'btn-primary'"
+                      ng-disabled="batch.batchList.length==0"         ng-click="submitBatch()"
+                      ng-show="vm.status==''||vm.status=='CREATED' || vm.status=='REJECTED'">
+                    批量提交 <span ng-show="batch.batchList.length>0">{{batch.batchList.length}}</span>
+                    </div>
+            </div>
+        </ul>
+
+        <!--搜索--->
+        <div class="xn-search-many clearfix pt-15" >
+            <div class="xn-input-line clearfix">
+                <label class="xn-lh xn-text-right xn-col-md-3">请输入查询内容：</label>
+                <div class="xn-col-md-10">
+                    <input type="text" class="form-control" name="keyword" id="keyword" ng-model="vm.keyword" autofocus placeholder="请假单号">
+                </div>
+                <label class="xn-lh xn-text-right xn-col-md-1"></label>
+
+            </div>
+            <!--高级搜索--->
+           <div ng-show="searchShow==true" class="clearfix">
+
+               <div class="xn-input-line clearfix">
+                   <label class="xn-lh xn-text-right xn-col-md-3">提交时间：</label>
+                   <div class="xn-col-md-4">
+                       <div class="input-group openData" >
+                           <input  class="form-control"  type="text"  ng-model="vm.submitTimeFrom" name="submitTimeFrom"
+                                   datepicker-popup="yyyy-MM-dd" is-open="submitTimeFrom"  max-date="vm.submitTimeTo">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button"  ng-click="openSubmitTimeFrom($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                </span>
+                       </div>
+                   </div>
+                   <div class="xn-col-md-1 xn-lh xn-text-center">至</div>
+                   <div class="xn-col-md-4">
+                       <div class="input-group openData" >
+                           <input  class="form-control"  type="text"  ng-model="vm.submitTimeTo" name="submitTimeTo"
+                                   datepicker-popup="yyyy-MM-dd" is-open="submitTimeTo"  min-date="vm.submitTimeFrom">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button"  ng-click="openSubmitTimeTo($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                </span>
+                       </div>
+                   </div>
+
+                   <label class="xn-lh xn-text-right xn-col-md-3">员工：</label>
+                   <div class="xn-col-md-8">
+                       <div  xn-lookup    ng-model="employee"  name="employee"  data-method="findEmployeeList(data)"
+                             placeholder="请输入姓名或工号"   data-search-val="name|number" ></div>
+                   </div>
+                   <div class="xn-col-md-1"></div>
+               </div>
+
+               <div class="xn-input-line clearfix">
+
+                   <label class="xn-lh xn-text-right xn-col-md-3">申请单号：</label>
+                   <div class="xn-col-md-8">
+                       <input type="text" class="form-control" name="number" id="number" ng-model="vm.number"  >
+                   </div>
+                   <div class="xn-col-md-1"></div>
+                   <label class="xn-lh xn-text-right xn-col-md-3">提交人：</label>
+                   <div class="xn-col-md-8">
+                       <div  xn-lookup    ng-model="submitUser"  name="submitUser"  data-method="findUserList(data)"
+                             placeholder="请输入姓名或工号"   data-search-val="name" ></div>
+                   </div>
+                   <div class="xn-col-md-1"></div>
+               </div>
+               <div class="xn-input-line clearfix">
+                   <label class="xn-lh xn-text-right xn-col-md-3">请假类型：</label>
+                   <div class="xn-col-md-20">
+                       <div  xn-checkbox-list  ng-model="selectType" data-checkbox-list="typeList"></div>
+                   </div>
+               </div>
+          </div>
+
+          <div class="xn-input-line clearfix xn-relative">
+              <div class="xn-col-md-offset-3 clearfix">
+                  <button class="btn  btn-success btn-sm " xn-submit-enter="doSearch()">搜索</button>
+              </div>
+              <!--高级搜索可以把下面内容放开-->
+              <div ng-show="searchShow==false"  ng-click="searchShow=true" class="is-hide  xn-cursor clearfix">
+                  <span class="search-more payable-search-more">高级搜索<i class="icon icon-expand ml-5"></i></span>
+              </div>
+              <div  ng-show="searchShow==true"  ng-click="searchShow=false" class="is-hide  xn-cursor clearfix ">
+                  <span class="search-more payable-search-more">基础搜索<i class="icon icon-packup ml-5"></i></span>
+              </div>
+          </div>
+        </div>
+    </form>
+
+    <!--表格内容-->
+    <div class="xn-table-wrap ">
+        <table class="table table-bordered table-striped">
+            <thead>
+            <tr>
+                <th class="xn-col-md-1 xn-text-center">
+                    <input  ng-show="vm.status==''|| vm.status=='CREATED' || vm.status=='REJECTED'"   type="checkbox"
+                            ng-model="batch.allChecked"   ng-change="checkAll()">
+                </th>
+                <th class="xn-col-md-3" ng-click="orderBy('SUBMITTIME')">
+                    <span class="f-left">提交时间</span>
+                    <div class="order">
+                        <i class="icon icon-upward "   ng-class="vm.sortType=='ASC'?'order-cur':''"></i>
+                        <i class="icon icon-downward" ng-class="vm.sortType=='DESC'?'order-cur':''"></i>
+                    </div>
+                </th>
+                <th class="xn-col-md-3">申请单号</th>
+                <th class="xn-col-md-2">申请人</th>
+                <th class="xn-col-md-2 xn-center">类型</th>
+                <th class="xn-col-md-3">开始时间</th>
+                <th class="xn-col-md-3">结束时间</th>
+                <th class="xn-col-md-2 xn-center">天数</th>
+                <th class="xn-col-md-3 xn-center">状态</th>
+                <th class="xn-col-md-2 xn-center">操作</th>
+            </tr>
+            </thead>
+            <tbody >
+            <tr ng-repeat="leave in leaveList">
+                <td class="xn-text-center">
+                    <input  ng-show="!leave.isSubmit || leave.approveResult=='REJECTED'"    type="checkbox"
+                            ng-model="leave.isChecked"      ng-change="checkTr(leave)">
+                </td>
+                <td ><pre ng-bind="leave.submitTime | timeReturnFormat"></pre></td>
+                <td ng-bind="leave.number"></td>
+                <td ng-bind="leave.employeeName"></td>
+                <td class="xn-center" ng-bind="leave.type | leaveType"></td>
+                <td>{{leave.beginDate}} </br>{{leave.beginTime}}:00</td>
+                <td>{{leave.endDate}} </br> {{leave.endTime}}:00</td>
+                <td class="xn-text-center" ng-bind="leave.leaveDays"></td>
+                <td class="xn-center">
+                    <span ng-if=" leave.isApproved" class="state-true">{{leave.approveResult | approvefilter}}</span>
+                    <span ng-if=" !leave.isApproved && leave.isSubmit" class="state-false">待审批</span>
+                    <span ng-if=" !leave.isSubmit" class="state-false">未提交</span>
+                </td>
+                <td class="xn-center" >
+                    <a  class="view-a"  href="$tutorialLink.setTarget("leave/open.htm")?id={{leave.id}}" target="_blank">打开</a>
+                </td>
+            </tr>
+            <tr ng-show="vm.isLoading">
+                <td colspan="10" class="xn-center" >
+                    <div class="loading-img auto"></div>
+                    <div>正在查询中......</div>
+                </td>
+            </tr>
+            <tr  ng-show="!vm.isLoading && vm.totalCount==0">
+                <td colspan="10" class="xn-center">无法找到相应的记录</td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="clearfix" >
+            <div class="f-left mt-10 mb_10">共{{vm.totalCount}}条</div>
+            <!--分页组件-->
+            <pagination ng-show="vm.totalCount>vm.pageSize"  class="pagination-sm f-right"  ng-model="vm.pageNumber"  items-per-page="vm.pageSize"
+                ng-change="getList()"  total-items="vm.totalCount" max-size="maxPageSize"   boundary-link-numbers="true" rotate="false" ></pagination>
+        </div>
+    </div>
+</div>
+
+<script src="$tutorialContent.getURI('dist/scripts/page/leave.js')" ></script>

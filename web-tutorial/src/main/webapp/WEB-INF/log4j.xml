@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration >
+
+    <appender name="consoleAppender" class="org.apache.log4j.ConsoleAppender">
+        <param name="Threshold" value="DEBUG"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%d{HH:mm:ss:SSS}] [%p] - %l - %m%n"/>
+        </layout>
+    </appender>
+
+    <appender name="xnAppender" class="com.xiniunet.common.utils.log.appender.XnAppender">
+        <param name="Threshold" value="INFO"/>
+    </appender>
+
+    <!--输出到文件（warn）-->
+    <!--将生成“warn.log.2014-06-11”这样的日志文件-->
+    <appender name="fileAppenderInfo" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="./logs/warn.log" />
+        <param name="DatePattern" value=".yyyy-MM-dd-HH'.log'" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%d{HH:mm:ss:SSS}] [%p] - %l - %m%n"/>
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMin" value="WARN" />
+        </filter>
+    </appender>
+
+    <!--屏蔽所有org.springframework.*输出的Debug（及以下）信息-->
+    <logger name="org.springframework">
+        <level value="INFO">
+        </level>
+    </logger>
+
+    <!--屏蔽所有org.eclipse.*输出的Debug（及以下）信息-->
+    <logger name="org.eclipse">
+        <level value="INFO">
+        </level>
+    </logger>
+
+    <!--屏蔽所有com.alibaba.*输出的Debug（及以下）信息-->
+    <logger name="com.alibaba">
+        <level value="INFO">
+        </level>
+    </logger>
+
+    <!--屏蔽所有 对象类型转换时 输出的Debug（及以下）信息-->
+    <logger name="org.apache.commons.beanutils.converters">
+        <level value="INFO">
+        </level>
+    </logger>
+
+    <!--屏蔽所有 往腾讯云上传文件时 输出的Debug（及以下）信息-->
+    <logger name="org.apache.http">
+        <level value="INFO">
+        </level>
+    </logger>
+
+    <!--  屏蔽Dubbo的Monitor错误信息 -->
+    <logger name="com.alibaba.dubbo.monitor.dubbo.DubboMonitor">
+        <level value="OFF"/>
+    </logger>
+
+    <root>
+        <level value="INFO"/>
+        <appender-ref ref="consoleAppender"/>
+        <!-- 开发时建议开启此输出流 -->
+        <appender-ref ref="fileAppenderInfo"/>
+        <appender-ref ref="xnAppender"/>
+    </root>
+</log4j:configuration>

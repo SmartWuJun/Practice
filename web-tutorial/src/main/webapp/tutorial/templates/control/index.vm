@@ -1,0 +1,4 @@
+<div class="xn-main clearfix"  ng-controller="IndexController">
+</div>
+
+<script src="$tutorialContent.getURI('dist/scripts/page/index.js')" ></script>

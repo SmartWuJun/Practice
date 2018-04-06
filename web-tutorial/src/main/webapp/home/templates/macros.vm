@@ -1,0 +1,174 @@
+#** -------------------------------------------
+ * 显示所有headers
+ * -------------------------------------------- *#
+#macro (showHead $defaultTitle)
+#showTitle ($defaultTitle)
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="Expires" CONTENT="0">
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Cache-Control" CONTENT="no-store">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-title" content="AnotherU">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    #showMetaTags ()
+    #showHttpEquiv ()
+
+#end
+
+#** -------------------------------------------
+ * 显示所有headers
+ * -------------------------------------------- *#
+#macro (showMobileHead $defaultTitle)
+    #showTitle ($defaultTitle)
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="AnotherU">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<meta name="format-detection" content="email=no">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="author" content="">
+    #showMetaTags ()
+    #showHttpEquiv ()
+    #showStylesheets ()
+#end
+
+
+#** -------------------------------------------
+ * 显示js，
+ * -------------------------------------------- *#
+#macro (showfoot)
+
+    #showJavascripts()
+#end
+
+
+#** -------------------------------------------
+ * 显示标题，如果未提供标题，则使用默认值
+ * -------------------------------------------- *#
+#macro (showTitle $defaultTitle)
+#if( $page.title != "" )
+<title>$page.title</title>
+#else
+<title>$!defaultTitle</title>
+#end
+#end
+
+#** -------------------------------------------
+ * 显示meta tags
+ * -------------------------------------------- *#
+#macro (showMetaTags)
+#foreach($metaTag in $page.metaTags.keySet())
+<meta name="$metaTag" content="$!page.metaTags.get($!metaTag)">#end
+#end
+
+#** -------------------------------------------
+ * 显示meta http-equiv
+ * -------------------------------------------- *#
+#macro (showHttpEquiv)
+
+#foreach($httpEquiv in $page.httpEquivs.keySet())
+<meta http-equiv="$httpEquiv" content="$page.httpEquivs.get($httpEquiv)">#end
+#end
+
+#** -------------------------------------------
+ * 显示stylesheets
+ * -------------------------------------------- *#
+#macro (showStylesheets)
+
+#foreach( $styleSheet in $page.styleSheets )
+    <link rel="stylesheet" href="$styleSheet.Url"#if($styleSheet.Type != "" ) type="$styleSheet.Type" #end#if($styleSheet.Media != "") media="$styleSheet.Media" #end#if($styleSheet.Title != "") title="$styleSheet.Title" #end>
+#end
+#end
+
+#** -------------------------------------------
+ * 显示javascripts
+ * -------------------------------------------- *#
+#macro (showJavascripts)
+
+#foreach( $script in $page.scripts )
+    <script type="text/javascript" src="$script" language="JavaScript"></script>
+#end
+#end
+
+
+#** -------------------------------------------
+ * 显示body attributes
+ * -------------------------------------------- *#
+#macro (bodyAttributes)
+
+    #foreach( $attributeName in $page.bodyAttributes.keySet() )
+        $attributeName="$page.bodyAttributes.get($attributeName)"
+    #end
+
+#end
+
+#** -------------------------------------------
+ * 显示select box
+ * -------------------------------------------- *#
+#macro (select $name $map $selected $hint)
+
+    #set ($_map = $map)
+    #set ($_selected = $selected)
+<select name="$name">
+    <option value="">$hint</option>
+    #foreach ($_key in $_map.keySet())
+        <option value="$_key" #if ($_key == $_selected) selected #end>$_map.get($_key)</option>
+    #end
+</select>
+
+#end
+
+#** -------------------------------------------
+ * 显示当前完整路径
+ * -------------------------------------------- *#
+#macro(showUrl)
+    #set ($url = $rundata.request.getRequestURL())
+    #if($rundata.request.getQueryString() && $rundata.request.getQueryString().length()>0)
+        #if($url.contains("?"))
+            #set($param = "&" + $!rundata.request.getQueryString())
+        #else
+            #set($param = "?" + $!rundata.request.getQueryString())
+        #end
+    #end$url$!param#end
+
+#** -------------------------------------------
+ * 显示目标完整路径
+ * -------------------------------------------- *#
+#macro(showTargetUrl $target)
+    #if($rundata.request.getQueryString() && $rundata.request.getQueryString().length()>0)
+        #if($target.contains("?"))
+            #set($param = "&" + $!rundata.request.getQueryString())
+        #else
+            #set($param = "?" + $!rundata.request.getQueryString())
+        #end
+    #end
+    $target$!param#end
+
+#** -------------------------------------------
+ * 显示当前导航栏
+ * -------------------------------------------- *#
+#macro(showNav $index)
+    #set ($navIndex = $index)
+#end
+
+#** -------------------------------------------
+ * 显示当前导航栏
+ * -------------------------------------------- *#
+#macro(showNavChild $parent $child)
+    #set ($navIndex = $parent)
+    #if($child)
+        #set($navChild = $child)
+    #end
+#end

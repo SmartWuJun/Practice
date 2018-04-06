@@ -1,0 +1,9 @@
+<div id="footer" class="xn-width auto clearfix">
+    <script src="$config.getCdnUrl("web/copyright.js")" type="application/javascript"></script>
+</div>
+
+#if($config.getConfig("global.service.enable") == "TRUE")
+<div class="xn-back-to-top" data-feedback-url=$config.getErpUrl("feedback/create.htm")>
+    <div xn-Nprogress></div>
+</div>
+#end

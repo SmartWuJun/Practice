@@ -1,0 +1,24 @@
+$page.setTitle("首页")
+$application.setCode("home")
+
+<div ng-init="navShow=1">
+    <h3 class="h3-title clearfix">
+        <div class="name"><span>教程</span>目录</div>
+    </h3>
+    <ul class="list clearfix">
+        <li>
+            <a href="$tutorialLink.setTarget("index.htm")" class="clearfix">
+                <img src="https://img-xiniunet-com.alikunlun.com/icon/application/591145328414433280.png" width="76" height="76">
+                <div class="name" title="$installbean.applicationName">教程中心</div>
+            </a>
+        </li>
+        <li>
+            <a href="$guideLink.setTarget("index.htm")" class="clearfix">
+                <img src="https://img-xiniunet-com.alikunlun.com/icon/application/770802076870905856.png" width="76" height="76">
+                <div class="name" title="$installbean.applicationName">参考文档</div>
+            </a>
+        </li>
+    </ul>
+</div>
+$control.setTemplate("home:footer")
+

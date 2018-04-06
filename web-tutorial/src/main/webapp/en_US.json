@@ -1,0 +1,63 @@
+{
+  "common":{
+    "index": "Index",
+    "department": "Department",
+    "employee": "Employee",
+    "leave": "Leave",
+    "video": "Video",
+
+    "tip": {
+      "welcome": "Welcome,",
+      "search_tips": "Insert keyword",
+      "loading": "Loading...",
+      "no_result": "We find nothing",
+      "is_continue": "Continue?",
+
+      "confirm_delete": "Confirm delete",
+      "confirm_active": "Confirm active",
+      "confirm_inactive": "Confirm inactive",
+
+      "success_delete": "Delete success",
+      "success_create": "Create success",
+      "success_update": "Update success",
+      "success_active": "Active success",
+      "success_inactive": "Inactive success",
+      "success_import": "Import success",
+      "success_export": "Export success"
+    },
+    "action": {
+      "create": "Create",
+      "edit": "Edit",
+      "delete": "Delete",
+      "import": "Import",
+      "search": "Search",
+      "confirm": "Confirm",
+      "cancel": "Cancel"
+    }
+  },
+  "department": {
+    "field": {
+      "name": "Name",
+      "code": "Code",
+      "type": "Type",
+      "parent_name": "Parent department",
+      "manager": "Manager",
+      "description": "Description"
+    },
+    "tip": {
+      "delete_tip": "Are you sure you want to delete this department?"
+    },
+    "title": {
+      "index": "Department",
+      "create": "Create department",
+      "update": "Update department",
+      "delete": "Delete department",
+      "import": "Import department",
+      "open": "View department"
+    },
+    "placeholder": {
+      "keyword": "Insert keyword",
+      "manager": "Insert name or number"
+    }
+  }
+}

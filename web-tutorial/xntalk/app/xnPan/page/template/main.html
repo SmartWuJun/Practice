@@ -1,0 +1,184 @@
+
+<div>
+
+    <div class="xn-iframe-l">
+        <ul class="pan-menu">
+            <li ng-repeat="menu in panMenu" class="pan-menu-li-hover"  ng-click="doMenu($index)"  ng-class="{'pan-menu-li':menu.state,'bb':menu.bb}"><i class="{{menu.img}}" ></i>{{menu.value}}</li>
+        </ul>
+    </div>
+    <div class="xn-iframe-l-b" >
+        <div ng-show="isShow">
+            <div class="progress">
+                <div class="plan" style={{vm.plan}}></div>
+            </div>
+            <div class="progress-title" > {{page.disk.usedSize | fileSize}}/{{page.disk.maxSize | fileSize}}</div>
+        </div>
+    </div>
+    <div class="xn-iframe-r">
+        <div ng-show="isShow">
+            <div class='xn-attachmentView-bj' ng-show="attachmentState" ng-click="attachmentViewClose()"></div>
+            <div class='xn-attachmentView-box'  ng-show="attachmentState">
+                <div class='xn-attachmentView-box-nr' >
+                    <i class='icon main_icon-close' ng-click="attachmentViewClose()"></i>
+                    <img class='xn-attachmentView-box-img' ng-src='{{attachmentView}}'>
+                </div>
+            </div>
+            <div class="xn-iframe-r-top clearfix">
+                <div class="top-l ">
+                    <!--<label class="btn  btn-primary mr_15"  for="attachment"><i class="xn-icon icon-uploading pl_10 pr_15"></i>上传文件</label>-->
+                    <input type="file" id="attachment" class="col-sm-6 pb_10 clearfix none" ng-click="uploadFile()" nv-file-select uploader="uploader"   multiple/>
+                    <button class="btn  btn-default mr_15" style="color: #666; border:1px solid #ccc;" ng-click="showCreateFolder();newCreate=true" >
+                        <i class="xn-icon icon-create pr_15" ></i><span>新建文件夹</span>
+                    </button>
+                </div>
+                <div class="top-r">
+                    <!--<button class="xn-btn  btn-link" ng-click="batchDownload()" ><i class="xn-icon  icon-download top-r-three"></i>下载</button>-->
+                    <button class="xn-btn  btn-link" ng-click="batchDeleteFolder()"><i class="icon-common icon-delete-common top-r-three"></i>删除</button>
+                    <!--<button class="xn-btn  btn-link"  ng-click="shareFile()"><i class="xn-icon  icon-show top-r-three"></i>分享</button>-->
+                </div>
+            </div>
+            <div class="xn-crumb xn-crumb-panel">
+                <div class="crumb-path">
+       					<span>
+							<a class="path-back" ng-if="vm.parentId!=undefined && page.path.length > 1"
+                               ng-click="jumpTo(page.path[page.path.length-2].id, page.path[page.path.length-2].name)">返回上一级 |</a>
+       					</span>
+						<span ng-repeat="category in page.path" ng-if="page.path.length>1">
+							<a class="path-back" ng-show="$index==0" ng-click="jumpTo(category.id,category.name)"> {{category.name}}</a>
+							<a class="path-back" ng-show="$index!=0 && $index!=page.path.length-1" ng-click="jumpTo(category.id,category.name)">/ {{category.name}}</a>
+							<a class="path-item" ng-show="$index==page.path.length-1" ng-click="jumpTo(category.id,category.name)">/ {{category.name}}</a>
+						</span>
+        				<span ng-repeat="category in page.path" ng-if="page.path.length==1">
+        				    <a class="path-item" ng-show="$index==0" ng-click="jumpTo(category.id,category.name)"> {{category.name}}</a>
+        				</span>
+                </div>
+                <div class="xn-display-mode">
+                    <a class="text" title="切换到列表视图" ng-click="tab=1" ng-class="tab==1?'text':'text-hover'"><i class="xn-icon icon-list1 pl_20"></i></a>
+                    <a class="text" title="切换到大图视图"  ng-click="tab=2" ng-class="tab==2?'text':'text-hover'"><i class="xn-icon icon-thumbnail pl_15"></i></a>
+                </div>
+
+            </div>
+            <div class="ml_20 xn-table-content " ng-init="tab=1"  ng-keydown="keydown($event)" ng-keyup="keyup($event)">
+                <table class="col-sm-12 table-list"  ng-show="tab==1">
+                    <thead>
+                    <tr class="head-tr">
+                        <td class="col-sm-5 l-h-34"><input type="checkbox" ng-click="allSelect()" ng-model="all.state"><span class="file-name pl_20">文件名</span></td>
+                        <td class="col-sm-2">大小</td>
+                        <td class="col-sm-3">创建时间</td>
+                        <td class="col-sm-2 xn-center">操作</td>
+                    </tr>
+                    </thead>
+                    <tbody id="tbody">
+                    <tr ng-show="page.createFolder" class=" line-tr">
+                        <td class="pl_15 mb_10" ng-init="newCreate=false">
+                            <input ng-show="newCreate" class="form-control xn-input-sm newCreate" type="text" name="newFolderName"
+                                   ng-model="page.newFolderName" ng-blur="newCreate=false;createFolderFile()"  autofocus="autofocus">
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td><a class="view-a" ng-click="createFolder()">创建</a></td>
+                    </tr>
+                    <tr ng-show="page.path.length > 0" title="{{folder.name}}&#10;创建时间：{{folder.creationTime}}&#10;修改时间：{{folder.lastUpdateTime}}"
+                        ng-repeat="folder in page.folderList" class="my-file-tr line-hover" ng-class="folder.state?'line-tr-checked':'line-tr'">
+                        <td class="l-h-34" >
+                            <div style="width:15px;height: 48px ;background:transparent; float:left" ng-click="folderSingleClick(folder)"></div>
+                            <input type="checkbox" ng-model="folder.state">
+                            <div ng-click="folderSingleClick(folder)">
+                                <div class="ml_20 mr_15 f-left bg-img"  ></div>
+                       				<span class="view-a pl_20 line_height_50"  ng-show="!hasRename" ng-init="hasRename=false" >
+                       				    <a  ng-click="search(folder.id, folder.name)">{{folder.name |substr:10}}<i></i></a>
+                       				</span>
+                                <div class="ml_20 hasRename">
+                                    <input ng-show="hasRename" class="form-control xn-input-sm hasRename" type="text" name="folderName"
+                                           ng-model="folder.name" ng-blur="hasRename=false;renameFolder(folder)">
+                                </div>
+                            </div>
+                        </td>
+                        <td></td>
+                        <td>{{folder.creationTime}}</td>
+                        <!--<td>{{folder.lastUpdateTime}}</td>-->
+                        <td class="xn-center">
+                            <div class="view auto" ng-mouseenter="showDetail=true" ng-init="showDetail=false"
+                                 ng-mouseleave="showDetail=false" ng-class="showDetail?'showMessage':''">
+                                <a class="view-a" ng-click="search(folder.id, folder.name)">打开<i></i></a>
+                                <ul class="view-ul">
+                                    <li><a ng-click="download(folder.id)"> 下载</a></li>
+                                    <li><a ng-click="hasRename=true"> 重命名</a></li>
+                                    <!--<li><a ng-click="openSelectFolder('folder',folder)"> 移动</a></li>-->
+                                    <li><a ng-click="deleteFolder(folder.id)"> 删除</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr ng-show="page.path.length > 0" class="line-hover" title=" {{file.fileName}}&#10;大小：{{file.file.size | fileSize}}&#10;创建时间：{{file.creationTime}}"
+                        ng-repeat="file in page.fileList" ng-class="file.state?'line-tr-checked':'line-tr'">
+                        <td class="l-h-34">
+                            <div style="width:15px;height: 48px ;background:transparent; float:left" ng-click="fileSingleClick(file)"   >
+                            </div>
+                            <input type="checkbox"  ng-model="file.state">
+                            <div ng-click="fileSingleClick(file)"    ng-dblclick="attachmentViewOpen(file)">
+                                <div class="ml_20 f-left bg-img {{file.file.extension | diskFileType}}"  ng-style=file.newlineImgUrl ></div>
+                               <span class="view-a pl_20 line_height_50"  ng-show="!hasRename" ng-init="hasRename=false" >
+                            <a ng-click="openFile(file.id)">{{file.fileName |substr:10}}<i></i></a></span>
+                                <input ng-show="hasRename" class="form-control xn-input-sm" type="text" name="fileName"
+                                       ng-model="file.fileName" ng-blur="hasRename=false;renameFile(file)">
+                            </div>
+                        </td>
+                        <td>{{file.file.size | fileSize}}</td>
+                        <td>{{file.creationTime}}</td>
+                        <!--<td>{{folder.lastUpdateTime}}</td>-->
+                        <td class="xn-center">
+                            <div class="view auto" ng-mouseenter="showDetail=true" ng-init="showDetail=false"
+                                 ng-mouseleave="showDetail=false" ng-class= "showDetail?'showMessage':''">
+                                <a class="view-a" ng-href="http://xiniunet.oss.aliyuncs.com/{{file.file.storagePath}}" download="{{file.fileName}}" target="_blank"> 下载</a>
+                                <ul class="view-ul">
+                                    <li><a ng-click="hasRename=true">重命名</a></li>
+                                    <!--<li><a ng-click="openSelectFolder('file',file)"> 移动</a></li>-->
+                                    <li><a ng-click="deleteFile(file.id)"> 删除</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr ng-if="page.totalCount == 0"><td colspan="12" class="center tc line-no-message">无法找到相应的记录</td></tr>
+                    </tbody>
+                </table>
+                <div ng-show="tab==2" class="icon-layout-arrange clearfix" >
+                    <div ng-show="page.createFolder" style="width:120px;height:139px;border:1px solid #dcdcdc;float: left;margin-right:25px;" >
+                        <div class="icon-layout-img"></div>
+                        <div style="margin: -10px 0 0 15px">
+                            <input type="text" ng-show="newCreate" class="form-control newCreate" name="newFolderName" style="display:inline-block;width:90px;padding-left:5px"
+                                   ng-model="page.newFolderName" ng-blur="newCreate=false;createFolderFile()" autofocus="autofocus">
+                        </div>
+                    </div>
+                    <div style="position: relative" ng-show="page.path.length > 0"
+                         title="{{folder.name}} &#10;创建时间：{{folder.creationTime}}&#10;更新时间：{{folder.lastUpdateTime}}"
+                         ng-repeat="folder in page.folderList" class="icon-my-file-transparent f-left mb_10" ng-click="folderSingleClick(folder)"
+                         ng-class="folder.state?'icon-my-file':''"#*"{'icon-my-file':folder.state}"*#>
+                    <div class="icon-layout-img"></div>
+                         <span class="view-a" ng-show="!hasRename" ng-init="hasRename=false" >
+                    <a class="xn-tab-name"  ng-click="search(folder.id, folder.name)">{{folder.name |substr:5}}<i></i></a></span>
+                    <input ng-show="hasRename" class="form-control xn-input-sm" type="text" name="folderName"
+                           ng-model="folder.name" ng-blur="hasRename=false;renameFolder(folder)">
+                </div>
+                <div ng-show="page.path.length > 0" title="{{file.fileName}}&#10;大小：{{file.file.size | fileSize}}&#10;创建时间：{{file.creationTime}}"
+                     ng-repeat="file in page.fileList" class="icon-my-file f-left mb_10"   ng-dblclick="attachmentViewOpen(file)"
+                     ng-class="file.state?'icon-my-file-1':'icon-my-file-transparent-back'" ng-click="fileSingleClick(file)">
+                    <div class="icon-layout-img {{file.file.extension|diskFileType}}" ng-style=file.newImgUrl ></div>
+						   <span class="view-a" ng-show="!hasRename" ng-init="hasRename=false" ng-mouseenter="isTip=true" ng-mouseleave="isTip=false" >
+							   <a class="xn-tab-name" ng-click="openFile(file.id)">{{file.fileName | substr:5}}<i></i></a>
+						   </span>
+                    <input ng-show="hasRename" class="form-control xn-input-sm" type="text" name="fileName"
+                           ng-model="file.fileName" ng-blur="hasRename=false;renameFile(file)">
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div ng-show="!isShow">
+        <div class="no-message-con">
+            <p class="tc">暂未开放，敬请期待！</p>
+        </div>
+    </div>
+
+</div>
+

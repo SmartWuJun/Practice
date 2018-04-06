@@ -1,0 +1,71 @@
+ <div class="xn-tool-content " >
+         <!--标题-->
+        <div class="xn-form-title mt_20 mb_30">
+            <h3 class="f-left">文件夹</h3>
+        </div>
+        <!--标题-->
+        <!--头信息-->
+        <div class="xn-input-line clearfix">
+            <label class="xn-label">文件夹名称：</label>
+            <div class="xn-input-sm">
+                <input class="form-control" type="text" ng-model="file.newName"  name="name"   xn-input-regex   regex-other="[^\u4e00-\u9fa5\sa-zA-Z0-9_\-]+">
+            </div>
+            <button  ng-if="!file.isNew &&  file.layer!=0" class="btn btn-warning f-left ml_20" ng-click="rename()">重命名</button>
+            <button  ng-if="!file.isNew && file.layer!=0" class="btn btn-danger f-left ml_20" ng-click="delete()">删除</button>
+            <button  ng-if="!file.isNew" class="btn btn-danger f-left ml_20" ng-click="addFolder()">新增文件夹</button>
+            <button  ng-if="!file.isNew" class="btn btn-danger f-left ml_20" ng-click="addFile()">新增文件</button>
+        </div>
+        <div class="xn-input-line clearfix">
+            <label class="xn-label">应用代码：</label>
+            <div class="xn-input-sm">
+                <input class="form-control" type="text" ng-model="setting.setting.applicationCode"  name="applicationCode"   >
+            </div>
+            <div class="tip ml_10">
+                <!-- <i class="icon edit-icon icon-add icon-edit-add icon-add" id="icon-add-hide"></i>-->
+            </div>
+            <label  class="xn-label" >应用名称:</label>
+            <div class="xn-input-sm">
+                <input class="form-control" type="text" ng-model="setting.setting.applicationName"  name="applicationName"   >
+            </div>
+        </div>
+        <div class="xn-input-line clearfix">
+            <label class="xn-label">公司代码：</label>
+            <div class="xn-input-sm">
+                <input class="form-control" type="text" ng-model="setting.setting.companyCode"  name="companyCode"   >
+            </div>
+            <div class="tip ml_10">
+                <!-- <i class="icon edit-icon icon-add icon-edit-add icon-add" id="icon-add-hide"></i>-->
+            </div>
+            <label  class="xn-label" >公司名称:</label>
+            <div class="xn-input-sm">
+                <input class="form-control" type="text" ng-model="setting.setting.companyName"  name="companyName"   >
+            </div>
+        </div>
+        <div class="xn-input-line clearfix">
+            <label class="xn-label">开发者名称：</label>
+            <div class="xn-input-sm">
+                <input class="form-control" type="text" ng-model="setting.setting.developerName"  name="developerName"   >
+            </div>
+            <div class="tip ml_10">
+                <!-- <i class="icon edit-icon icon-add icon-edit-add icon-add" id="icon-add-hide"></i>-->
+            </div>
+            <label  class="xn-label" >表前缀:</label>
+            <div class="xn-input-sm">
+                <input class="form-control" type="text" ng-model="setting.setting.tablePrefix"  name="tablePrefix"   xn-input-regex  regex-first="^[^a-zA-Z]+"  regex-other="[^a-zA-Z0-9_]+"  convert="upper"  >
+            </div>
+        </div>
+
+        <!--头信息-->
+        <div class="clearfix"></div>
+
+        <div class="xn-form-line"></div>
+        <div class="clearfix">
+            <div class="clearfix error-box col-sm-6 mb_20 col-sm-offset-3" ng-show="errors.length>0 ">
+                <div class="alert alert-danger"><i class="glyphicon glyphicon-remove-sign mr_5" ng-click="closeAlert(errors)"></i><span ng-bind="errors"></span></div>
+            </div>
+        </div>
+        <div class="xn_btn_group">
+            <button ng-if="!file.isNew"  class="btn btn-success" ng-click="doSubmit()">保存</button>
+            <button ng-if="file.isNew"  class="btn btn-success" ng-click="doSubmit()">创建</button>
+    </div>
+ </div>

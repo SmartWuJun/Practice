@@ -1,0 +1,72 @@
+
+
+
+
+
+<div   ng-controller="createTenantGroupController"
+       class="class1"  id="div_createTenantGroup" ng-show="eleCreateTenantGroup" ng-init="eleCreateTenantGroup = false"
+
+>
+    <div class="class2">
+        <button  ng-click="eleCreateTenantGroup = false"  class="class4" ></button>
+        <span class="class3">创建企业群</span>
+
+        <div style="height: 1px;background-color: #e0e0e0;width: 100%;top: 50px;position: absolute;"></div>
+        <div style="position: absolute;top: 60px;left: 20px; width: 385px;">
+            <span style="float: left">群成员：</span>
+            <span style="float: right;color: #303030"  >已选{{objectMap | getPropertyLength}}人</span>
+        </div>
+
+        <span style="position: absolute;top: 60px;left: 425px;right:10px;">选择群成员：</span>
+        <div style="border: 1px solid #c0c0c0;position: absolute; left: 10px; top:90px; width: 390px; height: 330px;padding-top: 10px;padding-left: 10px;">
+            <div style="margin-right:5px;margin-bottom:5px;text-align: center;width: auto; height: auto;float: left;border:1px solid #e0e0e0;padding-left: 5px;padding-right: 5px;" ng-repeat="(key,object) in objectMap">
+                <!--添加对象到列表-->
+
+                <a ng-click="objectDeleteClick(object.unionId)" style="font-family:'iconfont' !important;font-size:12px;font-style:normal;-webkit-font-smoothing: antialiased;-webkit-text-stroke-width: 0.2px;-moz-osx-font-smoothing: grayscale;" class="iconfont icon-xntalk-reject"></a>
+                <span ng-if="object.unionId" >{{object.name}}</span>
+            </div>
+
+        </div>
+        <div style="border: 1px solid #c0c0c0;position: absolute; left: 425px; top:90px; right: 10px; height: 405px;padding-top: 10px;">
+            <button style="text-align: center; display: block; width: 100%;border: none;background: none;font-family: 微软雅黑;font-size: 14px;">{{ tenant.name | altName:tenant.nameAlt}}</button>
+
+            <div style="overflow-y:auto;height: 375px;width: 100%">
+                <div style="width: 100%; padding-top: 10px;padding-left: 10px;height: 30px;">
+                    <!--选中组织-->
+                    <a ng-if="!branch" ng-click="tenantSelectClick(tenant)" style="float: left; cursor: default; color: #a0a0a0"  >{{tenant.name | altName:tenant.nameAlt }}</a>
+                    <a ng-if="branch" ng-click="tenantSelectClick(tenant)" style="float: left; cursor: pointer; color: #6EA4D8 "  >{{tenant.name | altName:tenant.nameAlt }}</a>
+
+                    <span ng-show="branch" style="padding-left: 5px;"><span class="icon-xntalk-arrow_right groupMemberAdd_css7" style="padding-right: 5px;"></span>{{branch.name}}</span>
+                </div>
+                <div style="width: 100px;  padding-top: 10px;padding-left: 10px;" >
+                    <input id="isSelectAll" ng-click="selectAllClick(branch)" type="checkbox"  style="border: 1px solid #e0e0e0; background-color: white;"  />全选
+                </div>
+
+                <div ng-repeat="object in objectSearchList track by $index"  ng-click="objectClick(object, $index);"  style="height: 50px;padding-left: 10px;padding-right:10px; border-bottom: 1px solid #e0e0e0;width: 100%;padding-top: 15px;font-size: 14px;cursor: pointer">
+                    <div style="position: relative;width: 30px; height: 30px;display: inline-block"  ng-if="object.unionId">
+                        <img  width="30px" height="30px" style="border-radius: 15px;cursor: pointer" src="{{object.avatar}}" onerror="this.src='images/normal.png'"  />
+                        <em  ng-show="objectMap[object.unionId] != null"  style="padding-top:5px;text-align:center;color:white;position: absolute; background-color: rgba(0,0,0, 0.4);border-radius: 15px;width: 30px;height: 30px;left: 0px; top:0px;font-family:'iconfont' !important;font-size:12px;font-style:normal;-webkit-font-smoothing: antialiased;-webkit-text-stroke-width: 0.2px;-moz-osx-font-smoothing: grayscale;" class="iconfont icon-xntalk-gou"></em>
+                    </div>
+
+                    <span  ng-bind="object.name" ></span>
+                    <span style="font-size:12px;color: #b0b0b0; float: right" ng-if="object.count!= null" ng-bind="object.count+'人'" ></span>
+                </div>
+            </div>
+
+        </div>
+        <div style="position: absolute;left: 10px;bottom: 80px; width: 390px" >
+            <span style="display: block">群名称</span>
+            <input ng-model="groupName" type="text" style="margin-top:10px;width: 100%;height: 35px;border: 1px solid #e0e0e0;padding-left: 10px" placeholder="请输入群名称(必填)" />
+        </div>
+        <!--<div class="mainCommon_css3">-->
+        <!--<img src="{{dataBase64}}" style="max-width: 100%;max-height: 100%;"  />-->
+        <!--</div>-->
+        <!--<div style="position: absolute;top: 280px; width: 100%;text-align: center">-->
+        <!--<div ng-bind="fileName">111.png</div>-->
+        <!--<div ng-bind="fileSize">11.kb</div>-->
+        <!--<button class="mainCommon_css6" ng-click="sendFile()">发送</button>-->
+
+        <!--</div>-->
+        <a ng-click="createClick()"  style="color: {{(objectMap | getPropertyLength) && groupName.length > 0 ?'#6EA4D8 ':'#e0e0e0'}};position: absolute;left: 260px;bottom: 30px;width: 90px;height: 30px;border: 1px solid {{(objectMap | getPropertyLength)  && groupName.length > 0 ?'#6EA4D8 ':'#e0e0e0'}};text-align: center;font-size: 14px;">确认</a>
+    </div>
+</div>

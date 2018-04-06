@@ -1,0 +1,57 @@
+<html lang="en"  ng-app="app">
+<title>Customer Manager</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="description" content="">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+<!-- build:css assets/css/app.css -->
+
+<link rel="stylesheet" href="../dist/styles/global.min.css" />
+<link rel="stylesheet" href="./dist/styles/local.min.css" />
+<link rel="stylesheet" href="./vendor/xn-icon-common/iconfont.css" />
+
+
+<!-- build:js scripts/vendor.js -->
+
+<script src="./vendor/dist/base.min.js"></script>
+
+<script src="vendor/router/angular-ui-router.js"></script>
+<script src="vendor/sortable/angular-sortable-view.js"></script>
+
+<script src="./vendor/dist/global.min.js"></script>
+
+
+<body ng-controller="MainController">
+<div class="xn-tool-header"></div>
+<div class="xn-tool-layout " >
+    <div class="xn-tool-menu"  >
+        <div class="clearfix">
+            <bottom class="btn btn-success select-directory " ng-click="openDirectory()">选择目录</bottom>
+            <bottom class="btn btn-success select-directory " ng-click="saveDialog()">存储路径</bottom>
+            <bottom class="btn btn-success select-directory f-right " ng-click="backMain()">返回</bottom>
+            <bottom class="btn btn-success select-directory f-right " ng-click="exit()">退出</bottom>
+        </div>
+        <div class="menu-tree" ng-controller="AppMenuController">
+            <treecontrol class="tree-classic"  tree-model="xnMenu"
+                         on-selection="showSelected(node,$event)" expanded-nodes="expandedNodes">
+                {{node.name}}
+            </treecontrol>
+        </div>
+    </div>
+    <ul  class="right-menu" ng-class="{'right-menu-open':rightMenu.state}" ng-style="rightMenu.style">
+        <li  ng-if="'folder'==file.type"  ng-click="clickMemu('template')">模板生成</li>
+
+        <!--<li  ng-if="'folder'== file.type" ng-click="clickMemu('addFile')">新增子文件</li>-->
+        <!--<li  ng-if="'folder'== file.type" ng-click="clickMemu('addFile')">新增子文件</li>-->
+        <!--<li ng-click="clickMemu('delete')">删除</li>-->
+    </ul>
+
+    <div class="xn-tool-main">
+        <div class="xn-tool-content "  ui-view  ng-cloak></div>
+    </div>
+</div>
+
+
+<script src="./dist/scripts/local.min.js"></script>
+</body>
+</html>

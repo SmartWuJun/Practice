@@ -1,0 +1,67 @@
+
+<div id="head" >
+    <div class="xn-header"  xn-fixed>
+        <div class="xn-width auto header-top  clearfix">
+            <div class="f-left">$xnI18n.get("common.tip.welcome")$principal.userName@$principal.tenantName</div>
+            <div  header-info-center  icon-base-url="$config.getImgUrl("")"
+                  data-about-url="$homeLink.setTarget('about')"
+                  data-index-url="$homeLink.setTarget('index')"
+                  default-show="defaultShow" user-type="$principal.type"
+                  class="clearfix">
+            </div>
+        </div>
+        <div  ng-mouseleave="cancelNav()">
+            <div id="nav" class="xn-nav"  >
+                <div class="xn-width auto clearfix">
+                    <div class="nav-box clearfix">
+                        <div class="nav-left">
+                            <a  id="logo" class="img-a" href="$config.getEmployeeUrl('index.vm')">
+                                <img class="app-logo" src="$config.getCdnUrl('img/logo/logo.png')" alt="犀牛logo"/>
+                            </a>
+                            <a  class="app-title" href="$tutorialLink.setTarget('index.vm')">
+                                <img class="logo-title"  src="$config.getCdnUrl('img/logo/project/tutorial-title.png')"  height="28" alt="教程">
+                            </a>
+                        </div>
+                        <ul class="nav-list clearfix">
+                            <li class="nav-li" ng-class="{'nav-li-hover':navShow==0 }"  ng-mouseenter="navMouseenter(0)">
+                                <a class="nav-a" href="$tutorialLink.setTarget("department/index")" target="_self">$xnI18n.get("department.meaning")<span class="nav-tri"></span></a>
+                            </li>
+                            <li class="nav-li" ng-class="{'nav-li-hover':navShow==1 }"  ng-mouseenter="navMouseenter(1)">
+                                <a class="nav-a" href="$tutorialLink.setTarget("employee/index")" target="_self">$xnI18n.get("employee.meaning")<span class="nav-tri"></span></a>
+                            </li>
+                            <li class="nav-li" ng-class="{'nav-li-hover':navShow==2 }"  ng-mouseenter="navMouseenter(2)">
+                                <a class="nav-a" href="$tutorialLink.setTarget("leave/index")" target="_self">$xnI18n.get("leave.meaning")<span class="nav-tri"></span></a>
+                            </li>
+                            <li class="nav-li" ng-class="{'nav-li-hover':navShow==3 }"  ng-mouseenter="navMouseenter(3)">
+                                <a class="nav-a" href="$tutorialLink.setTarget("video/index")" target="_self">$xnI18n.get("video.meaning")<span class="nav-tri"></span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+          <!--二级导航，根据需要看是否添加-->
+   #*         <div class="second-nav"  ng-mouseleave="cancelSubNav()">
+                <div class="xn-width auto ">
+                    <!--部门-->
+                    <ul class="second-nav-ul" ng-show="navShow==0">
+                        <li class="second-nav-li" ng-class="{'second-nav-li-active':subNavShow==0}"  ng-mouseenter="subNavShow=0" ><a target="_self"  href="$tutorialLink.setTarget("department/create")">创建</a></li>
+                        <li class="second-nav-li" ng-class="{'second-nav-li-active':subNavShow==1}"  ng-mouseenter="subNavShow=1" ><a target="_self"  href="$tutorialLink.setTarget("department/edit")">编辑</a></li>
+                        <li class="second-nav-li" ng-class="{'second-nav-li-active':subNavShow==2}"  ng-mouseenter="subNavShow=2" ><a target="_self"  href="$tutorialLink.setTarget("department/view")">查看</a></li>
+                    </ul>
+                    <!--员工-->
+                    <ul class="second-nav-ul" ng-show="navShow==1">
+                        <li class="second-nav-li" ng-class="{'second-nav-li-active':subNavShow==0}"  ng-mouseenter="subNavShow=0"><a  target="_self" href="$tutorialLink.setTarget("employee/create")">员工创建</a></li>
+                        <li class="second-nav-li" ng-class="{'second-nav-li-active':subNavShow==1}"  ng-mouseenter="subNavShow=1"><a  target="_self" href="$tutorialLink.setTarget("employee/edit")">员工编辑</a></li>
+                        <li class="second-nav-li" ng-class="{'second-nav-li-active':subNavShow==2}"  ng-mouseenter="subNavShow=2"><a  target="_self" href="$tutorialLink.setTarget("employee/view")">员工查看</a></li>
+                    </ul>
+                    <!--运营管理-->
+                    <ul class="second-nav-ul" ng-show="navShow==2">
+                        <li class="second-nav-li" ng-class="{'second-nav-li-active':subNavShow==0}"  ng-mouseenter="subNavShow=0"><a target="_self"  href="$tutorialLink.setTarget("operateManage/index")">设置</a></li>
+                        <li class="second-nav-li" ng-class="{'second-nav-li-active':subNavShow==1}"  ng-mouseenter="subNavShow=1"><a target="_self"  href="$tutorialLink.setTarget("advertisement/index")">广告维护</a></li>
+                        <li class="second-nav-li" ng-class="{'second-nav-li-active':subNavShow==2}"  ng-mouseenter="subNavShow=2"><a target="_self"  href="$tutorialLink.setTarget("feedback/index")">在线反馈</a></li
+                    </ul>
+                </div>
+            </div>*#
+        </div>
+    </div>
+</div>

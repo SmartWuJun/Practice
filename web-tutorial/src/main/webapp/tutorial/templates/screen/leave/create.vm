@@ -1,0 +1,6 @@
+#if(true)
+        $control.setTemplate("tutorial:leave/create.vm")
+    #else
+        $control.setTemplate("home:noauthority.vm")
+#end
+

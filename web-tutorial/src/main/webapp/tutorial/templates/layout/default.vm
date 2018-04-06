@@ -1,0 +1,94 @@
+<!DOCTYPE html >
+<html lang="zh-CN">
+<head>
+    #showTitle("教程官网")
+    <meta charset="utf-8">
+#*    <meta http-equiv="Expires" CONTENT="0">
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Cache-Control" CONTENT="no-store">
+    <meta http-equiv="Pragma" content="no-cache">*#
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    #*引用公共的样式 *#
+    <link rel="Shortcut Icon"  href="$config.getCdnUrl('img/favicon.ico')" type="image/x-icon">      #*图标*#
+    <link rel="stylesheet" href="$config.getCdnUrl('css/xn-bootstrap/1.0.2/bootstrap.min.css')" >   #*bootstrap样式*#
+    <link rel="stylesheet" href="$config.getCdnUrl("css/xn-global/1.0.1/xn-global.min.css")"  />      #*公共cdn样式*#
+
+    <link rel="stylesheet" href="$config.getCdnUrl('font/xn-icon-common/2.0.7/iconfont.min.css')" /> #*公共字体库*#
+
+    #*引用组件的样式*#
+    <link rel="stylesheet" href="$config.getCdnUrl('js/xn-common/1.1.7/style.min.css')" />   #*公共组件样式*#
+    <link rel="stylesheet" href="$config.getCdnUrl('js/xn-top/1.0.3/style.min.css')" />   #*灯塔样式*#
+    <link rel="stylesheet" href="$config.getCdnUrl('js/xn-loading/0.0.2/style.min.css')" />   #*加载中*#
+
+    <link rel="stylesheet" href="$config.getCdnUrl('js/xn-select/1.1.7/style.min.css')" />   #*选择*#
+    <link rel="stylesheet" href="$config.getCdnUrl('js/xn-attachment/1.3.3/style.min.css')" />   #*附件*#
+   <link rel="stylesheet" href="$config.getCdnUrl('js/xn-approval/1.2.1/style.min.css')" />  #*审批*#
+
+   <link rel="stylesheet" href="$config.getCdnUrl('js/xn-import/1.2.1/style.min.css')" />  #*审批*#
+
+##
+##    <link rel="stylesheet" href="$tutorialContent.getURI('vendor/style.css')" />   #*审批*#
+    <link rel="stylesheet" href="$config.getCdnUrl('js/xn-add/1.0.4/style.min.css')" />   #*添加*#
+    <link rel="stylesheet" href="$config.getCdnUrl('js/ng-img-crop/0.3.2/ng-img-crop.min.css')" />   #*头像剪切*#
+
+    #*本地css*#
+    <link rel="stylesheet" href="$tutorialContent.getURI('dist/styles/local.min.css')" />   #*灯塔样式*#
+
+    #*公共js*#
+    #*base 包含jquery.js、angularjs、ui.bootstrap、browser、method.js、underscore.js*#
+    <script  type="text/javascript" src="$config.getCdnUrl('js/base/1.2.0/base.min.js')" ></script>
+    <script  type="text/javascript" src="/tutorial/scripts/i18n.js" ></script>
+</head>
+<body ng-controller="BodyController" >
+    <div id="loadingInit"  class="xn-loading-img" ng-if="global.loadingInit"></div>
+    #*进度条*#
+    <div xn-nprogress></div>
+    $control.setTemplate("tutorial:header")
+    $screen_placeholder
+    $control.setTemplate("tutorial:footer")
+</body>
+#*xn-common 包含公共指令xn-directive-common、过滤器xn-filter-common、服务方法 xn-service-common*#
+<script  type="text/javascript" src="$config.getCdnUrl('js/xn-common/1.1.7/commons.min.js')" ></script>
+#*灯塔、表单*#
+<script  type="text/javascript" src="$config.getCdnUrl('js/xn-top/1.0.3/top.min.js')" ></script>
+<script  type="text/javascript" src="$config.getCdnUrl('js/xn-form/1.0.5/forms.min.js')" ></script>
+<!--xn-loading -->
+<script  type="text/javascript" src="$config.getCdnUrl('js/xn-loading/0.0.2/nprogress.js')" ></script>
+<script  type="text/javascript" src="$config.getCdnUrl('js/xn-loading/0.0.2/loading.js')" ></script>
+<!--xn-select -->
+<script  type="text/javascript" src="$config.getCdnUrl('js/xn-select/1.1.7/selects.min.js')" ></script>
+<script  type="text/javascript" src="$config.getCdnUrl('js/xn-attachment/1.3.3/attachments.min.js')" ></script><!--xn-attachment -->
+<!--xn-import -->
+<script  type="text/javascript" src="$config.getCdnUrl('js/xn-import/1.2.1/imports.min.js')" ></script>
+
+
+<script  type="text/javascript" src="$config.getCdnUrl('js/xn-approval/1.2.1/approval.min.js')" ></script><!---xn-approval-->
+  #*<script  type="text/javascript" src="$tutorialContent.getURI('vendor/approval.js')" ></script>/*#
+
+<script  type="text/javascript" src="$config.getCdnUrl('js/xn-add/1.0.4/add.min.js')" ></script>  <!---人员添加-->
+<!--ng-img-crop 图片剪切 -->
+<script  type="text/javascript" src="$config.getCdnUrl('js/ng-img-crop/0.3.2/ng-img-crop.min.js')" ></script>
+
+
+<script  type="text/javascript" src="$config.getCdnUrl('js/xn-sortable/1.0.0/jquery-ui.js')" ></script>
+<script  type="text/javascript" src="$config.getCdnUrl('js/xn-sortable/1.0.0/sortable.min.js')" ></script>
+#*本地文件引用*#
+<script  type="text/javascript" src="$tutorialContent.getURI('dist/scripts/local.min.js')" ></script>
+
+<script type="text/javascript">
+    var xnConfig = {
+        wwwUrl: "$config.getWwwUrl("")",
+        employeeUrl: "$config.getEmployeeUrl("")",
+        authUrl: "$config.getAuthUrl("")",
+        serviceUrl: "$config.getServiceUrl("")",
+        myUrl: "$config.getMyUrl("")",
+        helpUrl: "https://site.xiniunet.com/"
+    };
+    /*ng-app的运用*/
+    angular.element(document).ready(function () {
+        initApp();
+        angular.bootstrap(document.body, ['xn']);
+    });
+</script>
+</html>

@@ -1,0 +1,201 @@
+.xn-app-chat-body{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  .chat-panel{
+    float: left;
+    height: 100%;
+    width: 300px;
+    display: flex;
+    display: -webkit-flex; /* Safari */
+    flex-direction:column;  /*垂直排版*/
+  }
+  .chat-main{
+     height: 100%;
+    overflow: hidden;
+    background: #f3f3f3;
+  }
+}
+
+.chat-panel{
+  .chat-search{
+    width: 100%;
+    padding: 10px;
+    border-bottom: 1px solid #dcdcdc;
+    .name-input{
+      box-shadow: none;
+      background: #eeeeee;
+      border: 1px solid #dcdcdc;
+      border-radius: 4px;
+      width: 100%;
+      height: 30px;
+      padding: 5px 8px;
+      line-height: 25px;
+    }
+  }
+  .m-devices{
+    padding: 0 15px;
+    height: 35px;
+    width: 100%;
+    line-height: 35px;
+    background: #e5f4ff;
+    border-bottom:1px solid #dcdcdc ;
+  }
+  .chat-menu{
+    width: 100%;
+    height: 40px;
+    border-bottom: 1px solid #ced4d9;
+    .panel_tab {
+      position: relative;
+      display: inline-block;
+      float: left;
+      width: 33.3%;
+      margin: 9px 0;
+      text-align: center;
+      cursor: pointer;
+      .yx-icon {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        background-image: url(./images/icons.png);
+        background-repeat: no-repeat;
+        vertical-align: middle;
+      }
+      .icon-chat{
+        background-position:-35px 0;
+      }
+      .main_icon-list{
+        background-position:-35px -25px;
+      }
+      .icon-team{
+        background-position:-35px -50px;
+      }
+    }
+    .cur{
+      .icon-chat{
+        background-position:0 0;
+      }
+      .main_icon-list{
+        background-position:0 -25px;
+      }
+      .icon-team{
+        background-position:0 -50px;
+      }
+    }
+    .u-unread{
+      position: absolute;
+      top: 0;
+      left: 55px;
+      font-size: 12px;
+      display: block;
+      background-color: #f24c3d;
+      text-align: center;
+      line-height: 16px;
+      height: 16px;
+      padding: 0 5px;
+      color: #fff;
+      border-radius: 10px;
+    }
+  }
+  .chat-panel-list{
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    .chat-list{
+      width: 100%;
+      height: 100%;
+      overflow-y: auto;
+      .chat-item{
+        border-bottom: 1px solid #e6e6e6;
+        overflow: hidden;
+        height: 80px;
+        padding: 15px 10px;
+        box-sizing: border-box;
+        cursor: pointer;
+        .panel_avatar{
+          float: left;
+          margin-right: 20px;
+          position: relative;
+          .count-msg{
+            position: absolute;
+            top: -5px;
+            left: 40px;
+            font-size: 12px;
+            display: block;
+            background-color: #f24c3d;
+            text-align: center;
+            line-height: 16px;
+            height: 16px;
+            padding: 0 5px;
+            color: #fff;
+            border-radius: 10px;
+          }
+          .avatar{
+            width: 50px;
+            height: 50px;
+            border-radius: 4px;
+            vertical-align: top;
+            border-radius: 4px;
+          }
+
+
+        }
+        .panel-r{
+          float: right;
+          margin-left: 5px;
+          .panel-text{
+            line-height: 25px;
+            height: 25px;
+            font-size: 12px;
+            color: #999;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+          .panel-disturb{
+            color: #dadada;
+            float: right;
+            font-size: 12px;
+          }
+        }
+        .panel_content{
+          position: relative;
+          height: 100%;
+          overflow: hidden;
+          .panel-single-row{
+            height: 50px;
+            line-height: 50px;
+            color: #666;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+          .panel_nick{
+            color: #666;
+            font-size: 16px;
+            line-height: 30px;
+            height: 30px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+          .panel-text{
+            line-height: 20px;
+            height: 20px;
+            font-size: 12px;
+            color: #999;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+        }
+      }
+      .chat-item-active{
+        background: #e7e7e7;
+      }
+      .chat-category{
+        padding: 0 10px;
+        line-height: 34px;
+        height: 34px;
+        border-bottom: 1px solid #dcdcdc;
+      }
+    }
+  }
+}

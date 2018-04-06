@@ -1,0 +1,92 @@
+
+@font-face {font-family: "iconfonttalk";
+  src: url('font/iconfont.eot?t=1468999472'); /* IE9*/
+  src: url('font/iconfont.eot?t=1468999472#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('font/iconfont.woff?t=1468999472') format('woff'), /* chrome, firefox */
+  url('font/iconfont.ttf?t=1468999472') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('font/iconfont.svg?t=1468999472#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.xn-icon-talk {
+  font-family:"iconfonttalk" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+.icon-wenjianjia:before { content: "\e7a0"; }
+
+.icon-shouji:before { content: "\e64b"; }
+
+.icon-guanbi:before { content: "\e826"; }
+
+.icon-zuixiaohua:before { content: "\e827"; }
+
+.icon-zuidahua:before { content: "\e828"; }
+
+.icon-gerenziliao:before { content: "\e829"; }
+
+.icon-faxian-:before { content: "\e82a"; }
+
+.icon-biaoqing:before { content: "\e82b"; }
+
+.icon-faxian-1:before { content: "\e82c"; }
+
+.icon-bianji:before { content: "\e82d"; }
+
+.icon-jieping:before { content: "\e82e"; }
+
+.icon-renwu-2:before { content: "\e82f"; }
+
+.icon-renwu-1:before { content: "\e830"; }
+
+.icon-jingyanfenxiang:before { content: "\e831"; }
+
+.icon-lianxiren-:before { content: "\e832"; }
+
+.icon-shanchu:before { content: "\e833"; }
+
+.icon-lianxiren-1:before { content: "\e834"; }
+
+.icon-miaodarao:before { content: "\e835"; }
+
+.icon-sousuo:before { content: "\e836"; }
+
+.icon-tongxunlu-:before { content: "\e837"; }
+
+.icon-xiafanye:before { content: "\e838"; }
+
+.icon-tongxunlu-1:before { content: "\e839"; }
+
+.icon-xiaoxi-:before { content: "\e83a"; }
+
+.icon-xiaoxi-1:before { content: "\e83b"; }
+
+.icon-wenjian:before { content: "\e83c"; }
+
+.icon-yingyong-:before { content: "\e83d"; }
+
+.icon-yingyong-1:before { content: "\e83e"; }
+
+.icon-yunpan-:before { content: "\e83f"; }
+
+.icon-yejietongtai:before { content: "\e840"; }
+
+.icon-yunpan-1:before { content: "\e841"; }
+
+.icon-xiniudongtai1:before { content: "\e842"; }
+
+.icon-yunpan:before { content: "\e843"; }
+
+.icon-zuijinlianxiren-:before { content: "\e844"; }
+
+.icon-zuijinlianxiren-1:before { content: "\e845"; }
+
+.icon-zhengjia:before { content: "\e846"; }
+
+.icon-zhidugonggao:before { content: "\e847"; }
+
+.icon-gengduo:before { content: "\e848"; }
+
