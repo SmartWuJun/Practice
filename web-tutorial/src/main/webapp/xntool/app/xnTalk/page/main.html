@@ -1,0 +1,116 @@
+
+<!DOCTYPE html  >
+<html lang="zh-CN" >
+<head>
+	<title>犀牛</title>
+	<meta charset="utf-8">
+	<meta http-equiv="Expires" CONTENT="0">
+	<meta http-equiv="Cache-Control" CONTENT="no-cache">
+	<meta http-equiv="Cache-Control" CONTENT="no-store">
+	<meta http-equiv="Pragma" content="no-cache">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" >
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="犀牛">
+	<meta name="author" content="犀牛网络">
+	<!-- 请特别注意引用的顺序和JQuery的版本-->
+	<link rel="icon"		  href="../../images/icon.ico" type="image/x-icon"/>
+
+	<link rel="stylesheet" type="text/css" href="../../dist/styles/global.min.css"/>
+
+	<link rel="stylesheet" type="text/css" href="../dist/styles/local.min.css"/>
+
+	<link rel="stylesheet" href="../vender/xn-icon-common/iconfont.css"/>
+	<link rel="stylesheet" href="../vender/xn-icon-talk/iconfonttalk.css"/>
+
+    <style>
+        ::-webkit-scrollbar{width:4px;}
+    </style>
+	<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+	<script type="text/javascript" src="../../vender/base/base.min.js"></script>
+	<script>if (window.module) module = window.module;</script>
+	<script type="text/javascript" src="../../vender/angular/angular-animate.js"></script>
+	<script type="text/javascript" src="../../vender/angular/angular-ui-router.js"></script>
+	<script type="text/javascript" src="../../vender/md5/md5.js"></script>
+	<script type="text/javascript" src="../../dist/scripts/global.min.js"></script>
+</head>
+
+<body  class="main-body" ng-controller="BodyController" ng-cloak >
+	<div class="xn-main-top xn-drag clearfix">
+		<!--mac关闭关闭-->
+		<div class="operating-darwin-layout xn-no-drag clearfix"  ng-if="global.platform=='darwin'|| global.platform=='linux'">
+			<!--关闭-->
+			<div class="operating" ng-click="xnTalkClose()"></div>
+			<!--最小化-->
+			<div class="operating" ng-click="xnTalkMinimizable()"></div>
+			<!--最大化-->
+			<div class="operating"  ng-click="xnTalkMaximize()"></div>
+		</div>
+		<!--win logo-->
+		<div  class="talk-logo clearfix" ng-if="global.platform=='win32'">
+			<img class="logo" ng-src="" src="../images/base/logo.png">
+		</div>
+		<div class="operating-win-layout xn-no-drag clearfix"  ng-if="global.platform=='win32'">
+			<!--关闭-->
+			<div class="operating" ng-click="xnTalkClose()"><i class="xn-icon-talk icon-guanbi"></i></div>
+			<!--最大化-->
+			<div class="operating"  ng-click="xnTalkMaximize()"><i class="xn-icon-talk icon-zuidahua"></i></div>
+			<!--最小化-->
+			<div class="operating" ng-click="xnTalkMinimizable()"><i class="xn-icon-talk icon-zuixiaohua"></i></div>
+		</div>
+	</div>
+	<div class="xn-main-body xn-no-drag clearfix">
+		<div class="xn-nav-main xn-drag">
+			<div class="user-layout xn-no-drag clearfix">
+				<div class="user-avatar" ng-click="showPersonCard()">
+					<img class="img" ng-src="">
+				</div>
+			</div>
+			<ul class="xn-app-nav xn-no-drag clearfix">
+				<li class="app-nav" ng-class="{'app-nav-active':global.nav=='1'}"  ng-click="tabNav(1)" ui-sref="chat"><i class="xn-icon-talk icon-xiaoxi-1"></i></li>
+				<li class="app-nav" ng-class="{'app-nav-active':global.nav=='2'}"  ng-click="tabNav(2)" ui-sref="index"><i class="xn-icon-talk icon-faxian-1"></i></li>
+				<li class="app-nav" ng-class="{'app-nav-active':global.nav=='3'}"  ng-click="tabNav(3)" ui-sref="application"><i class="xn-icon-talk icon-yingyong-1"></i></li>
+				<li class="app-nav" ng-class="{'app-nav-active':global.nav=='4'}"  ng-click="tabNav(4)" ui-sref="application"><i class="xn-icon-talk icon-renwu-1"></i></li>
+				<li class="app-nav" ng-class="{'app-nav-active':global.nav=='5'}"  ng-click="tabNav(5)" ui-sref="pan"><i class="xn-icon-talk icon-yunpan"></i></li>
+			</ul>
+			<div class="xn-setting-layout xn-no-drag clearfix">
+				<div class="setting-btn" ng-click="showInfo(true)" ><i class="xn-icon-talk icon-gengduo"></i></div>
+			</div>
+		</div>
+		<div class="xn-main-view"  ui-view  ng-cloak></div>
+	</div>
+
+	<!--显示版本信息-->
+	<div class="xn-info-pop" ng-if="global.showInfo">
+		<div class="info-pop">
+			<div class="pop-close f-right" ng-click="showInfo(false)"><i class="xn-icon-talk icon-guanbi"></i></div>
+			<div class="info-title">系统信息</div>
+			<div class="xn-input-line clearfix">
+				<div class="xn-col-md-6 xn-text-right">名称：</div>
+				<div class="xn-col-md-18" ng-bind="global.appInfo.name"></div>
+			</div>
+			<div class="xn-input-line clearfix">
+				<div class="xn-col-md-6 xn-text-right">版本：</div>
+				<div class="xn-col-md-18" ng-bind="global.appInfo.version"></div>
+			</div>
+			<div class="xn-input-line clearfix">
+				<div class="xn-col-md-6 xn-text-right">说明：</div>
+				<div class="xn-col-md-18" ng-bind="global.appInfo.description"></div>
+			</div>
+			<div class="xn-input-line clearfix">
+				<div class="xn-col-md-6 xn-text-right">技术支持：</div>
+				<div class="xn-col-md-18" ng-bind="global.appInfo.author"></div>
+			</div>
+		</div>
+
+	</div>
+
+<script type="text/javascript" src="../dist/scripts/local.min.js"></script>
+
+<script type="text/javascript">
+	angular.element(document).ready(function() {
+		angular.bootstrap(document.body, ['myApp']);
+	});
+</script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .menu {
+    float: left;
+    width: 200px;
+    color:  #FFF;
+}
+.content {
+    border-left:  200px solid #40403b;/*这里是主要的样式*/
+    padding: 20px;
+    height: 1000px; /* 这里代表内容区域 */
+}
+
+a {
+    position: relative;
+    display: inline-block;
+    padding: 30px 20px;
+    color: #a7a7a7;
+    border: 1px solid;
+}
+a:hover {
+    color: #249ff1;
+}
+a:before,a:after {
+    content: '';
+    display: block;
+}
+a:after {
+    border-top: 2px solid;
+    width: 20px;
+}
+a:before {
+    position: absolute;
+    top:  20px;
+    left:  29px;
+    border-left: 2px solid;
+    height: 20px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="menu">
+        <ul>
+            <li>首页</li>
+            <li>商品管理</li>
+            <li>营销中心</li>
+            <li>会员管理</li>
+            <li>系统设置</li>
+        </ul>
+    </div>
+    <div class="content">这里是内容区域</div>
+
+    <a href=""></a>
+    
+</body>
+</html>

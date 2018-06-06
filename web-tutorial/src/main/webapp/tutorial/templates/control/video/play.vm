@@ -1,0 +1,48 @@
+$page.setTitle("视频播放")
+<link rel="stylesheet" href="http://g.alicdn.com/de/prismplayer/1.5.5/skins/default/index.css" />
+<!--主体部分-->
+<div class="xn-main  xn-width auto clearfix" ng-controller="VideoPlayController" >
+
+    <!--面包屑-->
+    <div class=" xn-breadcrumb clearfix">
+        <ul class="breadcrumb xn-col-md-12">
+            <li><a href="$tutorialLink.setTarget("index")">首页</a></li>
+            <li><a href="$tutorialLink.setTarget("video/index")">视频</a></li>
+            <li class="active">播放</li>
+        </ul>
+        <ul class="xn-col-md-12 mt-10 xn-lh">
+            <li class="operation-li f-right" ><a class="operation-a" href="$tutorialLink.setTarget("video/index")"><i class="icon icon-return"></i>返回</a></li>
+        </ul>
+    </div>
+
+    <!--主体部分-->
+    <div class="xn-edit-layout xn-view-layout">
+        <div class="edit-title line">
+            <div class="title-name">${title}</div>
+        </div>
+        <div class="edit-body xn-lh pt-15">
+            <div class="prism-player" id="J_prismPlayer">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="http://g.alicdn.com/de/prismplayer/1.5.5/prism-flash-min.js"></script>
+<script>
+    var player = new prismplayer({
+        id: 'J_prismPlayer',
+        width: '100%',
+        height: '540px',
+        barMode: 0,
+        vid: "${vid}",
+        autoplay: true,
+        playsinline: true,
+        acId: "${acId}",
+        acKey: "${acKey}",
+        stsToken: "${stsToken}",
+        domainRegion: "${region}",
+        authInfo: #noescape()${authInfo}#end,
+        source : "${source}"
+    });
+</script>
+<script src="$tutorialContent.getURI('dist/scripts/page/video.js')" ></script>

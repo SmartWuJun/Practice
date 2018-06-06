@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+    <meta name="viewport" content="width=640,target-densitydpi=device-dpi,user-scalable=no" />
+
+    <style>
+        
+
+        .none {
+            display: none;
+        }
+
+        .clearfix:before,
+        .clearfix:after {
+            content: '';
+            display: table;
+        }
+
+        .clearfix:after {
+            clear: both;
+        }
+        .m-product{
+            float: left;
+            padding: 0 10px;
+        }
+        .m-img{
+            width: 210px;
+            height: 260px;
+        }
+        .micon-img{
+            width: 32px;
+            height: 32px;
+            display: inline-block;
+            background: url('../imgs/photo.png') no-repeat;
+            background-size: contain;
+            vertical-align: middle;
+
+        }
+        .mtxt{
+            font-size: 16px;
+            color: #333;
+            vertical-align: middle;
+        }
+        
+        .module-head{
+            border-bottom: 3px solid #448bb5;
+            padding: 10px 0;
+        }
+        .module-body{
+            padding: 6px 0;
+        }
+        .m-product+.m-product:before{
+            content: "";
+            /* border-left: 1px solid #ddd; */
+            width: 1px;
+            height: 200px;
+            background: #f0eced;
+            display: inline-block;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="m082 module-block">
+        <div class="module-head">
+            <div class="micon-img"></div>
+            <span class="mtxt">热销产品</span>
+        </div>
+        <div class="module-body clearfix">
+            <div class="m-product">
+                <img class="m-img" src="../imgs/photo.png" alt="">
+            </div>
+            <div class="m-product">
+                <img class="m-img" src="../imgs/photo.png" alt="">
+            </div>
+            <div class="m-product">
+                <img class="m-img" src="../imgs/photo.png" alt="">
+            </div>
+            <div class="m-product">
+                <img class="m-img" src="../imgs/photo.png" alt="">
+            </div>
+            <div class="m-product">
+                <img class="m-img" src="../imgs/photo.png" alt="">
+            </div>
+        </div>
+    </div>
+
+
+    <script type="text/javascript" src="//file.40017.cn/dujia/cn/v/dujia/modules/jquery_1e357de.js"></script>
+
+</body>
+
+</html>

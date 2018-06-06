@@ -2,6 +2,7 @@ package com.xiniunet.tutorial.filter;
 
 import com.alibaba.dubbo.common.utils.StringUtils;
 import com.alibaba.fastjson.JSON;
+import com.xiniunet.framework.constant.LanguageEnum;
 import com.xiniunet.framework.security.Passport;
 import com.xiniunet.framework.util.auth.ExtUser;
 import com.xiniunet.framework.util.auth.LocalData;
@@ -21,11 +22,11 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import javax.servlet.*;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,6 +52,7 @@ public class Authorizations implements Filter {
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+        LocalData.setCurrentPassport(null);
         /* 获取要访问的路径 */
         HttpServletRequest hsr = (HttpServletRequest) request;
         String path = hsr.getRequestURI().replace("//", "/");        //格式为:  /system/role/create.htm
@@ -64,34 +66,60 @@ public class Authorizations implements Filter {
             }
         }
 
-        // 来自微信的验证请求 文件名： MP_verify_{{abc}}.txt  内容： abc
-        // by 吕浩 2016-11-02 整合服务迁移至该工程时添加，仅该工程需要此逻辑
-        if(path.startsWith("/MP_verify_") && path.endsWith(".txt")) {
-            String code = path.replace("/MP_verify_", "").replace(".txt", "");
-            // 设置content type，但不需要设置charset，框架会设置正确的charset。
-            response.setContentType("text/plain");
-            PrintWriter out = response.getWriter();
-            out.println(code);
-            return;
-        }
-
-        if(path.equals("/wechat/url.do") || path.equals("/wechat/action.do") || path.equals("/wechat/jump.do") || path.equals("/wechat/warn.htm")) {
+        if(path.startsWith("/workflow/") && path.contains(".do")) {
             chain.doFilter(request, response);
             return;
         }
 
-        Long passportId = Long.parseLong(SSOHelper.attrToken(hsr).getUid());        // 通过Token获取Passport的ID
+        // 通过Token获取Passport的ID
+        Long passportId = Long.parseLong(SSOHelper.attrToken(hsr).getUid());
         PassportGetRequest passportGetRequest = new PassportGetRequest();
         passportGetRequest.setId(passportId);
         PassportGetResponse passportGetResponse = securityService.getPassport(passportGetRequest);
 
         Passport passport = passportGetResponse.getPassport();
+
+        // 判断语言
+        LanguageEnum language = null;
+        // 优先读取URL中的语言
+        if(request.getParameter("lang") != null) {
+            try{
+                language = LanguageEnum.valueOf(request.getParameter("lang").toUpperCase());
+            } catch(Exception e) {
+
+            }
+        }
+        // 如果URL中没有语言，尝试从Cookie中读取
+        if(language == null) {
+            Cookie[] cookies = ((HttpServletRequest) request).getCookies();
+            for(Cookie cookie : cookies) {
+                if(cookie.getName().equals("FOREIGN_LANGUAGE")) {
+                    try {
+                        language = LanguageEnum.valueOf(cookie.getValue().toUpperCase());
+                    } catch(Exception e) {
+                    }
+                }
+            }
+        }
+        // 如果Cookie中也没有，则设置为默认语言 TODO 默认语言应该根据用户的区域来获取
+        if(language == null) {
+            language = LanguageEnum.ZH_CN;
+        }
+        // 将当前语言保存至Cookie中
+        Cookie cookie = new Cookie("FOREIGN_LANGUAGE", language.name());
+        cookie.setPath("/");
+        cookie.setMaxAge(3600 * 24 * 365);  // Cookie保留一年
+        ((HttpServletResponse)response).addCookie(cookie);
+
         if(passport == null || passport.getRevokeType() != null
                 || passport.getExpireTime().getTime() < System.currentTimeMillis()) {
             // 注销单点登录
             SSOHelper.clearRedirectLogin(hsr, (HttpServletResponse) response);
             return;
         }
+
+        // 设置语言
+        passport.setLanguage(language);
         ExtUser extUser = JSON.parseObject(JSON.toJSONString(passport), ExtUser.class);
         extUser.setPassportId(passportId);
 

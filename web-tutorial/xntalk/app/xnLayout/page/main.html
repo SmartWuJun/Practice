@@ -1,0 +1,115 @@
+
+<!DOCTYPE html  >
+<html lang="zh-CN" >
+<head>
+	<title>犀牛</title>
+	<meta charset="utf-8">
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Expires" content="0">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" >
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="犀牛">
+	<meta name="author" content="犀牛网络">
+	<!-- 请特别注意引用的顺序和JQuery的版本-->
+	<link rel="icon"		  href="../../images/icon.ico" type="image/x-icon"/>
+
+	<link rel="stylesheet" type="text/css" href="../../dist/styles/global.min.css"/>
+	<link rel="stylesheet" type="text/css" href="../dist/styles/local.min.css"/>
+	<link rel="stylesheet" href="../vender/xn-icon-common/iconfont.css"/>
+	<link rel="stylesheet" href="../vender/xn-icon-talk/iconfonttalk.css"/>
+
+
+	<style>
+		::-webkit-scrollbar{width:4px;}
+	</style>
+
+
+	<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+	<script type="text/javascript" src="../../vender/base/base.min.js"></script>
+	<script>if (window.module) module = window.module;</script>
+	<script type="text/javascript" src="../../vender/angular/angular-animate.js"></script>
+	<script type="text/javascript" src="../../vender/angular/angular-ui-router.js"></script>
+	<script type="text/javascript" src="../../vender/md5/md5.js"></script>
+	<script type="text/javascript" src="../../dist/scripts/global.min.js"></script>
+</head>
+
+<body  class="main-body"  >
+	<div class="xn-main-top xn-drag clearfix">
+
+		<div class="operating-darwin-layout xn-no-drag clearfix  none"  >
+			<!--关闭-->
+			<div class="operating xnGlobalOperating" data-operating="close"></div>
+			<!--最小化-->
+			<div class="operating xnGlobalOperating" data-operating="maximize"></div>
+			<!--最大化-->
+			<div class="operating xnGlobalOperating"  data-operating="minimizable"></div>
+		</div>
+		<!--win logo-->
+		<div  class="talk-logo clearfix none" >
+			<img class="logo" ng-src="" src="../images/base/logo.png">
+		</div>
+		<div class="operating-win-layout xn-no-drag clearfix none"  >
+			<!--关闭-->
+			<div class="operating xnGlobalOperating" data-operating="close"><i class="xn-icon-talk icon-guanbi"></i></div>
+			<!--最大化-->
+			<div class="operating xnGlobalOperating" data-operating="maximize" ><i class="xn-icon-talk icon-zuidahua"></i></div>
+			<!--最小化-->
+			<div class="operating xnGlobalOperating" data-operating="minimizable" ><i class="xn-icon-talk icon-zuixiaohua"></i></div>
+		</div>
+
+	</div>
+	<div class="xn-main-body xn-no-drag clearfix">
+		<div class="xn-nav-main xn-drag">
+			<div class="user-layout xn-no-drag clearfix">
+				<div class="user-avatar" >
+					<img id="avatarUrl" class="img" >
+				</div>
+			</div>
+			<ul class="xn-app-nav xn-no-drag clearfix">
+				<li class="app-nav"  data-href="xnChat"  ><i class="xn-icon-talk icon-xiaoxi-1"></i></li>
+				<li class="app-nav"  data-href="xnMain"  ><i class="xn-icon-talk icon-faxian-1"></i></li>
+				<!--<li class="app-nav"  data-href="xnChat"  ><i class="xn-icon-talk icon-yingyong-1"></i></li>-->
+
+				<li class="app-nav"  data-href="xnPan"  ><i class="xn-icon-talk icon-yunpan"></i></li>
+				<li class="app-nav"  data-href="xnTool"  ><i class="xn-icon-talk icon-renwu-1"></i></li>
+			</ul>
+			<div class="xn-setting-layout xn-no-drag clearfix">
+				<div class="setting-btn xnGlobalInfo" data-info="open"><i class="xn-icon-talk icon-gengduo"></i></div>
+			</div>
+		</div>
+		<div class="xn-main-view" id="main-view"></div>
+	</div>
+
+
+	<!--显示版本信息-->
+	<div class="xn-info-pop none " id="xnGlobalInfo" >
+		<div class="info-pop">
+			<div class="pop-close f-right xnGlobalInfo" data-info="close"><i class="xn-icon-talk icon-guanbi"></i></div>
+			<div class="info-title">系统信息</div>
+			<div class="xn-input-line clearfix">
+				<div class="xn-col-md-6 xn-text-right">名称：</div>
+				<div class="xn-col-md-18 name" ></div>
+			</div>
+			<div class="xn-input-line clearfix">
+				<div class="xn-col-md-6 xn-text-right">版本：</div>
+				<div class="xn-col-md-18 version" ></div>
+			</div>
+			<div class="xn-input-line clearfix">
+				<div class="xn-col-md-6 xn-text-right">说明：</div>
+				<div class="xn-col-md-18 description" ></div>
+			</div>
+			<div class="xn-input-line clearfix">
+				<div class="xn-col-md-6 xn-text-right">技术支持：</div>
+				<div class="xn-col-md-18 author"></div>
+			</div>
+		</div>
+
+	</div>
+
+
+	<script type="text/javascript" src="../scripts/xn-layout-service.js"></script>
+	<script type="text/javascript" src="../scripts/layout.js"></script>
+</body>
+</html>

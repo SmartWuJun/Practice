@@ -3,20 +3,24 @@ var gulpLoadPlugins = require("gulp-load-plugins");
 var plugins = gulpLoadPlugins();
 var cleanCss = require('gulp-clean-css');
 var browserSync = require('browser-sync');
+var paths = require('gulp-watch-path');
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////版本
 //版本
 
 
 var demoName="tutorial";
 
-var xnStyleCommonVersion="2.2.9";
+var xnStyleCommonVersion="2.2.12";
 
 
 //压缩本地的js文件路径 build-local-js
 var buildLocalFiles=[
         "./scripts/"+demoName+".js",
         "./scripts/xn-"+demoName+"-filter.js",
-        "./scripts/xn-"+demoName+"-service.js"
+        "./scripts/xn-"+demoName+"-service.js",
+        "./node_modules/angular-translate/dist/angular-translate.js",
+        "./node_modules/angular-translate-loader-static-files/angular-translate-loader-static-files.js"
 ];
 
 //压缩本地的js文件路径 buildPageFiles
@@ -100,7 +104,7 @@ var copyFontFiles=[
     gulp.task("build-local-js",["clean-local-js"],function() {
         gulp.src(buildLocalFiles)
             .pipe(plugins.concat("local.src.js"))
-           /* .pipe(plugins.uglify())*/
+            // .pipe(plugins.uglify())
             .pipe(plugins.rename("local.min.js"))
             .pipe(gulp.dest("./dist/scripts/"));
     });
@@ -109,23 +113,28 @@ var copyFontFiles=[
     gulp.task("build-page-js",function() {
         gulp.src(buildPageFiles)
         /*    .pipe(plugins.uglify())*/
-            .pipe(gulp.dest("./dist/scripts/"));
+            .pipe(gulp.dest("./dist/scripts/page/"));
     });
 
+    /*本地文件改变*/
+    function changePageJs(event){
+        var path= paths(event,'scripts/controllers/','dist/scripts/page/', 'node');
+        console.log(path)
+        gulp.src(path.srcPath)
+            // .pipe( plugins.uglify())
+            .pipe(gulp.dest(path.distDir))
+    };
+
     gulp.task("watch", function() {
-       // gulp.watch("scripts/*.js",["lint",browserSync.reload]);
-        gulp.watch(buildLocalCssFiles, ["build-local-less",browserSync.reload]);
-        gulp.watch(buildLocalFiles, ["build-local-js",browserSync.reload]);
-        gulp.watch("styles/images/", ["copy-css-images",browserSync.reload]);
-        gulp.watch("templates/**/*.vm", ["bs-reload"]);
-        var pageFiles= gulp.watch(buildPageFiles, ["build-page-js",browserSync.reload]);
-        pageFiles.on("change",function (element,eventName,selector,callback) {
-            console.log(element)
-            console.log(eventName)
-            console.log(selector)
-            console.log(callback)
-        })
-    });
+    // gulp.watch("scripts/*.js",["lint",browserSync.reload]);
+    gulp.watch(buildLocalCssFiles, ["build-local-less",browserSync.reload]);
+    gulp.watch(buildLocalFiles, ["build-local-js",browserSync.reload]);
+    gulp.watch("styles/images/", ["copy-css-images",browserSync.reload]);
+    gulp.watch("templates/**/*.vm", ["bs-reload"]);
+    gulp.watch(buildPageFiles,changePageJs,[browserSync.reload]);
+
+
+});
 
     //检查错误代码
     gulp.task('lint', function() {
@@ -137,7 +146,7 @@ var copyFontFiles=[
     //浏览器同步
     gulp.task('browser-sync', function() {
         browserSync({
-            proxy: "http://localhost:80"
+            proxy: "http://local.xiniunet.com:80"
         });
     });
 

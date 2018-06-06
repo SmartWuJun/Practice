@@ -1,0 +1,1 @@
+$control.setTemplate("tutorial:department/index.vm")

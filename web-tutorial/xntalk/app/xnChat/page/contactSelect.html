@@ -1,0 +1,41 @@
+<div   ng-controller="contactSelectController"
+       id="contactSelectController" ng-show="contactSelectControllerShow" ng-init="contactSelectControllerShow = false"
+     class="name-list-div"
+>
+
+    <div class="name-list-ul">
+        <div class="list-title" ng-show="empoyeeList.length + userList.length > 0"><span class="title-span">联系人</span></div>
+        <ul id="empoyeeList">
+            <li ng-repeat="employee in empoyeeList" data-union="{{employee.unionId}}" ng-click="objectSelectClick(employee)">
+                <div class="panel_avatar">{{employee.avatarName}}</div>
+                <div class="panel_text">{{employee.name}}</div>
+                <div class="arrow-right" data-scene="p2p" data-account="{{employee.unionId}}"></div>
+                </li>
+        </ul>
+        <ul id="userList"  >
+            <li  ng-repeat="user in userList"  ng-click="objectSelectClick(user)" data-union="{{user.unionId}}">
+            <div class="panel_avatar">{{user.avatarName}}</div>
+            <div class="panel_text">{{user.name}}</div>
+                <div class="arrow-right " data-scene="p2p" data-account="{{user.unionId}}"></div>
+            </li>
+        </ul>
+
+        <div class="list-title "  ng-show="friendList.length > 0" ><span class="title-span">好友</span></div>
+        <ul id="friendList">
+                <li ng-repeat="friend in friendList track by $index"  ng-click="objectSelectClick(friend)" >
+                    <div class="panel_avatar">{{friend.avatarName}}</div>
+                    <div class="panel_text">{{friend.nick}}</div>
+                    <div class="arrow-right" data-scene="p2p" data-account="{{friend.account}}"></div>
+                </li>
+        </ul>
+        <div class="list-title =" ng-show="teamList.length > 0"  ><span class="title-span">普通群</span></div>
+        <ul id="teamList">
+            <li ng-repeat="team in teamList track by $index"  ng-click="objectSelectClick(team)" >
+                <div class="panel_avatar">{{team.avatarName}}</div>
+                <div class="panel_text">{{team.name}}</div>
+                <div class="arrow-right" data-gtype="normal" data-scene="team" data-account="{{team.teamId}}"></div>
+            </li>
+        </ul>
+        <p class="empty mt-10">共<span id="data-count">{{totalCount}}</span>条相关记录</p>
+    </div>
+</div>

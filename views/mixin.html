@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="js/jquery-1.7.2.js"></script>
+
+</head>
+<div class="btn">
+    buttom
+</div>
+
+<script>
+    //一个非常简单的mixin例子
+    // function mixin(sourceObj, targetObj) {
+    //     //当targetObj 没有这个属性时 进行复制
+    //     for (var key in sourceObj) {
+    //         if (!(key in targetObj)) {
+    //             targetObj[key] = sourceObj[key];
+    //         }
+    //     }
+    //     return targetObj;
+    // }
+
+    // var Vehicle = {
+    //     engine: 1,
+    //     ingition: function() {
+    //         console.log('Turning on my engine');
+    //     },
+    //     drive: function() {
+    //         this.ingition();
+    //         console.log('Steering and moving forward!');
+
+    //     }
+    // }
+    // var Car = mixin(Vehicle, {
+    //     wheels: 4,
+    //     drive: function() {
+    //         Vehicle.drive.call(this);
+    //         // Vehicle.drive();
+    //         console.log('Rolling on all' + this.wheels + 'wheels!');
+
+    //     }
+    // })
+
+    // Car.drive();
+</script>
+
+<script>
+    function Foo(name) {
+        this.name = name;
+    }
+
+    Foo.prototype.myName = function() {
+        return this.name;
+    }
+
+    function Bar(name, label) {
+        Foo.call(this, name);
+        this.label = label;
+    }
+    //创建一个新的Bar.prototype 对象 并关联到Foo.prototype
+    Bar.prototype = Object.create(Foo.prototype);
+
+    Bar.prototype.myLabel = function() {
+        return this.label;
+    }
+
+    var a = new Bar('a', 'obj a');
+
+
+    // a.myLabel();
+    console.log(a.myName());
+    console.log(a.myLabel());
+</script>
+
+
+
+<body>
+
+</body>
+
+</html>

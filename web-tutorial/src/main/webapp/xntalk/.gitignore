@@ -1,0 +1,11 @@
+/node_modules
+/.idea
+/app/node_modules
+/app/xntalk/node_modules
+/app/dist
+/xntalk-pc-win32-ia32
+/spm_modules
+/xntalk-pc-darwin-x64
+/xntalk-pc-mac
+/xntalk-pc-win
+/osx_setup/build

@@ -1,0 +1,680 @@
+.xn-directive-cloudDisk {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.xn-directive-cloudDisk .cloudDisk-layout{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.xn-directive-cloudDisk .cloudDisk-layout .cloudDisk-left{
+    float: left;
+    height: 100%;
+    width: 200px;
+    background-color:#F6FAFD;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-right:1px solid #E5EBF1;
+    padding-bottom: 100px;
+}
+.xn-directive-cloudDisk .cloudDisk-left .pan-menu{
+    margin-top: 10px;
+    width: 100%;
+    vertical-align:top;
+}
+.xn-directive-cloudDisk .cloudDisk-left .pan-menu .menu-li{
+    width: 100%;
+    border-left: 5px solid transparent;
+    height: 44px;
+    line-height: 44px;
+    color: #56678F;
+    cursor: pointer;
+}
+.xn-directive-cloudDisk .cloudDisk-left .pan-menu .menu-li-active{
+    background: #E3F0FC;
+    color: #3083EB;
+    border-left: 5px solid #599BE1;
+}
+.xn-directive-cloudDisk .cloudDisk-left .pan-menu .menu-li.bb{
+    border-bottom:1px solid #E5EBF1 ;
+}
+.xn-directive-cloudDisk .cloudDisk-left .pan-menu .menu-li .xn-icon-pan{
+    width: 20px;
+    height: 42px;
+    line-height: 42px;
+    display: inline-block;
+    font-size: 22px;
+    margin-left: 20px;
+    margin-right: 10px;
+    float: left;
+}
+
+.xn-directive-cloudDisk .cloudDisk-layout .cloudDisk-left-b{
+    padding: 10px 25px;
+    height: 100px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200px;
+    background-color:#F6FAFD;
+    z-index: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-right:1px solid #E5EBF1 ;
+}
+.xn-directive-cloudDisk .cloudDisk-layout .cloudDisk-left-b .progress{
+    width: 100%;
+    height: 8px;
+    border: 1px solid #D6E1ED;
+    background: #DDE7F1;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 10px;
+    border-radius: 4px ;
+}
+.xn-directive-cloudDisk .cloudDisk-layout .cloudDisk-left-b .progress .plan{
+    width: 100%;
+    background: #3083EB;
+    overflow: hidden;
+    display: inline-block;
+    height: 8px;
+    position: absolute;
+    border-radius: 4px ;
+    margin: -1px;
+}
+.xn-directive-cloudDisk .cloudDisk-layout .cloudDisk-left-b .progress-title{
+    line-height: 20px;
+    font-size: 12px;
+}
+
+.xn-directive-cloudDisk .cloudDisk-main{
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+.xn-directive-cloudDisk  .main-top{
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    height: 90px;
+    width: 100%;
+}
+.xn-directive-cloudDisk  .main-top .top-operating{
+    height: 50px;
+    border-bottom: 1px solid #E5EBF1;
+    overflow: hidden;
+}
+.xn-directive-cloudDisk  .main-top .top-l{
+    padding: 7px 20px;
+    float: left;
+}
+.xn-directive-cloudDisk  .main-top .top-l .mr-15{
+  margin-right: 15px;
+}
+.xn-directive-cloudDisk  .main-top .top-l .pr-15{
+  padding-right: 15px;
+}
+.xn-directive-cloudDisk  .main-top .top-l .file-none{
+    float: left;
+    overflow: hidden;
+    width: 0;
+    height: 0;
+    padding: 0;
+    border: 0;
+    opacity: 0;
+}
+.xn-directive-cloudDisk  .main-top .top-r{
+    padding: 7px 20px;
+    float: right;
+}
+.xn-directive-cloudDisk  .main-top .top-r .btn:hover{
+    text-decoration: none;
+}
+
+.xn-directive-cloudDisk  .main-top .top-setting{
+    height: 40px;
+}
+
+.xn-directive-cloudDisk  .main-top .top-setting .crumb-path{
+    float: left;
+    padding: 10px 10px 10px 20px;
+}
+.xn-directive-cloudDisk  .main-top .top-setting .crumb-path .path{
+    height: 20px;
+    line-height: 20px;
+    float: left;
+}
+.xn-directive-cloudDisk  .main-top .top-setting  .crumb-path .path-item{
+    display: inline-block;
+    text-decoration: none;
+    color:#7C87A5;
+    cursor: pointer;
+    float: left;
+    margin: 0 6px 0 0;
+    overflow: hidden;
+    padding-right: 2px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.xn-directive-cloudDisk  .main-top .top-setting  .crumb-path .path-back{
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+    float: left;
+    margin: 0 6px 0 0;
+    overflow: hidden;
+    padding-right: 2px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+.xn-directive-cloudDisk  .main-top .top-setting .xn-display-mode{
+    padding: 10px;
+   float: right;
+}
+.xn-directive-cloudDisk  .main-top .top-setting .pl-20{
+    padding-left: 20px;
+}
+.xn-directive-cloudDisk  .main-top .top-setting .pl-15{
+    padding-left: 15px;
+}
+.xn-directive-cloudDisk  .main-top .top-setting .xn-display-mode .text{
+    float:left;
+    text-decoration: none;
+    color:#5B646D;
+    display: block;
+    cursor: pointer;
+    height: 20px;
+    line-height: 20px;
+}
+.xn-directive-cloudDisk  .main-top .top-setting  .xn-display-mode .text-hover{
+    color:#ADB2B6;
+}
+.xn-directive-cloudDisk  .main-top .top-setting  .xn-display-mode .text-hover:hover{
+    color:#5B646D;
+}
+.xn-directive-cloudDisk  .main-top .top-setting .xn-sort{
+    float: right;
+    position: relative;
+    margin-top: 3px;
+    margin-left: 15px;
+}
+
+.xn-directive-cloudDisk  .main-top .top-setting  .xn-sort .sort-title{
+    height: 34px;
+    padding-left: 15px;
+}
+.xn-directive-cloudDisk  .main-top .top-setting   .xn-sort  .sort-title .xn-icon-pan{
+    display: inline-block;
+    float:left;
+    color:#aaa;
+    font-size: 14px;
+    line-height: 34px;
+    text-decoration: none;
+}
+.xn-directive-cloudDisk  .main-top .top-setting   .xn-sort  .sort-title .span{
+    display: inline-block;
+    float:left;
+    color:#aaa;
+    font-size: 14px;
+    line-height: 34px;
+    margin-left: 10px;
+    text-decoration: none;
+}
+.xn-directive-cloudDisk  .main-top .top-setting  .xn-sort .sort-list{
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width:150px;
+    z-index: 10;
+    background: #fff;
+    border:1px solid #dcdcdc;
+    border-radius:2px;
+    box-shadow: 0 5px 16px rgba(0,0,0,.3);
+}
+
+.xn-directive-cloudDisk  .main-top .top-setting  .sort-list-active .sort-list{
+    display: block;
+}
+
+
+.xn-directive-cloudDisk  .main-top .top-setting  .xn-sort .sort-list .sort-item{
+    padding-left: 15px;
+    height:34px;
+    line-height: 34px;
+    font-size: 14px;
+    width: 100%;
+    float: left;
+    cursor: pointer;
+}
+.xn-directive-cloudDisk  .main-top .top-setting  .xn-sort .sort-list i{
+    display: inline-block;
+    line-height: 34px;
+    font-size: 14px;
+}
+.xn-directive-cloudDisk  .main-top .top-setting  .xn-sort .sort-list .span{
+    display: inline-block;
+    line-height: 34px;
+    font-size: 14px;
+    margin-left: 10px;
+}
+.xn-directive-cloudDisk  .main-top .top-setting  .xn-sort .sort-list .sort-item:hover{
+
+    background: #3083EB;
+    border:1px solid #3083EB;
+    color: #fff;
+    font-size: 14px;
+}
+.xn-directive-cloudDisk  .main-top .top-setting  .xn-sort .sort-list .sort-item:hover i{
+    color:#fff;
+}
+.xn-directive-cloudDisk  .main-top .top-setting  .showContent .sort-list:hover .span{
+    color:#fff;
+    text-decoration: none;
+}
+.xn-directive-cloudDisk  .main-page{
+    position: absolute;
+    border-top: 1px solid #dcdcdc;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 40px;
+    padding: 5px 10px 5px 20px;
+}
+.xn-directive-cloudDisk  .main-page .page-left{
+    float: left;
+    line-height: 30px;
+    height: 30px;
+}
+.xn-directive-cloudDisk  .main-page .page-right{
+    float: right;
+    line-height: 30px;
+    height: 30px;
+}
+.xn-directive-cloudDisk  .main-page .page-item{
+    line-height: 28px;
+    height: 30px;
+    width: 30px;
+    overflow: hidden;
+    display: inline-block;
+    margin: 0 3px;
+    border: 1px solid #dcdcdc;
+    text-align: center;
+    cursor: pointer;
+}
+.xn-directive-cloudDisk  .main-page .item-pre:before{
+    content: "";
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-right: 7px solid #999;
+    border-top: 5.5px solid transparent;
+    border-bottom: 5.5px solid transparent;
+    border-left: none;
+}
+.xn-directive-cloudDisk  .main-page .item-next:before{
+    content: "";
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 7px solid #999;
+    border-top: 5.5px solid transparent;
+    border-bottom: 5.5px solid transparent;
+    border-right: none;
+}
+
+.xn-directive-cloudDisk  .main-page .item-pre.page-disabled:before{
+    border-right: 7px solid #ddd;
+    cursor: no-drop;
+}
+.xn-directive-cloudDisk  .main-page .item-next.page-disabled:before{
+    border-left: 7px solid #ddd;
+    cursor: no-drop;
+}
+
+.xn-directive-cloudDisk  .main-body{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    padding-top: 90px;
+    padding-bottom: 40px;
+}
+
+.xn-directive-cloudDisk  .main-body .disk-main{
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.xn-directive-cloudDisk  .main-body .disk-list{
+  padding-left: 20px;
+}
+.xn-directive-cloudDisk  .main-body .disk-list-layout{
+
+}
+.xn-directive-cloudDisk  .main-body .disk-list-layout .disk-item{
+    padding:5px 0;
+    border-bottom: 1px solid #dcdcdc;
+    line-height: 34px;
+}
+.xn-directive-cloudDisk  .main-body .disk-list-layout .disk-item-active{
+    background: #F3F6FC;
+}
+
+.xn-directive-cloudDisk  .main-body .disk-list-layout .header-title{
+   background: #F3F6FC;
+    color: #999;
+    line-height: 34px;
+    padding: 3px 0;
+}
+
+.xn-directive-cloudDisk  .main-body .disk-list-layout .disk-item .item-lable{
+   float: left;
+   height: 34px;
+    width: 40px;
+}
+.xn-directive-cloudDisk  .main-body .disk-list-layout .disk-item .item-icon{
+    float: left;
+    height: 34px;
+    width: 40px;
+    background: url("./images/small.png") center top no-repeat;
+    margin:0 10px  0 0;
+}
+
+
+
+.xn-directive-cloudDisk  .main-body .disk-list-layout .disk-item .item-img {
+    background-position: 50% 50%
+}
+
+.xn-directive-cloudDisk  .main-body .disk-list-layout .disk-item .item-voice {
+    background-position: center -100px
+}
+
+.xn-directive-cloudDisk  .main-body .disk-list-layout .disk-item .item-shareFolder {
+    background-position: center -200px
+}
+
+.xn-directive-cloudDisk  .main-body .disk-list-layout .disk-item .item-xls {
+    background-position: center -300px
+}
+
+.xn-directive-cloudDisk  .main-body .disk-list-layout .disk-item .item-doc {
+    background-position: center -350px
+}
+
+.xn-directive-cloudDisk  .main-body .disk-list-layout .disk-item .item-ppt {
+    background-position: center -400px
+}
+
+.xn-directive-cloudDisk  .main-body .disk-list-layout .disk-item .item-txt {
+    background-position: 50% -450px
+}
+
+.xn-directive-cloudDisk  .main-body .disk-list-layout .disk-item .item-pdf {
+    background-position: center -550px
+}
+
+.xn-directive-cloudDisk  .main-body .disk-list-layout .disk-item .item-zip {
+    background-position: center -600px
+}
+
+.xn-directive-cloudDisk  .main-body .disk-list-layout .disk-item .item-other {
+    background-position: center -650px
+}
+
+.xn-directive-cloudDisk  .main-body .disk-list-layout .disk-item .item-title{
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+}
+
+.xn-directive-cloudDisk  .main-body .disk-list-layout .disk-item .item-title{
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+}
+
+.xn-directive-cloudDisk  .main-body .disk-list-layout .disk-item .view {
+    position: relative;
+    width: 92px
+}
+
+.xn-directive-cloudDisk  .main-body .disk-list-layout .disk-item .view .view-a {
+    text-align: center;
+    width: 90px;
+    height: 34px;
+    line-height: 34px;
+    border: 1px solid transparent;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 4px 4px 0 0
+}
+
+.xn-directive-cloudDisk  .main-body .disk-list-layout .disk-item .view .view-a .open {
+    display: inline-block;
+    text-align: center
+}
+
+.xn-directive-cloudDisk  .main-body .disk-list-layout .disk-item .view .view-a-center {
+    text-align: center;
+    padding-left: 0
+}
+
+.xn-directive-cloudDisk  .main-body .disk-list-layout .disk-item .view .view-a:hover {
+    text-decoration: none;
+    border-top: 1px solid #bbb;
+    border-left: 1px solid #bbb;
+    border-right: 1px solid #bbb;
+    background: #f0ad4e;
+    color: #fff
+}
+
+.xn-directive-cloudDisk  .main-body .disk-list-layout .disk-item .view .view-a i {
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    position: absolute;
+    line-height: 34px;
+    right: 5px
+}
+
+.xn-directive-cloudDisk  .main-body .disk-list-layout .disk-item .view .view-ul {
+    position: absolute;
+    top: 34px;
+    left: 1px;
+    width: 90px;
+    background: #fff;
+    z-index: 99;
+    display: none;
+    border-bottom: 1px solid transparent;
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+    border-radius: 0 0 4px 4px
+}
+
+.xn-directive-cloudDisk  .main-body .disk-list-layout .disk-item .view li {
+    width: 100%;
+    overflow: hidden;
+    border-top: 1px solid #bbb;
+    height: 34px
+}
+
+.xn-directive-cloudDisk  .main-body .disk-list-layout .disk-item .view li a {
+    text-align: center;
+    line-height: 34px;
+    overflow: hidden;
+    display: inline-block;
+    width: 100%
+}
+
+.xn-directive-cloudDisk  .main-body .disk-list-layout .disk-item .view li a:hover {
+    text-decoration: none;
+    background: #f0ad4e;
+    color: #fff
+}
+
+.xn-directive-cloudDisk  .main-body .disk-list-layout .disk-item .showMessage .view-a {
+    border-top: 1px solid #bbb;
+    border-left: 1px solid #bbb;
+    border-right: 1px solid #bbb;
+    background: #fff
+}
+
+.xn-directive-cloudDisk  .main-body .disk-list-layout .disk-item .showMessage .view-a i {
+    display: none
+}
+
+.xn-directive-cloudDisk  .main-body .disk-list-layout .disk-item .showMessage .view-ul {
+    display: inline-block;
+    border-bottom: 1px solid #bbb;
+    border-left: 1px solid #bbb;
+    border-right: 1px solid #bbb
+}
+
+
+.xn-directive-cloudDisk  .main-body .disk-piece-layout .disk-item{
+    width: 120px;
+    min-height: 140px;
+    border: 2px solid transparent;
+    background-color: transparent;
+    margin-right: 24px;
+    position: relative;
+    float: left;
+}
+
+.xn-directive-cloudDisk  .main-body .disk-piece-layout .disk-item-active{
+    border: 2px solid #e3ebf4;
+    background-color: #f6f8fd;
+}
+.xn-directive-cloudDisk  .main-body .disk-piece-layout .item-title{
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    text-align: center;
+}
+
+
+
+.xn-directive-cloudDisk  .main-body .disk-piece-layout .item-icon{
+    margin: 20px auto 10px;
+    height: 68px;
+    width: 85px;
+    text-align: center;
+    background: url(images/big.png) center top no-repeat;
+}
+.xn-directive-cloudDisk  .main-body .disk-piece-layout .item-img {
+    background-position: 50% 50%
+}
+.xn-directive-cloudDisk  .main-body .disk-piece-layout .item-voice {
+    background-position: center -200px
+}
+.xn-directive-cloudDisk  .main-body .disk-piece-layout .item-shareFolder {
+    background-position: center -400px
+}
+.xn-directive-cloudDisk  .main-body .disk-piece-layout .item-xls {
+    background-position: center -600px
+}
+.xn-directive-cloudDisk  .main-body .disk-piece-layout .item-doc {
+    background-position: center -700px
+}
+.xn-directive-cloudDisk  .main-body .disk-piece-layout .item-ppt {
+    background-position: center -800px
+}
+.xn-directive-cloudDisk  .main-body .disk-piece-layout .item-txt {
+    background-position: center -900px
+}
+.xn-directive-cloudDisk  .main-body .disk-piece-layout .item-pdf {
+    background-position: center -1100px
+}
+.xn-directive-cloudDisk  .main-body .disk-piece-layout .item-zip {
+    background-position: center -1200px
+}
+.xn-directive-cloudDisk  .main-body .disk-piece-layout .item-other {
+    background-position: center -1300px
+}
+.xn-directive-cloudDisk .xn-table-wrap{
+    background: #fff;
+}
+.xn-directive-cloudDisk .xn-table-wrap .xn-tree-i{
+   font-size: 16px;
+}
+.xn-directive-cloudDisk .xn-table-wrap .disk-move{
+   background: url("./images/disk-move.png") center 50% no-repeat;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+}
+.xn-directive-cloudDisk .xn-table-wrap .tree-0{margin-left: 0}
+.xn-directive-cloudDisk .xn-table-wrap .tree-1{margin-left: 20px}
+.xn-directive-cloudDisk .xn-table-wrap .tree-2{margin-left: 40px}
+.xn-directive-cloudDisk .xn-table-wrap .tree-3{margin-left: 60px}
+.xn-directive-cloudDisk .xn-table-wrap .tree-4{margin-left: 80px}
+.xn-directive-cloudDisk .xn-table-wrap .tree-5{margin-left: 100px}
+.xn-directive-cloudDisk .xn-table-wrap .tree-6{margin-left: 120px}
+
+/*查看*/
+.xn-attachmentView-bj{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #000000;
+    filter: alpha(opacity=50);
+    -moz-opacity: 0.5;
+    opacity: 0.5;
+    z-index:99;
+}
+.xn-attachmentView-box{
+    position: fixed;
+    left: 50%;
+    top: 100px;
+    z-index:999;
+}
+.xn-attachmentView-box .xn-attachmentView-box-nr{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    text-align: center;
+    background: #fff;
+    margin-left:-50% ;
+    border-radius: 4px;
+}
+.xn-attachmentView-box .xn-attachmentView-box-nr .attachmentView-close{
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: 28px;
+    height: 28px;
+    line-height: 25px;
+    z-index: 3;
+    cursor: pointer;
+    background: #fff;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    font-size: 14px;
+}
+.xn-attachmentView-box .xn-attachmentView-box-nr .xn-attachmentView-box-img{
+    max-width:800px;
+    min-height: 100px;
+    min-width: 80px;
+    max-height:600px;
+}
+
+.xn-attSingleView{
+    float: left;
+    width: 180px;
+    border: 1px solid #dcdcdc;
+    height: 110px;
+    padding: 4px;
+    margin: 15px 10px;
+}

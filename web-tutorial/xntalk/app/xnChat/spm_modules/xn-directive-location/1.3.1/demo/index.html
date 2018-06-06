@@ -1,0 +1,180 @@
+<html ng-app="myApp">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>无标题</title>
+    <link href="../spm_modules/bootstrap-css/1.0.0/bootstrap.css" rel="stylesheet">
+    <link href="../spm_modules/xn-icon-common/1.0.5/iconfont.css" rel="stylesheet">
+    <link href="../demo/base.css" rel="stylesheet">
+    <link href="../directive/style.css" rel="stylesheet">
+
+    <script type="text/javascript" src="../spm_modules/jquery/1.7.2/jquery.js"></script>
+    <script type="text/javascript" src="../spm_modules/angular/1.3.9/angular.js"></script>
+    <script type="text/javascript" src="../spm_modules/xn-underscore/1.0.0/underscore.js"></script>
+    <script type="text/javascript" src="../spm_modules/angular-ui/1.0.0/bootstraptpls.js"></script>
+    <script type="text/javascript" src="../spm_modules/xn-directive-form/1.0.1/directive/forms.js"></script>
+    <script type="text/javascript" src="../directive/locations.js"></script>
+    <style>
+        .xn-province-city-box{
+            border: 1px solid #dcdcdc;
+            background: #fff;
+            border-radius: 4px ;
+        }
+    </style>
+</head>
+<body ng-controller="MyController">
+<div class="xn-width clearfix auto" style="width:1000px;">
+    <div style="width:400px;">
+
+        <div>省份多选</div>
+        {{selectProvinceId}}
+        <div xn-multiple-province  class="xn-province-city-box"  ng-model="selectProvinceId"  name="打开"  data-province-id-list="provinceIdList"></div>
+
+        <button ng-click="doSave()" style="margin-top:20px;" >保存</button>
+
+
+        <div style="margin-top:50px;">省份多选下拉形式</div>
+        <div>{{resultId}}</div>
+        <div xn-multiple-select-location type="text" select-data="sourceList" ng-model="resultId" name="result"></div>
+
+
+        <button ng-click="doSave1()" style="margin-top:20px;" >保存</button>
+
+        <div style="margin-top:50px;"></div>
+        <div>地址指令</div>
+        <div xn-location ng-model="address" data-location-id="{{employee.address}}"  data-if-country="true"  address=false  ></div>
+
+
+        <div>单个城市指令</div>
+
+        <div xn-location-city ng-model="cardCity"  data-city-id="{{employee.cityId}}"></div>
+
+        <div>多选框</div>
+
+
+            <!--<div xn-location-city-list ng-model="city" data-city-id-list="cityIdList"></div>-->
+
+
+        <div>物流多选</div>
+        {{selectCityId}}
+
+        <div  xn-province-city  class="xn-province-city-box"  ng-model="selectCityId"  name="打开"  data-city-id-list="cityIdList"></div>
+
+        <div>物流查看</div>{{selectCity.idList}}
+        <div  xn-province-city-view  class="xn-province-city-box"    data-city-id-list="cityIdViewList"></div>
+
+
+        <div>物流多选到区</div>
+        {{selectDistrictId}}
+
+
+
+        <div  xn-province-city-district  class="xn-province-city-box"  ng-model="selectDistrictId"  name="打开"  data-district-id-list="districtIdList"></div>
+
+
+
+        <ul  style="padding: 100px">
+
+            <li ng-repeat="item in demo">{{item.val}}
+
+                <div  xn-province-city-district  class="xn-province-city-box"  ng-model="item.districtIdList11"  name="打开"  data-district-id-list="item.districtIdList"></div>
+                <!--   <div  xn-province-city-district-view  class="xn-province-city-box"   data-district-id-list="item.districtIdList"></div>-->
+            </li>
+
+        </ul>
+        <div ng-click="add()">增加一个</div>
+
+        <div>物流多选到区  查看</div>
+        {{districtIdList}}
+
+        <div  xn-province-city-district-view  class="xn-province-city-box"   data-district-id-list="districtIdList"></div>
+
+
+
+
+        <h3>省市区选择指令（ 备注。城市名称不是必填，但是id为必填）</h3>
+        <h4>用法：</h4>
+        1. $scope.locationDistrict 里可以负值：{"provinceId":340000,"cityId":340400,"districtId":340404,"provinceName":"安徽省","cityName":"淮南市","districtName":"谢家集区"};
+
+        //设置默认数据时候。城市名称不是必填，但是id为必填
+
+
+        {{locationDistrict}}
+
+        <div  xn-location-district    ng-model="locationDistrict"></div>
+
+
+
+
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+    var app=angular.module("myApp", ["ui.bootstrap","xn.directive.location"]);
+
+    app.controller("MyController", ["$scope","$timeout", function($scope,$timeout){
+        $timeout(function(){
+
+            $scope.demo=[
+                {key:1,val:"第一个",
+                    districtIdList:[130102,230203]},
+                {key:1,val:"第一个",
+                    districtIdList:[130102,130103,130104]
+                },
+                {key:1,val:"第一个",
+                    districtIdList:[130102]
+                }
+            ];
+
+            $scope.add=function(){
+                $scope.demo.push( {key:1,val:"第一个",
+                    districtIdList:[130102,230203]})
+            }
+
+
+            $scope.cityIdList=[110100,130100,130200,130300,130400,130500,130600,130700,130800,130900,131000,131100,320300];
+            $scope.provinceIdList=[110000,150000,210000,120000];
+            $scope.cityIdViewList=[110100,130100,130200,130300,130400,130500,130600,130700,130800,130900,131000,131100,320300,410100,410200,410300,410400,410500,410700,410800,410900,411000,411100,411200,411300,411400,411500,411600,411700,419000];
+
+            $scope.districtIdList=[130102,130103,130104,130105,130107,130108,130121,130123,130124,130125,130126,130127,130128,130129,130130,130131,130132,130133,130181,130182,130183,130184,130185,130202,130203,130204,130205,130207,130208,130209,130223,130224,130225,130227,130229,130281,130283,130302,130303,130304,130321,130322,130323,130324,130402,130403,130404,130406,130421,130423,130424,130425,130426,130427,130428,130429,130430,130431,130432,130433,130434,130435,130481,130502,130503,130521,130522,130523,130524,130525,130526,130527,130528,130529,130530,130531,130532,130533,130534,130535,130581,130582,130602,130603,130604,130621,130622,130623,130624,130625,130626,130627,130628,130629,130630,130631,130632,130633,130634,130635,130636,130637,130638,130681,130682,130683,130684,130702,130703,130705,130706,130721,130722,130723,130724,130725,130726,130727,130728,130729,130730,130731,130732,130733,130802,130803,130804,130821,130822,130823,130824,130825,130826,130827,130828,130902,130903,130921,130922,130923,130924,130925,130926,130927,130928,130929,130930,130981,130982,130983,130984,131002,131003,131022,131023,131024,131025,131026,131028,131081,131082,131102,131121,131122,131123,131124,131125,131126,131127,131128,131181,131182,120102,230202,230203,230204,230205,230206,230207,230208,230221,230223,230224,230225,230227,230229,230230,230231,230281];
+            $scope.locationDistrict=
+            {"provinceId":110000,
+                "cityId":110100,
+                "districtId":110102,
+                "provinceName":"北京市",
+                "cityName":"北京市",
+                "districtName":"西城区"}
+        },1000);
+
+        //备注。城市名称不是必填，但是id为必填
+
+        $scope.doSave=function(){
+            var aaa= angular.copy($scope.selectCityId);
+            var bbb= angular.copy($scope.selectProvinceId);
+
+//            console.log(aaa);
+            console.log(bbb);
+
+        };
+        $scope.doSave1=function(){
+            var q= angular.copy($scope.resultId);
+            alert(q);
+
+        };
+
+        $scope.sourceList = [];
+        $scope.result = [];
+        $scope.sourceList=[110000,150000,210000];
+
+
+
+        $scope.locationDistrict={
+
+        }
+
+
+
+
+
+    }]);
+</script>
+</html>

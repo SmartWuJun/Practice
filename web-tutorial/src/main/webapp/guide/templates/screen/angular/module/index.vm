@@ -1,0 +1,33 @@
+<div class="xn-main xn-width mt-20 xn-grid-layout auto clearfix"  ng-controller="AngularIndexController">
+
+    <div class="xn-grid-4 xn-grid-nav" >
+        <div class="title clearfix"><span class="h3-title">导航</span></div>
+        <ul class="nav-ul" >
+            <li class="nav-li" ng-repeat="nav in moduleList" ng-class="{'navActive':pageNavActive=='{{$index}}'}">
+                <div class="li-title"   ng-click="setPageActive($index)" ng-bind="nav.title"></div>
+                <ul  class="sub-nav-ul"   ng-if="pageNavActive==$index">
+                    <li class="sub-nav-li" ng-repeat="subNav in nav.childList">
+                        <a class="link" ng-href="{{subNav.link}}" title="{{subNav.tip}}" ng-bind="subNav.title" target="_blank"></a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="xn-grid-20">
+    </div>
+</div>
+<script src="$guideContent.getURI('dist/scripts/page/angular.js')" ></script>
+
+<script src="http://gosspublic.alicdn.com/aliyun-oss-sdk.min.js"></script>
+<script type="text/javascript">
+    var client = new OSS.Wrapper({
+        region: 'oss-cn-hangzhou',
+        accessKeyId: 'LTAI4iB6lp1SwCgu',
+        accessKeySecret: 's9xcI7pfAmcrgiuuKLqGLkJSOmCzlm',
+        bucket: 'xn-static'
+    });
+
+    client.list().then(function (result) {
+        console.log(result.objects);
+    });
+</script>

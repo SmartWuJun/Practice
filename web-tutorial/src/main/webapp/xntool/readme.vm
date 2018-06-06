@@ -1,0 +1,40 @@
+# electron桌面应用开发
+---
+##一、根目录
+
+```
+app             //源码目录。用于打包
+node_modules    //压缩等工具node
+spm_modules     //angular 组件
+.gitignore      //上传文件过滤
+gulpfile.js     //公共组件压缩及启用项目运行
+package.json    //依赖包等内容
+readme.vm       //说明
+```
+##二、app级目录
+```
+app                     //源码目录。用于打包
+dist                 //用于生成  global文件 包含组件
+images               //公共项目的图及应用的图片
+node_modules         //应用所需要的node组件
+update               //应用更新
+vender               //第三方公共插件
+    base/base.js        //公共组件 包含  angular、angular-ui、browser、jquery、method、underscore
+xntalk               //项目文件夹
+main.js              //应用启动入口  主进程
+package.json         //当前项目配置 主要配置应用所需要的node组件
+```
+
+###三、运行方式
+
+可以直接运行  gulp
+或者：
+electron app
+xntalk 目录下
+app  //源码目录。用于打包
+node_modules  //压缩等工具node
+spm_modules   //
+
+##开发环境
+17601448171
+123456

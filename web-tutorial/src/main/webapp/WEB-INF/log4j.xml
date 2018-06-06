@@ -9,9 +9,9 @@
         </layout>
     </appender>
 
-    <!--<appender name="flumeAppender" class="com.xiniunet.framework.log.XnFlumeLogAppender">-->
-        <!--<param name="Threshold" value="WARN"/>-->
-    <!--</appender>-->
+    <appender name="xnAppender" class="com.xiniunet.common.utils.log.appender.XnAppender">
+        <param name="Threshold" value="INFO"/>
+    </appender>
 
     <!--输出到文件（warn）-->
     <!--将生成“warn.log.2014-06-11”这样的日志文件-->
@@ -66,6 +66,6 @@
         <appender-ref ref="consoleAppender"/>
         <!-- 开发时建议开启此输出流 -->
         <appender-ref ref="fileAppenderInfo"/>
-        <!--<appender-ref ref="flumeAppender"/>-->
+        <appender-ref ref="xnAppender"/>
     </root>
 </log4j:configuration>

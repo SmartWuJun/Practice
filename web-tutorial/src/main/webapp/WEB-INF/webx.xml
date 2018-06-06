@@ -66,6 +66,7 @@
         <pull-factories:factory id="principal"      class="com.xiniunet.framework.util.auth.PrincipalTool" />
         <pull-factories:factory id="config"         class="com.xiniunet.framework.util.auth.ConfigTool" />
         <pull-factories:factory id="user"           class="com.xiniunet.tutorial.tool.UserTool" />
+        <pull-factories:factory id="xnI18n"           class="com.xiniunet.common.utils.web.tool.I18nTool" />
     </services:pull>
 
     <!-- 装载模块。 -->

@@ -1,0 +1,15 @@
+<script src="../js/jquery-1.7.1.min.js"></script>
+<script src="../js/md5.js"></script>
+<script src="../request/LoginRequest.js"></script>
+<script src="../js/xn_api_post.js"></script>
+<script>
+
+ var request = new LoginRequest();
+ request.setAccount('18626105941');
+ request.setDeviceId('0');
+ request.setDeviceType('PC')
+ request.setPassword("123456");
+ request.setIp('127.0.0.1');
+
+ xn_http_post(request);
+</script>

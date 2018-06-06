@@ -1,0 +1,9 @@
+<div id="xnMain"  class="xn-main-view" >
+	<div ui-view  ng-cloak></div>
+</div>
+<script type="text/javascript" src="../../xnMain/dist/scripts/local.min.js"></script>
+<script type="text/javascript">
+	angular.element(document).ready(function() {
+		angular.bootstrap("#xnMain", ['myApp']);
+	});
+</script>

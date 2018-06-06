@@ -1,0 +1,974 @@
+/*xnSelectTree begin*/
+.xn-tree-select{
+    position: relative;
+}
+.xn-tree-select .form-control[readonly]{
+    cursor: auto;
+    background-color: #fff;
+    width: 100%;
+    height: 34px;
+    border-radius: 4px;
+    padding: 0 5px;
+}
+.xn-tree-select .xn-tree-list{
+    border: 1px solid #ddd;
+    border-radius: 0 0 4px 4px;
+    width: 100%;
+    position: absolute;
+    background-color: #fff;
+    z-index: 99;
+}
+.xn-tree-select .xn-tree-list .level-content{
+    height: 340px;
+    overflow: auto;
+    clear:both;
+}
+.xn-tree-select .cancel_cl{
+    float:right;
+    background: #dcdcdc;
+    line-height: 34px;
+    width: 100%;
+    cursor: pointer;
+}
+.xn-tree-select .cancel_cl .btn {
+    float: right;
+    margin-right: 5px;
+}
+.xn-tree-select .xn-tree-list .xn-tree-item:hover{
+    background-color: #1E90FF;
+    color: #fff;
+}
+.xn-tree-select .xn-tree-list .level-0{
+    background-color: #FAF8FD;
+    line-height: 34px;
+    padding-left:10px;
+    cursor: pointer;
+}
+.xn-tree-select .xn-tree-list .level-1{
+    line-height: 34px;
+    padding-left:25px;
+    cursor: pointer;
+}
+.xn-tree-select .xn-tree-list .level-2{
+    line-height: 34px;
+    padding-left:40px;
+    cursor: pointer;
+}
+.xn-tree-select .xn-tree-list .level-3{
+    line-height: 34px;
+    padding-left:55px;
+    cursor: pointer;
+}
+.xn-tree-select .xn-tree-list .level-4{
+    line-height: 34px;
+    padding-left:70px;
+    cursor: pointer;
+}
+.xn-tree-select .xn-tree-list .level-5{
+    line-height: 34px;
+    padding-left:85px;
+    cursor: pointer;
+}
+/*xnSelectTree end*/
+
+/*xnMultipleSelectTree begin*/
+.xn-tree-multipselect{
+    position: relative;
+    float: left;
+    width: 100%;
+    line-height: 34px;
+}
+.xn-tree-multipselect .icon-downward-1 {
+    position: absolute;
+    margin-left: -13px;
+    font-size: 12px;
+}
+.xn-tree-multipselect .form-control[readonly]{
+    cursor: pointer;
+    background-color: #fff;
+    float:left;
+}
+.xn-tree-multipselect .xn-tree-list-div{
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+    position: absolute;
+    background-color: #fff;
+    z-index: 99;
+    margin-top: 34px;
+    box-shadow: 0 0 20px;
+}
+.xn-tree-multipselect .xn-tree-list-div .level-content{
+    max-height: 340px;
+    white-space: nowrap;
+    overflow: auto;
+    width:100%;
+}
+.xn-tree-multipselect .xn-tree-list-div .level-content .level-content-box{
+    display: inline-block;
+    min-width: 100%;
+}
+.xn-tree-multipselect .xn-tree-list-div .xn-tree-item{
+    padding: 0 15px 0 15px;
+    cursor: pointer;
+    min-height: 34px;
+}
+.xn-tree-multipselect .xn-tree-list-div .xn-tree-item:hover{
+    background-color: #1E90FF;
+    color: #fff;
+}
+.xn-tree-multipselect .xn-tree-list-div .level-0{
+    background-color: #FAF8FD;
+    min-height: 34px;
+}
+.xn-tree-multipselect .xn-tree-list-div .level-content .level-content-box .xn-tree-item .xn-checkbox{
+    float: none;
+    margin-top: 0px;
+    position: relative;
+    top: 5px;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ccc;
+    display: inline-block;
+    margin-right: 7px;
+    border-radius: 4px;
+}
+.xn-tree-multipselect .xn-tree-list-div .level-content .level-content-box .xn-label-checkbox{
+    position: relative;
+    line-height: 34px;
+    cursor: pointer;
+}
+.xn-tree-multipselect .xn-tree-list-div .level-0 .f-right {
+    float:right;
+}
+.xn-tree-multipselect .xn-tree-list-div .level-content .level-content-box .xn-label-checkbox .xn-checkbox{
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ccc;
+    display: inline-block;
+    margin-top: 0;
+    margin-right: 7px;
+    border-radius: 4px;
+    float: none;
+}
+.xn-tree-multipselect .xn-tree-list-div .level-content .level-content-box .xn-label-checkbox .icon-right_3{
+    position: absolute;
+    left: 2px;
+    z-index: 1;
+    font-size: 18px;
+    height: 20px;
+    width: 20px;
+    top: 8px;
+    line-height: 20px;
+    color: #40a337;
+}
+
+.xn-tree-multipselect .xn-tree-list-div .level-content .level-content-box .xn-label-checkbox .xn-checkbox-input{
+    display: none;
+}
+/*xnMultipleSelectTree end*/
+
+/*bothListSelect begin*/
+.xn_select_panel {
+    float:left;
+    border-radius:2px;
+}
+.xn_select_panel .xn_select_div {
+    width:220px;
+    height:250px;
+    border:dashed 1px #cdcdcd;
+    border-radius:2px;
+    float:left;
+}
+.xn_select_panel .xn_select_div .xn_select_head {
+    padding: 8px;
+    cursor:pointer
+}
+.xn_select_panel .xn_select_div .xn_select_head .filter_input {
+    border-radius: 4px;
+    border: solid 1px #cdcdcd;
+    width: 100%;
+}
+.xn_select_panel .xn_select_div .xn_select_body_ul {
+    -webkit-margin-before:0em;
+    list-style:none;
+    -webkit-padding-start:0px;
+    overflow-y: scroll;
+    height: 208px
+}
+.xn_select_panel .xn_select_div .xn_select_body_ul .xn_select_body_li {
+    line-height: 30px;
+    padding-left:10px;
+}
+.xn_select_panel .xn_select_div .xn_select_body_ul .xn_select_body_li:hover {
+    background: #f9f9f7;
+    cursor:pointer
+}
+.xn_select_panel .xn_select_middle_icondiv {
+    float:left;
+    padding: 20px 18px;
+}
+.xn_select_panel .xn_select_middle_seconde_div {
+    margin-top: 20px;
+}
+.xn_select_panel .xn_select_middle_icon_first {
+    color:#bebebe;
+}
+.xn_select_panel .xn_select_shape {
+    color:#bebebe;
+}
+.xn_select_panel .xn_select_middle_icon_first:hover {
+    color:#42a736;
+}
+.xn_select_panel .xn_select_middle_icon_seconde {
+    color:#bebebe;
+}
+.xn_select_panel .xn_select_middle_icon_seconde:hover {
+    color:#ffce53;
+}
+.xn_select_panel .xn_selected_li {
+    background: #bebebe;
+}
+.xn_select_panel .xn_select_div .xn_select_head .title_span {
+    padding-left: 10px;
+}
+.xn_select_panel .xn_select_div .inner_ul {
+    list-style: none;
+    -webkit-padding-start: 0;
+}
+.xn_select_panel .xn_select_div .inner_ul .inner_ul_div {
+    padding-left:30px;
+}
+.xn_select_panel .pt_20 {
+    padding-top:20px;
+}
+.xn_select_panel .pt_30 {
+    padding-top:30px;
+}
+/*bothListSelect end*/
+
+/*bothTreeListSelect begin*/
+.xn_tree_select_panel {
+    float:left;
+    border-radius:2px;
+}
+.xn_tree_select_panel .xn_select_div {
+    width:220px;
+    height:250px;
+    border:dashed 1px #cdcdcd;
+    border-radius:2px;
+    float:left;
+}
+.xn_tree_select_panel .xn_select_div .xn_select_head {
+    padding: 8px;
+    cursor:pointer
+}
+.xn_tree_select_panel .xn_select_div .xn_select_body_ul {
+    -webkit-margin-before:0em;
+    list-style:none;
+    -webkit-padding-start:0px;
+    overflow-y: scroll;
+    height: 208px
+}
+.xn_tree_select_panel .xn_select_div .xn_select_body_ul .xn_select_body_li {
+    line-height: 30px;
+    padding-left:10px;
+}
+.xn_tree_select_panel .xn_select_div .xn_select_body_ul .xn_select_body_li:hover {
+    background: #f9f9f7;
+    cursor:pointer
+}
+.xn_tree_select_panel .xn_select_middle_icondiv {
+    float:left;
+    padding: 40px 18px;
+}
+.xn_tree_select_panel .xn_select_middle_seconde_div {
+    margin-top: 20px;
+}
+.xn_tree_select_panel .xn_select_middle_icon_first {
+    color:#bebebe;
+}
+.xn_tree_select_panel .xn_select_shape {
+    color:#bebebe;
+}
+.xn_tree_select_panel .xn_select_middle_icon_first:hover {
+    color:#42a736;
+}
+.xn_tree_select_panel .xn_select_middle_icon_seconde {
+    color:#bebebe;
+}
+.xn_tree_select_panel .xn_select_middle_icon_seconde:hover {
+    color:#ffce53;
+}
+.xn_tree_select_panel .xn_selected_li {
+    background: #bebebe;
+}
+.xn_tree_select_panel .xn_select_div .xn_select_head .title_span {
+    padding-left: 10px;
+}
+.xn_tree_select_panel .xn_select_div .inner_ul {
+    list-style: none;
+    -webkit-padding-start: 0;
+}
+.xn_tree_select_panel .xn_select_div .inner_ul .inner_ul_div {
+    padding-left:30px;
+}
+.xn_tree_select_panel .xn_select_div .xn_select_body_ul .inner_thired_div {
+    padding-left:50px;
+}
+.xn_tree_select_panel .pt_20 {
+    padding-top:20px;
+}
+.xn_tree_select_panel .pt_30 {
+    padding-top:30px;
+}
+/*bothTreeListSelect end*/
+
+/*xnTableSelect begin*/
+.xn_select_outer {
+    width: 100%;
+    clear: both;
+    position: relative;
+}
+.xn_select_outer_div{
+    width: 100%;
+    height: 34px;
+}
+.xn_select_outer_div .xn_select_input{
+    width: 100%;
+    float: left;
+    line-height: normal;
+    height: 34px;
+    border-radius: 4px;
+    border: solid 1px #cdcdcd;
+    padding: 6px 32px 6px 12px;
+}
+.xn_select_outer .xn_show_div{
+    position: absolute;
+    z-index: 100;
+    background: white;
+    width: 100%;
+    line-height :normal;
+    border: solid 1px #cdcdcd;
+    border-radius: 4px;
+    box-shadow: 0 0 20px #cdcdcd;
+    min-height: 330px;
+}
+.xn_select_outer .xn_show_div .content {
+    display: table;
+    width: 100%;
+    height: 280px;
+    overflow-y: auto;
+}
+.xn_select_outer .xn_show_div .content .pagination {
+    position: absolute;
+    right: 0;
+    top: 75px;
+    z-index: 99;
+}
+.xn_select_outer .xn_show_div .content .pagination .icon {
+    border: 1px solid #cdcdcd;
+    text-align: center;
+    line-height: 26px;
+    width: 32px;
+    height: 32px;
+    border-radius: 16px;
+    background: #ececec;
+    opacity: 0.5;
+    cursor: pointer;
+}
+.xn_select_outer .xn_show_div .content .pagination .icon-up {
+    margin-bottom: 30px;
+}
+.xn_select_outer .xn_show_div .content .pagination .icon-up-disable {
+    color: #FCFCFC;
+    cursor: default;
+}
+.xn_select_outer .xn_show_div .content .pagination .icon-down-disable {
+    color: #FCFCFC;
+    cursor: default;
+}
+.xn_select_outer .xn_show_div .content .sort_area {
+    display: table-cell;
+    border-right: solid 1px #cdcdcd;
+    width: 35px;
+    background: #f9f9f7;
+}
+.xn_select_outer .xn-search{
+    padding: 5px;
+    margin: 0;
+    width: 350px;
+}
+.xn_select_outer .xn-search .input-group input{
+    border:none;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.xn_select_outer .xn-search .input-group-addon {
+    border:none;
+}
+.xn_select_outer table{
+    width: 100%;
+}
+.xn_select_outer .xn_show_div i {
+    float: right;
+    color:#cdcdcd;
+}
+.xn_select_outer .xn_show_div .icon-delete:hover {
+    color: #ff0000;
+    cursor: pointer;
+}
+.xn_select_outer .xn_show_div .xn-search{
+    float:left;
+}
+.xn_select_outer .xn_select_input_div {
+    width: 100%;
+    border-radius: 4px;
+    float: left;
+    cursor: pointer;
+}
+.xn_select_outer .xn_select_input_div .icon-delete {
+    position: absolute;
+    right: 35px;
+    margin-top: -2px;
+    color: #cdcdcd;
+    line-height: 34px;
+}
+.xn_select_outer .xn_select_input_div .icon-delete:hover{
+    color: #ff0000;
+    cursor: pointer;
+}
+.xn_select_outer .xn_select_input_div .icon-apostrophe{
+    position: absolute;
+    margin-left: -34px;
+    background: #eee;
+    line-height: 28px;
+    width: 33px;
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+    text-align: center;
+    margin-top: 1px;
+    padding-bottom: 4px;
+    color: #555;
+}
+.xn_select_outer .pagination {
+    margin-right:5px;
+}
+.xn_select_outer .xn_show_div .search_div {
+    padding: 5px;
+    float: left;
+    width: 100%;
+    background: #f9f9f7;
+}
+.xn_select_outer .xn_show_div .search_div .search_input_div {
+    padding: 2px 0;
+    float: left;
+    display: table;
+    width: 100%;
+    border-collapse: separate;
+}
+.xn_select_outer .xn_show_div .search_div .search_input_div input{
+    width: 90%;
+    float: left;
+    height: 30px;
+    border-radius: inherit;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+.xn_select_outer .xn_show_div .search_div .search_input_div .searc_icon_search {
+    float: left;
+    cursor:pointer;
+    display: table-cell;
+    width: 10%;
+    border: solid 1px #cdcdcd;
+    border-left: none;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    background: #eee;
+    line-height: 20px;
+    text-align: center;
+    font-size: 20px;
+    padding-bottom: 8px;
+    color:#555;
+}
+.xn_select_outer .xn_show_div .transclude_div {
+    width: 100%;
+    min-height: 300px;
+    position: relative;
+}
+.xn_select_outer .xn_show_div .transclude_div table {
+    border-collapse: separate;
+}
+.xn_select_outer .xn_show_div .transclude_div table thead tr{
+    border-bottom: solid 1px #ebebeb;
+}
+.xn_select_outer .xn_show_div .transclude_div table tbody tr{
+    cursor:pointer;
+    border: none;
+    height: auto;
+}
+.xn_select_outer .xn_show_div .transclude_div table tbody tr:hover{
+    background: #ebebeb;
+}
+.xn_select_outer .xn_show_div .transclude_div table tr td{
+    line-height: 28px;
+    border: none;
+    text-align: left;
+}
+.xn_select_outer .xn_show_div .pagination-sm {
+    clear: both;
+    margin: 5px;
+}
+/*xnTableSelect end*/
+
+/*xnFilterSelect*/
+.xn-filter-select_outer {
+    width: 100%;
+    cursor: pointer;
+    float:left;
+    position: relative;
+}
+.xn-filter-select_outer .input_div{
+    position: relative;
+    width: 100%;
+    float: left;
+}
+.xn-filter-select_outer .form-control{
+    width: 100%;
+    background: #ffffff;
+}
+.xn-filter-select_outer .icon-downward-1 {
+    font-size: 12px;
+    color: #333;
+    position: absolute;
+    right: 0;
+    line-height: 34px;
+    margin-right:2px;
+}
+.xn-filter-select_outer .icon-delete {
+    position: absolute;
+    right: 0;
+    margin-right: 20px;
+    line-height: 34px;
+    color: #cdcdcd;
+}
+.xn-filter-select_outer .icon-delete:hover{
+    color: #ff0000;
+    cursor: pointer;
+}
+.xn-filter-select_outer .content_div_cl{
+    border: solid 1px #cdcdcd;
+    width: 100%;
+    position: absolute;
+    line-height: 34px;
+    max-height: 300px;
+    overflow: auto;
+    background: white;
+    z-index: 9999;
+    margin-top:34px;
+}
+.xn-filter-select_outer .content_div_cl .content_div_ul_cl .content_div_li_cl{
+    padding: 0 12px;
+}
+.xn-filter-select_outer .content_div_cl .content_div_ul_cl .content_div_li_cl:hover{
+    background: #dcdcdc;
+}
+.xn-filter-select_outer .content_div_cl>input {
+    border: none;
+    border-bottom: solid 1px #cdcdcd;
+    width: 100%;
+    line-height: 20px;
+    padding: 6px 12px;
+}
+/*xnFilterSelect*/
+
+/*xn-filter-input*/
+.xn-filter-input{
+    position: relative;
+}
+
+.xn-filter-input .xn-filter-input-list{
+    position: absolute;
+    left: 0;
+    z-index: 2;
+    display: none;
+    width: auto;
+    background: #fff;
+    border: 1px solid #dcdcdc;
+    border-radius: 4px;
+    padding: 10px 0px;
+}
+.xn-filter-input .xn-filter-input-list li{
+    line-height: 34px;
+    height: 34px;
+    cursor: pointer;
+    padding: 0 10px;
+}
+.xn-filter-input .xn-filter-input-list li:hover{
+    line-height: 34px;
+    height: 34px;
+    cursor: pointer;
+    background: #428bca;
+    color: #fff;
+}
+/*xn-filter-input*/
+
+/*triggerSelect*/
+.trigger_select_wrap {
+    position: relative;
+}
+
+.trigger_select_wrap .input_box {
+    float: left;
+    width: 100%;
+}
+.trigger_select_wrap .lb {
+    float: left;
+    width: 100%;
+    border: solid 1px #cdcdcd;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    height: 250px;
+    overflow: auto;
+}
+.trigger_select_wrap .lb ul {
+    line-height: 25px;
+    margin-bottom: 0;
+}
+.trigger_select_wrap .lb ul li {
+    padding: 0 12px;
+    cursor: pointer;
+}
+.trigger_select_wrap .lb ul li:hover {
+    background: #ececec;
+}
+.trigger_select_wrap .input_box input {
+    float: left;
+}
+.trigger_select_wrap .ctrl_wrap {
+    height: 34px;
+    position: absolute;
+    right: 2px;
+    padding-top: 5px;
+}
+.trigger_select_wrap .ctrl_wrap .icon {
+    color: #cdcdcd;
+    height: 12px;
+    line-height: 10px;
+    font-size: 12px;
+}
+.trigger_select_wrap .ctrl_wrap .icon-upward-1:hover {
+    color: #666
+}
+.trigger_select_wrap .ctrl_wrap .icon-downward-1:hover {
+    color: #666
+}
+/*triggerSelect*/
+
+/*xnCreateSelect*/
+.xn-create-select_outer {
+    width: 100%;
+    cursor: pointer;
+    float:left;
+    position: relative;
+}
+.xn-create-select_outer .input_div{
+    position: relative;
+    width: 100%;
+    float: left;
+}
+.xn-create-select_outer .form-control{
+    width: 100%;
+    background: #ffffff;
+}
+.xn-create-select_outer .icon-downward-1 {
+    font-size: 12px;
+    color: #333;
+    position: absolute;
+    right: 0;
+    line-height: 34px;
+    margin-right:2px;
+}
+.xn-create-select_outer .icon-delete {
+    position: absolute;
+    right: 0;
+    margin-right: 20px;
+    line-height: 34px;
+    color: #cdcdcd;
+}
+.xn-create-select_outer .icon-delete:hover{
+    color: #ff0000;
+    cursor: pointer;
+}
+.xn-create-select_outer .content_div_cl{
+    border: solid 1px #cdcdcd;
+    width: 100%;
+    position: absolute;
+    line-height: 34px;
+    max-height: 300px;
+    overflow: auto;
+    background: white;
+    z-index: 9999;
+    margin-top:34px;
+    border-radius: 4px;
+}
+.xn-create-select_outer .content_div_cl .content_div_ul_cl .content_div_li_cl{
+    padding: 0 12px 0 15px;
+}
+.xn-create-select_outer .content_div_cl .content_div_ul_cl .content_div_li_cl:hover{
+    background: #28a7ff;
+    color: #fff;
+}
+.xn-create-select_outer .content_div_cl>input {
+    border: none;
+    border-bottom: solid 1px #cdcdcd;
+    width: 100%;
+    line-height: 20px;
+    padding: 6px 12px;
+}
+.xn-create-select_outer .content_div_cl .content_div_create{
+    width: 100%;
+    height: 35px;
+    line-height: 35px;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+.xn-create-select_outer .content_div_cl .content_div_create a{
+    text-decoration: none;
+    color: #cdcdcd;
+}
+.xn-create-select_outer .content_div_cl .content_div_create .icon-add{
+    margin-right: 10px;
+}
+/*xnCreateSelect*/
+
+.xn-lookup-layout{
+    position: relative;
+}
+.xn-lookup-layout .lookup-input-layout{
+    position: relative;
+    width: 100%;
+}
+.xn-lookup-layout .lookup-input-layout .lookup-input-box{
+    position: relative;
+}
+
+.xn-lookup-layout .lookup-input-layout .lookup-input-box .more{
+    position: absolute;
+    right: 0;
+    top:1px;
+    width: 30px;
+    height: 28px;
+    border-left: 1px solid #ddd;
+    display: block;
+    text-align: center;
+    cursor: pointer;
+}
+.xn-lookup-layout .lookup-input-layout .lookup-input-box .delete{
+    position: absolute;
+    top:8px;
+    overflow: hidden;
+    text-indent: -999px;
+    right: 35px;
+    width: 14px;
+    height: 14px;
+    line-height: 28px;
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    background: #fff url("./images/lookupDelete.png") center 50% no-repeat;
+    font-family:"Arial";
+    color: #999;
+    border-radius: 50%;
+}
+.xn-lookup-layout .lookup-input-layout .lookup-input-box .more::before {
+    width: 10px;
+    height: 10px;
+    transform:rotate(-45deg);
+    content: "";
+    display: inline-block;
+    border-left: 2px solid #ddd;
+    border-bottom: 2px solid #ddd;
+    margin-top: 8px;
+}
+.xn-lookup-layout .lookup-input-layout .lookup-input-box .more-active::before {
+    transform:rotate(135deg);
+    margin-top: 12px;
+}
+
+.xn-lookup-layout .lookup-input{
+    width: 100%;
+    height: 30px;
+    border-radius: 0;
+    font-size: 14px;
+    line-height: 22px;
+    border: solid 1px #ddd;
+    padding: 4px 52px 4px 5px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.xn-lookup-layout .lookup-input-layout .input-box-focus .lookup-input{
+    border: 1px solid #3399ff;
+}
+.xn-lookup-layout .lookup-list-layout{
+    width: 100%;
+    position: absolute;
+    left: 0;
+    height: auto;
+    background: #fff;
+    z-index: 99;
+    border: 1px solid #3399ff;
+    margin-top: -1px;
+    min-height:120px;
+}
+.xn-lookup-layout .lookup-list-layout-right{
+    left: auto;
+    right: 0;
+}
+.xn-lookup-layout .lookup-list-layout .lookup-list{
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    min-height:120px;
+}
+.xn-lookup-layout .lookup-list-layout .lookup-list .list-item{
+    margin-right: 30px;
+}
+.xn-lookup-layout .lookup-list-layout .lookup-list .list-item .item{
+    line-height: 30px;
+    padding: 0;
+    height: 30px;
+    position: relative;
+    cursor: pointer;
+}
+.xn-lookup-layout .lookup-list-layout .lookup-list .list-item .item-html>*{
+    line-height: 30px;
+    height: 30px;
+    display:block;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    cursor: pointer;
+}
+.xn-lookup-layout .lookup-list-layout .lookup-list .list-item .item-active{
+    background: #3399ff;
+    color: #fff;
+}
+.xn-lookup-layout .lookup-list-layout .lookup-list .list-item .item-active .item-html>*{
+    background: #3399ff;
+    color: #fff;
+}
+.xn-lookup-layout .lookup-list-layout .lookup-list .list-item  .item .item-tooltip{
+    position: absolute;
+    left: -1px;
+    right:0;
+    z-index: 1;
+    background:#fff;
+    box-shadow: 0 1px 2px #e5e5e5;
+    color: #333;
+    border: 1px solid #ddd;
+}
+.xn-lookup-layout .lookup-list-layout .lookup-list .list-item  .item .item-tooltip .item-tooltip-layout{
+    position: relative;
+}
+.xn-lookup-layout .lookup-list-layout .lookup-list .list-item  .item .item-tooltip .item-tooltip-layout::before{
+    position: absolute;
+    top:-5px;
+    left: 50%;
+    margin-left: -10px;
+    z-index: 1;
+    content:"";
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    background: #fff;
+    transform: rotate(135deg);
+}
+.xn-lookup-layout .lookup-list-layout .lookup-list .page{
+    position: absolute;
+    width: 30px;
+    bottom: 0;
+    right: 0;
+    top: 50%;
+    margin-top: -45px;
+    background: #fff;
+    height: 60px;
+    padding: 5px;
+}
+.xn-lookup-layout .lookup-list-layout .lookup-list .page .pre,.xn-lookup-layout .lookup-list-layout .lookup-list .page .next{
+    background: #fff;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #3399ff;
+    margin-bottom: 20px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 50%;
+    float: left;
+}
+.xn-lookup-layout .lookup-list-layout .lookup-list .page .pre:after{
+    border-left:5px solid transparent;
+    border-right:5px solid transparent;
+    border-bottom:5px solid  #3399ff;
+    border-top: 0 solid transparent;
+    height:0;
+    width: 0;
+    overflow: hidden;
+    display:inline-block;
+    content: "";
+    margin-top: 5px;
+    float: left;
+    margin-left: 3px;
+}
+.xn-lookup-layout .lookup-list-layout .lookup-list .page .next:after{
+    border-left:5px solid transparent;
+    border-right:5px solid transparent;
+    border-bottom:0 solid  transparent;
+    border-top: 5px solid #3399ff;
+    height:0;
+    width: 0;
+    overflow: hidden;
+    display:inline-block;
+    content: "";
+    margin-top: 6px;
+    float: left;
+    margin-left: 3px;
+}
+.xn-lookup-layout .lookup-list-layout .lookup-list .page .pre:hover,.xn-lookup-layout .lookup-list-layout .lookup-list .page .next:hover{
+    border: 2px solid #3399ff;
+}
+.xn-lookup-layout .lookup-list-layout .lookup-list .page .pre:hover:after{
+    border-bottom:5px solid  #3399ff;
+}
+.xn-lookup-layout .lookup-list-layout .lookup-list .page .next:hover:after{
+
+    border-top: 5px solid #3399ff;
+}
+.xn-lookup-layout .lookup-list-layout .lookup-list .page .pre-disabled,.xn-lookup-layout .lookup-list-layout .lookup-list .page .next-disabled{
+    border: 2px solid #ddd;
+    cursor:not-allowed ;
+}
+.xn-lookup-layout .lookup-list-layout .lookup-list .page .pre-disabled:hover,.xn-lookup-layout .lookup-list-layout .lookup-list .page .next-disabled:hover{
+    border: 2px solid #ddd;
+    cursor:not-allowed ;
+}
+.xn-lookup-layout .lookup-list-layout .lookup-list .page .pre-disabled:after{
+    border-bottom:5px solid  #ddd;
+}
+.xn-lookup-layout .lookup-list-layout .lookup-list .page .next-disabled:after{
+    border-top:5px solid  #ddd;
+}
+.xn-lookup-layout .lookup-list-layout .lookup-list .page .pre-disabled:hover:after{
+    border-bottom:5px solid  #ddd;
+}
+.xn-lookup-layout .lookup-list-layout .lookup-list .page .next-disabled:hover:after{
+    border-top:5px solid  #ddd;
+}
+.xn-lookup-layout .lookup-list-layout .tip{
+    text-align: center;
+}
+

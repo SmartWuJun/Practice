@@ -17,11 +17,20 @@
 
     <context-param>
         <param-name>kissoConfigLocation</param-name>
-        <param-value>classpath:setting.properties</param-value>
+        <param-value>classpath:config.properties</param-value>
     </context-param>
     <listener>
         <listener-class>com.xiniunet.supporting.sso.web.KissoConfigListener</listener-class>
     </listener>
+
+    <filter>
+        <filter-name>language</filter-name>
+        <filter-class>com.xiniunet.common.utils.web.filter.LanguageJSONHandler</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>language</filter-name>
+        <url-pattern>/lang/*</url-pattern>
+    </filter-mapping>
 
     <filter>
         <filter-name>sso</filter-name>
@@ -29,7 +38,7 @@
         <init-param>
             <!-- 排除微信授权相关页面 -->
             <param-name>over.url</param-name>
-            <param-value>*.txt;/wechat/url.do;/wechat/action.do;/wechat/jump.do;/wechat/warn.htm</param-value>
+            <param-value>*.txt;/workflow/*.do</param-value>
         </init-param>
     </filter>
     <filter-mapping>

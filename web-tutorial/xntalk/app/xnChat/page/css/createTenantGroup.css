@@ -1,0 +1,56 @@
+
+.class1
+{
+    width:100%;height:100%;background-color:rgba(0,0,0,0.5);z-index:10;position: fixed;-webkit-app-region: no-drag;left: 0px;top:0px;z-index: 99;
+}
+
+.class2
+{
+    position: absolute;
+    left:50%;
+    top:50%;
+    margin-left: -340px;margin-top: -290px;
+    width: 675px;height: 575px;font-family: '微软雅黑';overflow: hidden;background-color:white;
+}
+.class3
+{
+
+    position: absolute;
+    left: 310px;
+    top:15px;
+    right: 10px;
+    position: absolute;
+    font-size: 14px;
+    width:100px;
+
+}
+.class4
+{
+
+    font-family:"iconfont" !important;
+    font-size:14px;
+    font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+
+
+    border: none;
+    background: none;
+    cursor:pointer;
+    float: right;
+    right: 10px;
+    top: 10px;
+    position: absolute;
+    color:#d0d0d0 ;
+}
+
+.class4:hover
+{
+    color: rgb(255,71,96);
+}
+.class4:before
+{
+    content: "\e607";
+
+}

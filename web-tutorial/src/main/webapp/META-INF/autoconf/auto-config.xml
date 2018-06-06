@@ -4,6 +4,8 @@
         <property name="global.zookeeper.host" defaultValue="192.168.20.2" description="注册中心IP地址" />
         <property name="global.zookeeper.port" defaultValue="2181" description="注册中心端口号" />
         <property name="global.deploy.mode" defaultValue="development" description="部署环境模式" />
+        <property name="global.deploy.platform" defaultValue="plat" description="默认发布环境plat  | 淘宝环境taobao" />
+        <property name="global.deploy.platform.name" defaultValue="犀牛企业云" description="部署环境模式：犀牛企业云，魅力惠，樱花卫厨，中恒宠银" />
         <property name="global.verify.mode" defaultValue="product" description="验证环境" />
 
         <!-- 全局站点配置 -->
@@ -32,6 +34,7 @@
             <validator name="choice" choice="TRUE,FALSE"/>
         </property>
 
+        <property name="global.site.tutorial.url" defaultValue="http://tutorial.xiniunet.com/" description="教程域名"/>
         <property name="global.site.cdn.url" defaultValue="https://cdn.xiniunet.com/" description="CDN域名"/>
         <property name="global.aliyun.oss.url" defaultValue="http://xiniunet-dev.oss-cn-hangzhou.aliyuncs.com/" description="阿里云存储路径" />
         <property name="global.aliyun.img.url" defaultValue="http://img-dev.xiniunet.com/" description="阿里云图片处理服务路径" />
@@ -53,6 +56,9 @@
 
         <property name="web.tutorial.module.name" defaultValue="web_tutorial" description="模块名称" />
         <property name="web.tutorial.author" defaultValue="XXX" description="网页作者" />
+        <property name="web.tutorial.log.mail.enable" defaultValue="true" description="是否启用系统日志邮件通知" />
+        <property name="web.tutorial.log.mail.receipt" defaultValue="lvhao@xiniunet.com,zhaoxing@xiniunet.com" description="日志收件人邮箱地址列表，逗号分隔" />
+        <property name="web.tutorial.log.mail.interval" defaultValue="5" description="邮件通知默认频率" />
     </group>
     <script>
         <generate template="WEB-INF/classes/dubbo.properties" charset="UTF-8" outputCharset="UTF-8"/>

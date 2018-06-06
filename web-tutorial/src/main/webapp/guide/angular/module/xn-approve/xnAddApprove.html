@@ -1,0 +1,209 @@
+<!DOCTYPE html  >
+<html lang="zh-CN" ng-app="myApp">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Expires" CONTENT="0">
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Cache-Control" CONTENT="no-store">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--公共引用-->
+    <link rel="Shortcut Icon"  href="https://cdn.xiniunet.com/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.xiniunet.com/css/xn-bootstrap/1.0.2/bootstrap.min.css" >
+    <link rel="stylesheet" href="https://cdn.xiniunet.com/font/xn-icon-common/2.0.7/iconfont.min.css" />
+    <link rel="stylesheet" href="/guide/dist/styles/local.min.css" />
+    <!--公共引用-->
+    <script  type="text/javascript" src="https://cdn.xiniunet.com/js/base/1.2.0/base.min.js" ></script>
+    <!--源码插件-->
+    <link rel="stylesheet" href="/guide/vendor/code-prettify/prettify.css" />
+    <script  type="text/javascript" src="/guide/vendor/code-prettify/prettify.js" ></script>
+
+    <!--需要加载的文件-->
+    <link rel="stylesheet"  href="https://cdn.xiniunet.com/js/xn-common/1.1.6/style.min.css" >
+    <script  type="text/javascript" src="https://cdn.xiniunet.com/js/xn-common/1.1.6/commons.min.js" ></script>
+    <link rel="stylesheet"  href="https://cdn.xiniunet.com/js/xn-select/1.1.7/style.min.css" >
+    <script  type="text/javascript" src="https://cdn.xiniunet.com/js/xn-select/1.1.7/selects.min.js" ></script>
+
+
+    <link rel="stylesheet"  href="https://cdn.xiniunet.com/js/xn-approval/1.1.0/style.min.css" >
+    <script  type="text/javascript" src="https://cdn.xiniunet.com/js/xn-approval/1.1.0/approval.min.js" ></script>
+
+
+
+</head>
+<body ng-controller="PageController" >
+<div class="xn-main xn-width mt-20 xn-grid-layout auto clearfix" >
+    <div class="xn-main-header">
+        <span>{{setting.name}}</span>
+        <span class="ml-50 font-sm">{{setting.subtitle}}</span>
+    </div>
+    <div class="xn-main-body xn-grid-14  xn-lh" >
+        <div class="xn-demo">
+            <div class="title"><span class="h3-title">示例：</span></div>
+            <div class="xn-input-line clearfix">
+                <div  xn-add-approve  ng-model="approveList"  max-count="5"
+                      delete-user="deleteUser(data)"  add-user="addUser(data)"></div>
+            </div>
+            <div class="xn-input-line clearfix">
+                <div  xn-add-approve  ng-model="approveList"  max-count="5"
+                      delete-user="deleteUser(data)"  add-user="addUser(data)" readonly="true" ></div>
+            </div>
+        </div>
+        <div class="xn-options">
+            <div class="title"><span class="h3-title">代码：</span></div>
+            <div class="xn-input-line clearfix">
+                <pre class="prettyprint lang-html linenums prettyprinted" id="options"></pre>
+            </div>
+        </div>
+
+        <div class="xn-explain">
+            <div class="title"><span class="h3-title">说明：</span><span class="f-right">(点击标题查看详情)</span></div>
+            <div class="xn-input-line">
+                flowId 需要从网址上获取。
+            </div>
+
+            <div class="xn-input-line clearfix">
+                <div class="sub-title" >ng-model</div>
+                <div class="explain-content" >
+                    <p>必填 : 为选择后返回的数据</p>
+                </div>
+            </div>
+
+            <div class="xn-input-line clearfix">
+                <div class="sub-title" ng-click="tabSubNav(1)">max-count</div>
+                <div class="explain-content" ng-if="setting.subNavActive===1">
+                    <p>可选 :最大多少人审批<p>
+                </div>
+            </div>
+            <div class="xn-input-line clearfix">
+                <div class="sub-title" ng-click="tabSubNav(3)">delete-user</div>
+                <div class="explain-content" ng-if="setting.subNavActive===3">
+                    <p>可选 :删除审批人后触发的事件<p>
+                   <pre>
+                      delete-user="deleteUser(data)"
+                   </pre>
+                </div>
+            </div>
+            <div class="xn-input-line clearfix">
+                <div class="sub-title" ng-click="tabSubNav(2)"> add-user</div>
+                <div class="explain-content" ng-if="setting.subNavActive===2">
+                    <p>可选 :添加审批人后触发的事件<p>
+                    <pre>
+                      add-user="addUser(data)"
+                   </pre>
+
+                </div>
+            </div>
+            <div class="xn-input-line clearfix">
+                <div class="sub-title" ng-click="tabSubNav(4)">readonly</div>
+                <div class="explain-content" ng-if="setting.subNavActive===4">
+                   <p>可选 :相当于查看。<p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="xn-main-body xn-col-md-8 xn-col-md-offset-1 xn-lh" >
+        <div class="xn-info">
+            <div class="title"><span class="h3-title">基本信息</span></div>
+            <div class="xn-input-line clearfix ">
+                <label class="xn-col-md-6 xn-text-right xn-label">隶属于：</label>
+                <div class="xn-col-md-18">{{setting.affiliated}}</div>
+            </div>
+            <div class="xn-input-line clearfix ">
+                <label class="xn-col-md-6 xn-text-right xn-label">version： </label>
+                <div class="xn-col-md-18" >{{setting.version}}</div>
+            </div>
+            <div class="xn-input-line clearfix ">
+                <label class="xn-col-md-6 xn-text-right xn-label">依赖组件：</label>
+                <div class="xn-col-md-18">{{setting.rely}}</div>
+            </div>
+            <div class="xn-input-line clearfix ">
+                <label class="xn-col-md-6 xn-text-right xn-label">CDN路径：</label>
+                <div class="xn-col-md-18 clearfix" >
+                    {{setting.jsUrl}}<br/>{{setting.cssUrl}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    //    配置设置
+    (function () {
+        function htmlEscape(s) {
+            return s
+                    .replace(/&/g, '&amp;')
+                    .replace(/</g, '&lt;')
+                    .replace(/>/g, '&gt;');
+        }
+        // this page's own source code
+
+
+        var quineHtml = htmlEscape(
+                '<div  xn-add-approve  \n' +
+                '   ng-model="{array}" \n' +
+                '   [max-count="{number}"] \n' +
+                '   [delete-user="{expression}"]\n' +
+                '   [add-user="{expression}"]\n' +
+                '   [readonly="{boolean}"]\n' +
+                '   >\n' +
+                '</div>');
+
+
+        // Highlight the operative parts:
+        quineHtml = quineHtml.replace(
+                /&lt;script src[\s\S]*?&gt;&lt;\/script&gt;|&lt;!--\?[\s\S]*?--&gt;|&lt;pre\b[\s\S]*?&lt;\/pre&gt;/g,
+                '<span class="operative">$&<\/span>');
+
+        // insert into PRE
+        document.getElementById("options").innerHTML = quineHtml;
+
+    })();
+    var pageController = function ($scope,$timeout) {
+        var version="1.1.0";
+        $scope.setting={
+            name:"审批人员添加",
+            subtitle:"xnAddApprove ",
+            affiliated:"xn.directive.approval",
+            version:version,
+            rely:"xn.common , xn.directive.select",
+            jsUrl:"js/xn-approval/"+version+"/approval.min.js",
+            cssUrl:"js/xn-approval/"+version+"/style.min.css",
+            subNavActive:null
+        };
+        $scope.tabSubNav=function (index) {
+            if($scope.setting.subNavActive==index){
+                $scope.setting.subNavActive=null
+            }else {
+                $scope.setting.subNavActive=index
+            }
+        };
+
+        $scope.approveList=[
+            {"type":"ROLE","objectName":"1级主管","objectId":1,"objectAvatar":""},
+            {"type":"USER","objectName":"安丽娟","objectId":"867578814996291584"},
+            {"type":"USER","objectName":"赵星","objectId":"532832510527541248",
+                "objectAvatar":"http://xiniunet.oss.aliyuncs.com/512824102474878976/avatar/555306788044804096.jpg"}
+        ];
+
+        $scope.deleteUser=function (data) {
+            console.log("删除");
+            console.log(data);
+        };
+        $scope.addUser=function (data) {
+            console.log("添加");
+            console.log(data);
+
+        }
+
+    };
+    var xnConfig = {
+        myUrl: "http://my-plat.xiniunet.com/"
+    };
+    angular.module("myApp",["xn.directive.approval","xn.common","xn.directive.select"])
+            .value("xnConfig",xnConfig)
+            .controller("PageController", ["$scope","$timeout", pageController]);
+</script>
+</body>
+</html>

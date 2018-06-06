@@ -1,0 +1,76 @@
+<!doctype html>
+
+<script>
+//    require('electron').remote.ipcMain.on('messageTest', function(event, arg) {
+//        console.log(event.isCancel);
+//    });
+
+//    require('electron').ipcRenderer.on('onMyInfo', function(event, arg) {
+//    console.log("##################");
+   // console.log(event.isCancel);
+//});
+//require('electron').remote.ipcMain.on('onMyInfo', function(event, arg) {
+//    console.log(arg);
+//    console.log(event.isCancel);
+//});
+
+//
+//    require('electron').ipcRenderer.send('messageTest', 'ping');
+
+
+</script>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" href="/dist/styles/global.min.css"/>
+
+        <script src="/dist/scripts/base.min.js"> </script>
+        <script src="/dist/scripts/global.min.js"> </script>
+
+    </head>
+    <body style="width:100%; height:100%;;overflow-x: hidden; overflow-y: hidden;background-color:transparent;min-height: 600px; font-family: 微软雅黑;" ng-app="myApp" ng-controller="myControl">
+        <header style="width: 100%; height: 54px; background-color: #3399ff;;border:1px solid #3399ff;border-radius:4px 4px 0px 0px;" >
+            <img src="images/login/icon.png" style="width: 50px; height: 50px;position: absolute;left: 10px;;" />
+            <div style="-webkit-app-region: drag;width: 90%; height: 90%"></div>
+        </header>
+        <div id="div_middle" style="border:1px solid rgb(230, 230, 230);border-radius:0px 0px 4px 4px;background-color: white;">
+            <div id="div_left"  style="width: 100px;height:100%;text-align:center; background-color: rgb(228,234,244);padding-top: 10px;">
+                <div style="border-radius:50%;width: 50px;height: 50px;background-color: #0000AA;margin-left: auto;margin-right: auto;background-color: #ffffff;">
+                    <div id="div_avatar" style="position:relative;left:3px;top:3px;border-radius:50%;width:44px;text-align: center;line-height:44px;text-align:center; vertical-align:middle;
+                    height:44px;margin-top:3px;{{loginUserAvatar}};background-size:contain;color: white" ng-bind="loginUserAvatarName">
+                    </div>
+                    <!--<img id="div_avatar" style="border-radius:50%;width:44px; height:44px;margin-top:3px;" src="http://img.woyaogexing.com/2016/06/29/56a15559f87a5a62!200x200.jpg" />-->
+                </div>
+
+                <div style="width:100%; text-align:center;font-size:14px;margin-top:5px;">{{loginUserName}}</div>
+                </div>
+            </div>
+
+        </div>
+        <script src="js/xn_util.js"></script>
+        <script src="js/jquery-1.7.1.min.js"></script>
+        <script src="js/3rd/jquery-ui-datepicker.js"></script>
+        <script src="js/Web_SDK_Base_v2.4.0.js"></script>
+        <script src="js/Web_SDK_NIM_v2.4.0.js"></script>
+        <script src="js/emoji.js"></script>
+        <script src="js/util.js?v=2"></script>
+        <script src="js/cache.js?v=2"></script>
+        <script src="js/ui.js?v=2"></script>
+        <script src="js/sdk.js?v=2"></script>
+        <script src="js/notification.js?v=2"></script>
+        <script src="js/team.js?v=2"></script>
+
+        <script src="js/xn_main.js"></script>
+    <script>
+        window.onresize = function(){
+            console.log($('#div_middle'));
+
+           $('#div_middle').css('height',  ($(window).height() - 54) + 'px');
+
+        }
+
+
+    </script>
+
+    </body>
+</html>

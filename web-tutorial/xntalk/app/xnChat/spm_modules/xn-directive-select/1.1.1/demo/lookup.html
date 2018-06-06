@@ -1,0 +1,210 @@
+<html ng-app="myApp">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+	<title>无标题</title>
+    <link href="../directive/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://xn-static.oss-cn-hangzhou.aliyuncs.com/css/xn-bootstrap/1.0.1/bootstrap.min.css">
+    <link rel="stylesheet" href="../spm_modules/xn-style-common/2.0.2/xn-style-common.less">
+    <link rel="stylesheet" href="../spm_modules/xn-icon-common/1.0.5/iconfont.css">
+    <style>
+        .xn-text-right{
+            text-align: right;
+        }
+    </style>
+</head>
+<body ng-controller="MyController">
+<div style="height: 50px">
+    {{lookup}}
+</div>
+<div class="clearfix"></div>
+<h3>简化配置</h3>
+<div  style=" width: 250px;margin-left:120px">
+
+    <div  xn-lookup   ng-model="lookup"  data-method="getList(data)"   placeholder="请输入提示信息"   data-search-val="id|name" >
+    </div>
+
+    <script type="text/ng-template" id="lookup.html">
+        <div class="xn-col-md-12">{{item.name}}</div>
+        <div class="xn-col-md-6 xn-text-right">{{item.id}}</div>
+        <div class="xn-col-md-6">{{item.id}}</div>
+    </script>
+</div>
+<h3>完整的配置</h3>
+<div  style=" width: 250px;margin-left:1110px">
+    <div style="height: 50px">
+        {{lookup2}}
+    </div>
+    <div  xn-lookup   ng-model="lookup2"  data-method="getList(data)"  data-callback="selectLookup(data)"   data-show-width="500"  data-template-url="lookup.html"
+          data-search-key="id" data-search-val="id|name" data-is-popup="true" data-page-size="20" required="true" name="lookup"     placeholder="请输入提示信息" >
+    </div>
+
+</div>
+<div  style=" width: 200px;margin-left:110px">
+
+</div>
+<div class="" style=" margin: 20px">
+
+    <h3>新lookup 指令</h3>
+
+    <h4>标签属性设置</h4>
+    <ul>
+        <li>
+            <h4>method</h4>
+        <pre>
+            method: //必填   获取数据的方法
+            //例如：method="getList(data)"
+         data：包含
+            {data：  //数据传出： 用于查询数据。包含：keyword、pageNumber、pageSize、keywordList
+             deferred：//用于回调 传递进去列表和总数 data.deferred.resolve({itemList:itemList,totalCount:25});
+            }
+        </pre>
+        </li>
+
+        <li>
+            <h4>callback</h4>
+        <pre>
+            method: //可选  用于当选择某一选项时调用的方法
+            //例如：method="selectLookup(data)"
+
+        </pre>
+        </li>
+
+        <li>
+            <h4>is-popup</h4>
+        <pre>
+            is-popup: //true  是否显示提示信息
+        </pre>
+        </li>
+
+        <li>
+            <h4>searchKey</h4>
+        <pre>
+            searchKey //可选  默认值为 id
+        </pre>
+        </li>
+        <li>
+            <h4>searchVal</h4>
+        <pre>
+            searchVal //可选  默认值为 name  过滤查询的条件  及显示内容
+            如果想显示多个字段可以用"|"进行间隔
+            例如："id|name"
+        </pre>
+        </li>
+        <li>
+            <h4>page-size</h4>
+        <pre>
+            page-size //可选 设置页数
+        </pre>
+        </li>
+        <li>
+            <h4>required</h4>
+        <pre>
+            required //可选 是否验证 验证为true
+        </pre>
+        </li>
+        <li>
+            <h4>name</h4>
+        <pre>
+            name //可选   输入框的名称
+        </pre>
+        </li>
+        <li>
+            <h4>placeholder</h4>
+        <pre>
+            placeholder //可选  提示信息
+        </pre>
+        </li>
+        <li>
+            <h4>template-url</h4>
+            <div style="color: red">
+                注意：模板中以item为模型。例如显示物料的名称：\"item.name
+            </div>
+
+        <pre>
+            template-url //可选 为单个选项的排版 里面栅格系统为24格
+
+            例如：请用F12查看
+            <script type="text/ng-template" id="lookup1.html">
+                <div class="xn-col-md-18">{{item.name}}</div>
+                <div class="xn-col-md-6">{{item.id}}</div>
+            </script>
+
+        </pre>
+
+        </li>
+    </ul>
+    <h4>快捷键</h4>
+    <ul>
+        <li>
+            <h4>↑ ↓ 键代表选择上下选项</h4>
+
+        </li>
+        <li>
+            <h4>pageUP 上一页</h4>
+            <h4>pageDown 下一页</h4>
+        </li>
+        <li>
+            <h4>回车键 选中默认选中的选项</h4>
+            <h4>delete 删除选中的物料</h4>
+        </li>
+    </ul>
+
+</div>
+</body>
+
+<script type="text/javascript">
+    var xnConfig = {
+        wwwUrl: "$config.getWwwUrl('')",
+        erpUrl: "$config.getErpUrl('')",
+        employeeUrl: "$config.getEmployeeUrl('')",
+        authUrl: "$config.getAuthUrl('')",
+        serviceUrl: "$config.getServiceUrl('')",
+        memberUrl: "$config.getMemberUrl('')",
+        openUrl: "$config.getOpenUrl('')",
+        customerUrl: "$config.getCustomerUrl('')",
+        supplierUrl: "$config.getSupplierUrl('')",
+        myUrl: "$config.getMyUrl('')",
+        siteUrl: "$config.getSitewebUrl('')"
+    };
+</script>
+
+<script type="text/javascript" src="../spm_modules/jquery/1.7.2/jquery.js"></script>
+<script type="text/javascript" src="../spm_modules/xn-angular/1.0.0/angular.js"></script>
+<script type="text/javascript" src="../spm_modules/angular-ui/1.2.0/bootstraptpls.js"></script>
+<script type="text/javascript" src="../directive/selects.js"></script>
+<script type="text/javascript">
+        angular.module("myApp", ["xn.directive.select"])
+        .value("xnConfig",xnConfig)
+        .controller("MyController", ["$scope","$timeout","$sce", function($scope,$timeout,$sce){
+            $scope.getList=function(data){
+                console.log(data);
+                console.log(data.data);
+                var time=new Date().getTime();
+                var i=1111;
+                var index=0;
+                $timeout(function () {
+                    index++;
+                    var itemList=[
+                        {name:time+"特步（XTEP）",  id:"1"},
+                        {name:time+"休闲运动男女鞋春夏秋凉鞋",  id:i},
+                        {name:time+"休闲运动男女鞋春夏秋凉鞋",  id:i},
+                        {name:time+"休闲运动男女鞋春夏秋凉鞋",  id:i},
+                        {name:time+"休闲运动男女鞋春夏秋凉鞋",  id:i},
+                        {name:time+"休闲运动男女鞋春夏秋凉鞋",  id:i},
+                        {name:time+"休闲运动男女鞋春夏秋凉鞋",  id:i},
+                        {name:time+"休闲运动男女鞋春夏秋凉鞋",  id:i},
+                        {name:time+"休闲运动男女鞋春夏秋凉鞋",  id:i},
+                        {name:time+"休闲运动男女鞋春夏秋凉鞋",  id:i}
+                    ];
+
+                    data.deferred.resolve({itemList:itemList,totalCount:25});
+                },500);
+            };
+
+            //选择框
+            $scope.selectLookup=function (data) {
+                console.log(data);
+            }
+        }]);
+</script>
+</html>

@@ -1,0 +1,35 @@
+{
+  "name": "xn-style-common",
+  "version": "2.0.4",
+  "description": "xn-style-common",
+  "keywords": ["xn-style-common"],
+  "homepage": "",
+  "author": "zhaoxing",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "bugs": {
+    "url": ""
+  },
+  "licenses": "MIT",
+  "spm": {
+    "main": "index.js",
+    "dependencies": {},
+    "devDependencies": {
+      "expect.js": "0.3.1"
+    }
+  },
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-clean": "^0.3.1",
+    "gulp-concat": "^2.5.0",
+    "gulp-less": "^3.0.0",
+    "less": "^2.4.0",
+    "spm": "3"
+  },
+  "scripts": {
+    "test": "spm test",
+    "build": "spm build"
+  }
+}

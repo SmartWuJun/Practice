@@ -1,0 +1,88 @@
+.fc_999
+{
+
+    font-family: '微软雅黑';
+    color: #999;
+}
+.fc_666
+{
+    font-family: '微软雅黑';
+    color: #666;
+}
+:focus { outline: 0; }
+.clearfix:after{
+    content:".";
+    display:block;
+    clear:both;
+    visibility:hidden;
+    line-height:0;
+    height:0;
+}
+.xn-text-center{
+    text-align: center;
+}
+.xn-undate-body{
+    height: 100vh;
+    position: relative;
+    background: #39f url(./images/bg.png) center top no-repeat;
+    background-size: 100% 100%;
+    overflow: hidden;
+}
+.xn-undate-layout{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -170px;
+    margin-top: -165px
+}
+.xn-undate-layout .xn-undate-title{
+    padding-top:30px;
+    margin-bottom: 15px;
+    width:100%;
+    font-size: 20px;
+    font-family: '微软雅黑';
+    text-align: center;
+    font-weight: bold;
+}
+.xn-undate-layout .undate-line{
+    margin-bottom: 5px;
+}
+.xn-undate-layout .undate-lable{
+    float: left;
+    color: #999;
+    width: 100px;
+    text-align: right;
+    margin-right: 10px;
+}
+.xn-undate-layout .xn-undate-data{
+    overflow: hidden;
+    color: #666;
+}
+
+.xn-undate-layout .undate-pre{
+    width: 80%;
+    margin: auto;
+    height: 75px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 5px;
+    box-sizing: border-box;
+    color: #666;
+}
+.xn-undate-layout .undate-btn{
+    width:80px;
+    height:30px;
+    background-color:rgb(51,153,255);
+    color: #f0f0f0;
+    font-family: '微软雅黑';
+    border: none;
+    font-weight: bold;
+    float: left;
+    margin-right: 15px;
+    cursor: pointer;
+}
+.xn-undate-layout .undate-btn-def{
+    color: #666;
+    background: #ddd;
+    margin-left: 70px;
+}

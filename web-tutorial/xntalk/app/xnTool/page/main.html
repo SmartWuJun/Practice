@@ -1,0 +1,111 @@
+<div class="xn-tool-content " >
+
+    <table class="table table-bordered table-striped ">
+        <thead>
+            <tr>
+                <td class="col-md-1"></td>
+                <td class="col-md-11">说明</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>通用</td>
+                <td>命名：单词和单词之间用_连接，原则单词都应该是准确的英文单词，E.G.PROVICE_ID</td>
+            </tr>
+            <tr>
+                <td>表命名</td>
+                <td>XXX_表名</td>
+            </tr>
+            <tr>
+                <td>表设计</td>
+                <td>日志表：XXX_OBJECT_LOG，字段 ,OBJECT_TYPE,OBJECT_ID</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>大文本:XXX_TEXT(ID,CONTENT)</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>收藏表：XXX_COLLECTION( OBJECT_TYPE,OBJECT_ID)</td>
+            </tr>
+            <tr>
+                <td>字段命名</td>
+                <td>DATE,TIME的区别，DATE:YYYY-MM-DD, time:YYYY-MM-DD HH:MM:SS:sss</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>英文单词，最好是1-2个单词，最多三个_ID, _NAME,
+                    NAME,CODE,TYPE,TIME,DESCRIPTION   USER_TYPE, CITY_NAME,CITY_ID
+                    OJBECT VS ATTRIBUTE</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>排序字段  ORDER_INDEX Integer</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>PIN_YIN,PY</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>联系人：CONTACT_NAME, CONTACT_PHONE,CONTACT_NUMBER….</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>除了ID,原则上没有缩写</td>
+            </tr>
+            <tr>
+                <td>字段设计</td>
+                <td>自己的主键一定是ID,外键是表名_ID,例外：扩展表</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>ID,IS_DELETED,ROW_VERSION,CREATED_BY,CREATION_TIME,LAST_UPDATE_BY,LAST_UPDATE_TIME</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>WHO,4个审计字段应该是专用的，如果前台需要当时的创建时间或者提交人，应该单独去设计字段</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>默认string的长度，除非明确固定的长度，SEX:F/M,其他的一般按业务实际最大的长度，从50，100，200，500，4000进行选择</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>用户的名称、或者会员名称应该进行冗余</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>STATUS(不推荐),而是建议按照状态的维度，IS_XXX,HAS_XXX,IS_SUBMIT,IS_APPRROVED
+                    IS_SUBMIT,SUBMIT_USER_ID,SUBMIT_USER_NAME,SUBMIT_TIME,交易的重要节点状态都是可以在数据库直接追溯的。
+                    动词，动词的过去分词</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>SUBMIT-->APPROVE-->POST</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>枚举，取消字面量，数据库的易读已维护性</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>text超大文本，一般建议扩展表来做，XXX_ITEM_DETAIL</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>字段如果是枚举，应该有相应的枚举描述</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>START,FINISH, BEING,END,ACTIVE,INACTIVE,    ACTIVE-VOID</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>数据类型的准确使用，STRING,ID,INTEGER,AMOUNT</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+</div>

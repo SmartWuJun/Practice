@@ -1,1 +1,0 @@
-$control.setTemplate("tutorial:employee/index.vm")

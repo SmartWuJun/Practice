@@ -1,0 +1,39 @@
+{
+  "name": "xn-directive-select",
+  "version": "1.1.1",
+  "description": "select directive",
+  "keywords": [
+    "xn",
+    "directive-select"
+  ],
+  "homepage": "",
+  "author": "Jason",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "bugs": {
+    "url": ""
+  },
+  "licenses": "MIT",
+  "spm": {
+    "main": "index.js",
+    "dependencies": {
+      "jquery": "1.7.2",
+      "xn-angular": "1.0.0",
+      "xn-icon-common": "1.0.5",
+      "bootstrap-css": "1.0.0",
+        "xn-style-common":"1.0.1"
+    },
+    "devDependencies": {
+      "expect.js": "0.3.1"
+    }
+  },
+  "devDependencies": {
+    "spm": "3"
+  },
+  "scripts": {
+    "test": "spm test",
+    "build": "spm build"
+  }
+}

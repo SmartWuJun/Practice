@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+</head>
+
+
+<body>
+    <div class="container">
+
+    </div>
+
+    <script src="/js/jquery-1.7.2.js"></script>
+    <script src="/jqmodule/listview/listview.js"></script>
+    <script>
+        var listview = new ListView({
+            wraper: '.container'
+        })
+        var listview1 = new ListView({
+            wraper: '.container',
+            content: 'next'
+        })
+        var listview2 = new ListView({
+            wraper: '.container',
+            content: 'flower'
+        })
+
+        console.log(listview);
+        console.log(listview1);
+        console.log(listview == listview1);
+
+        listview.getContent();
+        listview1.getContent();
+    </script>
+</body>
+
+</html>

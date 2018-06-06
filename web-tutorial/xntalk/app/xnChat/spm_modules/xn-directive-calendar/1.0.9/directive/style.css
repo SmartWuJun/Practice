@@ -1,0 +1,323 @@
+.xn-year-month .xn-year-month-card {
+    cursor: pointer;
+    position: relative;
+    z-index: 9999;
+    background: #eee;
+    width: 200px;
+    text-align: center;
+}
+
+.xn-year-month {
+    position: relative;
+}
+
+.xn-year-month .xn-year-month-card {
+    position: absolute;
+    padding: 5px;
+    z-index: 9999;
+    background: #f5f5f5;
+    width: 235px;
+    text-align: center;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+}
+
+.xn-year-month.hover .xn-year-month-card {
+    display: block;
+}
+
+.xn-year-month .xn-year-month-card .year {
+    display: inline-block;
+    width: 105px;
+    margin: 0px 5px;
+}
+
+.xn-year-month-card ul {
+    margin-top: 10px;
+}
+
+.xn-yearm-onth-card ul li {
+    text-align: center;
+}
+
+.xn-year-month .xn-year-month-card ul .month {
+    width: 70px;
+    margin: 2px;
+    float: left;
+}
+
+.xn-year-month .xn-year-month-card ul button {
+    display: inline-block;
+    width: 70px;
+}
+.xn-year-month .xn-year-month-card  .bottom {
+    margin-top: 5px;
+
+}
+.xn-year-month .xn-year-month-card  .bottom .btn{
+    width: 48%;
+}
+
+.xn-directive-time, .xn-hourminute {
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+.xn-hourminute {
+    min-width: 200px;
+}
+
+.xn-directive-time .time-input, .xn-hourminute .time-input {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    height: 34px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    padding: 0 8px;
+    font-size: 14px;
+    line-height: 34px;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+.width-60-time{
+    display: block;
+    width:60px;
+    margin: 0 auto;
+    height: 34px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    padding: 0 8px;
+    font-size: 14px;
+    line-height: 34px;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+.xn-directive-time .hmstab, .xn-hourminute .hmstab {
+    position: absolute;
+    width: 100%;
+    min-width: 160px;
+    height: auto;
+    border-radius: 3px 3px 0 0;
+    left: 0;
+    bottom: -35px;
+    border: 1px solid #ccc;
+    z-index: 999;
+}
+
+.xn-directive-time .hmstab ul, .xn-hourminute .hmstab ul {
+    width: 100%;
+    height: 34px;
+    color: #428bca;
+
+}
+
+
+.xn-hourminute .hmstab ul li {
+    width: 50%;
+    float: left;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    border-right: 1px solid #ddd;
+    height: 100%;
+}
+
+.xn-directive-time .hmstab ul li {
+    width: 33.33%;
+    float: left;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    border-right: 1px solid #ddd;
+    height: 100%;
+}
+
+.xn-directive-time .hmstab ul li:last-child, .xn-hourminute .hmstab ul li:last-child {
+    border: none;
+}
+
+.xn-directive-time .hmstab .time-select, .xn-hourminute .hmstab .time-select {
+    width: 100%;
+    height: 100%;
+    border: none;
+
+    position: relative;
+
+}
+
+.xn-directive-time .hmstab select optgroup, .xn-hourminute .hmstab select optgroup {
+    position: absolute;
+    left: 0;
+    bottom: -35px;
+    height: auto;
+}
+
+.xn-directive-time .hmstab select option, .xn-hourminute .hmstab select option {
+    height: 34px;
+    line-height: 34px;
+    color: #253b22;
+}
+
+.xn-directive-time .hmstab select option a, .xn-hourminute .hmstab select option a {
+    display: block;
+    width: 100%;
+    height: 34px;
+    text-decoration: none;
+
+}
+
+.xn-directive-time .hmstab .btncon, .xn-hourminute .hmstab .btncon {
+    position: absolute;
+    width: 100%;
+    height: 34px;
+    left: 0;
+    bottom: -35px;
+    text-align: center;
+    line-height: 34px;
+    background: #ededed;
+    border: 1px solid #ccc;
+    border-top: none;
+    border-radius: 0 0 3px 3px;
+
+}
+
+.xn-directive-time .hmstab .btncon a, .xn-hourminute .hmstab .btncon a {
+    display: block;
+    float: left;
+    width: 50%;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    text-decoration: none;
+
+}
+
+.xn-directive-time .hmstab .btncon .rightborder, .xn-hourminute .hmstab .btncon .rightborder {
+    border-right: 1px solid #ddd;
+
+}
+
+/*****************月日*****************/
+.xn-month-date .xn-year-month-card {
+    cursor: pointer;
+    position: relative;
+    z-index: 9999;
+    background: #eee;
+    width: 200px;
+    text-align: center;
+}
+
+.xn-month-date {
+    position: relative;
+    min-width: 230px;
+}
+
+.xn-month-date .date-input {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    height: 34px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    padding: 0 8px;
+    font-size: 14px;
+    line-height: 34px;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+.xn-month-date .xn-month-date-card {
+    position: absolute;
+    padding: 5px;
+    z-index: 9999;
+    background: #f5f5f5;
+    width: 300px;
+    text-align: center;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+}
+
+.xn-month-date.hover .xn-month-date-card {
+    display: block;
+}
+
+.xn-month-date .xn-month-date-card .month {
+    display: inline-block;
+    width: 105px;
+    margin: 0px 5px;
+}
+
+.xn-month-date-card ul {
+    margin-top: 10px;
+    height: auto;
+    overflow: hidden;
+}
+
+.xn-month-date-card ul li {
+    text-align: center;
+}
+
+.xn-month-date .xn-month-date-card ul .date {
+    width: 18%;
+    margin: 5px 1%;
+    float: left;
+}
+
+.xn-month-date .xn-month-date-card ul button {
+    display: block;
+    width: 100%;
+}
+
+.xn-month-date .mt10 {
+    margin-top: 10px;
+}
+
+.xn-month-date .cleardate {
+    position: absolute;
+    left: 6px;
+    top: 5px;
+    width: 30px;
+    height: 20px;
+    font-size: 14px;
+    color: #999;
+    cursor: pointer;
+}
+.m-6{
+    margin:0 6px;
+}
+.xn-line-normal{
+    line-height: 34px;
+}
+.width-100-percent{
+    width:100%;
+}

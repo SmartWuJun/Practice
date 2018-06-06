@@ -1,0 +1,16 @@
+<div   ng-controller="atGroupMemberController"
+       id="atGroupMemberController"
+       class="name-list-div" style="position: fixed;left: {{left}}px;top: {{top}}px; background-color: white; width: 165px;";
+>
+    <div class="name-list-ul">
+        <ul>
+            <li ng-repeat="member in memberList track by $index"  data-union="{{member.unionId}}"
+                class="{{($index%2 == 0)?'atGroupMemberControllerLine atGroupMemberControllerLine1':'atGroupMemberControllerLine atGroupMemberControllerLine2'}}"
+                style="height: 25px;" >
+                <!--<div style="float: left; width: 20px;height: 20px;border-radius: 50%;line-height: 40px;background: #1bb8f9;color: #fff;text-align: center;">{{member.avatarName}}</div>-->
+                <div class="panel_text" style="height: 25px;line-height: normal;font-size: 12px;padding-top: 5px;">{{member.name}}</div>
+            </li>
+        </ul>
+
+    </div>
+</div>

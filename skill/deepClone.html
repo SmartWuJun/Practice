@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <script>
+    <!-- <script>
         function deepClone(obj1, obj2) {
             for (let k in obj2) {
                 if (typeof obj2[k] == "object") {
@@ -38,6 +38,37 @@
         deepClone(emptyObj, obj);
         console.log(emptyObj.a == obj.a);
         console.log(emptyObj.b == obj.b);
+        console.log(emptyObj, obj);
+    </script> -->
+
+    <script>
+        //利用递归来实现深拷贝，如果对象属性的值是引用类型（Array,Object），那么对该属性进行深拷贝，直到遍历到属性的值是基本类型为止。
+        function deepClone(obj) {
+            if (!obj && typeof object != 'object') {
+                return
+            }
+            var newObj = obj.constructor == Array ? [] : {};
+            for (var key in obj) {
+                if (typeof obj[key] == 'object') {
+                    newObj[key] = deepClone(obj[key])
+                } else {
+                    newObj[key] = obj[key]
+                }
+            }
+            return newObj
+        }
+
+        let obj = {
+            a: 1,
+            b: [1, 2, 3],
+            d: { name: 'tt' },
+            c: {}
+        }
+
+        var emptyObj = deepClone(obj);
+        console.log(emptyObj.a == obj.a);
+        console.log(emptyObj.b == obj.b);
+        console.log(emptyObj.d == obj.d);
         console.log(emptyObj, obj);
     </script>
 </body>

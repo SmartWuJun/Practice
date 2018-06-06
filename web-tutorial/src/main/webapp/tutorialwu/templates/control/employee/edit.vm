@@ -1,6 +1,0 @@
-$page.setTitle("员工编辑")
-<div>
-    {{1+4}}
-</div>
-
-<script type="text/javascript" src="$tutorialwuContent.getURI('dist/scripts/page/employee.js')"></script>

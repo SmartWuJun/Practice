@@ -1,0 +1,79 @@
+$page.setTitle("查看请假申请单")
+
+<div class="xn-width auto   clearfix" ng-controller="LeaveOpenController">
+    <!--面包屑-->
+    <div class="xn-breadcrumb clearfix">
+        <ul class="breadcrumb xn-col-md-12">
+            <li><a href="$tutorialLink.setTarget("index")">首页</a></li>
+            <li><a href="$tutorialLink.setTarget("leave/index")">请假单</a></li>
+            <li class="active">查看</li>
+        </ul>
+        <ul class="xn-col-md-12 mt-10 xn-lh">
+            <li class="operation-li f-right" ><a class="operation-a" href="$tutorialLink.setTarget("leave/index")"><i class="icon icon-return"></i>返回</a></li>
+            <li class="operation-li f-right" ng-if="!leave.isSubmit || leave.approveResult=='REJECTED'" ><a class="operation-a"  ng-click="doDelete()"><i class=" icon icon-trash"></i>删除</a></li>
+            <li class="operation-li f-right" ng-if="!leave.isSubmit || leave.approveResult=='REJECTED'" ><a class="operation-a" href="$tutorialLink.setTarget("leave/edit")?id={{leave.id}}">
+                <i class=" icon icon-compose"></i>编辑</a>
+            </li>
+        </ul>
+    </div>
+    <!---查看添加 xn-view-layout--->
+    <div class="xn-edit-layout xn-view-layout">
+        <div class="edit-title line">请假申请单</div>
+        <div class="edit-sub-title line clearfix">
+            <span class="sub-title-name f-left">请假申请单</span>
+            <span class="sub-title-num f-left">NO.{{leave.number}}</span>
+            <span class="sub-title-state" ng-if="leave.isApproved" >{{leave.approveResult | approvefilter}}</span>
+            <span class="sub-title-state" ng-if="leave.isSubmit && !leave.isApproved">待审批</span>
+            <span class="sub-title-state" ng-if="!leave.isSubmit">未提交</span>
+            #if($flowNumber)
+            <span class="f-right ml-50"><span class="font-auxiliary">流水号：</span><span>$!{flowNumber}</span></span>
+            #end
+        </div>
+        <div class="edit-body xn-lh">
+            <div class="edit-title-sm line clearfix ">
+                <span class="title-name">请假详情</span>
+            </div>
+            <div class="xn-input-line clearfix">
+                <div class="xn-col-md-3 xn-text-right font-auxiliary">申请人：</div>
+                <div class="xn-col-md-4">{{leave.employeeName}}</div>
+                <div class="xn-col-md-1"></div>
+                <div class="xn-col-md-3 xn-text-right font-auxiliary">请假类型：</div>
+                <div class="xn-col-md-4">{{leave.type | leaveType}}</div>
+                <div class="xn-col-md-1"></div>
+
+            </div>
+            <div class="xn-input-line clearfix">
+                <div class="xn-col-md-3 xn-text-right font-auxiliary">开始时间：</div>
+                <div class="xn-col-md-4" >{{leave.beginDate}} {{leave.beginTime}}:00</div>
+                <div class="xn-col-md-1"></div>
+                <div class="xn-col-md-3 xn-text-right font-auxiliary">结束时间：</div>
+                <div class="xn-col-md-4" >{{leave.endDate}} {{leave.beginTime}}:00</div>
+                <div class="xn-col-md-1"></div>
+                <div class="xn-col-md-3 xn-text-right font-auxiliary">共计天数：</div>
+                <div class="xn-col-md-4"><span ng-bind="leave.leaveDays"></span>天</div>
+                <div class="xn-col-md-1"></div>
+            </div>
+            <div class="xn-input-line clearfix ">
+                <div class="xn-col-md-3 xn-text-right font-auxiliary">请假原由：</div>
+                <pre class="xn-col-md-20" ng-bind="leave.description"></pre>
+            </div>
+            <div class="xn-input-line clearfix ">
+                <div class="xn-col-md-3 xn-text-right font-auxiliary">摘要说明：</div>
+                <pre class="xn-col-md-20" ng-bind="leave.summary"></pre>
+            </div>
+
+            #if($flowId)
+                <div class="mt-25" xn-approve  user-id="$principal.userId"   do-approve="doApprove()" do-reject="doReject()"
+                     do-transfer="setTransfer()"   is-show-button="false"  ng-model="approveResult"></div>
+            #end
+
+            <div class="xn-input-line clearfix" ng-if="!leave.isSubmit || leave.approveResult=='REJECTED'" >
+                <div class="xn-col-md-8 xn-col-md-offset-8 xn-text-center mt-20">
+                    <a  href="$tutorialLink.setTarget("leave/submit")?id={{leave.id}}" class="btn  btn-primary  ml-10">提交</a>
+                    <a  href="$tutorialLink.setTarget("leave/index")" class="btn  btn-normal  ml-10">取消</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="$tutorialContent.getURI('dist/scripts/page/leave.js')" ></script>

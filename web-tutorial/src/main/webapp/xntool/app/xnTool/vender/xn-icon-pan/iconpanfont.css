@@ -1,0 +1,36 @@
+
+@font-face {font-family: "iconpanfont";
+  src: url('./font/iconpanfont.eot'); /* IE9*/
+  src: url('./font/iconpanfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('./font/iconpanfont.woff') format('woff'), /* chrome、firefox */
+  url('./font/iconpanfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  url('./font/iconpanfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.xn-icon {
+  font-family:"iconpanfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-allfile:before { content: "\a600"; }
+.icon-ascendingorder:before { content: "\a601"; }
+.icon-cancellationofshare:before { content: "\a602"; }
+.icon-create:before { content: "\a603"; }
+.icon-delete:before { content: "\a604"; }
+.icon-descendingorder:before { content: "\a605"; }
+.icon-download:before { content: "\a606"; }
+.icon-dustbin:before { content: "\a607"; }
+.icon-file1:before { content: "\a608"; }
+.icon-friendsshares:before { content: "\a609"; }
+.icon-link:before { content: "\a60a"; }
+.icon-list1:before { content: "\a60b"; }
+.icon-myshares:before { content: "\a60c"; }
+.icon-other:before { content: "\a60d"; }
+.icon-photo:before { content: "\a60e"; }
+.icon-show:before { content: "\a60f"; }
+.icon-thumbnail:before { content: "\a610"; }
+.icon-video:before { content: "\a611"; }
+.icon-uploading:before { content: "\a612"; }

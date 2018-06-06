@@ -1,1014 +1,123 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html class="no-js">
+
 <head>
-<<<<<<< HEAD
-    <meta http-equiv="Content-Type" content="charset=utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="keywords" content="dsfds" />
-    <meta name="description" content="dsfs" />
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
-    <!--栅格系统-->
-    <meta content="modeName=750-12" name="grid" />
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="format-detection" content="email=no">
-    <!-- uc强制竖屏 -->
-    <meta name="screen-orientation" content="portrait">
-    <!-- QQ强制竖屏 -->
-    <meta name="x5-orientation" content="portrait">
-    <!-- UC强制全屏 -->
-    <meta name="full-screen" content="yes">
-    <!-- QQ强制全屏 -->
-    <meta name="x5-fullscreen" content="true">
-    <!-- UC应用模式 -->
-    <meta name="browsermode" content="application">
-    <!-- QQ应用模式 -->
-    <meta name="x5-page-mode" content="app">
-    <!-- windows phone 点击无高光 -->
-    <meta name="msapplication-tap-highlight" content="no">
-    <!-- 适应移动端end -->
-    <!--屏幕自动适配  lib-flexible-->
-    <script>
-        ! function() {
-            var a = "@charset \"utf-8\";html{color:#000;background:#fff;overflow-y:scroll;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}html *{outline:0;-webkit-text-size-adjust:none;-webkit-tap-highlight-color:rgba(0,0,0,0)}html,body{font-family:sans-serif}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{margin:0;padding:0}input,select,textarea{font-size:100%}table{border-collapse:collapse;border-spacing:0}fieldset,img{border:0}abbr,acronym{border:0;font-variant:normal}del{text-decoration:line-through}address,caption,cite,code,dfn,em,th,var{font-style:normal;font-weight:500}ol,ul{list-style:none}caption,th{text-align:left}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:500}q:before,q:after{content:''}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-.5em}sub{bottom:-.25em}a:hover{text-decoration:underline}ins,a{text-decoration:none}",
-                b = document.createElement("style");
-            if (document.getElementsByTagName("head")[0].appendChild(b), b.styleSheet) b.styleSheet.disabled || (b.styleSheet.cssText = a);
-            else try {
-                b.innerHTML = a
-            } catch (c) {
-                b.innerText = a
-            }
-        }();
-        ! function(a, b) {
-            function c() {
-                var b = f.getBoundingClientRect().width;
-                b / i > 540 && (b = 540 * i);
-                var c = b / 10;
-                f.style.fontSize = c + "px", k.rem = a.rem = c
-            }
-            var d, e = a.document,
-                f = e.documentElement,
-                g = e.querySelector('meta[name="viewport"]'),
-                h = e.querySelector('meta[name="flexible"]'),
-                i = 0,
-                j = 0,
-                k = b.flexible || (b.flexible = {});
-            if (g) {
-                console.warn("将根据已有的meta标签来设置缩放比例");
-                var l = g.getAttribute("content").match(/initial\-scale=([\d\.]+)/);
-                l && (j = parseFloat(l[1]), i = parseInt(1 / j))
-            } else if (h) {
-                var m = h.getAttribute("content");
-                if (m) {
-                    var n = m.match(/initial\-dpr=([\d\.]+)/),
-                        o = m.match(/maximum\-dpr=([\d\.]+)/);
-                    n && (i = parseFloat(n[1]), j = parseFloat((1 / i).toFixed(2))), o && (i = parseFloat(o[1]), j = parseFloat((1 / i).toFixed(2)))
-                }
-            }
-            if (!i && !j) {
-                var p = (a.navigator.appVersion.match(/android/gi), a.navigator.appVersion.match(/iphone/gi)),
-                    q = a.devicePixelRatio;
-                i = p ? q >= 3 && (!i || i >= 3) ? 3 : q >= 2 && (!i || i >= 2) ? 2 : 1 : 1, j = 1 / i
-            }
-            if (f.setAttribute("data-dpr", i), !g)
-                if (g = e.createElement("meta"), g.setAttribute("name", "viewport"), g.setAttribute("content", "initial-scale=" + j + ", maximum-scale=" + j + ", minimum-scale=" + j + ", user-scalable=no"), f.firstElementChild) f.firstElementChild.appendChild(g);
-                else {
-                    var r = e.createElement("div");
-                    r.appendChild(g), e.write(r.innerHTML)
-                }
-            a.addEventListener("resize", function() {
-                clearTimeout(d), d = setTimeout(c, 300)
-            }, !1), a.addEventListener("pageshow", function(a) {
-                a.persisted && (clearTimeout(d), d = setTimeout(c, 300))
-            }, !1), "complete" === e.readyState ? e.body.style.fontSize = 12 * i + "px" : e.addEventListener("DOMContentLoaded", function() {
-                e.body.style.fontSize = 12 * i + "px"
-            }, !1), c(), k.dpr = a.dpr = i, k.refreshRem = c, k.rem2px = function(a) {
-                var b = parseFloat(a) * this.rem;
-                return "string" == typeof a && a.match(/rem$/) && (b += "px"), b
-            }, k.px2rem = function(a) {
-                var b = parseFloat(a) / this.rem;
-                return "string" == typeof a && a.match(/px$/) && (b += "rem"), b
-            }
-        }(window, window.lib || (window.lib = {}));
-
-        function requestFullScreen() {
-            var de = document.documentElement;
-            if (de.requestFullscreen) {
-                de.requestFullscreen();
-            } else if (de.mozRequestFullScreen) {
-                de.mozRequestFullScreen();
-            } else if (de.webkitRequestFullScreen) {
-                de.webkitRequestFullScreen();
-            }
-        }
-        requestFullScreen();
-    </script>
-
-
-    <link rel="stylesheet" type="text/css" href="https://ebusiness-mb2b-dev.xiniunet.com/mb2c/dist/styles/base.min.css?v=2.32.0" />
-    <link rel="stylesheet" type="text/css" href="https://ebusiness-mb2b-dev.xiniunet.com/mb2c/dist/styles/other.css?v=2.32.0" />
-    <link rel="stylesheet" type="text/css" href="https://ebusiness-mb2b-dev.xiniunet.com/mb2c/vendor/xn-icon-ebusiness/iconfont.css?v=2.32.0" />
-    <!--公共部分-->
-
-    <script type="text/javascript" src="https://ebusiness-mb2b-dev.xiniunet.com/mb2c/vendor/jquery/jquery.min.js?v=2.32.0"></script>
-    <script type="text/javascript" src="https://ebusiness-mb2b-dev.xiniunet.com/mb2c/vendor/jquery/jquery-form.js?v=2.32.0"></script>
-    <script type="text/javascript" src="https://ebusiness-mb2b-dev.xiniunet.com/mb2c/dist/scripts/base.min.js?v=2.32.0"></script>
-    <script type="text/javascript" src="https://cdn.xiniunet.com/js/swiper/2.7.0/swiper.min.js"></script>
-
-
-
-    <script>
-        var test = window.location.href;
-        console.log(123);
-        if (test.indexOf(".html") != -1) {
-            var url = "/api/common.do?method=transfer.url";
-            $.ajax({
-                type: "post",
-                url: url,
-                dataType: "json",
-                contentType: "application/json;charset=UTF-8",
-                data: JSON.stringify({}),
-                success: function(data) {
-                    if (data && data.transferUrl) {
-                        window.location = data.transferUrl;
-                    }
-                }
-            });
-        }
-
-        // 加载统计代码
-        (function() {
-            var stat = document.createElement('script');
-            stat.src = 'https://stat.xiniunet.com/stat.js';
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(stat, s);
-        });
-    </script>
-    <style>
-        .xn-myCoupons .tabMenu .selected a {
-            color: #414abf !important;
-            border-color: #414abf !important;
-        }
-        
-        .xn-commodity-top {
-            background-color: #414abf !important;
-        }
-        
-        .xn-login .register .register-btn {
-            border-color: #414abf !important;
-            color: #414abf !important;
-        }
-        
-        .xn-personalIndex .personal-Info .rightContent .signBtn {
-            background-color: #414abf !important;
-        }
-        
-        .xn-personalIndex .personal-Info .leftContent .content .levelBar .process {
-            background-color: #414abf !important;
-        }
-        
-        .xn-personalIndex .personal-Info .leftContent .content .levelBar {
-            border-color: #414abf !important;
-        }
-        
-        .xn-personalIndex .personal-Info .leftContent .content .description .red {
-            color: #414abf !important;
-        }
-        
-        .xn-header .icon-header {
-            color: #414abf !important;
-        }
-        /*积分商城 选中 */
-        
-        .xn-foot .font-active {
-            color: #414abf;
-        }
-        
-        .xn-foot .font-active .footer-name {
-            color: #414abf;
-        }
-        
-        .xn-foot .submitBtn {
-            background: #414abf !important;
-        }
-        
-        .btn-danger {
-            background: #414abf !important;
-            border-color: #414abf !important;
-        }
-        
-        .pay-sunccess-btn .btn-danger {
-            background: #414abf !important;
-            border-color: #414abf !important;
-        }
-        
-        .icon-bg {
-            background: #414abf !important;
-        }
-        
-        .submitBtn {
-            background: #414abf !important;
-        }
-        
-        .xn-shop-btn {
-            background: #414abf !important;
-        }
-        
-        .xn-buy-btn {
-            color: #414abf !important;
-            background: #fff !important;
-        }
-        
-        .xn-pay-foot {
-            border-color: #414abf !important;
-        }
-        
-        .xn-buy-foot {
-            border-color: #414abf !important;
-        }
-        
-        .xn-shop-themeColor {
-            color: #fff!important;
-            background: #414abf !important;
-        }
-        
-        .xn-module-address .pop-layout .pop-address-tab .tab-active {
-            border-color: #414abf !important;
-            color: #414abf !important;
-        }
-        
-        .themeBg {
-            background: #414abf !important;
-        }
-        
-        .themeBtn {
-            background: #414abf !important;
-            border: 0 !important;
-            color: #fff !important;
-        }
-        
-        .themeBc {
-            background-color: #414abf !important;
-        }
-        
-        .theme-border-color {
-            border-color: #414abf !important;
-            color: #414abf !important;
-        }
-        
-        .theme-border {
-            border-color: #414abf !important;
-        }
-        
-        .theme-color {
-            color: #414abf !important;
-        }
-        
-        input:checked+.theme-check {
-            background: #414abf !important;
-        }
-        
-        .theme.selected {
-            color: #414abf !important;
-            border-color: #414abf !important;
-        }
-        
-        .selected>.theme {
-            color: #414abf !important;
-            border-color: #414abf !important;
-        }
-        
-        .active.theme {
-            color: #414abf !important;
-            border-color: #414abf !important;
-        }
-        
-        .icon-click.theme-active {
-            color: #414abf !important;
-        }
-        
-        .active.theme-border-active {
-            border-color: #414abf !important;
-        }
-        
-        .themeBg-O {
-            background-color: #414abf !important;
-            opacity: 0.6;
-        }
-        
-        .selected.theme-border-active {
-            border-color: #414abf !important;
-        }
-        
-        .parent-category-item-selected.theme-color-active {
-            color: #414abf !important;
-        }
-        
-        .theme-color-border {
-            color: #414abf !important;
-            border-color: #414abf !important;
-            background: #fff !important;
-        }
-    </style>
-
-    <style>
-        #widget_876680158835249197 .xn-module-search {
-            padding: 0.23148148148148148rem 0;
-            background: #43cfcd;
-        }
-        
-        #widget_876680158835249197 .xn-module-search .catalog {
-            margin-left: 0.37037037037037035rem;
-            width: 0.5462962962962963rem;
-            height: 0.8425925925925926rem;
-            background: url("//cdn.xiniunet.com/img/site/m060/catalog.png") no-repeat;
-            background-size: contain;
-        }
-        
-        #widget_876680158835249197 .xn-module-search .search-box {
-            width: 7.5rem;
-            height: 0.8333333333333334rem;
-            margin-left: 0.37037037037037035rem;
-            background: #fff;
-            border-radius: 5px;
-            position: relative;
-        }
-        
-        #widget_876680158835249197 .xn-module-search .search-box .icon-search {
-            display: block;
-            width: 0.37037037037037035rem;
-            height: 0.8425925925925926rem;
-            margin-left: 0.5092592592592593rem;
-            background: url("//cdn.xiniunet.com/img/site/m060/search.png") 0 45% no-repeat;
-            background-size: contain;
-        }
-        
-        #widget_876680158835249197 .xn-module-search .search-box input {
-            width: 6.111111111111111rem;
-            height: 0.5555555555555556rem;
-            border: none;
-            position: absolute;
-            left: 1.0185185185185186rem;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-        
-        #widget_876680158835249197 .xn-module-search .shop-cart {
-            width: 0.6481481481481481rem;
-            height: 0.8425925925925926rem;
-            margin-right: 0.32407407407407407rem;
-            background: url("//cdn.xiniunet.com/img/site/m060/shopCart.png") no-repeat;
-            background-size: contain;
-        }
-        
-        #widget_876680158835249197 .xn-module-search .fl {
-            float: left;
-        }
-        
-        #widget_876680158835249197 .xn-module-search .fr {
-            float: right;
-        }
-        
-        #widget_876680158835249197 .clearfix:after,
-        #widget_876680158835249197 .clearfix:before {
-            content: ' ';
-            display: table;
-        }
-        
-        #widget_876680158835249197 .clearfix:after {
-            clear: both;
-        }
-        
-        #widget_876680158835249198 .xn-module-article {
-            padding: 0.32407407407407407rem 0.46296296296296297rem;
-            background: #fff;
-        }
-        
-        #widget_876680158835249198 .xn-module-article img {
-            width: 1.0555555555555556rem;
-            height: 0.9722222222222222rem;
-            border: 0;
-        }
-        
-        #widget_876680158835249198 .xn-module-article .article-titles {
-            font-size: 0.2962962962962963rem;
-            line-height: 0.4444444444444444rem;
-            height: 1rem;
-            width: calc(100% - 1.5rem);
-            color: #363636;
-            margin-left: 0.37037037037037035rem;
-            overflow: hidden;
-        }
-        
-        #widget_876680158835249198 .xn-module-article .article-titles ul {
-            height: 0.9rem;
-            overflow: hidden;
-        }
-        
-        #widget_876680158835249198 .xn-module-article .article-titles ul li:before {
-            content: '';
-            width: 0.05555555555555555rem;
-            height: 0.05555555555555555rem;
-            display: inline-block;
-            background: #2fc2c0;
-            border-radius: 50%;
-        }
-        
-        #widget_876680158835249198 .xn-module-article .article-titles ul li span {
-            display: inline-block;
-            max-width: 5.2rem;
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            vertical-align: middle;
-            margin-left: 0.1111111111111111rem;
-        }
-        
-        #widget_876680158835249198 .xn-module-article .article-titles ul li .label {
-            background: #ff9a41;
-            font-size: 0.2222222222222222rem;
-            vertical-align: middle;
-            color: #fff;
-            border-radius: 20%;
-            padding: 0 0.09259259259259259rem;
-            font-style: normal;
-            margin-left: 0.1388888888888889rem;
-        }
-        
-        #widget_876680158835249198 .xn-module-article .swiper-container {
-            position: relative;
-            overflow: hidden;
-            direction: ltr;
-            -webkit-backface-visibility: hidden;
-            -moz-backface-visibility: hidden;
-            -ms-backface-visibility: hidden;
-            -o-backface-visibility: hidden;
-            backface-visibility: hidden;
-            /* Fix of Webkit flickering */
-            z-index: 1;
-        }
-        
-        #widget_876680158835249198 .xn-module-article .swiper-wrapper {
-            position: relative;
-            width: 100%;
-            -webkit-transition-property: -webkit-transform, left, top;
-            -webkit-transition-duration: 0s;
-            -webkit-transform: translate3d(0px, 0, 0);
-            -webkit-transition-timing-function: ease;
-            -moz-transition-property: -moz-transform, left, top;
-            -moz-transition-duration: 0s;
-            -moz-transform: translate3d(0px, 0, 0);
-            -moz-transition-timing-function: ease;
-            -o-transition-property: -o-transform, left, top;
-            -o-transition-duration: 0s;
-            -o-transform: translate3d(0px, 0, 0);
-            -o-transition-timing-function: ease;
-            -o-transform: translate(0px, 0px);
-            -ms-transition-property: -ms-transform, left, top;
-            -ms-transition-duration: 0s;
-            -ms-transform: translate3d(0px, 0, 0);
-            -ms-transition-timing-function: ease;
-            transition-property: transform, left, top;
-            transition-duration: 0s;
-            transform: translate3d(0px, 0, 0);
-            transition-timing-function: ease;
-            -webkit-box-sizing: content-box;
-            -moz-box-sizing: content-box;
-            box-sizing: content-box;
-        }
-        
-        #widget_876680158835249198 .xn-module-article .swiper-free-mode>.swiper-wrapper {
-            -webkit-transition-timing-function: ease-out;
-            -moz-transition-timing-function: ease-out;
-            -ms-transition-timing-function: ease-out;
-            -o-transition-timing-function: ease-out;
-            transition-timing-function: ease-out;
-            margin: 0 auto;
-        }
-        
-        #widget_876680158835249198 .xn-module-article .swiper-slide {
-            -webkit-box-sizing: content-box;
-            -moz-box-sizing: content-box;
-            box-sizing: content-box;
-            height: 0.5rem;
-        }
-        /* IE10 Windows Phone 8 Fixes */
-        
-        #widget_876680158835249198 .xn-module-article .swiper-wp8-horizontal {
-            -ms-touch-action: pan-y;
-        }
-        
-        #widget_876680158835249198 .xn-module-article .swiper-wp8-vertical {
-            -ms-touch-action: pan-x;
-        }
-        
-        #widget_876680158835249198 .xn-module-article a:-webkit-any-link {
-            color: #363636;
-        }
-        
-        #widget_876680158835249198 .xn-module-article .fl {
-            float: left;
-        }
-        
-        #widget_876680158835249198 .xn-module-article .fr {
-            float: right;
-        }
-        
-        #widget_876680158835249198 .clearfix:after,
-        #widget_876680158835249198 .clearfix:before {
-            content: ' ';
-            display: table;
-        }
-        
-        #widget_876680158835249198 .clearfix:after {
-            clear: both;
-        }
-        
-        #widget_876680158835249199 .xn-module-vedio {
-            height: 4.685185185185185rem;
-            width: 100%;
-        }
-        
-        #widget_876680158835249199 .xn-module-vedio .mobile-vedio {
-            height: 4.685185185185185rem;
-            width: 10rem;
-            padding: 0;
-            margin: 0;
-            border: 0;
-        }
-        
-        #widget_876680158835249199 .clearfix:after,
-        #widget_876680158835249199 .clearfix:before {
-            content: ' ';
-            display: table;
-        }
-        
-        #widget_876680158835249199 .clearfix:after {
-            clear: both;
-        }
-        
-        #widget_876680158835249200 .xn-module-category {
-            background: #fff;
-            margin-bottom: 0.32rem;
-            height: 4rem;
-            /*overflow-y: hidden;
-            overflow-x: auto;*/
-            white-space: nowrap;
-        }
-        
-        #widget_876680158835249200 .xn-module-category .swiper-slide {
-            width: 100%;
-            float: left;
-        }
-        
-        #widget_876680158835249200 .xn-module-category .header {
-            background: #f2f2f2;
-        }
-        
-        #widget_876680158835249200 .xn-module-category .header .ul {
-            height: 0.833rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        #widget_876680158835249200 .xn-module-category .header .ul .li {
-            margin: 0 0.065rem;
-            font-size: 0.37rem;
-            color: #363636;
-        }
-        
-        #widget_876680158835249200 .xn-module-category .header .ul .li span:first-child {
-            color: #2fc2c0;
-        }
-        
-        #widget_876680158835249200 .xn-module-category .header .ul .cir1 {
-            width: 0.065rem;
-            height: 0.065rem;
-            border-radius: 60%;
-            background: #2fc2c0;
-        }
-        
-        #widget_876680158835249200 .xn-module-category .header .ul .cir2 {
-            width: 0.0833rem;
-            height: 0.0833rem;
-            border-radius: 60%;
-            background: #2fc2c0;
-        }
-        
-        #widget_876680158835249200 .xn-module-category .header .ul .cir3 {
-            width: 0.11rem;
-            height: 0.11rem;
-            border-radius: 60%;
-            background: #2fc2c0;
-        }
-        
-        #widget_876680158835249200 .xn-module-category .category-list {
-            height: 3rem;
-            width: 100%;
-        }
-        
-        #widget_876680158835249200 .xn-module-category .category-list .category-item {
-            float: left;
-            margin: 0.4rem 0;
-            width: 25%;
-            height: 2.2rem;
-        }
-        
-        #widget_876680158835249200 .xn-module-category .category-list .category-item .category-link {
-            height: 2.2rem;
-            display: block;
-            text-align: center;
-        }
-        
-        #widget_876680158835249200 .xn-module-category .category-list .category-item .category-icon {
-            width: 1.4rem;
-            height: 1.4rem;
-            margin: auto;
-        }
-        
-        #widget_876680158835249200 .xn-module-category .category-list .category-item .category-name {
-            width: 100%;
-            height: 0.4rem;
-            overflow: hidden;
-            text-align: center;
-            line-height: 0.4rem;
-            text-decoration: none;
-        }
-        
-        #widget_876680158835249200 .xn-module-category .category-list .category-item .category-price {
-            width: 100%;
-            height: 0.4rem;
-            overflow: hidden;
-            text-align: center;
-            line-height: 0.4rem;
-            text-decoration: none;
-            color: #ff6941;
-            font-size: 16px;
-        }
-        
-        #widget_876680158835249201 .xn-module-customize {
-            background: #fff;
-        }
-        
-        #widget_876680158835249201 .xn-module-customize ul li {
-            width: 50%;
-            height: 3.1481481481481484rem;
-            float: left;
-            border-bottom: 1px solid #eaeaea;
-            box-sizing: border-box;
-            position: relative;
-            left: 0;
-            top: 0;
-        }
-        
-        #widget_876680158835249201 .xn-module-customize ul li .type-title {
-            position: absolute;
-            top: 0.18518518518518517rem;
-            left: 0.32407407407407407rem;
-            z-index: 10;
-        }
-        
-        #widget_876680158835249201 .xn-module-customize ul li .type-title .type-title-name {
-            font-size: 0.3333333333333333rem;
-            line-height: 0.3888888888888889rem;
-        }
-        
-        #widget_876680158835249201 .xn-module-customize ul li .type-title .type-title-name img {
-            height: 0.3888888888888889rem;
-            border: 0;
-            vertical-align: bottom;
-            width: 100%;
-        }
-        
-        #widget_876680158835249201 .xn-module-customize ul li .type-title .type-title-name span.hot {
-            color: #fe0000;
-        }
-        
-        #widget_876680158835249201 .xn-module-customize ul li .type-title .type-title-name span.limit-time {
-            color: #2396d4;
-        }
-        
-        #widget_876680158835249201 .xn-module-customize ul li .type-title .type-title-name span.must-buy {
-            color: #1cc3c1;
-        }
-        
-        #widget_876680158835249201 .xn-module-customize ul li .type-title .type-title-name span.select {
-            color: #fe8f00;
-        }
-        
-        #widget_876680158835249201 .xn-module-customize ul li .type-title .type-title-description {
-            font-size: 0.2777777777777778rem;
-            line-height: 0.3888888888888889rem;
-            color: #363636;
-        }
-        
-        #widget_876680158835249201 .xn-module-customize ul li .type-img {
-            width: auto;
-            height: 2.0833333333333335rem;
-            border: 0;
-            position: absolute;
-            bottom: 0.23148148148148148rem;
-            right: 0.32407407407407407rem;
-        }
-        
-        #widget_876680158835249201 .xn-module-customize ul li:nth-child(odd) {
-            border-right: 1px solid #eaeaea;
-        }
-        
-        #widget_876680158835249201 .clearfix:after,
-        #widget_876680158835249201 .clearfix:before {
-            content: ' ';
-            display: table;
-        }
-        
-        #widget_876680158835249201 .clearfix:after {
-            clear: both;
-        }
-        
-        #widget_876680158835249202 body {
-            background: #ccc;
-        }
-        
-        #widget_876680158835249202 .xn-site-widget .widgetControl {
-            z-index: 100;
-        }
-        
-        #widget_876680158835249202 .xn-module-bottom {
-            height: 1.9444444444444444rem;
-            width: 100%;
-            background: url('http://cdn.xiniunet.com/img/site/m064/bottom.png') no-repeat;
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            background-size: cover;
-            z-index: 1;
-        }
-        
-        #widget_876680158835249202 .xn-module-bottom .wai-hu {
-            position: absolute;
-            border: 1px solid #eaeaea;
-            box-shadow: 0 -1px 0px 0px #eaeaea;
-            border-radius: 50%;
-            bottom: 0.2777777777777778rem;
-            width: 1.6666666666666667rem;
-            height: 1.6666666666666667rem;
-            z-index: 99;
-            left: 50%;
-            background: #fff;
-            transform: translateX(-50%);
-        }
-        
-        #widget_876680158835249202 .xn-module-bottom .icons {
-            width: 100%;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            height: 1.3888888888888888rem;
-            box-sizing: border-box;
-            padding: 0.2777777777777778rem 0.32407407407407407rem 0.18518518518518517rem;
-            z-index: 100;
-            background: #fff;
-        }
-        
-        #widget_876680158835249202 .xn-module-bottom .icons .mine {
-            position: absolute;
-            left: 50%;
-            top: -50%;
-            transform: translateX(-50%);
-            text-align: center;
-            z-index: 101;
-        }
-        
-        #widget_876680158835249202 .xn-module-bottom .icons .mine .img-box {
-            width: 1.2962962962962963rem;
-            height: 1.2962962962962963rem;
-            margin-top: 0.3rem;
-        }
-        
-        #widget_876680158835249202 .xn-module-bottom .icons .mine .img-box img {
-            width: 1.2962962962962963rem;
-            height: 1.2962962962962963rem;
-            display: block;
-        }
-        
-        #widget_876680158835249202 .xn-module-bottom .icons .parts {
-            display: flex;
-            justify-content: space-between;
-        }
-        
-        #widget_876680158835249202 .xn-module-bottom .icons .parts img {
-            width: 0.9259259259259259rem;
-            height: 0.5185185185185185rem;
-            border: 0;
-            margin: 0 auto 0.1rem;
-            display: block;
-        }
-        
-        #widget_876680158835249202 .xn-module-bottom .icons .parts .left-part {
-            width: 3.240740740740741rem;
-            display: flex;
-            justify-content: space-between;
-        }
-        
-        #widget_876680158835249202 .xn-module-bottom .icons .parts .right-part {
-            width: 3.240740740740741rem;
-            display: flex;
-            justify-content: space-between;
-        }
-        
-        #widget_876680158835249202 .xn-module-bottom .icons .name {
-            font-size: 0.24074074074074073rem;
-            color: #363636;
-        }
-        
-        #widget_876680158835249202 .clearfix:after,
-        #widget_876680158835249202 .clearfix:before {
-            content: ' ';
-            display: table;
-        }
-        
-        #widget_876680158835249202 .clearfix:after {
-            clear: both;
-        }
-        
-        #widget_876680158835249203 .xn-module-like .header {
-            background: #f2f2f2;
-        }
-        
-        #widget_876680158835249203 .xn-module-like .header ul {
-            height: 0.8333333333333334rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        #widget_876680158835249203 .xn-module-like .header ul li {
-            margin: 0 0.06481481481481481rem;
-            font-size: 0.37037037037037035rem;
-            color: #363636;
-        }
-        
-        #widget_876680158835249203 .xn-module-like .header ul li span:first-child {
-            color: #2fc2c0;
-        }
-        
-        #widget_876680158835249203 .xn-module-like .header ul .cir1 {
-            width: 0.06481481481481481rem;
-            height: 0.06481481481481481rem;
-            border-radius: 50%;
-            background: #2fc2c0;
-        }
-        
-        #widget_876680158835249203 .xn-module-like .header ul .cir2 {
-            width: 0.08333333333333333rem;
-            height: 0.08333333333333333rem;
-            border-radius: 50%;
-            background: #2fc2c0;
-        }
-        
-        #widget_876680158835249203 .xn-module-like .header ul .cir3 {
-            width: 0.1111111111111111rem;
-            height: 0.1111111111111111rem;
-            border-radius: 50%;
-            background: #2fc2c0;
-        }
-        
-        #widget_876680158835249203 .xn-module-like .shop-list li {
-            padding: 0.37037037037037035rem 0.32407407407407407rem;
-            border-bottom: 1px solid #eaeaea;
-            width: 50%;
-            box-sizing: border-box;
-            position: relative;
-            left: 0;
-            top: 0;
-            float: left;
-        }
-        
-        #widget_876680158835249203 .xn-module-like .shop-list li:nth-child(odd) {
-            border-right: 1px solid #eaeaea;
-        }
-        
-        #widget_876680158835249203 .xn-module-like .shop-list li .icon-shop {
-            position: absolute;
-            top: 0.37037037037037035rem;
-            left: 0.32407407407407407rem;
-            width: 0.7592592592592593rem;
-            height: 0.7777777777777778rem;
-        }
-        
-        #widget_876680158835249203 .xn-module-like .shop-list li img.shop {
-            width: 100%;
-            margin-bottom: 0.7407407407407407rem;
-        }
-        
-        #widget_876680158835249203 .xn-module-like .shop-list li .shop-description {
-            margin-right: 0.37037037037037035rem;
-            font-size: 0.2962962962962963rem;
-            line-height: 0.4444444444444444rem;
-            color: #363636;
-        }
-        
-        #widget_876680158835249203 .xn-module-like .shop-list li .shop-info {
-            margin: 0.2777777777777778rem 0;
-        }
-        
-        #widget_876680158835249203 .xn-module-like .shop-list li .shop-info .shop-price {
-            float: left;
-            font-size: 0.4444444444444444rem;
-            line-height: 0.4444444444444444rem;
-            color: #ff6941;
-        }
-        
-        #widget_876680158835249203 .xn-module-like .shop-list li .shop-info .people-payed {
-            float: right;
-            font-size: 0.2222222222222222rem;
-            color: #8c8c8c;
-            line-height: 0.4444444444444444rem;
-        }
-        
-        #widget_876680158835249203 .clearfix:after,
-        #widget_876680158835249203 .clearfix:before {
-            content: ' ';
-            display: table;
-        }
-        
-        #widget_876680158835249203 .clearfix:after {
-            clear: both;
-        }
-        
-        #widget_876680158835249204 .xn-category-layout {
-            border-bottom: 1px solid #ddd;
-        }
-        
-        #widget_876680158835249204 .xn-category-layout .category-item {
-            float: left;
-            margin: 0 0.2rem -1px;
-            width: 2.1rem;
-            height: 2rem;
-            padding: 0.2rem 0;
-            border-bottom: 1px solid #ddd;
-        }
-        
-        #widget_876680158835249204 .xn-category-layout .category-item .link {
-            margin: 0 -0.2rem;
-            width: 2.5rem;
-            height: 1.6rem;
-            display: block;
-            padding: 0.15rem 0.2rem;
-            border-right: 1px solid #ddd;
-            text-align: center;
-        }
-        
-        #widget_876680158835249204 .xn-category-layout .category-item .link .img {
-            margin: 0 auto;
-            width: 0.8rem;
-            height: 0.8rem;
-            overflow: hidden;
-            display: block;
-            background-size: contain;
-            background-position: center 50%;
-            background-repeat: no-repeat;
-        }
-        
-        #widget_876680158835249204 .xn-category-layout .category-item .link .img-0 {
-            background-image: url("https://img-dev.xiniunet.com/801689539428098048/801689539881086976/871651962721275904.PNG");
-        }
-        
-        #widget_876680158835249204 .xn-category-layout .category-item .link .img-1 {
-            background-image: url("https://img-dev.xiniunet.com/801689539428098048/801689539881086976/873048698828230656.png");
-        }
-        
-        #widget_876680158835249204 .xn-category-layout .category-item .link .img-2 {
-            background-image: url("https://img-dev.xiniunet.com/801689539428098048/801689539881086976/867664362016739328.png");
-        }
-        
-        #widget_876680158835249204 .xn-category-layout .category-item .link .img-3 {
-            background-image: url("https://img-dev.xiniunet.com/801689539428098048/801689539881086976/867313856861835264.jpg");
-        }
-        
-        #widget_876680158835249204 .xn-category-layout .category-item .link .name {
-            height: 0.5rem;
-            line-height: 0.5rem;
-            overflow: hidden;
-            text-align: center;
-            width: 100%;
-        }
-        
-        #widget_876680158835249204 .xn-category-layout .category-item:nth-child(4n+0) .link {
-            border-right: 1px solid transparent;
-        }
-    </style>
-=======
-<meta charset="UTF-8">
-<title>test</title>
-<meta name="viewport" content="width=640,target-densitydpi=device-dpi,user-scalable=no" />
->>>>>>> f53b042cb6a8fe133f8522e345483be87e21375e
+    <meta charset="UTF-8">
+    <title>test</title>
+    <meta name="viewport" content="width=640,target-densitydpi=device-dpi,user-scalable=no" />
 
 </head>
+<div class="btn">
+    buttom 00000000000000
+</div>
+<div>
+    first commit
+</div>
+<div>
+    second commit
+</div>
+<script>
+    // function foo() {
+    //     "use strict";
+    //     console.log(this);
+    //     console.log(this.a);
+    // }
+
+    // var a = 2;
+    // foo();
+</script>
+
+<script>
+    function foo(something) {
+        console.log(this.a, something);
+        return this.a + something;
+
+    }
+
+    function bind(fn, obj) {
+        return function() {
+            return fn.apply(obj, arguments);
+        }
+    }
+
+    var obj = {
+        a: 2
+    };
+
+    var bar = bind(foo, obj);
+
+    var b = bar(3);
+
+    console.log(b);
+</script>
+
+<script>
+    let myObject = {
+        get a() {
+            return this._a_;
+        },
+        set a(v) {
+            this._a_ = v * 4;
+        }
+
+    }
+
+    Object.defineProperty(myObject, 'b', {
+        get() {
+            return this.a * 5;
+        },
+        set(v) {
+            console.log('v', v);
+
+            this.a = 100 * v;
+        },
+        enumerable: true
+    })
+    myObject.a = 10;
+    console.log(myObject.a);
+    console.log(myObject.b);
+    myObject.b = 3;
+    console.log(myObject.b);
+
+    console.log(myObject.a);
+</script>
+
+<script>
+    function Mother(age) {
+        this.age = age;
+        this.hobby = ["running", 'football'];
+
+    }
+    Mother.prototype.showAge = function() {
+        console.log(this.age);
+
+    }
+
+    function Person(name, age) {
+        // Mother.call(this, age);
+        this.name = name;
+    }
+    Person.prototype = new Mother();
+    Person.prototype.constructor = Person;
+    Person.prototype.showName = function() {
+        console.log(this.name);
+
+    }
+    let p1 = new Person('Jack', 20);
+    p1.hobby.push('backetball');
+
+    let p2 = new Person('Mark', 18);
+
+    console.log('p1', p1);
+    console.log('p2', p2);
+</script>
+
 <body>
-<div><img src="imgs/code.jpg" alt="二维码图片" /></div>
-<div style="position:absolute; top:660px; left:225px; z-index:1000;"><img src="imgs/code.jpg" alt="二维码图片" /></div>
+    <div><img src="imgs/code.jpg" alt="二维码图片" /></div>
+    <div style="position:absolute; top:660px; left:225px; z-index:1000;"><img src="imgs/code.jpg" alt="二维码图片" /></div>
+
+
 </body>
+
 </html>

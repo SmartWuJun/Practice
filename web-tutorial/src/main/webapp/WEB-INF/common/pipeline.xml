@@ -40,12 +40,12 @@
                     <pl-valves:performAction />
                     <pl-valves:performScreen />
                 </when>
-                <when>
-                    <!-- 创建JSON，无模板，无layout。 -->
-                    <pl-conditions:target-extension-condition extension="json" />
-                    <pl-valves:performScreen />
-                    <pl-valves:renderResultAsJson />
-                </when>
+                <!--<when>-->
+                    <!--&lt;!&ndash; 创建JSON，无模板，无layout。 &ndash;&gt;-->
+                    <!--<pl-conditions:target-extension-condition extension="json" />-->
+                    <!--<pl-valves:performScreen />-->
+                    <!--<pl-valves:renderResultAsJson />-->
+                <!--</when>-->
                 <otherwise>
                     <!-- 将控制交还给servlet engine。 -->
                     <pl-valves:exit />

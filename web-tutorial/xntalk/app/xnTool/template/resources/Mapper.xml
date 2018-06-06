@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.{{ setting.companyCode | lower}}.{{ setting.applicationCode | lower}}.dal.{{ table.nameNoPrefix | pascalcase }}Mapper">
+
+    <sql id="whereForFindList">{% for column in table.columns %}{% if column.isQueryable == "true" %}{% if column.type == "String" %}
+        <if test="request.{{  column.name | camelcase }}!=null"> AND `{{  column.name | uppercase }}` LIKE CONCAT ('%',#{ request.{{  column.name | camelcase }}  },'%')</if>{% endif %}{% if column.type == "Id" %}
+        <if test="request.{{  column.name | camelcase }}!=null"> AND `{{  column.name | uppercase }}` =#{ request.{{  column.name | camelcase }} }</if>{% endif %}{% if column.type == "Integer" %}
+        <if test="request.{{  column.name | camelcase }}!=null"> AND `{{  column.name | uppercase }}` =#{ request.{{  column.name | camelcase }} }</if>{% endif %}{% if column.type == "DateTime" %}
+        <if test="request.{{  column.name | camelcase }}From!=null"> AND `{{  column.name | uppercase }}`   <![CDATA[ >= ]]>  #{ request.{{  column.name | camelcase }}From }</if>
+        <if test="request.{{  column.name | camelcase }}To!=null"> AND `{{  column.name | uppercase }}`   <![CDATA[ >= ]]>  #{ request.{{  column.name | camelcase }}To }</if>{% endif %}{% if column.type == "Date" %}
+        <if test="request.{{  column.name | camelcase }}From!=null"> AND `{{  column.name | uppercase }}`   <![CDATA[ >= ]]>  #{ request.{{  column.name | camelcase }}From }</if>
+        <if test="request.{{  column.name | camelcase }}To!=null"> AND `{{  column.name | uppercase }}`   <![CDATA[ <= ]]>  #{ request.{{  column.name | camelcase }}To }</if>
+        {% endif %}{% endif %}{% endfor %}
+    </sql>
+
+    <sql id="whereForSearchList">
+        AND
+        (
+            1=0{% for column in table.columns %}{% if column.isQueryable == "true" %}{% if column.type == "String" %}
+            OR `{{  column.name | uppercase }}` LIKE CONCAT ('%',#{  request.keyword  },'%')  {% endif %}{% endif %}{% endfor %}
+        )
+    </sql>
+
+    <select id="find" resultMap="{{ table.nameNoPrefix | camelcase }}PO">
+        SELECT
+            <include refid="entityColumnList"/>
+        FROM
+            `{{ table.name | uppercase }}`
+        WHERE
+            `IS_DELETED`=0{% if table.isByTenant == "true" %}
+            AND `TENANT_ID`=#{ passport.tenantId }{% endif %}
+            <include refid="whereForFindList" />
+        <if test="request.pageSize !=0">
+            LIMIT #{ request.beginItemIndex }, #{ request.pageSize }
+        </if>
+    </select>
+
+    <select id="findCount" resultType="java.lang.Long">
+        SELECT
+            COUNT(*)
+        FROM
+            `{{ table.name | uppercase }}`
+        WHERE
+            `IS_DELETED`=0{% if table.isByTenant == "true" %}
+            AND `TENANT_ID`=#{ passport.tenantId }{% endif %}
+            <include refid="whereForFindList" />
+    </select>
+
+    <select id="search" resultMap="{{ table.nameNoPrefix | camelcase }}PO">
+        SELECT
+            <include refid="entityColumnList"/>
+        FROM
+            `{{ table.name | uppercase }}`
+        WHERE
+            `IS_DELETED`=0{% if table.isByTenant == "true" %}
+            AND `TENANT_ID`=#{ passport.tenantId }{% endif %}
+            <if test="request.keyword !=null">
+                <include refid="whereForSearchList" />
+            </if>
+        <if test="request.pageSize !=0">
+            LIMIT #{ request.beginItemIndex }, #{ request.pageSize }
+        </if>
+    </select>
+
+    <select id="searchCount" resultType="java.lang.Long">
+        SELECT
+            COUNT(*)
+        FROM
+            `{{ table.name | uppercase }}`
+        WHERE
+            `IS_DELETED`=0{% if table.isByTenant == "true" %}
+            AND `TENANT_ID`=#{ passport.tenantId }{% endif %}
+            <if test="request.keyword !=null">
+                <include refid="whereForSearchList" />
+            </if>
+    </select>
+
+    <select id="existByCode" resultType="java.lang.Long">
+        SELECT
+            COUNT(*)
+        FROM
+            `{{ table.name | uppercase }}`
+        WHERE
+            `IS_DELETED`=0{% if table.isByTenant == "true" %}
+            AND `TENANT_ID`=#{ passport.tenantId }{% endif %}
+            AND `ID` != #{id}
+            AND `CODE` = #{code}
+    </select>
+
+    <update id="update">
+        UPDATE
+            `{{ table.name | uppercase }}`
+        SET{% for column in table.columnsNoIdAndTenantId %}
+            `{{  column.name | uppercase }}`=#{ request.{{  column.name | camelcase }} },{% endfor %}
+            `LAST_UPDATED_BY`=#{ passport.userId },
+            `LAST_UPDATE_TIME`=SYSDATE(),
+            `ROW_VERSION`=#{ request.rowVersion }+1
+        WHERE
+            `IS_DELETED`=0{% if table.isByTenant == "true" %}
+            AND `TENANT_ID`=#{ passport.tenantId }{% endif %}
+            AND `ID` = #{ request.id }
+            AND `ROW_VERSION` = #{ request.rowVersion }
+    </update>
+
+{% if table.hasIsActive == "true" %}
+    <update id="inactive">
+        UPDATE
+            `{{ table.name | uppercase }}`
+        SET
+            `IS_ACTIVE` = 0,
+            `LAST_UPDATED_BY`=#{ passport.userId },
+            `LAST_UPDATE_TIME`=SYSDATE()
+        WHERE
+            `IS_DELETED`=0
+            AND `IS_ACTIVE`=1{% if table.isByTenant == "true" %}
+            AND `TENANT_ID`=#{ passport.tenantId }{% endif %}
+            AND `ID` = #{id}
+    </update>
+
+    <update id="active">
+        UPDATE
+            {{ table.name | uppercase }}
+        SET
+            `IS_ACTIVE` = 1,
+            `LAST_UPDATED_BY`=#{ passport.userId },
+            `LAST_UPDATE_TIME`=SYSDATE()
+        WHERE
+            `IS_DELETED`=0
+            AND `IS_ACTIVE`=0{% if table.isByTenant == "true" %}
+            AND `TENANT_ID`=#{ passport.tenantId }{% endif %}
+            AND `ID` = #{id}
+    </update>
+{% endif %}
+</mapper>
