@@ -124,7 +124,6 @@ var compileUtil = {
     var updaterFn = updater[dir + 'Updater'];
 
     updaterFn && updaterFn(node, this._getVMVal(vm, exp));
-
     new Watcher(vm, exp, function (value, oldValue) {
       updaterFn && updaterFn(node, value, oldValue);
     });

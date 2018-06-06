@@ -1,97 +1,316 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <title>二维码扫描demo-----------88> 更新 XXX6606</title>
-    <meta http-equiv="Content-Type" content="text/html">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta http-equiv="Expires" CONTENT="0">
-    <meta http-equiv="Cache-Control" CONTENT="no-cache">
-    <meta http-equiv="Cache-Control" CONTENT="no-store">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta name="renderer" content="webkit|ie-comp|ie-stand">
-
-
-
-
-
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-    <meta name="description" content="ERP 应用">
-    <meta name="author" content="犀牛网络">
-    <link href="https://cdn.xiniunet.com/img/favicon.ico" rel="Shortcut Icon" type="image/x-icon">
-
-    <link rel="stylesheet" href="https://pos-ult-dev.xiniunet.com/pos/dist/styles/global.min.css?v=2.22.5"></link>
-    <link rel="stylesheet" href="https://pos-ult-dev.xiniunet.com/pos/dist/styles/local.min.css?v=2.22.5"></link>
-    <link rel="stylesheet" href="https://cdn.xiniunet.com/font/xn-icon-common/2.0.6/iconfont.min.css">
-    <link rel="stylesheet" href="https://cdn.xiniunet.com/js/xn-top/1.0.2/style.min.css">
-    <link rel="stylesheet" type="text/css" href="https://pos-ult-dev.xiniunet.com/pos/vendor/colors/jquery.minicolors.css?v=2.22.5"></link>
-    <script type="text/javascript" src="https://pos-ult-dev.xiniunet.com/pos/dist/scripts/base.min.js?v=2.22.5"></script>
-    <script type="text/javascript" src="https://pos-ult-dev.xiniunet.com/pos/vendor/colors/jquery.minicolors.min.js?v=2.22.5"></script>
-    <style>
-        body {
-            overflow-x: hidden;
-        }
-        
-        .demo {
-            width: 300px;
-            height: 300px;
-            transition: all .5s cubic-bezier(0.455, 0, 0.515, 1);
-            background: #ccc;
-        }
-        
-        .demo2 {
-            width: 100px;
-        }
-        
-        .demo:hover {
-            width: 90px;
-        }
-        
-        .dialog {
-            width: 500px;
-            height: 300px;
-            position: absolute;
-            right: -500px;
-            background: #ccc;
-        }
-    </style>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <title>玩友阅读</title>
+    <link href="/style/common.css" rel="stylesheet">
+    <link href="/style/pc.css" rel="stylesheet" media="screen and (min-width:1025px)">
+    <link href="/style/m.css" rel="stylesheet" media="screen and (max-width:1024px)">
+    <link href="/style/allinone_carousel.css" rel="stylesheet">
+    <!--[if IE]>
+<link rel="stylesheet" href="/style/pc.css">
+<script>
+(function(){if(!/*@cc_on!@*/0)return;var e = "article,audio,canvas,datalist,details,footer,header,nav,section,video".split(','),i=e.length;while(i--){document.createElement(e[i])}})()
+</script>
+<![endif]-->
 </head>
 
 <body>
-    <a>Find your products</a>
-    <div class="demo demo2">
-
-
+    <section class="top_bar">
+        <div class="top_bar_box">
+            <span class="welcome">欢迎来到好玩友！</span>
+            <span class="login_reg" id="login_reg">
+                <a href="//www.haowanyou.com/passport/login.html">登录</a>|
+                <a href="//www.haowanyou.com/passport/reg.html">注册</a>
+            </span>
+            <span class="top_bar_service">
+                <i></i>
+                <a href="//www.haowanyou.com/uc/index.html">在线客服</a>
+            </span>
+            <span class="top_bar_pay">
+                <i></i>
+                <a href="//www.haowanyou.com/imprest/pay.html">充值中心</a>
+            </span>
+            <span class="top_bar_user">
+                <i></i>
+                <a href="//www.haowanyou.com/uc/account/">用户中心</a>
+            </span>
+        </div>
+    </section>
+    <div class="nav_box">
+        <div class="inner">
+            <div class="logo">
+                <a href="/index.html">
+                    <img src="//cdn.haowanyou.com/g/yuedu/style/img/logo.png">
+                </a>
+            </div>
+            <div class="back">
+                <a href="javascript:void(0);">
+                    <img src="//cdn.haowanyou.com/g/yuedu/style/img/back_arrow.png">
+                </a>
+                <span>京门风月</span>
+            </div>
+            <div class="nav_btn">
+                <a href="javascript:void(0);">
+                    <img src="//cdn.haowanyou.com/g/yuedu/style/img/nav_a.png">
+                </a>
+            </div>
+            <div class="nav">
+                <a href="/index.html" class="current">首页</a>
+                <a href="//app.haowanyou.com" target="_blank">好玩友APP</a>
+                <a href="//www.haowanyou.com" target="_blank">好玩友官网</a>
+                <div class="close">
+                    <a href="javascript:void(0);">
+                        <img src="//cdn.haowanyou.com/g/yuedu/style/img/nav_c.png">
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="dialog">
+    <div class="allinone_carousel sweet ui-draggable focus">
+        <div id="allinone_carousel_sweet">
+            <ul class="allinone_carousel_list">
+                <!-- 			<li><a href="//www.bojoy.net" target="_blank"><img src="//cdn.haowanyou.com/g/yuedu/style/img/focus.jpg"></a></li> -->
+                <li>
+                    <a href="http://pets.haowanyou.com" title="幻宠大陆" target="_blank">
+                        <img src="http://cdn.haowanyou.com/cms/res_base/yuedu/custom/article/image/2018_2/4_12/o8rljfvv81tv.jpg"
+                            alt="幻宠大陆" />
+                    </a>
+                </li>
+                <li>
+                    <a href="http://xfz.haowanyou.com" title="熹妃传" target="_blank">
+                        <img src="http://cdn.haowanyou.com/cms/res_base/yuedu/custom/article/image/2018_1/3_16/thuqjet9m5xz.jpg"
+                            alt="熹妃传" />
+                    </a>
+                </li>
+                <li>
+                    <a href="http://yuedu.haowanyou.com/cswb/index.htm" title="此生无白" target="_blank">
+                        <img src="http://cdn.haowanyou.com/cms/res_base/yuedu/custom/article/image/2017_2/5_31/qj49j3cmqf9n.png"
+                            alt="此生无白" />
+                    </a>
+                </li>
+                <li>
+                    <a href="http://yuedu.haowanyou.com/zzhf/index.htm" title="宫廷计" target="_blank">
+                        <img src="http://cdn.haowanyou.com/cms/res_base/yuedu/custom/article/image/2016_3/8_22/0ysnis5cqm6y.jpg"
+                            alt="宫廷计" />
+                    </a>
+                </li>
 
+            </ul>
+        </div>
     </div>
-    <!--<a href="" style='width:0;height:0;overflow:hidden;' id="J_jump"></a>-->
-    <script src="lib/zepto.js"></script>
+    <div id="banner" class="flexslider banner">
+        <ul class="slides">
+            <!--        <li class="slide"><img src="//cdn.haowanyou.com/g/yuedu/style/img/focus.jpg"></li>-->
+            <li>
+                <a href="http://pets.haowanyou.com" title="幻宠大陆" target="_blank">
+                    <img src="http://cdn.haowanyou.com/cms/res_base/yuedu/custom/article/image/2018_2/4_12/o8rljfvv81tv.jpg"
+                        alt="幻宠大陆" />
+                </a>
+            </li>
+            <li>
+                <a href="http://xfz.haowanyou.com" title="熹妃传" target="_blank">
+                    <img src="http://cdn.haowanyou.com/cms/res_base/yuedu/custom/article/image/2018_1/3_16/thuqjet9m5xz.jpg"
+                        alt="熹妃传" />
+                </a>
+            </li>
+            <li>
+                <a href="http://yuedu.haowanyou.com/cswb/index.htm" title="此生无白" target="_blank">
+                    <img src="http://cdn.haowanyou.com/cms/res_base/yuedu/custom/article/image/2017_2/5_31/qj49j3cmqf9n.png"
+                        alt="此生无白" />
+                </a>
+            </li>
+            <li>
+                <a href="http://yuedu.haowanyou.com/zzhf/index.htm" title="宫廷计" target="_blank">
+                    <img src="http://cdn.haowanyou.com/cms/res_base/yuedu/custom/article/image/2016_3/8_22/0ysnis5cqm6y.jpg"
+                        alt="宫廷计" />
+                </a>
+            </li>
+
+        </ul>
+    </div>
+
+    <div class="wrap">
+        <div class="inner">
+            <div class="novel_list">
+
+                <div class="novel">
+                    <div class="novel_info">
+                        <div class="novel_cover">
+                            <img src="//cdn.haowanyou.com/g/yuedu/style/img/cswb.jpg">
+                        </div>
+                        <div class="novel_c">
+                            <p class="h1">此生无白
+                                <i class="new">
+                                    <img src="//cdn.haowanyou.com/g/yuedu/style/img/new.png">
+                                </i>
+                            </p>
+                            <p>作者：
+                                <span>太岁</span>
+                            </p>
+                            <p>类型：
+                                <span>仙侠、爱情、架空</span>
+                            </p>
+                            <p>状态：
+                                <span>连载中</span>
+                            </p>
+                            <p>
+                                <a href="/cswb/index.htm" class="read_btn">开始阅读</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="novel_s">一座镇妖塔，牵动着苍生安危，纠葛着爱恨情仇。为了填补镇妖塔的漏洞，风氏后代风笙，背负着责任与使命，走上了寻找圣物的旅途。她本心无旁骛，却有一人走进了她的心底。望尘岛主君无白，四海八荒口中的白衣无双，用那似水温柔，将她完全征服...</div>
+                </div>
+
+                <div class="novel">
+                    <div class="novel_info">
+                        <div class="novel_cover">
+                            <img src="//cdn.haowanyou.com/g/yuedu/style/img/zzhf.jpg">
+                        </div>
+                        <div class="novel_c">
+                            <p class="h1">宫廷计之至尊皇妃
+                                <i class="new">
+                                    <img src="//cdn.haowanyou.com/g/yuedu/style/img/hot.png">
+                                </i>
+                            </p>
+                            <p>作者：
+                                <span>凭阑</span>
+                            </p>
+                            <p>类型：
+                                <span>古风、爱情、架空</span>
+                            </p>
+                            <p>状态：
+                                <span>连载中</span>
+                            </p>
+                            <p>
+                                <a href="/zzhf/index.htm" class="read_btn">开始阅读</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="novel_s">天家是血雨腥风、刀光剑影的地方，一场皇储争夺，帝都多少世家蒙冤受屈。五年后，她以功臣之女入宫侍驾，想要在帝王榻上酣睡，除了过人的心计与才学，必得将儿女情长掩埋。她助帝王摆脱赵太后与权臣控制，铲除贵妃势力，坐上宠妃之位，却不知...</div>
+                </div>
+
+
+                <div class="novel">
+                    <div class="novel_info">
+                        <div class="novel_cover">
+                            <img src="//cdn.haowanyou.com/g/yuedu/style/img/xjwf.jpg">
+                        </div>
+                        <div class="novel_c">
+                            <p class="h1">璇玑王妃
+                                <i class="new">
+                                    <img src="//cdn.haowanyou.com/g/yuedu/style/img/hot.png">
+                                </i>
+                            </p>
+                            <p>作者：
+                                <span>鱼归</span>
+                            </p>
+                            <p>类型：
+                                <span>古风、爱情、架空</span>
+                            </p>
+                            <p>状态：
+                                <span>连载中</span>
+                            </p>
+                            <p>
+                                <a href="/xjwf/index.htm" class="read_btn">开始阅读</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="novel_s">自古以来，天下合久必分，分久必合。彼时的中原一分为四，南梁、北周、东齐、西楚，其中南梁北周是为不分伯仲的大国。纷争二百余年，有人悄然步乱天下之棋局，只待收网之时，将中原收入囊中。时逢各国给南梁皇帝贺寿，北周和亲公主竟然...</div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="mask"></div>
+    <script type="text/javascript" src="http://cdn.haowanyou.com/g/include/js/hwy_header.min.js"></script>
+    <script type="text/javascript" src="//x.haowanyou.com/themes/js/jquery-1.7.1.min.js"></script>
+    <script>window.onload = function () { var date = new Date; var NowYear = date.getFullYear(); document.getElementById('CopyRightTime').innerHTML = "2014-" + NowYear; }</script>
 
     <script>
-        // var a = document.createElement('a');
-        // a.setAttribute('href', 'https://www.baidu.com');
-        // a.setAttribute('target', '_blank');
-        // a.setAttribute('id', 'J_jump');
-        // document.body.appendChild(a);
-        // a.click();
+        $(function () {
+            $('.nav_btn').on('click', 'a', function (event) {
+                $('.nav').show();
+                $('.mask').show();
+            });
 
-        // var a = $('<a href="https://www.baidu.com" ></a>').appendTo($('body'));
-        // debugger;
-        // a.click();
+            $('.close').on('click', function (event) {
+                $('.nav,.novel_tab').hide();
+                $('.mask').hide();
+            });
 
+            $('.novel_more').on('click', function (event) {
+                $('.novel_tab').show();
+                $('.mask').show();
+            });
 
-        // var a = $('#J_jump').attr('href', 'https://www.baidu.com');
-        // a.click();
+            var ua = navigator.userAgent;
+            var isAndroid = /(Android|linux)/i.test(ua);
+            var isIOS = /(iPhone|iPod|iPad)/i.test(ua);
 
-        $(function() {
+            if (isAndroid || isIOS) {
+                $('.novel_tab>ul>li').on('click', function (event) {
+                    $('.novel_tab').hide();
+                    $('.mask').hide();
+                });
+            }
 
-            alert($('body').width());
         });
+    </script>
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?b50924626dc93814e1dceb7df5dc3612";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+    <script src="/js/jquery-ui-1.10.2.min.js"></script>
+    <script src="/js/allinone_carousel.js"></script>
+    <script type="text/javascript" src="//x.haowanyou.com/themes/js/jquery.flexslider.min.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            $('#banner').flexslider({
+                animation: 'slide',
+                controlNav: true,
+                directionNav: false,
+                animationLoop: true,
+                slideshow: false,
+                useCSS: false
+            });
+        });
+
+        $(function () {
+            $('#allinone_carousel_sweet').allinone_carousel({
+                skin: 'sweet',
+                width: 1200,
+                height: 300,
+                autoPlay: 2,
+                resizeImages: false,
+                autoHideBottomNav: false,
+                //easing:'easeOutBounce',
+                elementsHorizontalSpacing: 220,
+                elementsVerticalSpacing: 30,
+                verticalAdjustment: 0,
+                animationTime: 0.5,
+                circleLeftPositionCorrection: 50,
+                circleTopPositionCorrection: 20,
+                nextPrevMarginTop: 0,
+                playMovieMarginTop: -15,
+                numberOfVisibleItems: 3,
+                bottomNavMarginBottom: 5
+            });
+
+        });
+
     </script>
 </body>
 
