@@ -36,7 +36,7 @@
     }
 
     function bind(fn, obj) {
-        return function() {
+        return function () {
             return fn.apply(obj, arguments);
         }
     }
@@ -89,7 +89,7 @@
         this.hobby = ["running", 'football'];
 
     }
-    Mother.prototype.showAge = function() {
+    Mother.prototype.showAge = function () {
         console.log(this.age);
 
     }
@@ -100,7 +100,7 @@
     }
     Person.prototype = new Mother();
     Person.prototype.constructor = Person;
-    Person.prototype.showName = function() {
+    Person.prototype.showName = function () {
         console.log(this.name);
 
     }
@@ -114,9 +114,13 @@
 </script>
 
 <body>
-    <div><img src="imgs/code.jpg" alt="二维码图片" /></div>
-    <div style="position:absolute; top:660px; left:225px; z-index:1000;"><img src="imgs/code.jpg" alt="二维码图片" /></div>
-
+    <div>
+        <img src="imgs/code.jpg" alt="二维码图片" />
+    </div>
+    <div style="position:absolute; top:660px; left:225px; z-index:1000;">
+        <img src="imgs/code.jpg" alt="二维码图片" />
+    </div>
+    <div>第一行</div>
 
 </body>
 
