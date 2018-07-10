@@ -1,6 +1,6 @@
 var http = require('http');
 var fs = require('fs'); 
-var path = require('path');
+var path = require('path'); 
 var mine = require('./mine').types;  //content-type格式
 //静态资源的路径
 var staticUrl = './'; 
