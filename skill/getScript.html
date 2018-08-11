@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/jquery/jquery-1.10.2.min_65682a2.js"></script>
+  <title>Document</title>
+</head>
+
+<body>
+  测试异步获取js 中变量
+  <script>
+    var loadScript = function (url, callback, charset) {
+      var head = document.getElementsByTagName('head')[0];
+      var script = document.createElement('script');
+      if (charset) {
+        script.charset = charset;
+      }
+      script.src = url;
+      if (!callback) {
+        return;
+      }
+      script.onload = script.onreadystatechange = function () {
+        if (!this.readyState || this.readyState === 'loaded' || this.readyState === 'complete') {
+          callback();
+        }
+      };
+      head.appendChild(script);
+    };
+    loadScript('https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/global/js/all_async_search_7a3867d.js', function () {
+      console.log(addEV);
+    })
+  </script>
+</body>
+
+</html>
