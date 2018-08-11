@@ -1,9 +1,9 @@
 var http = require('http');
 var fs = require('fs'); 
-var path = require('path');
+var path = require('path'); 
 var mine = require('./mine').types;  //content-type格式
 //静态资源的路径
-var staticUrl = './';
+var staticUrl = './'; 
 var server = http.createServer(function(req,res){
     //req,res均为对象，req是http.IncomingMessage的一个实例，res是http.ServerResponse的一个实例
     //console.log(res);
