@@ -1,0 +1,10 @@
+/* miniprogram/pages/demo/dbGudie.wxss */
+
+.btns{
+  display: flex;
+
+}
+
+.item{
+  display: flex;
+}
